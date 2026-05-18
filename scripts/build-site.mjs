@@ -285,9 +285,21 @@ function buildIndex() {
 // PLACEHOLDER_MORE_GENERATORS
 
 function buildServersIndex() {
+  const lowCount = servers.filter(s => s.riskLevel === 'low').length;
+  const mediumCount = servers.filter(s => s.riskLevel === 'medium').length;
+  const highCount = servers.filter(s => s.riskLevel === 'high').length;
+
   const content = `
     <h1>MCP Server 工具资料库</h1>
-    <p>共收录 ${servers.length} 个 MCP Server，按场景、客户端和权限筛选。</p>
+    <div class="stats-bar">
+      <span class="stat-item">共 <strong>${servers.length}</strong> 个工具</span>
+      <span class="stat-item">低风险 <strong>${lowCount}</strong> 个</span>
+      <span class="stat-item">中风险 <strong>${mediumCount}</strong> 个</span>
+      <span class="stat-item">高风险 <strong>${highCount}</strong> 个</span>
+    </div>
+    <div class="search-box">
+      <input type="text" id="search-input" placeholder="搜索工具名称、场景或关键词..." aria-label="搜索工具">
+    </div>
     <div class="filters">
       <select id="filter-category" aria-label="按场景筛选">
         <option value="">全部场景</option>
@@ -357,6 +369,24 @@ function buildServerDetail(server) {
 
   const content = `
     <h1>${escapeHtml(server.name)} MCP Server 配置与使用说明</h1>
+    <div class="quick-info">
+      <div class="quick-info-item">
+        <span class="qi-icon">📦</span>
+        <div><span class="qi-label">安装方式</span><span class="qi-value">${escapeHtml(server.installMethod)}</span></div>
+      </div>
+      <div class="quick-info-item">
+        <span class="qi-icon">⚠️</span>
+        <div><span class="qi-label">风险等级</span><span class="qi-value">${riskBadge(server.riskLevel)}</span></div>
+      </div>
+      <div class="quick-info-item">
+        <span class="qi-icon">🔑</span>
+        <div><span class="qi-label">API Key</span><span class="qi-value">${server.requiredEnv.length > 0 ? '需要' : '不需要'}</span></div>
+      </div>
+      <div class="quick-info-item">
+        <span class="qi-icon">💻</span>
+        <div><span class="qi-label">客户端</span><span class="qi-value">${server.supportedClients.length} 个支持</span></div>
+      </div>
+    </div>
     <p class="server-desc">${escapeHtml(server.description)}</p>
     <div class="meta-row">
       ${riskBadge(server.riskLevel)}
@@ -407,7 +437,9 @@ function buildServerDetail(server) {
     ${related.length > 0 ? `
     <section class="section">
       <h2>相关工具</h2>
-      <ul>${related.map(r => `<li><a href="/servers/${r.slug}.html">${escapeHtml(r.name)}</a> - ${escapeHtml(r.description)}</li>`).join('')}</ul>
+      <div class="card-grid">
+        ${related.map(r => `<a href="/servers/${r.slug}.html" class="card"><h3>${escapeHtml(r.name)}</h3><p>${escapeHtml(r.description)}</p></a>`).join('')}
+      </div>
     </section>` : ''}`;
 
   const bc = breadcrumb([

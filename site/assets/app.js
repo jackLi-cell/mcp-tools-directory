@@ -18,17 +18,39 @@
     });
   });
 
-  // --- Search (index page) ---
+  // --- Search ---
   var searchInput = document.getElementById('search-input');
-  if (searchInput) {
+  var serversTable = document.getElementById('servers-table');
+
+  if (searchInput && serversTable) {
+    // We are on the servers/index page — support live filtering + URL param
+    var params = new URLSearchParams(window.location.search);
+    var initialQ = params.get('q');
+    if (initialQ) {
+      searchInput.value = initialQ;
+      filterTable(initialQ.toLowerCase().trim());
+    }
+
     searchInput.addEventListener('input', function() {
-      var query = this.value.toLowerCase().trim();
+      filterTable(this.value.toLowerCase().trim());
+    });
+
+    function filterTable(query) {
       var rows = document.querySelectorAll('#servers-table tbody tr');
-      if (rows.length === 0) return;
       rows.forEach(function(row) {
         var text = row.textContent.toLowerCase();
         row.style.display = text.includes(query) ? '' : 'none';
       });
+    }
+  } else if (searchInput && !serversTable) {
+    // We are on the homepage — redirect to servers page on Enter
+    searchInput.addEventListener('keydown', function(e) {
+      if (e.key === 'Enter') {
+        var query = this.value.trim();
+        if (query) {
+          window.location.href = './servers/index.html?q=' + encodeURIComponent(query);
+        }
+      }
     });
   }
 
