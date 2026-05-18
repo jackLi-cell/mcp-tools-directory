@@ -60,7 +60,7 @@ function escapeHtml(str) {
 }
 
 // --- Layout Template ---
-function layout(title, description, canonical, content, breadcrumb = '') {
+function layout(title, description, canonical, content, breadcrumb = '', jsonLd = null) {
   const prefix = getPrefix(canonical);
   const nav = `
     <nav class="nav">
@@ -101,6 +101,12 @@ function layout(title, description, canonical, content, breadcrumb = '') {
   <meta name="description" content="${escapeHtml(description)}">
   <link rel="canonical" href="${SITE_URL}${canonical}">
   <link rel="stylesheet" href="${prefix}assets/styles.css">
+  ${jsonLd ? `<script type="application/ld+json">${JSON.stringify(jsonLd)}</script>` : ''}
+  <meta property="og:title" content="${escapeHtml(title)}">
+  <meta property="og:description" content="${escapeHtml(description)}">
+  <meta property="og:url" content="${SITE_URL}${canonical}">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="${SITE_NAME}">
 </head>
 <body>
   ${nav}
@@ -214,7 +220,20 @@ function buildIndex() {
     `${SITE_NAME} - 配置教程、权限说明与常见报错`,
     '按客户端、使用场景、安装方式和权限范围筛选 AI Agent 工具与 MCP Server，查看配置步骤、常见错误和安全注意事项。',
     '/',
-    content
+    content,
+    '',
+    {
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      "name": SITE_NAME,
+      "url": SITE_URL,
+      "description": "按客户端、使用场景、安装方式和权限范围筛选 AI Agent 工具与 MCP Server，查看配置步骤、常见错误和安全注意事项。",
+      "potentialAction": {
+        "@type": "SearchAction",
+        "target": SITE_URL + "/servers/?q={search_term_string}",
+        "query-input": "required name=search_term_string"
+      }
+    }
   );
   writeFileSync(join(SITE_DIR, 'index.html'), html);
 }
@@ -258,12 +277,30 @@ function buildServersIndex() {
     </div>`;
 
   const bc = breadcrumb([{name: '首页', href: '/'}, {name: '资料库'}]);
+  const jsonLd = [
+    {
+      "@context": "https://schema.org",
+      "@type": "CollectionPage",
+      "name": "MCP Server 工具资料库",
+      "description": `查看 ${servers.length} 个 MCP Server 工具，按场景、客户端、权限范围和风险等级筛选。`,
+      "url": SITE_URL + "/servers/"
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {"@type": "ListItem", "position": 1, "name": "首页", "item": SITE_URL + "/"},
+        {"@type": "ListItem", "position": 2, "name": "资料库", "item": SITE_URL + "/servers/"}
+      ]
+    }
+  ];
   const html = layout(
     `MCP Server 工具资料库 - 按客户端、场景和权限筛选`,
     `查看 ${servers.length} 个 MCP Server 工具，按场景、客户端、权限范围和风险等级筛选。`,
     '/servers/',
     content,
-    bc
+    bc,
+    jsonLd
   );
   ensureDir(join(SITE_DIR, 'servers'));
   writeFileSync(join(SITE_DIR, 'servers', 'index.html'), html);
@@ -334,12 +371,33 @@ function buildServerDetail(server) {
     {name: '资料库', href: '/servers/'},
     {name: server.name}
   ]);
+  const jsonLd = [
+    {
+      "@context": "https://schema.org",
+      "@type": "SoftwareApplication",
+      "name": server.name + " MCP Server",
+      "description": server.description,
+      "url": SITE_URL + "/servers/" + server.slug + ".html",
+      "applicationCategory": "DeveloperApplication",
+      "operatingSystem": "Windows, macOS, Linux"
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {"@type": "ListItem", "position": 1, "name": "首页", "item": SITE_URL + "/"},
+        {"@type": "ListItem", "position": 2, "name": "资料库", "item": SITE_URL + "/servers/"},
+        {"@type": "ListItem", "position": 3, "name": server.name, "item": SITE_URL + "/servers/" + server.slug + ".html"}
+      ]
+    }
+  ];
   const html = layout(
     `${server.name} MCP Server 配置说明 - 安装命令、权限范围与常见报错`,
     `查看 ${server.name} 的 MCP Server 用途、支持客户端、安装命令、配置示例、权限范围和最近核验日期。`,
     `/servers/${server.slug}.html`,
     content,
-    bc
+    bc,
+    jsonLd
   );
   writeFileSync(join(SITE_DIR, 'servers', `${server.slug}.html`), html);
 }
@@ -365,12 +423,31 @@ function buildCategoryPage(category) {
     </div>`;
 
   const bc = breadcrumb([{name: '首页', href: '/'}, {name: '分类', href: '/servers/'}, {name: category.name}]);
+  const jsonLd = [
+    {
+      "@context": "https://schema.org",
+      "@type": "CollectionPage",
+      "name": category.name + " MCP Server",
+      "description": `${category.name}类 MCP Server 工具列表，包含安装命令、权限范围和风险等级。`,
+      "url": SITE_URL + "/categories/" + category.slug + ".html"
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {"@type": "ListItem", "position": 1, "name": "首页", "item": SITE_URL + "/"},
+        {"@type": "ListItem", "position": 2, "name": "分类", "item": SITE_URL + "/servers/"},
+        {"@type": "ListItem", "position": 3, "name": category.name, "item": SITE_URL + "/categories/" + category.slug + ".html"}
+      ]
+    }
+  ];
   const html = layout(
     `${category.name} MCP Server - AI Agent 工具目录`,
     `${category.name}类 MCP Server 工具列表，包含安装命令、权限范围和风险等级。`,
     `/categories/${category.slug}.html`,
     content,
-    bc
+    bc,
+    jsonLd
   );
   ensureDir(join(SITE_DIR, 'categories'));
   writeFileSync(join(SITE_DIR, 'categories', `${category.slug}.html`), html);
@@ -464,12 +541,21 @@ function buildTrustPages() {
   ensureDir(join(SITE_DIR, 'pages'));
   for (const page of pages) {
     const bc = breadcrumb([{name: '首页', href: '/'}, {name: page.title}]);
+    const jsonLd = {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {"@type": "ListItem", "position": 1, "name": "首页", "item": SITE_URL + "/"},
+        {"@type": "ListItem", "position": 2, "name": page.title, "item": SITE_URL + "/pages/" + page.slug + ".html"}
+      ]
+    };
     const html = layout(
       `${page.title} - ${SITE_NAME}`,
       `${SITE_NAME} ${page.title}`,
       `/pages/${page.slug}.html`,
       page.content,
-      bc
+      bc,
+      jsonLd
     );
     writeFileSync(join(SITE_DIR, 'pages', `${page.slug}.html`), html);
   }
@@ -544,12 +630,21 @@ function buildConfigBuilder() {
     </section>`;
 
   const bc = breadcrumb([{name: '首页', href: '/'}, {name: '配置生成器'}]);
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {"@type": "ListItem", "position": 1, "name": "首页", "item": SITE_URL + "/"},
+      {"@type": "ListItem", "position": 2, "name": "配置生成器", "item": SITE_URL + "/tools/config-builder.html"}
+    ]
+  };
   const html = layout(
     'MCP 配置片段生成器 - 自动生成 JSON 配置',
     '选择 MCP Server，自动生成 Claude Desktop 或 Cursor 的 JSON 配置片段。浏览器本地处理，不收集用户信息。',
     '/tools/config-builder.html',
     content,
-    bc
+    bc,
+    jsonLd
   );
   ensureDir(join(SITE_DIR, 'tools'));
   writeFileSync(join(SITE_DIR, 'tools', 'config-builder.html'), html);
@@ -626,12 +721,22 @@ function buildClientPages() {
       <p class="note">最近核验：${client.lastCheckedAt}。客户端版本和配置格式可能变化，使用前请以 <a href="${client.docsUrl}" target="_blank" rel="noopener noreferrer">官方文档</a> 为准。</p>`;
 
     const bc = breadcrumb([{name: '首页', href: '/'}, {name: '客户端教程'}, {name: client.name}]);
+    const jsonLd = {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {"@type": "ListItem", "position": 1, "name": "首页", "item": SITE_URL + "/"},
+        {"@type": "ListItem", "position": 2, "name": "客户端教程", "item": SITE_URL + "/clients/" + clients[0].slug + ".html"},
+        {"@type": "ListItem", "position": 3, "name": client.name, "item": SITE_URL + "/clients/" + client.slug + ".html"}
+      ]
+    };
     const html = layout(
       `${client.name} MCP 配置教程 - 配置文件位置、JSON 示例与排错清单`,
       `从零开始在 ${client.name} 中配置 MCP Server，包含配置文件位置、JSON 示例、验证方法和常见报错。`,
       `/clients/${client.slug}.html`,
       content,
-      bc
+      bc,
+      jsonLd
     );
     writeFileSync(join(SITE_DIR, 'clients', `${client.slug}.html`), html);
   }
@@ -1506,33 +1611,96 @@ function buildGuidePages() {
     const content = getGuideContent(guide.id);
 
     const bc = breadcrumb([{name: '首页', href: '/'}, {name: '指南'}, {name: guide.title}]);
+
+    // Build JSON-LD: Article + BreadcrumbList + optional FAQPage
+    const jsonLdArray = [
+      {
+        "@context": "https://schema.org",
+        "@type": "Article",
+        "headline": guide.title,
+        "description": guide.description,
+        "url": SITE_URL + "/guides/" + guide.slug + ".html",
+        "author": {"@type": "Organization", "name": SITE_NAME},
+        "publisher": {"@type": "Organization", "name": SITE_NAME},
+        "datePublished": "2026-05-18",
+        "dateModified": "2026-05-18"
+      },
+      {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {"@type": "ListItem", "position": 1, "name": "首页", "item": SITE_URL + "/"},
+          {"@type": "ListItem", "position": 2, "name": "指南", "item": SITE_URL + "/guides/what-is-mcp.html"},
+          {"@type": "ListItem", "position": 3, "name": guide.title, "item": SITE_URL + "/guides/" + guide.slug + ".html"}
+        ]
+      }
+    ];
+
+    // Extract FAQ items from content if present
+    const faqRegex = /<dt>(.*?)<\/dt>\s*<dd>(.*?)<\/dd>/g;
+    const faqItems = [];
+    let faqMatch;
+    while ((faqMatch = faqRegex.exec(content)) !== null) {
+      faqItems.push({
+        "@type": "Question",
+        "name": faqMatch[1].replace(/<[^>]*>/g, ''),
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": faqMatch[2].replace(/<[^>]*>/g, '')
+        }
+      });
+    }
+    if (faqItems.length > 0) {
+      jsonLdArray.push({
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": faqItems
+      });
+    }
+
     const html = layout(
       `${guide.title} - ${SITE_NAME}`,
       guide.description,
       `/guides/${guide.slug}.html`,
       content,
-      bc
+      bc,
+      jsonLdArray
     );
     writeFileSync(join(SITE_DIR, 'guides', `${guide.slug}.html`), html);
   }
 }
 
 function buildSitemap() {
-  const urls = ['/'];
-  urls.push('/servers/');
-  servers.forEach(s => urls.push(`/servers/${s.slug}.html`));
-  categories.forEach(c => urls.push(`/categories/${c.slug}.html`));
-  clients.forEach(c => urls.push(`/clients/${c.slug}.html`));
-  guides.forEach(g => urls.push(`/guides/${g.slug}.html`));
-  urls.push('/tools/config-builder.html');
-  urls.push('/pages/about.html');
-  urls.push('/pages/contact.html');
-  urls.push('/pages/privacy.html');
-  urls.push('/pages/disclaimer.html');
+  const lastmod = '2026-05-18';
+  const urls = [];
+
+  // 首页: 1.0
+  urls.push({loc: '/', priority: '1.0'});
+  // 资料库页: 0.8
+  urls.push({loc: '/servers/', priority: '0.8'});
+  // 工具详情页: 0.7
+  servers.forEach(s => urls.push({loc: `/servers/${s.slug}.html`, priority: '0.7'}));
+  // 分类页: 0.6
+  categories.forEach(c => urls.push({loc: `/categories/${c.slug}.html`, priority: '0.6'}));
+  // 客户端教程页: 0.8
+  clients.forEach(c => urls.push({loc: `/clients/${c.slug}.html`, priority: '0.8'}));
+  // 指南页: 0.7
+  guides.forEach(g => urls.push({loc: `/guides/${g.slug}.html`, priority: '0.7'}));
+  // 工具页: 0.5
+  urls.push({loc: '/tools/config-builder.html', priority: '0.5'});
+  // 信任页面: 0.5
+  urls.push({loc: '/pages/about.html', priority: '0.5'});
+  urls.push({loc: '/pages/contact.html', priority: '0.5'});
+  urls.push({loc: '/pages/privacy.html', priority: '0.5'});
+  urls.push({loc: '/pages/disclaimer.html', priority: '0.5'});
 
   const xml = `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-${urls.map(u => `  <url><loc>${SITE_URL}${u}</loc></url>`).join('\n')}
+${urls.map(u => `  <url>
+    <loc>${SITE_URL}${u.loc}</loc>
+    <lastmod>${lastmod}</lastmod>
+    <priority>${u.priority}</priority>
+  </url>`).join('\n')}
 </urlset>`;
 
   writeFileSync(join(SITE_DIR, 'sitemap.xml'), xml);
