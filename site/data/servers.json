@@ -1133,5 +1133,825 @@
     "lastCheckedAt": "2026-05-18",
     "verificationStatus": "已核验",
     "tags": ["官方厂商", "Microsoft"]
+  },
+  {
+    "id": "duckdb",
+    "name": "DuckDB",
+    "slug": "duckdb",
+    "category": "database",
+    "description": "DuckDB 嵌入式分析数据库，支持 SQL 查询、数据导入和 OLAP 分析",
+    "officialUrl": "https://github.com/ktanaka101/mcp-server-duckdb",
+    "sourceRepo": "https://github.com/ktanaka101/mcp-server-duckdb",
+    "license": "MIT",
+    "supportedClients": ["claude-desktop", "cursor", "vscode-cline"],
+    "installMethod": "npx",
+    "installCommand": "npx -y mcp-server-duckdb",
+    "configExample": {
+      "mcpServers": {
+        "duckdb": {
+          "command": "npx",
+          "args": ["-y", "mcp-server-duckdb", "--db-path", "/path/to/database.duckdb"]
+        }
+      }
+    },
+    "requiredEnv": [],
+    "permissionScope": ["database-read", "database-write", "file-read"],
+    "riskScore": 4,
+    "riskLevel": "medium",
+    "riskExplanation": "可读写 DuckDB 数据库文件，建议使用测试数据库",
+    "commonErrors": [
+      {"error": "数据库文件不存在", "solution": "确认 --db-path 指向有效路径，或省略参数使用内存数据库"},
+      {"error": "文件被锁定", "solution": "确认没有其他进程正在使用该 DuckDB 文件"}
+    ],
+    "lastCheckedAt": "2026-05-18",
+    "verificationStatus": "部分核验",
+    "tags": ["社区", "低门槛"]
+  },
+  {
+    "id": "mongodb",
+    "name": "MongoDB",
+    "slug": "mongodb",
+    "category": "database",
+    "description": "MongoDB 数据库查询与操作，支持集合浏览、文档查询和聚合管道",
+    "officialUrl": "https://github.com/kiliczsh/mcp-mongo-server",
+    "sourceRepo": "https://github.com/kiliczsh/mcp-mongo-server",
+    "license": "MIT",
+    "supportedClients": ["claude-desktop", "cursor", "vscode-cline"],
+    "installMethod": "npx",
+    "installCommand": "npx -y mcp-mongo-server",
+    "configExample": {
+      "mcpServers": {
+        "mongodb": {
+          "command": "npx",
+          "args": ["-y", "mcp-mongo-server"],
+          "env": {
+            "MONGODB_URI": "mongodb://localhost:27017/mydb"
+          }
+        }
+      }
+    },
+    "requiredEnv": ["MONGODB_URI"],
+    "permissionScope": ["database-read", "database-write", "network-access", "credential-required"],
+    "riskScore": 6,
+    "riskLevel": "high",
+    "riskExplanation": "可读写 MongoDB 数据库，建议使用只读账号连接测试数据库",
+    "commonErrors": [
+      {"error": "连接超时", "solution": "确认 MongoDB 服务运行中且连接字符串正确"},
+      {"error": "认证失败", "solution": "检查 URI 中的用户名密码和 authSource 参数"}
+    ],
+    "lastCheckedAt": "2026-05-18",
+    "verificationStatus": "部分核验",
+    "tags": ["社区", "需要API Key", "高风险"]
+  },
+  {
+    "id": "neon",
+    "name": "Neon",
+    "slug": "neon",
+    "category": "database",
+    "description": "Neon Serverless Postgres 管理，支持数据库创建、分支和 SQL 查询",
+    "officialUrl": "https://github.com/neondatabase/mcp-server-neon",
+    "sourceRepo": "https://github.com/neondatabase/mcp-server-neon",
+    "license": "MIT",
+    "supportedClients": ["claude-desktop", "cursor", "vscode-cline"],
+    "installMethod": "npx",
+    "installCommand": "npx -y @neondatabase/mcp-server-neon",
+    "configExample": {
+      "mcpServers": {
+        "neon": {
+          "command": "npx",
+          "args": ["-y", "@neondatabase/mcp-server-neon"],
+          "env": {
+            "NEON_API_KEY": "<your-neon-api-key>"
+          }
+        }
+      }
+    },
+    "requiredEnv": ["NEON_API_KEY"],
+    "permissionScope": ["database-read", "database-write", "network-access", "credential-required"],
+    "riskScore": 6,
+    "riskLevel": "high",
+    "riskExplanation": "可管理 Neon 项目和数据库，包括创建和删除分支，建议使用受限 Token",
+    "commonErrors": [
+      {"error": "API Key 无效", "solution": "在 Neon Console 的 Account Settings 中生成 API Key"},
+      {"error": "项目不存在", "solution": "确认 API Key 有对应项目的访问权限"}
+    ],
+    "lastCheckedAt": "2026-05-18",
+    "verificationStatus": "部分核验",
+    "tags": ["官方厂商", "需要API Key", "高风险"]
+  },
+  {
+    "id": "supabase",
+    "name": "Supabase",
+    "slug": "supabase",
+    "category": "database",
+    "description": "Supabase 后端服务集成，支持数据库查询、认证管理和存储操作",
+    "officialUrl": "https://github.com/supabase-community/supabase-mcp",
+    "sourceRepo": "https://github.com/supabase-community/supabase-mcp",
+    "license": "MIT",
+    "supportedClients": ["claude-desktop", "cursor", "vscode-cline"],
+    "installMethod": "npx",
+    "installCommand": "npx -y supabase-mcp-server",
+    "configExample": {
+      "mcpServers": {
+        "supabase": {
+          "command": "npx",
+          "args": ["-y", "supabase-mcp-server"],
+          "env": {
+            "SUPABASE_URL": "https://your-project.supabase.co",
+            "SUPABASE_KEY": "<your-service-role-key>"
+          }
+        }
+      }
+    },
+    "requiredEnv": ["SUPABASE_URL", "SUPABASE_KEY"],
+    "permissionScope": ["database-read", "database-write", "network-access", "credential-required"],
+    "riskScore": 7,
+    "riskLevel": "high",
+    "riskExplanation": "使用 service_role key 可绕过 RLS 策略访问所有数据，建议使用 anon key 或受限权限",
+    "commonErrors": [
+      {"error": "Invalid API key", "solution": "确认使用的是 service_role key 而非 anon key（如需完整权限）"},
+      {"error": "项目 URL 错误", "solution": "在 Supabase Dashboard > Settings > API 中获取正确的 URL"}
+    ],
+    "lastCheckedAt": "2026-05-18",
+    "verificationStatus": "部分核验",
+    "tags": ["社区", "需要API Key", "高风险"]
+  },
+  {
+    "id": "airtable",
+    "name": "Airtable",
+    "slug": "airtable",
+    "category": "database",
+    "description": "Airtable 数据库读写，支持表格查询、记录创建和字段管理",
+    "officialUrl": "https://github.com/domdomegg/airtable-mcp-server",
+    "sourceRepo": "https://github.com/domdomegg/airtable-mcp-server",
+    "license": "MIT",
+    "supportedClients": ["claude-desktop", "cursor", "vscode-cline"],
+    "installMethod": "npx",
+    "installCommand": "npx -y airtable-mcp-server",
+    "configExample": {
+      "mcpServers": {
+        "airtable": {
+          "command": "npx",
+          "args": ["-y", "airtable-mcp-server"],
+          "env": {
+            "AIRTABLE_API_KEY": "<your-airtable-api-key>"
+          }
+        }
+      }
+    },
+    "requiredEnv": ["AIRTABLE_API_KEY"],
+    "permissionScope": ["database-read", "database-write", "network-access", "credential-required"],
+    "riskScore": 5,
+    "riskLevel": "medium",
+    "riskExplanation": "可读写 Airtable 中的数据，建议使用只读 Token 进行测试",
+    "commonErrors": [
+      {"error": "AUTHENTICATION_REQUIRED", "solution": "在 Airtable Account 页面生成 Personal Access Token"},
+      {"error": "TABLE_NOT_FOUND", "solution": "确认 Token 有对应 Base 和 Table 的访问权限"}
+    ],
+    "lastCheckedAt": "2026-05-18",
+    "verificationStatus": "部分核验",
+    "tags": ["社区", "需要API Key"]
+  },
+  {
+    "id": "qdrant",
+    "name": "Qdrant",
+    "slug": "qdrant",
+    "category": "database",
+    "description": "Qdrant 向量搜索引擎，支持向量存储、语义搜索和集合管理",
+    "officialUrl": "https://github.com/qdrant/mcp-server-qdrant",
+    "sourceRepo": "https://github.com/qdrant/mcp-server-qdrant",
+    "license": "Apache-2.0",
+    "supportedClients": ["claude-desktop", "cursor", "vscode-cline"],
+    "installMethod": "uvx",
+    "installCommand": "uvx mcp-server-qdrant",
+    "configExample": {
+      "mcpServers": {
+        "qdrant": {
+          "command": "uvx",
+          "args": ["mcp-server-qdrant"],
+          "env": {
+            "QDRANT_URL": "http://localhost:6333",
+            "COLLECTION_NAME": "my-collection"
+          }
+        }
+      }
+    },
+    "requiredEnv": ["QDRANT_URL", "COLLECTION_NAME"],
+    "permissionScope": ["database-read", "database-write", "network-access"],
+    "riskScore": 4,
+    "riskLevel": "medium",
+    "riskExplanation": "可读写 Qdrant 向量数据库，建议连接本地开发实例",
+    "commonErrors": [
+      {"error": "连接被拒绝", "solution": "确认 Qdrant 服务运行中，默认端口 6333"},
+      {"error": "Collection not found", "solution": "先创建 Collection 或检查名称拼写"}
+    ],
+    "lastCheckedAt": "2026-05-18",
+    "verificationStatus": "部分核验",
+    "tags": ["官方厂商", "需要配置"]
+  },
+  {
+    "id": "kagi",
+    "name": "Kagi Search",
+    "slug": "kagi",
+    "category": "search-knowledge",
+    "description": "Kagi 搜索引擎集成，提供无广告、高质量的网页搜索结果",
+    "officialUrl": "https://github.com/ac3xx/mcp-servers-kagi",
+    "sourceRepo": "https://github.com/ac3xx/mcp-servers-kagi",
+    "license": "MIT",
+    "supportedClients": ["claude-desktop", "cursor", "vscode-cline"],
+    "installMethod": "npx",
+    "installCommand": "npx -y mcp-servers-kagi",
+    "configExample": {
+      "mcpServers": {
+        "kagi": {
+          "command": "npx",
+          "args": ["-y", "mcp-servers-kagi"],
+          "env": {
+            "KAGI_API_KEY": "<your-kagi-api-key>"
+          }
+        }
+      }
+    },
+    "requiredEnv": ["KAGI_API_KEY"],
+    "permissionScope": ["network-access", "credential-required"],
+    "riskScore": 3,
+    "riskLevel": "medium",
+    "riskExplanation": "需要 Kagi API Key（付费服务），只进行搜索查询不修改数据",
+    "commonErrors": [
+      {"error": "API Key 无效", "solution": "在 kagi.com 的 Settings > API 中获取 Key，需要付费订阅"},
+      {"error": "配额用尽", "solution": "Kagi API 按次计费，检查账户余额"}
+    ],
+    "lastCheckedAt": "2026-05-18",
+    "verificationStatus": "部分核验",
+    "tags": ["社区", "需要API Key"]
+  },
+  {
+    "id": "arxiv",
+    "name": "ArXiv",
+    "slug": "arxiv",
+    "category": "search-knowledge",
+    "description": "ArXiv 学术论文搜索，支持按关键词、作者和分类检索论文摘要",
+    "officialUrl": "https://github.com/blazickjp/arxiv-mcp-server",
+    "sourceRepo": "https://github.com/blazickjp/arxiv-mcp-server",
+    "license": "MIT",
+    "supportedClients": ["claude-desktop", "cursor", "vscode-cline"],
+    "installMethod": "uvx",
+    "installCommand": "uvx arxiv-mcp-server",
+    "configExample": {
+      "mcpServers": {
+        "arxiv": {
+          "command": "uvx",
+          "args": ["arxiv-mcp-server"]
+        }
+      }
+    },
+    "requiredEnv": [],
+    "permissionScope": ["network-access"],
+    "riskScore": 1,
+    "riskLevel": "low",
+    "riskExplanation": "只查询公开的 ArXiv 论文数据，不需要 API Key，风险极低",
+    "commonErrors": [
+      {"error": "网络超时", "solution": "ArXiv API 有时响应较慢，增加超时时间或重试"},
+      {"error": "uvx 找不到", "solution": "安装 uv：curl -LsSf https://astral.sh/uv/install.sh | sh"}
+    ],
+    "lastCheckedAt": "2026-05-18",
+    "verificationStatus": "部分核验",
+    "tags": ["社区", "低风险", "新手推荐"]
+  },
+  {
+    "id": "google-drive",
+    "name": "Google Drive",
+    "slug": "google-drive",
+    "category": "search-knowledge",
+    "description": "Google Drive 文件访问，支持搜索、读取和管理云端文件",
+    "officialUrl": "https://github.com/modelcontextprotocol/servers/tree/main/src/gdrive",
+    "sourceRepo": "https://github.com/modelcontextprotocol/servers",
+    "license": "MIT",
+    "supportedClients": ["claude-desktop", "cursor"],
+    "installMethod": "npx",
+    "installCommand": "npx -y @modelcontextprotocol/server-gdrive",
+    "configExample": {
+      "mcpServers": {
+        "google-drive": {
+          "command": "npx",
+          "args": ["-y", "@modelcontextprotocol/server-gdrive"],
+          "env": {
+            "GOOGLE_CLIENT_ID": "<your-client-id>",
+            "GOOGLE_CLIENT_SECRET": "<your-client-secret>"
+          }
+        }
+      }
+    },
+    "requiredEnv": ["GOOGLE_CLIENT_ID", "GOOGLE_CLIENT_SECRET"],
+    "permissionScope": ["network-access", "credential-required", "file-read"],
+    "riskScore": 4,
+    "riskLevel": "medium",
+    "riskExplanation": "通过 OAuth 访问 Google Drive 文件，需要 Google Cloud 项目凭据",
+    "commonErrors": [
+      {"error": "OAuth 认证失败", "solution": "确认 Client ID 和 Secret 正确，且已启用 Drive API"},
+      {"error": "权限不足", "solution": "OAuth 授权时确认勾选了 Drive 文件访问权限"}
+    ],
+    "lastCheckedAt": "2026-05-18",
+    "verificationStatus": "部分核验",
+    "tags": ["官方", "需要API Key"]
+  },
+  {
+    "id": "youtube-transcript",
+    "name": "YouTube Transcript",
+    "slug": "youtube-transcript",
+    "category": "search-knowledge",
+    "description": "YouTube 视频字幕下载，支持获取视频的完整文字记录",
+    "officialUrl": "https://github.com/kimtaeyoon83/mcp-server-youtube-transcript",
+    "sourceRepo": "https://github.com/kimtaeyoon83/mcp-server-youtube-transcript",
+    "license": "MIT",
+    "supportedClients": ["claude-desktop", "cursor", "vscode-cline"],
+    "installMethod": "npx",
+    "installCommand": "npx -y mcp-server-youtube-transcript",
+    "configExample": {
+      "mcpServers": {
+        "youtube-transcript": {
+          "command": "npx",
+          "args": ["-y", "mcp-server-youtube-transcript"]
+        }
+      }
+    },
+    "requiredEnv": [],
+    "permissionScope": ["network-access"],
+    "riskScore": 1,
+    "riskLevel": "low",
+    "riskExplanation": "只读取 YouTube 公开视频的字幕数据，不需要 API Key",
+    "commonErrors": [
+      {"error": "字幕不可用", "solution": "该视频可能没有字幕或字幕被禁用"},
+      {"error": "视频不存在", "solution": "确认视频 URL 或 ID 正确且视频未被删除"}
+    ],
+    "lastCheckedAt": "2026-05-18",
+    "verificationStatus": "部分核验",
+    "tags": ["社区", "低风险", "新手推荐"]
+  },
+  {
+    "id": "bright-data",
+    "name": "Bright Data",
+    "slug": "bright-data",
+    "category": "browser-automation",
+    "description": "Bright Data 网页抓取平台，支持大规模数据采集和反封锁代理",
+    "officialUrl": "https://github.com/luminati-io/brightdata-mcp",
+    "sourceRepo": "https://github.com/luminati-io/brightdata-mcp",
+    "license": "MIT",
+    "supportedClients": ["claude-desktop", "cursor", "vscode-cline"],
+    "installMethod": "npx",
+    "installCommand": "npx -y @brightdata/mcp",
+    "configExample": {
+      "mcpServers": {
+        "bright-data": {
+          "command": "npx",
+          "args": ["-y", "@brightdata/mcp"],
+          "env": {
+            "API_TOKEN": "<your-brightdata-api-token>"
+          }
+        }
+      }
+    },
+    "requiredEnv": ["API_TOKEN"],
+    "permissionScope": ["network-access", "credential-required"],
+    "riskScore": 4,
+    "riskLevel": "medium",
+    "riskExplanation": "通过 Bright Data 代理网络抓取网页，需要付费 API Token，注意遵守目标网站条款",
+    "commonErrors": [
+      {"error": "API Token 无效", "solution": "在 Bright Data 控制台生成 API Token"},
+      {"error": "配额不足", "solution": "检查 Bright Data 账户余额和套餐限制"}
+    ],
+    "lastCheckedAt": "2026-05-18",
+    "verificationStatus": "部分核验",
+    "tags": ["官方厂商", "需要API Key"]
+  },
+  {
+    "id": "apify",
+    "name": "Apify",
+    "slug": "apify",
+    "category": "browser-automation",
+    "description": "Apify 爬虫平台集成，提供 4000+ 预构建爬虫工具（Actors）",
+    "officialUrl": "https://github.com/apify/actors-mcp-server",
+    "sourceRepo": "https://github.com/apify/actors-mcp-server",
+    "license": "Apache-2.0",
+    "supportedClients": ["claude-desktop", "cursor", "vscode-cline"],
+    "installMethod": "npx",
+    "installCommand": "npx -y @apify/actors-mcp-server",
+    "configExample": {
+      "mcpServers": {
+        "apify": {
+          "command": "npx",
+          "args": ["-y", "@apify/actors-mcp-server"],
+          "env": {
+            "APIFY_TOKEN": "<your-apify-token>"
+          }
+        }
+      }
+    },
+    "requiredEnv": ["APIFY_TOKEN"],
+    "permissionScope": ["network-access", "credential-required"],
+    "riskScore": 4,
+    "riskLevel": "medium",
+    "riskExplanation": "通过 Apify 平台运行爬虫任务，需要 API Token，会消耗平台计算资源",
+    "commonErrors": [
+      {"error": "Token 无效", "solution": "在 Apify Console > Settings > Integrations 中获取 Token"},
+      {"error": "Actor 不存在", "solution": "确认 Actor ID 正确，可在 Apify Store 中搜索"}
+    ],
+    "lastCheckedAt": "2026-05-18",
+    "verificationStatus": "部分核验",
+    "tags": ["官方厂商", "需要API Key"]
+  },
+  {
+    "id": "atlassian",
+    "name": "Atlassian (Jira + Confluence)",
+    "slug": "atlassian",
+    "category": "design-collaboration",
+    "description": "Atlassian 产品集成，支持 Jira Issue 管理和 Confluence 文档读写",
+    "officialUrl": "https://github.com/sooperset/mcp-atlassian",
+    "sourceRepo": "https://github.com/sooperset/mcp-atlassian",
+    "license": "MIT",
+    "supportedClients": ["claude-desktop", "cursor", "vscode-cline"],
+    "installMethod": "uvx",
+    "installCommand": "uvx mcp-atlassian",
+    "configExample": {
+      "mcpServers": {
+        "atlassian": {
+          "command": "uvx",
+          "args": ["mcp-atlassian", "--jira-url", "https://your-domain.atlassian.net", "--jira-token", "<your-token>", "--confluence-url", "https://your-domain.atlassian.net/wiki", "--confluence-token", "<your-token>"],
+          "env": {}
+        }
+      }
+    },
+    "requiredEnv": ["JIRA_URL", "JIRA_TOKEN"],
+    "permissionScope": ["network-access", "credential-required"],
+    "riskScore": 5,
+    "riskLevel": "medium",
+    "riskExplanation": "可读写 Jira Issue 和 Confluence 页面，建议使用只读 API Token",
+    "commonErrors": [
+      {"error": "认证失败", "solution": "在 Atlassian Account > Security > API Tokens 生成 Token"},
+      {"error": "权限不足", "solution": "确认 Token 对应的账号有目标项目的访问权限"}
+    ],
+    "lastCheckedAt": "2026-05-18",
+    "verificationStatus": "部分核验",
+    "tags": ["社区", "需要API Key"]
+  },
+  {
+    "id": "todoist",
+    "name": "Todoist",
+    "slug": "todoist",
+    "category": "design-collaboration",
+    "description": "Todoist 任务管理集成，支持创建、查询和管理待办事项",
+    "officialUrl": "https://github.com/abhiz123/todoist-mcp-server",
+    "sourceRepo": "https://github.com/abhiz123/todoist-mcp-server",
+    "license": "MIT",
+    "supportedClients": ["claude-desktop", "cursor"],
+    "installMethod": "npx",
+    "installCommand": "npx -y todoist-mcp-server",
+    "configExample": {
+      "mcpServers": {
+        "todoist": {
+          "command": "npx",
+          "args": ["-y", "todoist-mcp-server"],
+          "env": {
+            "TODOIST_API_TOKEN": "<your-todoist-api-token>"
+          }
+        }
+      }
+    },
+    "requiredEnv": ["TODOIST_API_TOKEN"],
+    "permissionScope": ["network-access", "credential-required"],
+    "riskScore": 4,
+    "riskLevel": "medium",
+    "riskExplanation": "可创建和修改 Todoist 任务，Token 有完整的读写权限",
+    "commonErrors": [
+      {"error": "Token 无效", "solution": "在 Todoist Settings > Integrations > Developer 中获取 API Token"},
+      {"error": "项目不存在", "solution": "确认项目 ID 正确或使用默认收件箱"}
+    ],
+    "lastCheckedAt": "2026-05-18",
+    "verificationStatus": "部分核验",
+    "tags": ["社区", "需要API Key"]
+  },
+  {
+    "id": "google-calendar",
+    "name": "Google Calendar",
+    "slug": "google-calendar",
+    "category": "design-collaboration",
+    "description": "Google Calendar 日程管理，支持查看、创建和修改日历事件",
+    "officialUrl": "https://github.com/modelcontextprotocol/servers/tree/main/src/google-calendar",
+    "sourceRepo": "https://github.com/modelcontextprotocol/servers",
+    "license": "MIT",
+    "supportedClients": ["claude-desktop", "cursor"],
+    "installMethod": "npx",
+    "installCommand": "npx -y @modelcontextprotocol/server-google-calendar",
+    "configExample": {
+      "mcpServers": {
+        "google-calendar": {
+          "command": "npx",
+          "args": ["-y", "@modelcontextprotocol/server-google-calendar"],
+          "env": {
+            "GOOGLE_CLIENT_ID": "<your-client-id>",
+            "GOOGLE_CLIENT_SECRET": "<your-client-secret>"
+          }
+        }
+      }
+    },
+    "requiredEnv": ["GOOGLE_CLIENT_ID", "GOOGLE_CLIENT_SECRET"],
+    "permissionScope": ["network-access", "credential-required"],
+    "riskScore": 5,
+    "riskLevel": "medium",
+    "riskExplanation": "可读写 Google Calendar 事件，需要 OAuth 授权，建议限制日历范围",
+    "commonErrors": [
+      {"error": "OAuth 认证失败", "solution": "确认 Google Cloud 项目已启用 Calendar API"},
+      {"error": "权限不足", "solution": "OAuth 授权时确认勾选了 Calendar 读写权限"}
+    ],
+    "lastCheckedAt": "2026-05-18",
+    "verificationStatus": "部分核验",
+    "tags": ["官方", "需要API Key"]
+  },
+  {
+    "id": "kubernetes",
+    "name": "Kubernetes",
+    "slug": "kubernetes",
+    "category": "deploy-ops",
+    "description": "Kubernetes 集群管理，支持查看 Pod、Deployment、Service 等资源状态",
+    "officialUrl": "https://github.com/strowk/mcp-k8s-go",
+    "sourceRepo": "https://github.com/strowk/mcp-k8s-go",
+    "license": "MIT",
+    "supportedClients": ["claude-desktop", "cursor", "vscode-cline"],
+    "installMethod": "npx",
+    "installCommand": "npx -y mcp-server-kubernetes",
+    "configExample": {
+      "mcpServers": {
+        "kubernetes": {
+          "command": "npx",
+          "args": ["-y", "mcp-server-kubernetes"]
+        }
+      }
+    },
+    "requiredEnv": [],
+    "permissionScope": ["network-access", "infrastructure-write", "credential-required"],
+    "riskScore": 7,
+    "riskLevel": "high",
+    "riskExplanation": "使用本地 kubeconfig 访问 K8s 集群，可查看和管理集群资源，切勿连接生产集群",
+    "commonErrors": [
+      {"error": "kubeconfig 未找到", "solution": "确认 ~/.kube/config 文件存在且配置正确"},
+      {"error": "连接被拒绝", "solution": "确认集群可达且 kubeconfig 中的 context 正确"}
+    ],
+    "lastCheckedAt": "2026-05-18",
+    "verificationStatus": "部分核验",
+    "tags": ["社区", "高风险"]
+  },
+  {
+    "id": "aws",
+    "name": "AWS",
+    "slug": "aws",
+    "category": "deploy-ops",
+    "description": "AWS 服务管理，支持 S3、Lambda、EC2 等常用服务的查询和操作",
+    "officialUrl": "https://github.com/aws/aws-mcp-servers",
+    "sourceRepo": "https://github.com/aws/aws-mcp-servers",
+    "license": "Apache-2.0",
+    "supportedClients": ["claude-desktop", "cursor", "vscode-cline"],
+    "installMethod": "npx",
+    "installCommand": "npx -y @aws/mcp-server",
+    "configExample": {
+      "mcpServers": {
+        "aws": {
+          "command": "npx",
+          "args": ["-y", "@aws/mcp-server"],
+          "env": {
+            "AWS_ACCESS_KEY_ID": "<your-access-key>",
+            "AWS_SECRET_ACCESS_KEY": "<your-secret-key>",
+            "AWS_REGION": "us-east-1"
+          }
+        }
+      }
+    },
+    "requiredEnv": ["AWS_ACCESS_KEY_ID", "AWS_SECRET_ACCESS_KEY", "AWS_REGION"],
+    "permissionScope": ["network-access", "credential-required", "infrastructure-write"],
+    "riskScore": 8,
+    "riskLevel": "high",
+    "riskExplanation": "可操作 AWS 账号下的云资源，风险极高，务必使用最小权限 IAM 角色",
+    "commonErrors": [
+      {"error": "InvalidClientTokenId", "solution": "检查 Access Key ID 是否正确"},
+      {"error": "AccessDenied", "solution": "确认 IAM 用户/角色有对应服务的权限"}
+    ],
+    "lastCheckedAt": "2026-05-18",
+    "verificationStatus": "部分核验",
+    "tags": ["官方厂商", "需要API Key", "高风险"]
+  },
+  {
+    "id": "datadog",
+    "name": "Datadog",
+    "slug": "datadog",
+    "category": "deploy-ops",
+    "description": "Datadog 监控平台集成，支持查看指标、日志、告警和 APM 数据",
+    "officialUrl": "https://github.com/DataDog/datadog-mcp-server",
+    "sourceRepo": "https://github.com/DataDog/datadog-mcp-server",
+    "license": "Apache-2.0",
+    "supportedClients": ["claude-desktop", "cursor", "vscode-cline"],
+    "installMethod": "npx",
+    "installCommand": "npx -y @datadog/mcp-server",
+    "configExample": {
+      "mcpServers": {
+        "datadog": {
+          "command": "npx",
+          "args": ["-y", "@datadog/mcp-server"],
+          "env": {
+            "DD_API_KEY": "<your-datadog-api-key>",
+            "DD_APP_KEY": "<your-datadog-app-key>"
+          }
+        }
+      }
+    },
+    "requiredEnv": ["DD_API_KEY", "DD_APP_KEY"],
+    "permissionScope": ["network-access", "credential-required"],
+    "riskScore": 3,
+    "riskLevel": "medium",
+    "riskExplanation": "主要用于读取监控数据，需要 API Key 和 App Key，建议使用只读权限",
+    "commonErrors": [
+      {"error": "403 Forbidden", "solution": "确认 API Key 和 App Key 配对正确"},
+      {"error": "找不到指标", "solution": "确认指标名称正确且在指定时间范围内有数据"}
+    ],
+    "lastCheckedAt": "2026-05-18",
+    "verificationStatus": "部分核验",
+    "tags": ["官方厂商", "需要API Key"]
+  },
+  {
+    "id": "windows-cli",
+    "name": "Windows CLI",
+    "slug": "windows-cli",
+    "category": "file-system",
+    "description": "Windows PowerShell 和 CMD 命令执行，支持在 Windows 环境中运行脚本",
+    "officialUrl": "https://github.com/SimonB97/win-cli-mcp-server",
+    "sourceRepo": "https://github.com/SimonB97/win-cli-mcp-server",
+    "license": "MIT",
+    "supportedClients": ["claude-desktop", "cursor", "vscode-cline"],
+    "installMethod": "npx",
+    "installCommand": "npx -y win-cli-mcp-server",
+    "configExample": {
+      "mcpServers": {
+        "windows-cli": {
+          "command": "npx",
+          "args": ["-y", "win-cli-mcp-server"]
+        }
+      }
+    },
+    "requiredEnv": [],
+    "permissionScope": ["command-execution", "file-read", "file-write", "network-access"],
+    "riskScore": 9,
+    "riskLevel": "high",
+    "riskExplanation": "可执行任意 Windows 命令（PowerShell/CMD），风险极高，仅在完全信任的环境中使用",
+    "commonErrors": [
+      {"error": "命令执行超时", "solution": "长时间运行的命令可能超时，尝试拆分为多个短命令"},
+      {"error": "权限不足", "solution": "部分命令需要管理员权限，以管理员身份运行客户端"}
+    ],
+    "lastCheckedAt": "2026-05-18",
+    "verificationStatus": "部分核验",
+    "tags": ["社区", "高风险"]
+  },
+  {
+    "id": "e2b",
+    "name": "E2B Code Sandbox",
+    "slug": "e2b",
+    "category": "file-system",
+    "description": "E2B 安全云端代码执行沙箱，在隔离环境中运行代码片段",
+    "officialUrl": "https://github.com/e2b-dev/mcp-server",
+    "sourceRepo": "https://github.com/e2b-dev/mcp-server",
+    "license": "Apache-2.0",
+    "supportedClients": ["claude-desktop", "cursor", "vscode-cline"],
+    "installMethod": "npx",
+    "installCommand": "npx -y @e2b/mcp-server",
+    "configExample": {
+      "mcpServers": {
+        "e2b": {
+          "command": "npx",
+          "args": ["-y", "@e2b/mcp-server"],
+          "env": {
+            "E2B_API_KEY": "<your-e2b-api-key>"
+          }
+        }
+      }
+    },
+    "requiredEnv": ["E2B_API_KEY"],
+    "permissionScope": ["network-access", "credential-required", "command-execution"],
+    "riskScore": 4,
+    "riskLevel": "medium",
+    "riskExplanation": "代码在 E2B 云端沙箱中执行，与本地系统隔离，相对安全但需要 API Key",
+    "commonErrors": [
+      {"error": "API Key 无效", "solution": "在 e2b.dev 注册并在 Dashboard 中获取 API Key"},
+      {"error": "沙箱超时", "solution": "免费版沙箱有时间限制，代码执行时间不要过长"}
+    ],
+    "lastCheckedAt": "2026-05-18",
+    "verificationStatus": "部分核验",
+    "tags": ["官方厂商", "需要API Key"]
+  },
+  {
+    "id": "gmail",
+    "name": "Gmail",
+    "slug": "gmail",
+    "category": "design-collaboration",
+    "description": "Gmail 邮件管理，支持读取、搜索、发送邮件和管理标签",
+    "officialUrl": "https://github.com/modelcontextprotocol/servers/tree/main/src/gmail",
+    "sourceRepo": "https://github.com/modelcontextprotocol/servers",
+    "license": "MIT",
+    "supportedClients": ["claude-desktop", "cursor"],
+    "installMethod": "npx",
+    "installCommand": "npx -y @modelcontextprotocol/server-gmail",
+    "configExample": {
+      "mcpServers": {
+        "gmail": {
+          "command": "npx",
+          "args": ["-y", "@modelcontextprotocol/server-gmail"],
+          "env": {
+            "GOOGLE_CLIENT_ID": "<your-client-id>",
+            "GOOGLE_CLIENT_SECRET": "<your-client-secret>"
+          }
+        }
+      }
+    },
+    "requiredEnv": ["GOOGLE_CLIENT_ID", "GOOGLE_CLIENT_SECRET"],
+    "permissionScope": ["network-access", "credential-required", "message-send"],
+    "riskScore": 7,
+    "riskLevel": "high",
+    "riskExplanation": "可读取和发送邮件，风险较高，建议仅授权只读权限进行测试",
+    "commonErrors": [
+      {"error": "OAuth 认证失败", "solution": "确认 Google Cloud 项目已启用 Gmail API"},
+      {"error": "发送失败", "solution": "确认 OAuth scope 包含 gmail.send 权限"}
+    ],
+    "lastCheckedAt": "2026-05-18",
+    "verificationStatus": "部分核验",
+    "tags": ["官方", "需要API Key", "高风险"]
+  },
+  {
+    "id": "stripe",
+    "name": "Stripe",
+    "slug": "stripe",
+    "category": "search-knowledge",
+    "description": "Stripe 支付 API 集成，支持查询交易、客户、订阅和发票信息",
+    "officialUrl": "https://github.com/stripe/agent-toolkit",
+    "sourceRepo": "https://github.com/stripe/agent-toolkit",
+    "license": "MIT",
+    "supportedClients": ["claude-desktop", "cursor", "vscode-cline"],
+    "installMethod": "npx",
+    "installCommand": "npx -y @stripe/agent-toolkit-mcp",
+    "configExample": {
+      "mcpServers": {
+        "stripe": {
+          "command": "npx",
+          "args": ["-y", "@stripe/agent-toolkit-mcp"],
+          "env": {
+            "STRIPE_SECRET_KEY": "sk_test_xxxxxxxxxxxx"
+          }
+        }
+      }
+    },
+    "requiredEnv": ["STRIPE_SECRET_KEY"],
+    "permissionScope": ["network-access", "credential-required"],
+    "riskScore": 6,
+    "riskLevel": "high",
+    "riskExplanation": "使用 Stripe Secret Key 可访问支付数据，务必使用测试模式 Key（sk_test_开头）",
+    "commonErrors": [
+      {"error": "Invalid API Key", "solution": "确认使用的是正确的 Secret Key，测试环境用 sk_test_ 开头的 Key"},
+      {"error": "权限不足", "solution": "确认 API Key 有对应资源的访问权限"}
+    ],
+    "lastCheckedAt": "2026-05-18",
+    "verificationStatus": "部分核验",
+    "tags": ["官方厂商", "需要API Key", "高风险"]
+  },
+  {
+    "id": "bluesky",
+    "name": "Bluesky",
+    "slug": "bluesky",
+    "category": "search-knowledge",
+    "description": "Bluesky 社交平台集成，支持读取帖子、搜索用户和获取时间线",
+    "officialUrl": "https://github.com/keturiosakys/bluesky-context-server",
+    "sourceRepo": "https://github.com/keturiosakys/bluesky-context-server",
+    "license": "MIT",
+    "supportedClients": ["claude-desktop", "cursor", "vscode-cline"],
+    "installMethod": "npx",
+    "installCommand": "npx -y bluesky-context-server",
+    "configExample": {
+      "mcpServers": {
+        "bluesky": {
+          "command": "npx",
+          "args": ["-y", "bluesky-context-server"],
+          "env": {
+            "BLUESKY_IDENTIFIER": "<your-handle.bsky.social>",
+            "BLUESKY_APP_PASSWORD": "<your-app-password>"
+          }
+        }
+      }
+    },
+    "requiredEnv": ["BLUESKY_IDENTIFIER", "BLUESKY_APP_PASSWORD"],
+    "permissionScope": ["network-access", "credential-required"],
+    "riskScore": 3,
+    "riskLevel": "medium",
+    "riskExplanation": "需要 Bluesky App Password，可读取账号数据，建议使用专用 App Password",
+    "commonErrors": [
+      {"error": "认证失败", "solution": "在 Bluesky Settings > App Passwords 生成专用密码"},
+      {"error": "用户不存在", "solution": "确认 handle 格式正确（如 username.bsky.social）"}
+    ],
+    "lastCheckedAt": "2026-05-18",
+    "verificationStatus": "部分核验",
+    "tags": ["社区", "需要API Key"]
   }
 ]

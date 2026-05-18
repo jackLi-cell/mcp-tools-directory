@@ -3,15 +3,15 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Linear MCP Server 配置说明 - 安装命令、权限范围与常见报错</title>
-  <meta name="description" content="查看 Linear 的 MCP Server 用途、支持客户端、安装命令、配置示例、权限范围和最近核验日期。">
-  <link rel="canonical" href="https://mcp.jtlcook.com/servers/linear.html">
+  <title>Todoist MCP Server 配置说明 - 安装命令、权限范围与常见报错</title>
+  <meta name="description" content="查看 Todoist 的 MCP Server 用途、支持客户端、安装命令、配置示例、权限范围和最近核验日期。">
+  <link rel="canonical" href="https://mcp.jtlcook.com/servers/todoist.html">
   <link rel="icon" type="image/svg+xml" href="../favicon.svg">
   <link rel="stylesheet" href="../assets/styles.css">
-  <script type="application/ld+json">[{"@context":"https://schema.org","@type":"SoftwareApplication","name":"Linear MCP Server","description":"Linear 项目管理集成，支持创建和管理 Issue、项目和团队","url":"https://mcp.jtlcook.com/servers/linear.html","applicationCategory":"DeveloperApplication","operatingSystem":"Windows, macOS, Linux"},{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"首页","item":"https://mcp.jtlcook.com/"},{"@type":"ListItem","position":2,"name":"资料库","item":"https://mcp.jtlcook.com/servers/"},{"@type":"ListItem","position":3,"name":"Linear","item":"https://mcp.jtlcook.com/servers/linear.html"}]}]</script>
-  <meta property="og:title" content="Linear MCP Server 配置说明 - 安装命令、权限范围与常见报错">
-  <meta property="og:description" content="查看 Linear 的 MCP Server 用途、支持客户端、安装命令、配置示例、权限范围和最近核验日期。">
-  <meta property="og:url" content="https://mcp.jtlcook.com/servers/linear.html">
+  <script type="application/ld+json">[{"@context":"https://schema.org","@type":"SoftwareApplication","name":"Todoist MCP Server","description":"Todoist 任务管理集成，支持创建、查询和管理待办事项","url":"https://mcp.jtlcook.com/servers/todoist.html","applicationCategory":"DeveloperApplication","operatingSystem":"Windows, macOS, Linux"},{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"首页","item":"https://mcp.jtlcook.com/"},{"@type":"ListItem","position":2,"name":"资料库","item":"https://mcp.jtlcook.com/servers/"},{"@type":"ListItem","position":3,"name":"Todoist","item":"https://mcp.jtlcook.com/servers/todoist.html"}]}]</script>
+  <meta property="og:title" content="Todoist MCP Server 配置说明 - 安装命令、权限范围与常见报错">
+  <meta property="og:description" content="查看 Todoist 的 MCP Server 用途、支持客户端、安装命令、配置示例、权限范围和最近核验日期。">
+  <meta property="og:url" content="https://mcp.jtlcook.com/servers/todoist.html">
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="AI Agent 与 MCP Server 工具目录">
 </head>
@@ -29,10 +29,10 @@
       </div>
     </nav>
   <main class="main container">
-    <nav class="breadcrumb"><a href="../index.html">首页</a> / <a href="../servers/index.html">资料库</a> / <span>Linear</span></nav>
+    <nav class="breadcrumb"><a href="../index.html">首页</a> / <a href="../servers/index.html">资料库</a> / <span>Todoist</span></nav>
     
-    <h1>Linear MCP Server 配置与使用说明</h1>
-    <p class="server-desc">Linear 项目管理集成，支持创建和管理 Issue、项目和团队</p>
+    <h1>Todoist MCP Server 配置与使用说明</h1>
+    <p class="server-desc">Todoist 任务管理集成，支持创建、查询和管理待办事项</p>
     <div class="meta-row">
       <span class="badge badge-medium">中风险</span>
       <span class="meta-item">场景：设计与产品协作</span>
@@ -47,44 +47,44 @@
 
     <section class="section">
       <h2>安装命令</h2>
-      <div class="code-block"><pre><code>npx -y linear-mcp-server</code></pre><button class="copy-btn" data-copy="npx -y linear-mcp-server">复制</button></div>
+      <div class="code-block"><pre><code>npx -y todoist-mcp-server</code></pre><button class="copy-btn" data-copy="npx -y todoist-mcp-server">复制</button></div>
     </section>
 
     <section class="section">
       <h2>配置示例</h2>
       <div class="code-block"><pre><code>{
   &quot;mcpServers&quot;: {
-    &quot;linear&quot;: {
+    &quot;todoist&quot;: {
       &quot;command&quot;: &quot;npx&quot;,
       &quot;args&quot;: [
         &quot;-y&quot;,
-        &quot;linear-mcp-server&quot;
+        &quot;todoist-mcp-server&quot;
       ],
       &quot;env&quot;: {
-        &quot;LINEAR_API_KEY&quot;: &quot;&lt;your-api-key&gt;&quot;
+        &quot;TODOIST_API_TOKEN&quot;: &quot;&lt;your-todoist-api-token&gt;&quot;
       }
     }
   }
 }</code></pre><button class="copy-btn" data-copy="{
   &quot;mcpServers&quot;: {
-    &quot;linear&quot;: {
+    &quot;todoist&quot;: {
       &quot;command&quot;: &quot;npx&quot;,
       &quot;args&quot;: [
         &quot;-y&quot;,
-        &quot;linear-mcp-server&quot;
+        &quot;todoist-mcp-server&quot;
       ],
       &quot;env&quot;: {
-        &quot;LINEAR_API_KEY&quot;: &quot;&lt;your-api-key&gt;&quot;
+        &quot;TODOIST_API_TOKEN&quot;: &quot;&lt;your-todoist-api-token&gt;&quot;
       }
     }
   }
 }">复制</button></div>
-      <p class="warning">需要设置环境变量：LINEAR_API_KEY。不要把这些值提交到公开仓库。</p>
+      <p class="warning">需要设置环境变量：TODOIST_API_TOKEN。不要把这些值提交到公开仓库。</p>
     </section>
 
     <section class="section">
       <h2>权限范围与安全提示</h2>
-      <p>可创建和修改 Linear Issue，建议使用只读 Token 进行测试</p>
+      <p>可创建和修改 Todoist 任务，Token 有完整的读写权限</p>
       <ul><li>network-access</li><li>credential-required</li></ul>
       <p class="risk-score">风险评分：4/10</p>
     </section>
@@ -93,14 +93,14 @@
     <section class="section">
       <h2>常见报错</h2>
       <dl class="faq">
-        <dt>API Key 无效</dt><dd>在 Linear Settings &gt; API 中生成 Personal API Key</dd>
+        <dt>Token 无效</dt><dd>在 Todoist Settings &gt; Integrations &gt; Developer 中获取 API Token</dd><dt>项目不存在</dt><dd>确认项目 ID 正确或使用默认收件箱</dd>
       </dl>
     </section>
 
     <section class="section">
       <h2>来源</h2>
       <ul>
-        <li><a href="https://github.com/jerhadf/linear-mcp-server" target="_blank" rel="noopener noreferrer">官方文档 / 仓库</a></li>
+        <li><a href="https://github.com/abhiz123/todoist-mcp-server" target="_blank" rel="noopener noreferrer">官方文档 / 仓库</a></li>
       </ul>
       <p class="note">最近核验：2026-05-18。客户端版本和配置格式可能变化，使用前请以官方文档为准。</p>
     </section>
@@ -108,7 +108,7 @@
     
     <section class="section">
       <h2>相关工具</h2>
-      <ul><li><a href="../servers/slack.html">Slack</a> - Slack 工作区集成，支持读取频道、发送消息和搜索历史</li><li><a href="../servers/notion.html">Notion</a> - Notion API 集成，支持搜索、读取和创建页面与数据库</li><li><a href="../servers/figma.html">Figma</a> - Figma 设计文件读取，支持获取设计稿信息、组件和样式</li><li><a href="../servers/atlassian.html">Atlassian (Jira + Confluence)</a> - Atlassian 产品集成，支持 Jira Issue 管理和 Confluence 文档读写</li></ul>
+      <ul><li><a href="../servers/slack.html">Slack</a> - Slack 工作区集成，支持读取频道、发送消息和搜索历史</li><li><a href="../servers/linear.html">Linear</a> - Linear 项目管理集成，支持创建和管理 Issue、项目和团队</li><li><a href="../servers/notion.html">Notion</a> - Notion API 集成，支持搜索、读取和创建页面与数据库</li><li><a href="../servers/figma.html">Figma</a> - Figma 设计文件读取，支持获取设计稿信息、组件和样式</li></ul>
     </section>
   </main>
   
