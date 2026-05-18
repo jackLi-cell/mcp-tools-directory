@@ -67,9 +67,9 @@ function layout(title, description, canonical, content, breadcrumb = '', jsonLd 
       <div class="container nav-inner">
         <a href="${prefix}index.html" class="nav-brand">${SITE_NAME}</a>
         <div class="nav-links">
-          <a href="${prefix}servers/index.html">资料库</a>
-          <a href="${prefix}guides/what-is-mcp.html">教程</a>
-          <a href="${prefix}tools/config-builder.html">配置生成器</a>
+          <a href="/servers/index.html">资料库</a>
+          <a href="/guides/what-is-mcp.html">教程</a>
+          <a href="/tools/config-builder.html">配置生成器</a>
           <a href="${prefix}pages/about.html">关于</a>
         </div>
       </div>
@@ -133,10 +133,16 @@ function breadcrumb(items) {
 
 function buildIndex() {
   const lowRisk = servers.filter(s => s.riskLevel === 'low');
+  const recentlyChecked = [...servers].sort((a, b) => b.lastCheckedAt.localeCompare(a.lastCheckedAt)).slice(0, 5);
   const content = `
     <section class="hero">
       <h1>AI Agent 与 MCP Server 工具目录</h1>
       <p class="hero-sub">按客户端、使用场景、安装方式和权限范围筛选 MCP Server 与 Agent 工具，查看配置步骤、常见错误和安全注意事项。</p>
+      <div class="hero-stats">
+        <div class="hero-stat"><strong>${servers.length}</strong>MCP Server</div>
+        <div class="hero-stat"><strong>${categories.length}</strong>使用场景</div>
+        <div class="hero-stat"><strong>${clients.length}</strong>主流客户端</div>
+      </div>
       <div class="search-box">
         <input type="text" id="search-input" placeholder="搜索工具名称、场景或关键词..." aria-label="搜索工具">
       </div>
@@ -144,21 +150,21 @@ function buildIndex() {
 
     <section class="section">
       <h2>新手入口</h2>
-      <div class="card-grid">
+      <div class="card-grid card-beginner">
         <a href="/clients/claude-desktop.html" class="card">
-          <h3>Claude Desktop 配置</h3>
+          <h3>🚀 Claude Desktop 配置</h3>
           <p>从零开始配置你的第一个 MCP Server</p>
         </a>
         <a href="/clients/cursor.html" class="card">
-          <h3>Cursor 配置</h3>
+          <h3>⚡ Cursor 配置</h3>
           <p>在 Cursor 编辑器中接入 MCP</p>
         </a>
         <a href="/guides/security-checklist.html" class="card">
-          <h3>安全检查清单</h3>
+          <h3>🛡️ 安全检查清单</h3>
           <p>接入前必须确认的权限和风险</p>
         </a>
         <a href="/guides/common-errors.html" class="card">
-          <h3>常见报错排查</h3>
+          <h3>🔧 常见报错排查</h3>
           <p>连接失败、命令找不到怎么办</p>
         </a>
       </div>
@@ -166,10 +172,11 @@ function buildIndex() {
 
     <section class="section">
       <h2>按场景浏览</h2>
-      <div class="card-grid">
+      <div class="card-grid card-scene">
         ${categories.map(c => `
           <a href="/categories/${c.slug}.html" class="card">
-            <h3>${c.icon} ${c.name}</h3>
+            <span class="card-emoji">${c.icon}</span>
+            <h3>${c.name}</h3>
             <p>${c.description}</p>
             <span class="card-count">${servers.filter(s => s.category === c.id).length} 个工具</span>
           </a>
@@ -179,7 +186,7 @@ function buildIndex() {
 
     <section class="section">
       <h2>低风险入门推荐</h2>
-      <p>以下工具权限范围小、不需要 API Key 或只进行只读操作，适合新手第一次体验 MCP。</p>
+      <p>以下工具权限范围小、不需要 API Key 或只进行只读操作，适合新手第一次体验 MCP。安装后即可在对话中使用，无需额外配置。</p>
       <div class="table-wrap">
         <table>
           <thead><tr><th>工具</th><th>场景</th><th>风险</th><th>说明</th></tr></thead>
@@ -199,22 +206,58 @@ function buildIndex() {
       <h2>配置工具</h2>
       <div class="card-grid">
         <a href="/tools/config-builder.html" class="card">
-          <h3>配置片段生成器</h3>
-          <p>选择 MCP Server，自动生成 JSON 配置片段</p>
+          <h3>⚙️ 配置片段生成器</h3>
+          <p>选择 MCP Server，自动生成 JSON 配置片段，支持多工具组合导出</p>
+        </a>
+        <a href="/servers/index.html" class="card">
+          <h3>📋 完整资料库</h3>
+          <p>查看全部 ${servers.length} 个工具，按场景、风险和 API Key 需求筛选</p>
         </a>
       </div>
     </section>
 
     <section class="section">
+      <h2>最近核验</h2>
+      <p>以下工具最近完成了信息核验，配置和版本信息已确认有效。</p>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>工具</th><th>场景</th><th>核验日期</th><th>状态</th></tr></thead>
+          <tbody>
+            ${recentlyChecked.map(s => `<tr>
+              <td><a href="/servers/${s.slug}.html">${escapeHtml(s.name)}</a></td>
+              <td>${categories.find(c => c.id === s.category)?.name || ''}</td>
+              <td>${s.lastCheckedAt}</td>
+              <td>${s.verificationStatus}</td>
+            </tr>`).join('')}
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section class="section">
       <h2>常见问题</h2>
-      <dl class="faq">
-        <dt>MCP Server 和普通插件有什么区别？</dt>
-        <dd>MCP 是标准化协议，一个 Server 可以被多个客户端使用；普通插件通常只适用于特定工具。</dd>
-        <dt>需要编程基础才能使用 MCP 吗？</dt>
-        <dd>基础使用只需要编辑 JSON 配置文件，不需要写代码。但理解命令行和环境变量会有帮助。</dd>
-        <dt>MCP Server 安全吗？</dt>
-        <dd>取决于具体工具的权限范围。本站为每个工具标注了风险等级和权限说明，使用前请确认。</dd>
-      </dl>
+      <div class="faq-list">
+        <details class="faq-item">
+          <summary>MCP Server 和普通插件有什么区别？</summary>
+          <div class="faq-answer">MCP（Model Context Protocol）是一个标准化协议，一个 Server 可以被 Claude Desktop、Cursor、VS Code 等多个客户端使用。普通插件通常只适用于特定工具，且接口不统一。MCP 的优势是"写一次，到处用"。</div>
+        </details>
+        <details class="faq-item">
+          <summary>需要编程基础才能使用 MCP 吗？</summary>
+          <div class="faq-answer">基础使用只需要编辑 JSON 配置文件，不需要写代码。你需要了解如何打开终端、找到配置文件路径、设置环境变量。本站的客户端教程会一步步引导你完成。</div>
+        </details>
+        <details class="faq-item">
+          <summary>MCP Server 安全吗？</summary>
+          <div class="faq-answer">取决于具体工具的权限范围。文件系统类工具可以读写你的文件，数据库类可以查询数据，浏览器类可以访问网页。本站为每个工具标注了风险等级和权限说明，建议从低风险工具开始体验。</div>
+        </details>
+        <details class="faq-item">
+          <summary>新手应该先装哪个 MCP？</summary>
+          <div class="faq-answer">推荐从 Filesystem（文件读写）、Fetch（网页读取）或 Sequential Thinking（结构化思考）开始。这些工具风险低、不需要 API Key、安装简单。详见<a href="/guides/beginner-recommendations.html">新手推荐指南</a>。</div>
+        </details>
+        <details class="faq-item">
+          <summary>本站的工具信息多久更新一次？</summary>
+          <div class="faq-answer">每个工具条目标注了最近核验日期。我们会定期检查官方仓库和文档变化。超过 60 天未核验的工具会标记为"待复核"。如果你发现信息过期，欢迎通过联系页面反馈。</div>
+        </details>
+      </div>
     </section>`;
 
   const html = layout(
