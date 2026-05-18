@@ -1,0 +1,1137 @@
+[
+  {
+    "id": "filesystem",
+    "name": "Filesystem",
+    "slug": "filesystem",
+    "category": "file-system",
+    "description": "安全的文件系统操作，支持读写文件、创建目录、搜索文件和获取文件信息",
+    "officialUrl": "https://github.com/modelcontextprotocol/servers/tree/main/src/filesystem",
+    "sourceRepo": "https://github.com/modelcontextprotocol/servers",
+    "license": "MIT",
+    "supportedClients": ["claude-desktop", "cursor", "vscode-cline"],
+    "installMethod": "npx",
+    "installCommand": "npx -y @modelcontextprotocol/server-filesystem /path/to/allowed/dir",
+    "configExample": {
+      "mcpServers": {
+        "filesystem": {
+          "command": "npx",
+          "args": ["-y", "@modelcontextprotocol/server-filesystem", "/Users/you/Documents"]
+        }
+      }
+    },
+    "requiredEnv": [],
+    "permissionScope": ["file-read", "file-write", "directory-list"],
+    "riskScore": 3,
+    "riskLevel": "medium",
+    "riskExplanation": "可读写指定目录下的文件，建议限制到具体项目目录",
+    "commonErrors": [
+      {"error": "路径不存在", "solution": "确认 args 中的路径存在且拼写正确"},
+      {"error": "权限不足", "solution": "检查操作系统文件权限，macOS 可能需要在系统设置中授权"},
+      {"error": "EACCES permission denied", "solution": "尝试使用绝对路径，避免 ~ 符号"}
+    ],
+    "lastCheckedAt": "2026-05-18",
+    "verificationStatus": "已核验",
+    "tags": ["官方", "低门槛", "新手推荐"]
+  },
+  {
+    "id": "github",
+    "name": "GitHub",
+    "slug": "github",
+    "category": "git-and-code",
+    "description": "GitHub API 集成，支持仓库管理、文件操作、Issue、PR、分支和搜索",
+    "officialUrl": "https://github.com/modelcontextprotocol/servers/tree/main/src/github",
+    "sourceRepo": "https://github.com/modelcontextprotocol/servers",
+    "license": "MIT",
+    "supportedClients": ["claude-desktop", "cursor", "vscode-cline"],
+    "installMethod": "npx",
+    "installCommand": "npx -y @modelcontextprotocol/server-github",
+    "configExample": {
+      "mcpServers": {
+        "github": {
+          "command": "npx",
+          "args": ["-y", "@modelcontextprotocol/server-github"],
+          "env": {
+            "GITHUB_PERSONAL_ACCESS_TOKEN": "<your-token>"
+          }
+        }
+      }
+    },
+    "requiredEnv": ["GITHUB_PERSONAL_ACCESS_TOKEN"],
+    "permissionScope": ["network-access", "credential-required"],
+    "riskScore": 3,
+    "riskLevel": "medium",
+    "riskExplanation": "需要 GitHub Token，可操作你有权限的仓库，建议使用最小权限 Token",
+    "commonErrors": [
+      {"error": "401 Unauthorized", "solution": "检查 Token 是否过期或权限不足"},
+      {"error": "找不到仓库", "solution": "确认 Token 有该仓库的访问权限"},
+      {"error": "rate limit exceeded", "solution": "GitHub API 有速率限制，等待后重试"}
+    ],
+    "lastCheckedAt": "2026-05-18",
+    "verificationStatus": "已核验",
+    "tags": ["官方", "需要API Key"]
+  },
+  {
+    "id": "sqlite",
+    "name": "SQLite",
+    "slug": "sqlite",
+    "category": "database",
+    "description": "SQLite 数据库操作，支持查询、分析和基本的数据管理",
+    "officialUrl": "https://github.com/modelcontextprotocol/servers/tree/main/src/sqlite",
+    "sourceRepo": "https://github.com/modelcontextprotocol/servers",
+    "license": "MIT",
+    "supportedClients": ["claude-desktop", "cursor", "vscode-cline"],
+    "installMethod": "uvx",
+    "installCommand": "uvx mcp-server-sqlite --db-path /path/to/database.db",
+    "configExample": {
+      "mcpServers": {
+        "sqlite": {
+          "command": "uvx",
+          "args": ["mcp-server-sqlite", "--db-path", "/path/to/test.db"]
+        }
+      }
+    },
+    "requiredEnv": [],
+    "permissionScope": ["database-read", "database-write"],
+    "riskScore": 5,
+    "riskLevel": "medium",
+    "riskExplanation": "可读写指定数据库文件，建议使用副本或测试数据库",
+    "commonErrors": [
+      {"error": "数据库文件不存在", "solution": "确认 --db-path 指向的文件存在"},
+      {"error": "uvx 命令找不到", "solution": "需要先安装 uv：curl -LsSf https://astral.sh/uv/install.sh | sh"},
+      {"error": "database is locked", "solution": "确认没有其他进程正在使用该数据库"}
+    ],
+    "lastCheckedAt": "2026-05-18",
+    "verificationStatus": "已核验",
+    "tags": ["官方", "需要Python环境"]
+  },
+  {
+    "id": "postgres",
+    "name": "PostgreSQL",
+    "slug": "postgres",
+    "category": "database",
+    "description": "PostgreSQL 数据库只读访问，支持查询和 schema 检查",
+    "officialUrl": "https://github.com/modelcontextprotocol/servers/tree/main/src/postgres",
+    "sourceRepo": "https://github.com/modelcontextprotocol/servers",
+    "license": "MIT",
+    "supportedClients": ["claude-desktop", "cursor", "vscode-cline"],
+    "installMethod": "npx",
+    "installCommand": "npx -y @modelcontextprotocol/server-postgres postgresql://user:pass@localhost/dbname",
+    "configExample": {
+      "mcpServers": {
+        "postgres": {
+          "command": "npx",
+          "args": ["-y", "@modelcontextprotocol/server-postgres", "postgresql://user:pass@localhost/mydb"]
+        }
+      }
+    },
+    "requiredEnv": [],
+    "permissionScope": ["database-read", "network-access"],
+    "riskScore": 4,
+    "riskLevel": "medium",
+    "riskExplanation": "连接数据库进行查询，建议使用只读账号和测试数据库",
+    "commonErrors": [
+      {"error": "连接超时", "solution": "确认数据库地址和端口可达"},
+      {"error": "认证失败", "solution": "检查用户名密码和数据库名称"},
+      {"error": "SSL required", "solution": "连接字符串添加 ?sslmode=require"}
+    ],
+    "lastCheckedAt": "2026-05-18",
+    "verificationStatus": "已核验",
+    "tags": ["官方"]
+  },
+  {
+    "id": "brave-search",
+    "name": "Brave Search",
+    "slug": "brave-search",
+    "category": "search-knowledge",
+    "description": "通过 Brave Search API 进行网页搜索和本地搜索",
+    "officialUrl": "https://github.com/modelcontextprotocol/servers/tree/main/src/brave-search",
+    "sourceRepo": "https://github.com/modelcontextprotocol/servers",
+    "license": "MIT",
+    "supportedClients": ["claude-desktop", "cursor", "vscode-cline"],
+    "installMethod": "npx",
+    "installCommand": "npx -y @modelcontextprotocol/server-brave-search",
+    "configExample": {
+      "mcpServers": {
+        "brave-search": {
+          "command": "npx",
+          "args": ["-y", "@modelcontextprotocol/server-brave-search"],
+          "env": {
+            "BRAVE_API_KEY": "<your-api-key>"
+          }
+        }
+      }
+    },
+    "requiredEnv": ["BRAVE_API_KEY"],
+    "permissionScope": ["network-access", "credential-required"],
+    "riskScore": 3,
+    "riskLevel": "medium",
+    "riskExplanation": "需要 Brave API Key，发送搜索请求到 Brave 服务器",
+    "commonErrors": [
+      {"error": "API Key 无效", "solution": "在 brave.com/search/api 申请免费 Key"},
+      {"error": "429 Too Many Requests", "solution": "免费版有速率限制，降低请求频率"}
+    ],
+    "lastCheckedAt": "2026-05-18",
+    "verificationStatus": "已核验",
+    "tags": ["官方", "需要API Key", "新手推荐"]
+  },
+  {
+    "id": "puppeteer",
+    "name": "Puppeteer",
+    "slug": "puppeteer",
+    "category": "browser-automation",
+    "description": "浏览器自动化，支持页面导航、截图、点击、表单填写和 JavaScript 执行",
+    "officialUrl": "https://github.com/modelcontextprotocol/servers/tree/main/src/puppeteer",
+    "sourceRepo": "https://github.com/modelcontextprotocol/servers",
+    "license": "MIT",
+    "supportedClients": ["claude-desktop", "cursor", "vscode-cline"],
+    "installMethod": "npx",
+    "installCommand": "npx -y @modelcontextprotocol/server-puppeteer",
+    "configExample": {
+      "mcpServers": {
+        "puppeteer": {
+          "command": "npx",
+          "args": ["-y", "@modelcontextprotocol/server-puppeteer"]
+        }
+      }
+    },
+    "requiredEnv": [],
+    "permissionScope": ["network-access", "browser-control"],
+    "riskScore": 5,
+    "riskLevel": "medium",
+    "riskExplanation": "可控制浏览器访问任意网页，不要在已登录账号的浏览器中使用",
+    "commonErrors": [
+      {"error": "Chrome 启动失败", "solution": "确认系统已安装 Chrome 或 Chromium"},
+      {"error": "页面加载超时", "solution": "检查网络连接，或增加超时时间"},
+      {"error": "sandbox 错误", "solution": "Linux 下可能需要 --no-sandbox 参数"}
+    ],
+    "lastCheckedAt": "2026-05-18",
+    "verificationStatus": "已核验",
+    "tags": ["官方"]
+  },
+  {
+    "id": "memory",
+    "name": "Memory",
+    "slug": "memory",
+    "category": "file-system",
+    "description": "基于知识图谱的持久化记忆系统，支持实体和关系的存储与查询",
+    "officialUrl": "https://github.com/modelcontextprotocol/servers/tree/main/src/memory",
+    "sourceRepo": "https://github.com/modelcontextprotocol/servers",
+    "license": "MIT",
+    "supportedClients": ["claude-desktop", "cursor", "vscode-cline"],
+    "installMethod": "npx",
+    "installCommand": "npx -y @modelcontextprotocol/server-memory",
+    "configExample": {
+      "mcpServers": {
+        "memory": {
+          "command": "npx",
+          "args": ["-y", "@modelcontextprotocol/server-memory"]
+        }
+      }
+    },
+    "requiredEnv": [],
+    "permissionScope": ["file-write"],
+    "riskScore": 2,
+    "riskLevel": "low",
+    "riskExplanation": "在本地文件中存储记忆数据，风险较低",
+    "commonErrors": [
+      {"error": "存储文件权限错误", "solution": "确认运行目录有写入权限"}
+    ],
+    "lastCheckedAt": "2026-05-18",
+    "verificationStatus": "已核验",
+    "tags": ["官方", "低风险", "新手推荐"]
+  },
+  {
+    "id": "fetch",
+    "name": "Fetch",
+    "slug": "fetch",
+    "category": "search-knowledge",
+    "description": "获取网页内容并转换为 Markdown 格式，方便 AI 阅读",
+    "officialUrl": "https://github.com/modelcontextprotocol/servers/tree/main/src/fetch",
+    "sourceRepo": "https://github.com/modelcontextprotocol/servers",
+    "license": "MIT",
+    "supportedClients": ["claude-desktop", "cursor", "vscode-cline"],
+    "installMethod": "uvx",
+    "installCommand": "uvx mcp-server-fetch",
+    "configExample": {
+      "mcpServers": {
+        "fetch": {
+          "command": "uvx",
+          "args": ["mcp-server-fetch"]
+        }
+      }
+    },
+    "requiredEnv": [],
+    "permissionScope": ["network-access"],
+    "riskScore": 2,
+    "riskLevel": "low",
+    "riskExplanation": "只读取网页内容，不执行操作，风险较低",
+    "commonErrors": [
+      {"error": "uvx 找不到", "solution": "安装 uv：curl -LsSf https://astral.sh/uv/install.sh | sh"},
+      {"error": "网页获取失败", "solution": "部分网站有反爬机制，换一个 URL 测试"}
+    ],
+    "lastCheckedAt": "2026-05-18",
+    "verificationStatus": "已核验",
+    "tags": ["官方", "低风险", "新手推荐"]
+  },
+  {
+    "id": "git",
+    "name": "Git",
+    "slug": "git",
+    "category": "git-and-code",
+    "description": "Git 仓库操作，支持读取提交历史、diff、分支和文件内容",
+    "officialUrl": "https://github.com/modelcontextprotocol/servers/tree/main/src/git",
+    "sourceRepo": "https://github.com/modelcontextprotocol/servers",
+    "license": "MIT",
+    "supportedClients": ["claude-desktop", "cursor", "vscode-cline"],
+    "installMethod": "uvx",
+    "installCommand": "uvx mcp-server-git",
+    "configExample": {
+      "mcpServers": {
+        "git": {
+          "command": "uvx",
+          "args": ["mcp-server-git", "--repository", "/path/to/repo"]
+        }
+      }
+    },
+    "requiredEnv": [],
+    "permissionScope": ["file-read"],
+    "riskScore": 1,
+    "riskLevel": "low",
+    "riskExplanation": "只读取 Git 仓库信息，不执行写入操作",
+    "commonErrors": [
+      {"error": "不是 Git 仓库", "solution": "确认 --repository 路径是有效的 Git 仓库"},
+      {"error": "uvx 找不到", "solution": "安装 uv：curl -LsSf https://astral.sh/uv/install.sh | sh"}
+    ],
+    "lastCheckedAt": "2026-05-18",
+    "verificationStatus": "已核验",
+    "tags": ["官方", "低风险", "新手推荐"]
+  },
+  {
+    "id": "sequential-thinking",
+    "name": "Sequential Thinking",
+    "slug": "sequential-thinking",
+    "category": "search-knowledge",
+    "description": "结构化思考工具，帮助 AI 进行分步推理和问题分解",
+    "officialUrl": "https://github.com/modelcontextprotocol/servers/tree/main/src/sequentialthinking",
+    "sourceRepo": "https://github.com/modelcontextprotocol/servers",
+    "license": "MIT",
+    "supportedClients": ["claude-desktop", "cursor", "vscode-cline"],
+    "installMethod": "npx",
+    "installCommand": "npx -y @modelcontextprotocol/server-sequential-thinking",
+    "configExample": {
+      "mcpServers": {
+        "sequential-thinking": {
+          "command": "npx",
+          "args": ["-y", "@modelcontextprotocol/server-sequential-thinking"]
+        }
+      }
+    },
+    "requiredEnv": [],
+    "permissionScope": [],
+    "riskScore": 0,
+    "riskLevel": "low",
+    "riskExplanation": "纯逻辑工具，不访问文件、网络或系统资源",
+    "commonErrors": [],
+    "lastCheckedAt": "2026-05-18",
+    "verificationStatus": "已核验",
+    "tags": ["官方", "低风险", "新手推荐"]
+  },
+  {
+    "id": "playwright",
+    "name": "Playwright",
+    "slug": "playwright",
+    "category": "browser-automation",
+    "description": "基于 Playwright 的浏览器自动化，支持多浏览器、截图、PDF 生成和网页交互",
+    "officialUrl": "https://github.com/anthropics/anthropic-quickstarts/tree/main/mcp-playwright",
+    "sourceRepo": "https://github.com/anthropics/anthropic-quickstarts",
+    "license": "MIT",
+    "supportedClients": ["claude-desktop", "cursor", "vscode-cline"],
+    "installMethod": "npx",
+    "installCommand": "npx -y @anthropic/mcp-playwright",
+    "configExample": {
+      "mcpServers": {
+        "playwright": {
+          "command": "npx",
+          "args": ["-y", "@anthropic/mcp-playwright"]
+        }
+      }
+    },
+    "requiredEnv": [],
+    "permissionScope": ["network-access", "browser-control"],
+    "riskScore": 5,
+    "riskLevel": "medium",
+    "riskExplanation": "可控制浏览器访问网页并执行操作，注意不要在已登录状态下使用",
+    "commonErrors": [
+      {"error": "浏览器未安装", "solution": "运行 npx playwright install chromium 安装浏览器"},
+      {"error": "超时错误", "solution": "网络慢时增加超时设置"}
+    ],
+    "lastCheckedAt": "2026-05-18",
+    "verificationStatus": "已核验",
+    "tags": ["Anthropic"]
+  },
+  {
+    "id": "everything",
+    "name": "Everything",
+    "slug": "everything",
+    "category": "file-system",
+    "description": "MCP 协议测试和参考实现，包含所有 MCP 功能的示例",
+    "officialUrl": "https://github.com/modelcontextprotocol/servers/tree/main/src/everything",
+    "sourceRepo": "https://github.com/modelcontextprotocol/servers",
+    "license": "MIT",
+    "supportedClients": ["claude-desktop", "cursor", "vscode-cline"],
+    "installMethod": "npx",
+    "installCommand": "npx -y @modelcontextprotocol/server-everything",
+    "configExample": {
+      "mcpServers": {
+        "everything": {
+          "command": "npx",
+          "args": ["-y", "@modelcontextprotocol/server-everything"]
+        }
+      }
+    },
+    "requiredEnv": [],
+    "permissionScope": [],
+    "riskScore": 0,
+    "riskLevel": "low",
+    "riskExplanation": "测试用途，不访问真实系统资源",
+    "commonErrors": [],
+    "lastCheckedAt": "2026-05-18",
+    "verificationStatus": "已核验",
+    "tags": ["官方", "低风险", "测试用"]
+  },
+  {
+    "id": "slack",
+    "name": "Slack",
+    "slug": "slack",
+    "category": "design-collaboration",
+    "description": "Slack 工作区集成，支持读取频道、发送消息和搜索历史",
+    "officialUrl": "https://github.com/modelcontextprotocol/servers/tree/main/src/slack",
+    "sourceRepo": "https://github.com/modelcontextprotocol/servers",
+    "license": "MIT",
+    "supportedClients": ["claude-desktop", "cursor"],
+    "installMethod": "npx",
+    "installCommand": "npx -y @modelcontextprotocol/server-slack",
+    "configExample": {
+      "mcpServers": {
+        "slack": {
+          "command": "npx",
+          "args": ["-y", "@modelcontextprotocol/server-slack"],
+          "env": {
+            "SLACK_BOT_TOKEN": "xoxb-your-token",
+            "SLACK_TEAM_ID": "T0123456789"
+          }
+        }
+      }
+    },
+    "requiredEnv": ["SLACK_BOT_TOKEN", "SLACK_TEAM_ID"],
+    "permissionScope": ["network-access", "credential-required", "message-send"],
+    "riskScore": 6,
+    "riskLevel": "high",
+    "riskExplanation": "可读取和发送 Slack 消息，需要 Bot Token，建议限制频道权限",
+    "commonErrors": [
+      {"error": "invalid_auth", "solution": "检查 Bot Token 是否正确"},
+      {"error": "channel_not_found", "solution": "确认 Bot 已被邀请到目标频道"}
+    ],
+    "lastCheckedAt": "2026-05-18",
+    "verificationStatus": "已核验",
+    "tags": ["官方", "需要API Key", "高风险"]
+  },
+  {
+    "id": "google-maps",
+    "name": "Google Maps",
+    "slug": "google-maps",
+    "category": "search-knowledge",
+    "description": "Google Maps API 集成，支持地点搜索、路线规划和地理编码",
+    "officialUrl": "https://github.com/modelcontextprotocol/servers/tree/main/src/google-maps",
+    "sourceRepo": "https://github.com/modelcontextprotocol/servers",
+    "license": "MIT",
+    "supportedClients": ["claude-desktop", "cursor", "vscode-cline"],
+    "installMethod": "npx",
+    "installCommand": "npx -y @modelcontextprotocol/server-google-maps",
+    "configExample": {
+      "mcpServers": {
+        "google-maps": {
+          "command": "npx",
+          "args": ["-y", "@modelcontextprotocol/server-google-maps"],
+          "env": {
+            "GOOGLE_MAPS_API_KEY": "<your-api-key>"
+          }
+        }
+      }
+    },
+    "requiredEnv": ["GOOGLE_MAPS_API_KEY"],
+    "permissionScope": ["network-access", "credential-required"],
+    "riskScore": 3,
+    "riskLevel": "medium",
+    "riskExplanation": "需要 Google Maps API Key，会产生 API 调用费用",
+    "commonErrors": [
+      {"error": "API Key 无效", "solution": "在 Google Cloud Console 启用 Maps API 并生成 Key"},
+      {"error": "REQUEST_DENIED", "solution": "确认 API Key 已启用 Places API 和 Directions API"}
+    ],
+    "lastCheckedAt": "2026-05-18",
+    "verificationStatus": "已核验",
+    "tags": ["官方", "需要API Key"]
+  },
+  {
+    "id": "cloudflare",
+    "name": "Cloudflare",
+    "slug": "cloudflare",
+    "category": "deploy-ops",
+    "description": "Cloudflare 服务管理，支持 Workers、KV、R2 和 D1 操作",
+    "officialUrl": "https://github.com/cloudflare/mcp-server-cloudflare",
+    "sourceRepo": "https://github.com/cloudflare/mcp-server-cloudflare",
+    "license": "Apache-2.0",
+    "supportedClients": ["claude-desktop", "cursor", "vscode-cline"],
+    "installMethod": "npx",
+    "installCommand": "npx -y @cloudflare/mcp-server-cloudflare",
+    "configExample": {
+      "mcpServers": {
+        "cloudflare": {
+          "command": "npx",
+          "args": ["-y", "@cloudflare/mcp-server-cloudflare"]
+        }
+      }
+    },
+    "requiredEnv": [],
+    "permissionScope": ["network-access", "credential-required", "infrastructure-write"],
+    "riskScore": 7,
+    "riskLevel": "high",
+    "riskExplanation": "可操作 Cloudflare 账号下的 Workers、KV、R2 等资源，需要 OAuth 授权",
+    "commonErrors": [
+      {"error": "认证失败", "solution": "首次使用会打开浏览器进行 OAuth 授权"},
+      {"error": "account not found", "solution": "确认 Cloudflare 账号有对应资源的权限"}
+    ],
+    "lastCheckedAt": "2026-05-18",
+    "verificationStatus": "已核验",
+    "tags": ["官方厂商", "高风险"]
+  },
+  {
+    "id": "docker",
+    "name": "Docker",
+    "slug": "docker",
+    "category": "deploy-ops",
+    "description": "Docker 容器管理，支持列出容器、查看日志、执行命令和管理镜像",
+    "officialUrl": "https://github.com/docker/mcp-server-docker",
+    "sourceRepo": "https://github.com/docker/mcp-server-docker",
+    "license": "Apache-2.0",
+    "supportedClients": ["claude-desktop", "cursor"],
+    "installMethod": "npx",
+    "installCommand": "npx -y @docker/mcp-server-docker",
+    "configExample": {
+      "mcpServers": {
+        "docker": {
+          "command": "npx",
+          "args": ["-y", "@docker/mcp-server-docker"]
+        }
+      }
+    },
+    "requiredEnv": [],
+    "permissionScope": ["command-execution", "infrastructure-write"],
+    "riskScore": 7,
+    "riskLevel": "high",
+    "riskExplanation": "可管理 Docker 容器，包括启停和执行命令，需要 Docker 运行中",
+    "commonErrors": [
+      {"error": "Docker daemon 未运行", "solution": "启动 Docker Desktop 或 dockerd 服务"},
+      {"error": "permission denied", "solution": "确认当前用户在 docker 组中"}
+    ],
+    "lastCheckedAt": "2026-05-18",
+    "verificationStatus": "已核验",
+    "tags": ["官方厂商", "高风险"]
+  },
+  {
+    "id": "linear",
+    "name": "Linear",
+    "slug": "linear",
+    "category": "design-collaboration",
+    "description": "Linear 项目管理集成，支持创建和管理 Issue、项目和团队",
+    "officialUrl": "https://github.com/jerhadf/linear-mcp-server",
+    "sourceRepo": "https://github.com/jerhadf/linear-mcp-server",
+    "license": "MIT",
+    "supportedClients": ["claude-desktop", "cursor"],
+    "installMethod": "npx",
+    "installCommand": "npx -y linear-mcp-server",
+    "configExample": {
+      "mcpServers": {
+        "linear": {
+          "command": "npx",
+          "args": ["-y", "linear-mcp-server"],
+          "env": {
+            "LINEAR_API_KEY": "<your-api-key>"
+          }
+        }
+      }
+    },
+    "requiredEnv": ["LINEAR_API_KEY"],
+    "permissionScope": ["network-access", "credential-required"],
+    "riskScore": 4,
+    "riskLevel": "medium",
+    "riskExplanation": "可创建和修改 Linear Issue，建议使用只读 Token 进行测试",
+    "commonErrors": [
+      {"error": "API Key 无效", "solution": "在 Linear Settings > API 中生成 Personal API Key"}
+    ],
+    "lastCheckedAt": "2026-05-18",
+    "verificationStatus": "部分核验",
+    "tags": ["社区", "需要API Key"]
+  },
+  {
+    "id": "notion",
+    "name": "Notion",
+    "slug": "notion",
+    "category": "design-collaboration",
+    "description": "Notion API 集成，支持搜索、读取和创建页面与数据库",
+    "officialUrl": "https://github.com/makenotion/notion-mcp-server",
+    "sourceRepo": "https://github.com/makenotion/notion-mcp-server",
+    "license": "MIT",
+    "supportedClients": ["claude-desktop", "cursor", "vscode-cline"],
+    "installMethod": "npx",
+    "installCommand": "npx -y @notionhq/notion-mcp-server",
+    "configExample": {
+      "mcpServers": {
+        "notion": {
+          "command": "npx",
+          "args": ["-y", "@notionhq/notion-mcp-server"],
+          "env": {
+            "OPENAPI_MCP_HEADERS": "{\"Authorization\":\"Bearer ntn_xxx\",\"Notion-Version\":\"2022-06-28\"}"
+          }
+        }
+      }
+    },
+    "requiredEnv": ["OPENAPI_MCP_HEADERS"],
+    "permissionScope": ["network-access", "credential-required"],
+    "riskScore": 4,
+    "riskLevel": "medium",
+    "riskExplanation": "可读写 Notion 页面，建议只授权特定页面的 Integration",
+    "commonErrors": [
+      {"error": "unauthorized", "solution": "确认 Integration Token 有效且已连接到目标页面"},
+      {"error": "object_not_found", "solution": "确认 Integration 已被添加到目标页面或数据库"}
+    ],
+    "lastCheckedAt": "2026-05-18",
+    "verificationStatus": "已核验",
+    "tags": ["官方厂商", "需要API Key"]
+  },
+  {
+    "id": "sentry",
+    "name": "Sentry",
+    "slug": "sentry",
+    "category": "deploy-ops",
+    "description": "Sentry 错误监控集成，支持查看 Issue、错误详情和项目状态",
+    "officialUrl": "https://github.com/getsentry/sentry-mcp-server",
+    "sourceRepo": "https://github.com/getsentry/sentry-mcp-server",
+    "license": "Apache-2.0",
+    "supportedClients": ["claude-desktop", "cursor"],
+    "installMethod": "npx",
+    "installCommand": "npx -y @sentry/mcp-server",
+    "configExample": {
+      "mcpServers": {
+        "sentry": {
+          "command": "npx",
+          "args": ["-y", "@sentry/mcp-server"],
+          "env": {
+            "SENTRY_AUTH_TOKEN": "<your-token>"
+          }
+        }
+      }
+    },
+    "requiredEnv": ["SENTRY_AUTH_TOKEN"],
+    "permissionScope": ["network-access", "credential-required"],
+    "riskScore": 2,
+    "riskLevel": "low",
+    "riskExplanation": "只读取 Sentry 错误数据，不执行修改操作",
+    "commonErrors": [
+      {"error": "401 Unauthorized", "solution": "在 Sentry Settings > Auth Tokens 生成 Token"}
+    ],
+    "lastCheckedAt": "2026-05-18",
+    "verificationStatus": "部分核验",
+    "tags": ["官方厂商", "需要API Key", "低风险"]
+  },
+  {
+    "id": "exa",
+    "name": "Exa",
+    "slug": "exa",
+    "category": "search-knowledge",
+    "description": "Exa AI 搜索引擎集成，支持语义搜索和内容获取",
+    "officialUrl": "https://github.com/exa-labs/exa-mcp-server",
+    "sourceRepo": "https://github.com/exa-labs/exa-mcp-server",
+    "license": "MIT",
+    "supportedClients": ["claude-desktop", "cursor", "vscode-cline"],
+    "installMethod": "npx",
+    "installCommand": "npx -y exa-mcp-server",
+    "configExample": {
+      "mcpServers": {
+        "exa": {
+          "command": "npx",
+          "args": ["-y", "exa-mcp-server"],
+          "env": {
+            "EXA_API_KEY": "<your-api-key>"
+          }
+        }
+      }
+    },
+    "requiredEnv": ["EXA_API_KEY"],
+    "permissionScope": ["network-access", "credential-required"],
+    "riskScore": 2,
+    "riskLevel": "low",
+    "riskExplanation": "只进行搜索查询，不修改任何数据",
+    "commonErrors": [
+      {"error": "API Key 无效", "solution": "在 exa.ai 注册并获取 API Key"}
+    ],
+    "lastCheckedAt": "2026-05-18",
+    "verificationStatus": "已核验",
+    "tags": ["社区", "需要API Key", "低风险"]
+  },
+  {
+    "id": "mysql",
+    "name": "MySQL",
+    "slug": "mysql",
+    "category": "database",
+    "description": "MySQL 数据库连接，支持查询、表结构查看和基本数据操作",
+    "officialUrl": "https://github.com/benborla/mcp-server-mysql",
+    "sourceRepo": "https://github.com/benborla/mcp-server-mysql",
+    "license": "MIT",
+    "supportedClients": ["claude-desktop", "cursor"],
+    "installMethod": "npx",
+    "installCommand": "npx -y @benborla29/mcp-server-mysql",
+    "configExample": {
+      "mcpServers": {
+        "mysql": {
+          "command": "npx",
+          "args": ["-y", "@benborla29/mcp-server-mysql"],
+          "env": {
+            "MYSQL_HOST": "localhost",
+            "MYSQL_PORT": "3306",
+            "MYSQL_USER": "root",
+            "MYSQL_PASSWORD": "<password>",
+            "MYSQL_DATABASE": "mydb"
+          }
+        }
+      }
+    },
+    "requiredEnv": ["MYSQL_HOST", "MYSQL_USER", "MYSQL_PASSWORD", "MYSQL_DATABASE"],
+    "permissionScope": ["database-read", "database-write", "network-access", "credential-required"],
+    "riskScore": 6,
+    "riskLevel": "high",
+    "riskExplanation": "可读写 MySQL 数据库，强烈建议使用只读账号和测试数据库",
+    "commonErrors": [
+      {"error": "连接被拒绝", "solution": "确认 MySQL 服务运行中且允许连接"},
+      {"error": "Access denied", "solution": "检查用户名、密码和数据库权限"}
+    ],
+    "lastCheckedAt": "2026-05-18",
+    "verificationStatus": "部分核验",
+    "tags": ["社区", "需要API Key", "高风险"]
+  },
+  {
+    "id": "tavily",
+    "name": "Tavily Search",
+    "slug": "tavily",
+    "category": "search-knowledge",
+    "description": "Tavily AI 搜索引擎，专为 AI Agent 优化的搜索 API",
+    "officialUrl": "https://github.com/tavily-ai/tavily-mcp",
+    "sourceRepo": "https://github.com/tavily-ai/tavily-mcp",
+    "license": "MIT",
+    "supportedClients": ["claude-desktop", "cursor", "vscode-cline"],
+    "installMethod": "npx",
+    "installCommand": "npx -y tavily-mcp",
+    "configExample": {
+      "mcpServers": {
+        "tavily": {
+          "command": "npx",
+          "args": ["-y", "tavily-mcp"],
+          "env": {
+            "TAVILY_API_KEY": "<your-api-key>"
+          }
+        }
+      }
+    },
+    "requiredEnv": ["TAVILY_API_KEY"],
+    "permissionScope": ["network-access", "credential-required"],
+    "riskScore": 2,
+    "riskLevel": "low",
+    "riskExplanation": "只进行搜索查询，不修改任何数据，免费版每月 1000 次",
+    "commonErrors": [
+      {"error": "API Key 无效", "solution": "在 tavily.com 注册获取免费 API Key"},
+      {"error": "超出配额", "solution": "免费版每月 1000 次搜索，升级或等待下月"}
+    ],
+    "lastCheckedAt": "2026-05-18",
+    "verificationStatus": "已核验",
+    "tags": ["社区", "需要API Key", "低风险"]
+  },
+  {
+    "id": "figma",
+    "name": "Figma",
+    "slug": "figma",
+    "category": "design-collaboration",
+    "description": "Figma 设计文件读取，支持获取设计稿信息、组件和样式",
+    "officialUrl": "https://github.com/nicholasgriffintn/figma-mcp-server",
+    "sourceRepo": "https://github.com/nicholasgriffintn/figma-mcp-server",
+    "license": "MIT",
+    "supportedClients": ["claude-desktop", "cursor"],
+    "installMethod": "npx",
+    "installCommand": "npx -y figma-mcp-server",
+    "configExample": {
+      "mcpServers": {
+        "figma": {
+          "command": "npx",
+          "args": ["-y", "figma-mcp-server"],
+          "env": {
+            "FIGMA_ACCESS_TOKEN": "<your-token>"
+          }
+        }
+      }
+    },
+    "requiredEnv": ["FIGMA_ACCESS_TOKEN"],
+    "permissionScope": ["network-access", "credential-required"],
+    "riskScore": 2,
+    "riskLevel": "low",
+    "riskExplanation": "只读取 Figma 设计文件，不执行修改操作",
+    "commonErrors": [
+      {"error": "Token 无效", "solution": "在 Figma Settings > Personal Access Tokens 生成"},
+      {"error": "文件未找到", "solution": "确认 Token 有该文件的访问权限"}
+    ],
+    "lastCheckedAt": "2026-05-18",
+    "verificationStatus": "部分核验",
+    "tags": ["社区", "需要API Key", "低风险"]
+  },
+  {
+    "id": "vercel",
+    "name": "Vercel",
+    "slug": "vercel",
+    "category": "deploy-ops",
+    "description": "Vercel 部署平台管理，支持项目、部署和域名操作",
+    "officialUrl": "https://github.com/vercel/vercel-mcp",
+    "sourceRepo": "https://github.com/vercel/vercel-mcp",
+    "license": "Apache-2.0",
+    "supportedClients": ["claude-desktop", "cursor", "vscode-cline"],
+    "installMethod": "npx",
+    "installCommand": "npx -y @vercel/mcp",
+    "configExample": {
+      "mcpServers": {
+        "vercel": {
+          "command": "npx",
+          "args": ["-y", "@vercel/mcp"],
+          "env": {
+            "VERCEL_TOKEN": "<your-token>"
+          }
+        }
+      }
+    },
+    "requiredEnv": ["VERCEL_TOKEN"],
+    "permissionScope": ["network-access", "credential-required", "infrastructure-write"],
+    "riskScore": 6,
+    "riskLevel": "high",
+    "riskExplanation": "可管理 Vercel 项目和部署，建议使用受限 Token",
+    "commonErrors": [
+      {"error": "认证失败", "solution": "在 Vercel Settings > Tokens 生成 Token"},
+      {"error": "项目未找到", "solution": "确认 Token 有该项目的访问权限"}
+    ],
+    "lastCheckedAt": "2026-05-18",
+    "verificationStatus": "已核验",
+    "tags": ["官方厂商", "需要API Key", "高风险"]
+  },
+  {
+    "id": "redis",
+    "name": "Redis",
+    "slug": "redis",
+    "category": "database",
+    "description": "Redis 数据库操作，支持键值读写、列表、哈希和集合操作",
+    "officialUrl": "https://github.com/redis/mcp-redis",
+    "sourceRepo": "https://github.com/redis/mcp-redis",
+    "license": "MIT",
+    "supportedClients": ["claude-desktop", "cursor"],
+    "installMethod": "npx",
+    "installCommand": "npx -y @redis/mcp-server",
+    "configExample": {
+      "mcpServers": {
+        "redis": {
+          "command": "npx",
+          "args": ["-y", "@redis/mcp-server"],
+          "env": {
+            "REDIS_URL": "redis://localhost:6379"
+          }
+        }
+      }
+    },
+    "requiredEnv": ["REDIS_URL"],
+    "permissionScope": ["database-read", "database-write", "network-access"],
+    "riskScore": 5,
+    "riskLevel": "medium",
+    "riskExplanation": "可读写 Redis 数据，建议连接本地开发实例而非生产环境",
+    "commonErrors": [
+      {"error": "连接被拒绝", "solution": "确认 Redis 服务运行中且端口正确"},
+      {"error": "认证失败", "solution": "如果 Redis 设置了密码，在 URL 中包含密码"}
+    ],
+    "lastCheckedAt": "2026-05-18",
+    "verificationStatus": "部分核验",
+    "tags": ["官方厂商", "需要配置"]
+  },
+  {
+    "id": "time",
+    "name": "Time",
+    "slug": "time",
+    "category": "file-system",
+    "description": "时间和时区工具，支持获取当前时间和时区转换",
+    "officialUrl": "https://github.com/modelcontextprotocol/servers/tree/main/src/time",
+    "sourceRepo": "https://github.com/modelcontextprotocol/servers",
+    "license": "MIT",
+    "supportedClients": ["claude-desktop", "cursor", "vscode-cline"],
+    "installMethod": "uvx",
+    "installCommand": "uvx mcp-server-time --local-timezone Asia/Shanghai",
+    "configExample": {
+      "mcpServers": {
+        "time": {
+          "command": "uvx",
+          "args": ["mcp-server-time", "--local-timezone", "Asia/Shanghai"]
+        }
+      }
+    },
+    "requiredEnv": [],
+    "permissionScope": [],
+    "riskScore": 0,
+    "riskLevel": "low",
+    "riskExplanation": "只提供时间信息，不访问文件或网络",
+    "commonErrors": [
+      {"error": "时区名称无效", "solution": "使用 IANA 时区名称如 Asia/Shanghai、America/New_York"}
+    ],
+    "lastCheckedAt": "2026-05-18",
+    "verificationStatus": "已核验",
+    "tags": ["官方", "低风险", "新手推荐"]
+  },
+  {
+    "id": "github-copilot",
+    "name": "GitHub Models",
+    "slug": "github-models",
+    "category": "search-knowledge",
+    "description": "通过 GitHub Models 访问多种 AI 模型进行推理",
+    "officialUrl": "https://github.com/github/github-mcp-server",
+    "sourceRepo": "https://github.com/github/github-mcp-server",
+    "license": "MIT",
+    "supportedClients": ["claude-desktop", "cursor", "vscode-cline"],
+    "installMethod": "npx",
+    "installCommand": "npx -y @github/mcp-server",
+    "configExample": {
+      "mcpServers": {
+        "github-models": {
+          "command": "npx",
+          "args": ["-y", "@github/mcp-server"],
+          "env": {
+            "GITHUB_PERSONAL_ACCESS_TOKEN": "<your-token>"
+          }
+        }
+      }
+    },
+    "requiredEnv": ["GITHUB_PERSONAL_ACCESS_TOKEN"],
+    "permissionScope": ["network-access", "credential-required"],
+    "riskScore": 3,
+    "riskLevel": "medium",
+    "riskExplanation": "需要 GitHub Token，可访问仓库和 GitHub 功能",
+    "commonErrors": [
+      {"error": "Token 权限不足", "solution": "确认 Token 有 repo 和 models 权限"},
+      {"error": "模型不可用", "solution": "部分模型需要 GitHub Copilot 订阅"}
+    ],
+    "lastCheckedAt": "2026-05-18",
+    "verificationStatus": "部分核验",
+    "tags": ["官方厂商", "需要API Key"]
+  },
+  {
+    "id": "shell",
+    "name": "Shell / Terminal",
+    "slug": "shell",
+    "category": "deploy-ops",
+    "description": "执行 shell 命令，支持运行脚本和系统操作",
+    "officialUrl": "https://github.com/modelcontextprotocol/servers/tree/main/src/shell",
+    "sourceRepo": "https://github.com/modelcontextprotocol/servers",
+    "license": "MIT",
+    "supportedClients": ["claude-desktop", "cursor"],
+    "installMethod": "npx",
+    "installCommand": "npx -y @modelcontextprotocol/server-shell",
+    "configExample": {
+      "mcpServers": {
+        "shell": {
+          "command": "npx",
+          "args": ["-y", "@modelcontextprotocol/server-shell"]
+        }
+      }
+    },
+    "requiredEnv": [],
+    "permissionScope": ["command-execution", "file-read", "file-write", "network-access"],
+    "riskScore": 9,
+    "riskLevel": "high",
+    "riskExplanation": "可执行任意 shell 命令，风险极高，仅在完全信任的环境中使用",
+    "commonErrors": [
+      {"error": "命令未找到", "solution": "确认命令在系统 PATH 中"},
+      {"error": "权限被拒绝", "solution": "部分命令需要管理员权限"}
+    ],
+    "lastCheckedAt": "2026-05-18",
+    "verificationStatus": "已核验",
+    "tags": ["官方", "高风险"]
+  },
+  {
+    "id": "obsidian",
+    "name": "Obsidian",
+    "slug": "obsidian",
+    "category": "search-knowledge",
+    "description": "Obsidian 笔记库读写，支持搜索、创建和编辑笔记",
+    "officialUrl": "https://github.com/smithery-ai/mcp-obsidian",
+    "sourceRepo": "https://github.com/smithery-ai/mcp-obsidian",
+    "license": "MIT",
+    "supportedClients": ["claude-desktop", "cursor"],
+    "installMethod": "npx",
+    "installCommand": "npx -y mcp-obsidian /path/to/vault",
+    "configExample": {
+      "mcpServers": {
+        "obsidian": {
+          "command": "npx",
+          "args": ["-y", "mcp-obsidian", "/Users/you/ObsidianVault"]
+        }
+      }
+    },
+    "requiredEnv": [],
+    "permissionScope": ["file-read", "file-write"],
+    "riskScore": 3,
+    "riskLevel": "medium",
+    "riskExplanation": "可读写指定 Obsidian 笔记库中的文件",
+    "commonErrors": [
+      {"error": "Vault 路径不存在", "solution": "确认路径指向有效的 Obsidian Vault 目录"},
+      {"error": "文件编码错误", "solution": "确认笔记文件为 UTF-8 编码"}
+    ],
+    "lastCheckedAt": "2026-05-18",
+    "verificationStatus": "部分核验",
+    "tags": ["社区"]
+  },
+  {
+    "id": "perplexity",
+    "name": "Perplexity",
+    "slug": "perplexity",
+    "category": "search-knowledge",
+    "description": "Perplexity AI 搜索集成，返回带引用来源的 AI 综合搜索结果",
+    "officialUrl": "https://github.com/modelcontextprotocol/servers/tree/main/src/perplexity",
+    "sourceRepo": "https://github.com/modelcontextprotocol/servers",
+    "license": "MIT",
+    "supportedClients": ["claude-desktop", "cursor", "vscode-cline"],
+    "installMethod": "npx",
+    "installCommand": "npx -y @modelcontextprotocol/server-perplexity",
+    "configExample": {
+      "mcpServers": {
+        "perplexity": {
+          "command": "npx",
+          "args": ["-y", "@modelcontextprotocol/server-perplexity"],
+          "env": {
+            "PERPLEXITY_API_KEY": "<your-api-key>"
+          }
+        }
+      }
+    },
+    "requiredEnv": ["PERPLEXITY_API_KEY"],
+    "permissionScope": ["network-access", "credential-required"],
+    "riskScore": 2,
+    "riskLevel": "low",
+    "riskExplanation": "只进行搜索查询并返回结果，不修改任何数据",
+    "commonErrors": [
+      {"error": "API Key 无效", "solution": "在 perplexity.ai 的 API 设置中生成 Key"},
+      {"error": "模型不可用", "solution": "确认 API Key 有对应模型的访问权限"}
+    ],
+    "lastCheckedAt": "2026-05-18",
+    "verificationStatus": "已核验",
+    "tags": ["官方", "需要API Key", "低风险"]
+  },
+  {
+    "id": "context7",
+    "name": "Context7",
+    "slug": "context7",
+    "category": "search-knowledge",
+    "description": "为 AI 编程助手提供最新的库文档和代码示例，避免使用过时 API",
+    "officialUrl": "https://github.com/upstash/context7",
+    "sourceRepo": "https://github.com/upstash/context7",
+    "license": "Apache-2.0",
+    "supportedClients": ["claude-desktop", "cursor", "vscode-cline"],
+    "installMethod": "npx",
+    "installCommand": "npx -y @upstash/context7-mcp",
+    "configExample": {
+      "mcpServers": {
+        "context7": {
+          "command": "npx",
+          "args": ["-y", "@upstash/context7-mcp"]
+        }
+      }
+    },
+    "requiredEnv": [],
+    "permissionScope": ["network-access"],
+    "riskScore": 1,
+    "riskLevel": "low",
+    "riskExplanation": "只查询公开的库文档，不访问本地文件或执行命令",
+    "commonErrors": [
+      {"error": "网络超时", "solution": "检查网络连接，Context7 需要访问远程文档库"}
+    ],
+    "lastCheckedAt": "2026-05-18",
+    "verificationStatus": "已核验",
+    "tags": ["社区", "低风险", "新手推荐"]
+  },
+  {
+    "id": "firecrawl",
+    "name": "Firecrawl",
+    "slug": "firecrawl",
+    "category": "browser-automation",
+    "description": "网页抓取和数据提取工具，将网页转换为结构化的 Markdown 或 JSON",
+    "officialUrl": "https://github.com/mendableai/firecrawl-mcp-server",
+    "sourceRepo": "https://github.com/mendableai/firecrawl-mcp-server",
+    "license": "MIT",
+    "supportedClients": ["claude-desktop", "cursor", "vscode-cline"],
+    "installMethod": "npx",
+    "installCommand": "npx -y firecrawl-mcp",
+    "configExample": {
+      "mcpServers": {
+        "firecrawl": {
+          "command": "npx",
+          "args": ["-y", "firecrawl-mcp"],
+          "env": {
+            "FIRECRAWL_API_KEY": "<your-api-key>"
+          }
+        }
+      }
+    },
+    "requiredEnv": ["FIRECRAWL_API_KEY"],
+    "permissionScope": ["network-access", "credential-required"],
+    "riskScore": 3,
+    "riskLevel": "medium",
+    "riskExplanation": "通过 API 抓取网页内容，注意遵守目标网站的 robots.txt 和使用条款",
+    "commonErrors": [
+      {"error": "API Key 无效", "solution": "在 firecrawl.dev 注册获取 API Key"},
+      {"error": "抓取被拒绝", "solution": "目标网站可能有反爬机制，换一个 URL 测试"}
+    ],
+    "lastCheckedAt": "2026-05-18",
+    "verificationStatus": "已核验",
+    "tags": ["社区", "需要API Key"]
+  },
+  {
+    "id": "playwright-official",
+    "name": "Playwright (Official)",
+    "slug": "playwright-official",
+    "category": "browser-automation",
+    "description": "Playwright 官方 MCP Server，支持浏览器自动化、截图和网页交互",
+    "officialUrl": "https://github.com/microsoft/playwright-mcp",
+    "sourceRepo": "https://github.com/microsoft/playwright-mcp",
+    "license": "Apache-2.0",
+    "supportedClients": ["claude-desktop", "cursor", "vscode-cline"],
+    "installMethod": "npx",
+    "installCommand": "npx -y @playwright/mcp",
+    "configExample": {
+      "mcpServers": {
+        "playwright": {
+          "command": "npx",
+          "args": ["-y", "@playwright/mcp"]
+        }
+      }
+    },
+    "requiredEnv": [],
+    "permissionScope": ["network-access", "browser-control"],
+    "riskScore": 5,
+    "riskLevel": "medium",
+    "riskExplanation": "可控制浏览器访问网页并执行操作，注意不要在已登录状态下使用",
+    "commonErrors": [
+      {"error": "浏览器未安装", "solution": "运行 npx playwright install 安装浏览器"},
+      {"error": "页面加载超时", "solution": "检查网络连接或增加超时设置"}
+    ],
+    "lastCheckedAt": "2026-05-18",
+    "verificationStatus": "已核验",
+    "tags": ["官方厂商", "Microsoft"]
+  }
+]

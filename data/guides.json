@@ -1,0 +1,58 @@
+[
+  {
+    "id": "what-is-mcp",
+    "title": "MCP Server 是什么",
+    "slug": "what-is-mcp",
+    "category": "基础概念",
+    "description": "Model Context Protocol 的基本概念、与普通插件的区别和工作原理"
+  },
+  {
+    "id": "claude-desktop-setup",
+    "title": "Claude Desktop MCP 配置教程",
+    "slug": "claude-desktop-setup",
+    "category": "客户端教程",
+    "description": "从零开始在 Claude Desktop 中配置 MCP Server 的完整步骤"
+  },
+  {
+    "id": "cursor-setup",
+    "title": "Cursor MCP 配置教程",
+    "slug": "cursor-setup",
+    "category": "客户端教程",
+    "description": "在 Cursor 编辑器中配置和使用 MCP Server 的完整步骤"
+  },
+  {
+    "id": "config-json-explained",
+    "title": "MCP 配置 JSON 字段说明",
+    "slug": "config-json-explained",
+    "category": "基础概念",
+    "description": "command、args、env 等配置字段的含义和常见写法"
+  },
+  {
+    "id": "common-errors",
+    "title": "MCP Server 常见报错排查",
+    "slug": "common-errors",
+    "category": "排错指南",
+    "description": "连接失败、命令找不到、权限不足等常见错误的排查方法"
+  },
+  {
+    "id": "security-checklist",
+    "title": "MCP 权限风险检查清单",
+    "slug": "security-checklist",
+    "category": "安全",
+    "description": "接入 MCP 前应检查的权限范围、凭据保护和安全边界"
+  },
+  {
+    "id": "beginner-recommendations",
+    "title": "新手适合先装哪些低风险 MCP",
+    "slug": "beginner-recommendations",
+    "category": "入门推荐",
+    "description": "适合新手的低风险 MCP Server 推荐和安装顺序"
+  },
+  {
+    "id": "api-key-management",
+    "title": "API Key 和环境变量怎么保存",
+    "slug": "api-key-management",
+    "category": "安全",
+    "description": "安全存储 API Key 的方法，避免提交到公开仓库"
+  }
+]

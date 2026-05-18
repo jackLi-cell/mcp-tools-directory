@@ -1,0 +1,43 @@
+[
+  {
+    "id": "claude-desktop",
+    "name": "Claude Desktop",
+    "slug": "claude-desktop",
+    "description": "Anthropic 官方桌面客户端，原生支持 MCP",
+    "configFilePath": {
+      "macos": "~/Library/Application Support/Claude/claude_desktop_config.json",
+      "windows": "%APPDATA%\\Claude\\claude_desktop_config.json"
+    },
+    "docsUrl": "https://docs.anthropic.com/en/docs/claude-desktop/mcp",
+    "restartMethod": "完全退出 Claude Desktop 后重新打开",
+    "verifyMethod": "打开对话，输入'你有哪些工具可用'，确认 MCP 工具出现在列表中",
+    "lastCheckedAt": "2026-05-18"
+  },
+  {
+    "id": "cursor",
+    "name": "Cursor",
+    "slug": "cursor",
+    "description": "AI 代码编辑器，支持通过设置面板配置 MCP",
+    "configFilePath": {
+      "global": "~/.cursor/mcp.json",
+      "project": ".cursor/mcp.json"
+    },
+    "docsUrl": "https://docs.cursor.com/context/model-context-protocol",
+    "restartMethod": "保存配置后 Cursor 自动重载，或手动重启",
+    "verifyMethod": "在 Cursor Settings > MCP 中查看已连接的 Server 状态",
+    "lastCheckedAt": "2026-05-18"
+  },
+  {
+    "id": "vscode-cline",
+    "name": "VS Code / Cline",
+    "slug": "vscode-cline",
+    "description": "VS Code 中通过 Cline 扩展使用 MCP",
+    "configFilePath": {
+      "global": "Cline 扩展设置面板中配置"
+    },
+    "docsUrl": "https://github.com/cline/cline",
+    "restartMethod": "在 Cline 面板中点击刷新或重启扩展",
+    "verifyMethod": "在 Cline 对话中确认工具列表包含已配置的 MCP Server",
+    "lastCheckedAt": "2026-05-18"
+  }
+]

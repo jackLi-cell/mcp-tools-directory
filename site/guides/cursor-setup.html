@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cursor MCP 配置教程 - AI Agent 与 MCP Server 工具目录</title>
+  <meta name="description" content="在 Cursor 编辑器中配置和使用 MCP Server 的完整步骤">
+  <link rel="canonical" href="https://mcp.jtlcook.com/guides/cursor-setup.html">
+  <link rel="stylesheet" href="../assets/styles.css">
+</head>
+<body>
+  
+    <nav class="nav">
+      <div class="container nav-inner">
+        <a href="../index.html" class="nav-brand">AI Agent 与 MCP Server 工具目录</a>
+        <div class="nav-links">
+          <a href="../servers/index.html">资料库</a>
+          <a href="../guides/what-is-mcp.html">教程</a>
+          <a href="../tools/config-builder.html">配置生成器</a>
+          <a href="../pages/about.html">关于</a>
+        </div>
+      </div>
+    </nav>
+  <main class="main container">
+    <nav class="breadcrumb"><a href="../index.html">首页</a> / <a href="undefined">指南</a> / <span>Cursor MCP 配置教程</span></nav>
+    
+      <h1>Cursor MCP 配置教程</h1>
+      <p class="intro">Cursor 是一款 AI 驱动的代码编辑器，支持通过 MCP 协议接入外部工具。本教程介绍如何在 Cursor 中配置 MCP Server。</p>
+
+      <section class="section">
+        <h2>前置条件</h2>
+        <ul>
+          <li>已安装 Cursor 编辑器（0.45 或更高版本）</li>
+          <li>已安装 Node.js 18+（用于 npx 类 Server）或 Python 3.10+（用于 uvx 类 Server）</li>
+        </ul>
+      </section>
+
+      <section class="section">
+        <h2>配置步骤</h2>
+        <h3>第一步：打开 MCP 设置</h3>
+        <p>在 Cursor 中，通过以下路径进入 MCP 配置：</p>
+        <ol>
+          <li>打开 Settings（快捷键 <code>Cmd+,</code> 或 <code>Ctrl+,</code>）</li>
+          <li>在左侧菜单找到 "MCP" 选项</li>
+          <li>点击 "Add new MCP server" 按钮</li>
+        </ol>
+        <p>也可以直接编辑项目根目录下的 <code>.cursor/mcp.json</code> 文件。</p>
+
+        <h3>第二步：编辑配置文件</h3>
+        <p>Cursor 的 MCP 配置文件位置：</p>
+        <ul>
+          <li><strong>项目级别：</strong><code>.cursor/mcp.json</code>（项目根目录下）</li>
+          <li><strong>全局级别：</strong><code>~/.cursor/mcp.json</code>（用户目录下）</li>
+        </ul>
+        <p>配置文件格式示例：</p>
+        <pre><code>{
+  "mcpServers": {
+    "filesystem": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "@modelcontextprotocol/server-filesystem",
+        "/path/to/your/project"
+      ]
+    }
+  }
+}</code></pre>
+
+        <h3>第三步：验证连接</h3>
+        <p>配置保存后，Cursor 会自动尝试连接 MCP Server。在 MCP 设置页面中，已连接的 Server 旁边会显示绿色状态指示器。</p>
+        <p>如果显示红色或黄色，点击 Server 名称查看错误详情。</p>
+      </section>
+
+      <section class="section">
+        <h2>在 Agent 模式中使用</h2>
+        <p>MCP 工具在 Cursor 的 Agent 模式（Composer Agent）中可用：</p>
+        <ol>
+          <li>打开 Composer（<code>Cmd+I</code> 或 <code>Ctrl+I</code>）</li>
+          <li>切换到 Agent 模式</li>
+          <li>AI 会根据需要自动调用已连接的 MCP 工具</li>
+        </ol>
+        <p>注意：普通的 Chat 模式和 Edit 模式不支持 MCP 工具调用。</p>
+      </section>
+
+      <section class="section">
+        <h2>注意事项</h2>
+        <ul>
+          <li>项目级配置（<code>.cursor/mcp.json</code>）会被提交到版本控制，不要在其中写入 API Key。</li>
+          <li>需要 API Key 的 Server，建议使用环境变量方式配置，Key 存放在 <code>.env</code> 文件中并加入 <code>.gitignore</code>。</li>
+          <li>Cursor 的 MCP 支持仍在快速迭代中，配置格式可能随版本更新变化。</li>
+          <li>如果 Server 启动失败，尝试在终端手动运行 command + args 确认命令本身是否正常。</li>
+        </ul>
+      </section>
+
+      <section class="section">
+        <h2>常见问题</h2>
+        <dl class="faq">
+          <dt>项目级和全局配置有什么区别？</dt>
+          <dd>项目级配置只在该项目中生效，适合项目特定的工具（如数据库连接）。全局配置对所有项目生效，适合通用工具（如文件搜索、网页抓取）。两者同时存在时会合并。</dd>
+          <dt>Cursor 中 MCP 工具不响应怎么办？</dt>
+          <dd>确认你在使用 Agent 模式（不是普通 Chat）。检查 MCP 设置页面中 Server 状态是否为绿色。尝试点击 "Restart" 按钮重启 Server。</dd>
+          <dt>能否在 Cursor 中使用 Claude Desktop 的 MCP 配置？</dt>
+          <dd>不能直接共用。两者的配置文件路径和格式略有不同，需要分别配置。但 MCP Server 本身是通用的，同一个 Server 可以同时被两个客户端使用。</dd>
+        </dl>
+      </section>
+
+      <section class="section">
+        <h2>相关链接</h2>
+        <ul>
+          <li><a href="https://docs.cursor.com/context/model-context-protocol" target="_blank" rel="noopener noreferrer">Cursor MCP 官方文档</a></li>
+          <li><a href="../guides/config-json-explained.html">MCP 配置 JSON 字段说明</a></li>
+          <li><a href="../guides/common-errors.html">MCP Server 常见报错排查</a></li>
+          <li><a href="../tools/config-builder.html">配置片段生成器</a></li>
+        </ul>
+      </section>
+  </main>
+  
+    <footer class="footer">
+      <div class="container">
+        <div class="footer-links">
+          <a href="../pages/about.html">关于本站</a>
+          <a href="../pages/contact.html">联系我们</a>
+          <a href="../pages/privacy.html">隐私政策</a>
+          <a href="../pages/disclaimer.html">免责声明</a>
+        </div>
+        <p class="footer-note">本站工具信息来自官方文档和公开仓库，使用前请以官方文档为准。第三方 MCP Server 由第三方维护，本站不保证安全性和可用性。</p>
+        <p class="footer-note">联系邮箱：1055567003@qq.com</p>
+      </div>
+    </footer>
+  <script src="../assets/app.js" defer></script>
+</body>
+</html>

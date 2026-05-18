@@ -1,0 +1,51 @@
+[
+  {
+    "id": "file-system",
+    "name": "文件与本地系统",
+    "slug": "file-system",
+    "description": "文件读写、目录检索、文档处理，重点提示权限范围",
+    "icon": "📁"
+  },
+  {
+    "id": "git-and-code",
+    "name": "Git 与开发工作流",
+    "slug": "git-and-code",
+    "description": "Git、GitHub、代码搜索、PR 辅助、Issue 管理",
+    "icon": "🔀"
+  },
+  {
+    "id": "database",
+    "name": "数据库与数据查询",
+    "slug": "database",
+    "description": "SQLite、PostgreSQL、MySQL、表格数据，重点提示只读与写入权限",
+    "icon": "🗄️"
+  },
+  {
+    "id": "browser-automation",
+    "name": "浏览器与网页自动化",
+    "slug": "browser-automation",
+    "description": "页面读取、测试、截图、自动操作，必须提示账号和隐私风险",
+    "icon": "🌐"
+  },
+  {
+    "id": "search-knowledge",
+    "name": "搜索与知识库",
+    "slug": "search-knowledge",
+    "description": "Web 搜索、文档库、向量库、团队知识库",
+    "icon": "🔍"
+  },
+  {
+    "id": "design-collaboration",
+    "name": "设计与产品协作",
+    "slug": "design-collaboration",
+    "description": "Figma、Linear、Notion、文档协作",
+    "icon": "🎨"
+  },
+  {
+    "id": "deploy-ops",
+    "name": "部署与运维",
+    "slug": "deploy-ops",
+    "description": "Docker、Cloudflare、Vercel、日志与监控类工具",
+    "icon": "🚀"
+  }
+]
