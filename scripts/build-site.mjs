@@ -100,6 +100,7 @@ function layout(title, description, canonical, content, breadcrumb = '', jsonLd 
   <title>${escapeHtml(title)}</title>
   <meta name="description" content="${escapeHtml(description)}">
   <link rel="canonical" href="${SITE_URL}${canonical}">
+  <link rel="icon" type="image/svg+xml" href="${prefix}favicon.svg">
   <link rel="stylesheet" href="${prefix}assets/styles.css">
   ${jsonLd ? `<script type="application/ld+json">${JSON.stringify(jsonLd)}</script>` : ''}
   <meta property="og:title" content="${escapeHtml(title)}">
