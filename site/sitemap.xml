@@ -11,397 +11,397 @@
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://mcp.jtlcook.com/servers/filesystem.html</loc>
+    <loc>https://mcp.jtlcook.com/servers/filesystem</loc>
     <lastmod>2026-05-18</lastmod>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://mcp.jtlcook.com/servers/github.html</loc>
+    <loc>https://mcp.jtlcook.com/servers/github</loc>
     <lastmod>2026-05-18</lastmod>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://mcp.jtlcook.com/servers/sqlite.html</loc>
+    <loc>https://mcp.jtlcook.com/servers/sqlite</loc>
     <lastmod>2026-05-18</lastmod>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://mcp.jtlcook.com/servers/postgres.html</loc>
+    <loc>https://mcp.jtlcook.com/servers/postgres</loc>
     <lastmod>2026-05-18</lastmod>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://mcp.jtlcook.com/servers/brave-search.html</loc>
+    <loc>https://mcp.jtlcook.com/servers/brave-search</loc>
     <lastmod>2026-05-18</lastmod>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://mcp.jtlcook.com/servers/puppeteer.html</loc>
+    <loc>https://mcp.jtlcook.com/servers/puppeteer</loc>
     <lastmod>2026-05-18</lastmod>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://mcp.jtlcook.com/servers/memory.html</loc>
+    <loc>https://mcp.jtlcook.com/servers/memory</loc>
     <lastmod>2026-05-18</lastmod>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://mcp.jtlcook.com/servers/fetch.html</loc>
+    <loc>https://mcp.jtlcook.com/servers/fetch</loc>
     <lastmod>2026-05-18</lastmod>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://mcp.jtlcook.com/servers/git.html</loc>
+    <loc>https://mcp.jtlcook.com/servers/git</loc>
     <lastmod>2026-05-18</lastmod>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://mcp.jtlcook.com/servers/sequential-thinking.html</loc>
+    <loc>https://mcp.jtlcook.com/servers/sequential-thinking</loc>
     <lastmod>2026-05-18</lastmod>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://mcp.jtlcook.com/servers/playwright.html</loc>
+    <loc>https://mcp.jtlcook.com/servers/playwright</loc>
     <lastmod>2026-05-18</lastmod>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://mcp.jtlcook.com/servers/everything.html</loc>
+    <loc>https://mcp.jtlcook.com/servers/everything</loc>
     <lastmod>2026-05-18</lastmod>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://mcp.jtlcook.com/servers/slack.html</loc>
+    <loc>https://mcp.jtlcook.com/servers/slack</loc>
     <lastmod>2026-05-18</lastmod>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://mcp.jtlcook.com/servers/google-maps.html</loc>
+    <loc>https://mcp.jtlcook.com/servers/google-maps</loc>
     <lastmod>2026-05-18</lastmod>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://mcp.jtlcook.com/servers/cloudflare.html</loc>
+    <loc>https://mcp.jtlcook.com/servers/cloudflare</loc>
     <lastmod>2026-05-18</lastmod>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://mcp.jtlcook.com/servers/docker.html</loc>
+    <loc>https://mcp.jtlcook.com/servers/docker</loc>
     <lastmod>2026-05-18</lastmod>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://mcp.jtlcook.com/servers/linear.html</loc>
+    <loc>https://mcp.jtlcook.com/servers/linear</loc>
     <lastmod>2026-05-18</lastmod>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://mcp.jtlcook.com/servers/notion.html</loc>
+    <loc>https://mcp.jtlcook.com/servers/notion</loc>
     <lastmod>2026-05-18</lastmod>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://mcp.jtlcook.com/servers/sentry.html</loc>
+    <loc>https://mcp.jtlcook.com/servers/sentry</loc>
     <lastmod>2026-05-18</lastmod>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://mcp.jtlcook.com/servers/exa.html</loc>
+    <loc>https://mcp.jtlcook.com/servers/exa</loc>
     <lastmod>2026-05-18</lastmod>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://mcp.jtlcook.com/servers/mysql.html</loc>
+    <loc>https://mcp.jtlcook.com/servers/mysql</loc>
     <lastmod>2026-05-18</lastmod>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://mcp.jtlcook.com/servers/tavily.html</loc>
+    <loc>https://mcp.jtlcook.com/servers/tavily</loc>
     <lastmod>2026-05-18</lastmod>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://mcp.jtlcook.com/servers/figma.html</loc>
+    <loc>https://mcp.jtlcook.com/servers/figma</loc>
     <lastmod>2026-05-18</lastmod>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://mcp.jtlcook.com/servers/vercel.html</loc>
+    <loc>https://mcp.jtlcook.com/servers/vercel</loc>
     <lastmod>2026-05-18</lastmod>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://mcp.jtlcook.com/servers/redis.html</loc>
+    <loc>https://mcp.jtlcook.com/servers/redis</loc>
     <lastmod>2026-05-18</lastmod>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://mcp.jtlcook.com/servers/time.html</loc>
+    <loc>https://mcp.jtlcook.com/servers/time</loc>
     <lastmod>2026-05-18</lastmod>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://mcp.jtlcook.com/servers/github-models.html</loc>
+    <loc>https://mcp.jtlcook.com/servers/github-models</loc>
     <lastmod>2026-05-18</lastmod>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://mcp.jtlcook.com/servers/shell.html</loc>
+    <loc>https://mcp.jtlcook.com/servers/shell</loc>
     <lastmod>2026-05-18</lastmod>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://mcp.jtlcook.com/servers/obsidian.html</loc>
+    <loc>https://mcp.jtlcook.com/servers/obsidian</loc>
     <lastmod>2026-05-18</lastmod>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://mcp.jtlcook.com/servers/perplexity.html</loc>
+    <loc>https://mcp.jtlcook.com/servers/perplexity</loc>
     <lastmod>2026-05-18</lastmod>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://mcp.jtlcook.com/servers/context7.html</loc>
+    <loc>https://mcp.jtlcook.com/servers/context7</loc>
     <lastmod>2026-05-18</lastmod>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://mcp.jtlcook.com/servers/firecrawl.html</loc>
+    <loc>https://mcp.jtlcook.com/servers/firecrawl</loc>
     <lastmod>2026-05-18</lastmod>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://mcp.jtlcook.com/servers/playwright-official.html</loc>
+    <loc>https://mcp.jtlcook.com/servers/playwright-official</loc>
     <lastmod>2026-05-18</lastmod>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://mcp.jtlcook.com/servers/duckdb.html</loc>
+    <loc>https://mcp.jtlcook.com/servers/duckdb</loc>
     <lastmod>2026-05-18</lastmod>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://mcp.jtlcook.com/servers/mongodb.html</loc>
+    <loc>https://mcp.jtlcook.com/servers/mongodb</loc>
     <lastmod>2026-05-18</lastmod>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://mcp.jtlcook.com/servers/neon.html</loc>
+    <loc>https://mcp.jtlcook.com/servers/neon</loc>
     <lastmod>2026-05-18</lastmod>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://mcp.jtlcook.com/servers/supabase.html</loc>
+    <loc>https://mcp.jtlcook.com/servers/supabase</loc>
     <lastmod>2026-05-18</lastmod>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://mcp.jtlcook.com/servers/airtable.html</loc>
+    <loc>https://mcp.jtlcook.com/servers/airtable</loc>
     <lastmod>2026-05-18</lastmod>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://mcp.jtlcook.com/servers/qdrant.html</loc>
+    <loc>https://mcp.jtlcook.com/servers/qdrant</loc>
     <lastmod>2026-05-18</lastmod>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://mcp.jtlcook.com/servers/kagi.html</loc>
+    <loc>https://mcp.jtlcook.com/servers/kagi</loc>
     <lastmod>2026-05-18</lastmod>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://mcp.jtlcook.com/servers/arxiv.html</loc>
+    <loc>https://mcp.jtlcook.com/servers/arxiv</loc>
     <lastmod>2026-05-18</lastmod>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://mcp.jtlcook.com/servers/google-drive.html</loc>
+    <loc>https://mcp.jtlcook.com/servers/google-drive</loc>
     <lastmod>2026-05-18</lastmod>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://mcp.jtlcook.com/servers/youtube-transcript.html</loc>
+    <loc>https://mcp.jtlcook.com/servers/youtube-transcript</loc>
     <lastmod>2026-05-18</lastmod>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://mcp.jtlcook.com/servers/bright-data.html</loc>
+    <loc>https://mcp.jtlcook.com/servers/bright-data</loc>
     <lastmod>2026-05-18</lastmod>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://mcp.jtlcook.com/servers/apify.html</loc>
+    <loc>https://mcp.jtlcook.com/servers/apify</loc>
     <lastmod>2026-05-18</lastmod>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://mcp.jtlcook.com/servers/atlassian.html</loc>
+    <loc>https://mcp.jtlcook.com/servers/atlassian</loc>
     <lastmod>2026-05-18</lastmod>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://mcp.jtlcook.com/servers/todoist.html</loc>
+    <loc>https://mcp.jtlcook.com/servers/todoist</loc>
     <lastmod>2026-05-18</lastmod>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://mcp.jtlcook.com/servers/google-calendar.html</loc>
+    <loc>https://mcp.jtlcook.com/servers/google-calendar</loc>
     <lastmod>2026-05-18</lastmod>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://mcp.jtlcook.com/servers/kubernetes.html</loc>
+    <loc>https://mcp.jtlcook.com/servers/kubernetes</loc>
     <lastmod>2026-05-18</lastmod>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://mcp.jtlcook.com/servers/aws.html</loc>
+    <loc>https://mcp.jtlcook.com/servers/aws</loc>
     <lastmod>2026-05-18</lastmod>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://mcp.jtlcook.com/servers/datadog.html</loc>
+    <loc>https://mcp.jtlcook.com/servers/datadog</loc>
     <lastmod>2026-05-18</lastmod>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://mcp.jtlcook.com/servers/windows-cli.html</loc>
+    <loc>https://mcp.jtlcook.com/servers/windows-cli</loc>
     <lastmod>2026-05-18</lastmod>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://mcp.jtlcook.com/servers/e2b.html</loc>
+    <loc>https://mcp.jtlcook.com/servers/e2b</loc>
     <lastmod>2026-05-18</lastmod>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://mcp.jtlcook.com/servers/gmail.html</loc>
+    <loc>https://mcp.jtlcook.com/servers/gmail</loc>
     <lastmod>2026-05-18</lastmod>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://mcp.jtlcook.com/servers/stripe.html</loc>
+    <loc>https://mcp.jtlcook.com/servers/stripe</loc>
     <lastmod>2026-05-18</lastmod>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://mcp.jtlcook.com/servers/bluesky.html</loc>
+    <loc>https://mcp.jtlcook.com/servers/bluesky</loc>
     <lastmod>2026-05-18</lastmod>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://mcp.jtlcook.com/categories/file-system.html</loc>
+    <loc>https://mcp.jtlcook.com/categories/file-system</loc>
     <lastmod>2026-05-18</lastmod>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://mcp.jtlcook.com/categories/git-and-code.html</loc>
+    <loc>https://mcp.jtlcook.com/categories/git-and-code</loc>
     <lastmod>2026-05-18</lastmod>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://mcp.jtlcook.com/categories/database.html</loc>
+    <loc>https://mcp.jtlcook.com/categories/database</loc>
     <lastmod>2026-05-18</lastmod>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://mcp.jtlcook.com/categories/browser-automation.html</loc>
+    <loc>https://mcp.jtlcook.com/categories/browser-automation</loc>
     <lastmod>2026-05-18</lastmod>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://mcp.jtlcook.com/categories/search-knowledge.html</loc>
+    <loc>https://mcp.jtlcook.com/categories/search-knowledge</loc>
     <lastmod>2026-05-18</lastmod>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://mcp.jtlcook.com/categories/design-collaboration.html</loc>
+    <loc>https://mcp.jtlcook.com/categories/design-collaboration</loc>
     <lastmod>2026-05-18</lastmod>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://mcp.jtlcook.com/categories/deploy-ops.html</loc>
+    <loc>https://mcp.jtlcook.com/categories/deploy-ops</loc>
     <lastmod>2026-05-18</lastmod>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://mcp.jtlcook.com/clients/claude-desktop.html</loc>
+    <loc>https://mcp.jtlcook.com/clients/claude-desktop</loc>
     <lastmod>2026-05-18</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://mcp.jtlcook.com/clients/cursor.html</loc>
+    <loc>https://mcp.jtlcook.com/clients/cursor</loc>
     <lastmod>2026-05-18</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://mcp.jtlcook.com/clients/vscode-cline.html</loc>
+    <loc>https://mcp.jtlcook.com/clients/vscode-cline</loc>
     <lastmod>2026-05-18</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://mcp.jtlcook.com/guides/what-is-mcp.html</loc>
+    <loc>https://mcp.jtlcook.com/guides/what-is-mcp</loc>
     <lastmod>2026-05-18</lastmod>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://mcp.jtlcook.com/guides/claude-desktop-setup.html</loc>
+    <loc>https://mcp.jtlcook.com/guides/claude-desktop-setup</loc>
     <lastmod>2026-05-18</lastmod>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://mcp.jtlcook.com/guides/cursor-setup.html</loc>
+    <loc>https://mcp.jtlcook.com/guides/cursor-setup</loc>
     <lastmod>2026-05-18</lastmod>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://mcp.jtlcook.com/guides/config-json-explained.html</loc>
+    <loc>https://mcp.jtlcook.com/guides/config-json-explained</loc>
     <lastmod>2026-05-18</lastmod>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://mcp.jtlcook.com/guides/common-errors.html</loc>
+    <loc>https://mcp.jtlcook.com/guides/common-errors</loc>
     <lastmod>2026-05-18</lastmod>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://mcp.jtlcook.com/guides/security-checklist.html</loc>
+    <loc>https://mcp.jtlcook.com/guides/security-checklist</loc>
     <lastmod>2026-05-18</lastmod>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://mcp.jtlcook.com/guides/beginner-recommendations.html</loc>
+    <loc>https://mcp.jtlcook.com/guides/beginner-recommendations</loc>
     <lastmod>2026-05-18</lastmod>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://mcp.jtlcook.com/guides/api-key-management.html</loc>
+    <loc>https://mcp.jtlcook.com/guides/api-key-management</loc>
     <lastmod>2026-05-18</lastmod>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://mcp.jtlcook.com/tools/config-builder.html</loc>
+    <loc>https://mcp.jtlcook.com/tools/config-builder</loc>
     <lastmod>2026-05-18</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://mcp.jtlcook.com/pages/about.html</loc>
+    <loc>https://mcp.jtlcook.com/pages/about</loc>
     <lastmod>2026-05-18</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://mcp.jtlcook.com/pages/contact.html</loc>
+    <loc>https://mcp.jtlcook.com/pages/contact</loc>
     <lastmod>2026-05-18</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://mcp.jtlcook.com/pages/privacy.html</loc>
+    <loc>https://mcp.jtlcook.com/pages/privacy</loc>
     <lastmod>2026-05-18</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://mcp.jtlcook.com/pages/disclaimer.html</loc>
+    <loc>https://mcp.jtlcook.com/pages/disclaimer</loc>
     <lastmod>2026-05-18</lastmod>
     <priority>0.5</priority>
   </url>
