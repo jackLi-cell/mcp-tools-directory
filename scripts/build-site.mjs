@@ -24,6 +24,14 @@ const clients = JSON.parse(readFileSync(join(DATA_DIR, 'clients.json'), 'utf-8')
 const guides = JSON.parse(readFileSync(join(DATA_DIR, 'guides.json'), 'utf-8'));
 
 // --- Helpers ---
+function cleanUrl(url) {
+  // /xxx/index.html -> /xxx/
+  url = url.replace(/\/index\.html$/, '/');
+  // /xxx.html -> /xxx
+  url = url.replace(/\.html$/, '');
+  return url;
+}
+
 function getPrefix(canonical) {
   const parts = canonical.split('/').filter(Boolean);
   const depth = canonical.endsWith('/') ? parts.length : Math.max(0, parts.length - 1);
@@ -99,13 +107,13 @@ function layout(title, description, canonical, content, breadcrumb = '', jsonLd 
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>${escapeHtml(title)}</title>
   <meta name="description" content="${escapeHtml(description)}">
-  <link rel="canonical" href="${SITE_URL}${canonical}">
+  <link rel="canonical" href="${SITE_URL}${cleanUrl(canonical)}">
   <link rel="icon" type="image/svg+xml" href="${prefix}favicon.svg">
   <link rel="stylesheet" href="${prefix}assets/styles.css">
   ${jsonLd ? `<script type="application/ld+json">${JSON.stringify(jsonLd)}</script>` : ''}
   <meta property="og:title" content="${escapeHtml(title)}">
   <meta property="og:description" content="${escapeHtml(description)}">
-  <meta property="og:url" content="${SITE_URL}${canonical}">
+  <meta property="og:url" content="${SITE_URL}${cleanUrl(canonical)}">
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="${SITE_NAME}">
 </head>
@@ -453,7 +461,7 @@ function buildServerDetail(server) {
       "@type": "SoftwareApplication",
       "name": server.name + " MCP Server",
       "description": server.description,
-      "url": SITE_URL + "/servers/" + server.slug + ".html",
+      "url": SITE_URL + "/servers/" + server.slug,
       "applicationCategory": "DeveloperApplication",
       "operatingSystem": "Windows, macOS, Linux"
     },
@@ -463,7 +471,7 @@ function buildServerDetail(server) {
       "itemListElement": [
         {"@type": "ListItem", "position": 1, "name": "首页", "item": SITE_URL + "/"},
         {"@type": "ListItem", "position": 2, "name": "资料库", "item": SITE_URL + "/servers/"},
-        {"@type": "ListItem", "position": 3, "name": server.name, "item": SITE_URL + "/servers/" + server.slug + ".html"}
+        {"@type": "ListItem", "position": 3, "name": server.name, "item": SITE_URL + "/servers/" + server.slug}
       ]
     }
   ];
@@ -505,7 +513,7 @@ function buildCategoryPage(category) {
       "@type": "CollectionPage",
       "name": category.name + " MCP Server",
       "description": `${category.name}类 MCP Server 工具列表，包含安装命令、权限范围和风险等级。`,
-      "url": SITE_URL + "/categories/" + category.slug + ".html"
+      "url": SITE_URL + "/categories/" + category.slug
     },
     {
       "@context": "https://schema.org",
@@ -513,7 +521,7 @@ function buildCategoryPage(category) {
       "itemListElement": [
         {"@type": "ListItem", "position": 1, "name": "首页", "item": SITE_URL + "/"},
         {"@type": "ListItem", "position": 2, "name": "分类", "item": SITE_URL + "/servers/"},
-        {"@type": "ListItem", "position": 3, "name": category.name, "item": SITE_URL + "/categories/" + category.slug + ".html"}
+        {"@type": "ListItem", "position": 3, "name": category.name, "item": SITE_URL + "/categories/" + category.slug}
       ]
     }
   ];
@@ -622,7 +630,7 @@ function buildTrustPages() {
       "@type": "BreadcrumbList",
       "itemListElement": [
         {"@type": "ListItem", "position": 1, "name": "首页", "item": SITE_URL + "/"},
-        {"@type": "ListItem", "position": 2, "name": page.title, "item": SITE_URL + "/pages/" + page.slug + ".html"}
+        {"@type": "ListItem", "position": 2, "name": page.title, "item": SITE_URL + "/pages/" + page.slug}
       ]
     };
     const html = layout(
@@ -711,7 +719,7 @@ function buildConfigBuilder() {
     "@type": "BreadcrumbList",
     "itemListElement": [
       {"@type": "ListItem", "position": 1, "name": "首页", "item": SITE_URL + "/"},
-      {"@type": "ListItem", "position": 2, "name": "配置生成器", "item": SITE_URL + "/tools/config-builder.html"}
+      {"@type": "ListItem", "position": 2, "name": "配置生成器", "item": SITE_URL + "/tools/config-builder"}
     ]
   };
   const html = layout(
@@ -802,8 +810,8 @@ function buildClientPages() {
       "@type": "BreadcrumbList",
       "itemListElement": [
         {"@type": "ListItem", "position": 1, "name": "首页", "item": SITE_URL + "/"},
-        {"@type": "ListItem", "position": 2, "name": "客户端教程", "item": SITE_URL + "/clients/" + clients[0].slug + ".html"},
-        {"@type": "ListItem", "position": 3, "name": client.name, "item": SITE_URL + "/clients/" + client.slug + ".html"}
+        {"@type": "ListItem", "position": 2, "name": "客户端教程", "item": SITE_URL + "/clients/" + clients[0].slug},
+        {"@type": "ListItem", "position": 3, "name": client.name, "item": SITE_URL + "/clients/" + client.slug}
       ]
     };
     const html = layout(
@@ -1695,7 +1703,7 @@ function buildGuidePages() {
         "@type": "Article",
         "headline": guide.title,
         "description": guide.description,
-        "url": SITE_URL + "/guides/" + guide.slug + ".html",
+        "url": SITE_URL + "/guides/" + guide.slug,
         "author": {"@type": "Organization", "name": SITE_NAME},
         "publisher": {"@type": "Organization", "name": SITE_NAME},
         "datePublished": "2026-05-18",
@@ -1706,8 +1714,8 @@ function buildGuidePages() {
         "@type": "BreadcrumbList",
         "itemListElement": [
           {"@type": "ListItem", "position": 1, "name": "首页", "item": SITE_URL + "/"},
-          {"@type": "ListItem", "position": 2, "name": "指南", "item": SITE_URL + "/guides/what-is-mcp.html"},
-          {"@type": "ListItem", "position": 3, "name": guide.title, "item": SITE_URL + "/guides/" + guide.slug + ".html"}
+          {"@type": "ListItem", "position": 2, "name": "指南", "item": SITE_URL + "/guides/what-is-mcp"},
+          {"@type": "ListItem", "position": 3, "name": guide.title, "item": SITE_URL + "/guides/" + guide.slug}
         ]
       }
     ];
@@ -1755,20 +1763,20 @@ function buildSitemap() {
   // 资料库页: 0.8
   urls.push({loc: '/servers/', priority: '0.8'});
   // 工具详情页: 0.7
-  servers.forEach(s => urls.push({loc: `/servers/${s.slug}.html`, priority: '0.7'}));
+  servers.forEach(s => urls.push({loc: `/servers/${s.slug}`, priority: '0.7'}));
   // 分类页: 0.6
-  categories.forEach(c => urls.push({loc: `/categories/${c.slug}.html`, priority: '0.6'}));
+  categories.forEach(c => urls.push({loc: `/categories/${c.slug}`, priority: '0.6'}));
   // 客户端教程页: 0.8
-  clients.forEach(c => urls.push({loc: `/clients/${c.slug}.html`, priority: '0.8'}));
+  clients.forEach(c => urls.push({loc: `/clients/${c.slug}`, priority: '0.8'}));
   // 指南页: 0.7
-  guides.forEach(g => urls.push({loc: `/guides/${g.slug}.html`, priority: '0.7'}));
+  guides.forEach(g => urls.push({loc: `/guides/${g.slug}`, priority: '0.7'}));
   // 工具页: 0.5
-  urls.push({loc: '/tools/config-builder.html', priority: '0.5'});
+  urls.push({loc: '/tools/config-builder', priority: '0.5'});
   // 信任页面: 0.5
-  urls.push({loc: '/pages/about.html', priority: '0.5'});
-  urls.push({loc: '/pages/contact.html', priority: '0.5'});
-  urls.push({loc: '/pages/privacy.html', priority: '0.5'});
-  urls.push({loc: '/pages/disclaimer.html', priority: '0.5'});
+  urls.push({loc: '/pages/about', priority: '0.5'});
+  urls.push({loc: '/pages/contact', priority: '0.5'});
+  urls.push({loc: '/pages/privacy', priority: '0.5'});
+  urls.push({loc: '/pages/disclaimer', priority: '0.5'});
 
   const xml = `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
