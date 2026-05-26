@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Claude Desktop MCP 配置教程 - AI Agent 与 MCP Server 工具目录</title>
+  <meta name="description" content="从零开始在 Claude Desktop 中配置 MCP Server 的完整步骤">
+  <link rel="canonical" href="https://mcp.jtlcook.com/zh/guides/claude-desktop-setup">
+  <link rel="alternate" hreflang="zh" href="https://mcp.jtlcook.com/zh/guides/claude-desktop-setup">
+  <link rel="alternate" hreflang="en" href="https://mcp.jtlcook.com/en/guides/claude-desktop-setup">
+  <link rel="alternate" hreflang="x-default" href="https://mcp.jtlcook.com/en/guides/claude-desktop-setup">
+  <link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+  <link rel="stylesheet" href="../../assets/styles.css">
+  <script type="application/ld+json">[{"@context":"https://schema.org","@type":"Article","headline":"Claude Desktop MCP 配置教程","description":"从零开始在 Claude Desktop 中配置 MCP Server 的完整步骤","url":"https://mcp.jtlcook.com/guides/claude-desktop-setup","author":{"@type":"Organization","name":"AI Agent 与 MCP Server 工具目录"},"publisher":{"@type":"Organization","name":"AI Agent 与 MCP Server 工具目录"},"datePublished":"2026-05-18","dateModified":"2026-05-18"},{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"首页","item":"https://mcp.jtlcook.com/"},{"@type":"ListItem","position":2,"name":"指南","item":"https://mcp.jtlcook.com/guides/what-is-mcp"},{"@type":"ListItem","position":3,"name":"Claude Desktop MCP 配置教程","item":"https://mcp.jtlcook.com/guides/claude-desktop-setup"}]},{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"配置后看不到工具图标怎么办？","acceptedAnswer":{"@type":"Answer","text":"确认已完全重启（不是刷新窗口）。检查配置文件 JSON 格式是否正确，可以用 cat config.json | python -m json.tool 验证。查看日志文件获取具体错误信息。"}},{"@type":"Question","name":"npx 命令找不到怎么办？","acceptedAnswer":{"@type":"Answer","text":"确认 Node.js 已正确安装且在系统 PATH 中。在终端运行 which npx（macOS）或 where npx（Windows）确认路径。如果使用 nvm，可能需要在配置中写 npx 的完整路径。"}},{"@type":"Question","name":"可以同时连接多少个 MCP Server？","acceptedAnswer":{"@type":"Answer","text":"没有硬性限制，但每个 Server 都是独立进程，过多会占用系统资源。建议只启用当前需要的 Server。"}}]}]</script>
+  <meta property="og:title" content="Claude Desktop MCP 配置教程 - AI Agent 与 MCP Server 工具目录">
+  <meta property="og:description" content="从零开始在 Claude Desktop 中配置 MCP Server 的完整步骤">
+  <meta property="og:url" content="https://mcp.jtlcook.com/zh/guides/claude-desktop-setup">
+  <meta property="og:type" content="website">
+    <meta property="og:image" content="https://mcp.jtlcook.com/assets/images/og-default.png">
+  <meta property="og:site_name" content="AI Agent 与 MCP Server 工具目录">
+</head>
+<body>
+  
+    <nav class="nav">
+      <div class="container nav-inner">
+        <a href="../index.html" class="nav-brand">AI Agent 与 MCP Server 工具目录</a>
+        <div class="nav-links">
+          <a href="../servers/index.html">资料库</a>
+          <a href="../guides/what-is-mcp.html">教程</a>
+          <a href="../tools/config-builder.html">配置生成器</a>
+          <a href="../pages/about.html">关于</a>
+        </div>
+      </div>
+    <div class="lang-switch"><a href="../../en/guides/claude-desktop-setup.html" class="lang-btn">English</a></div></nav>
+  <main class="main container">
+    <nav class="breadcrumb"><a href="../index.html">首页</a> / <a href="../index.html">指南</a> / <span>Claude Desktop MCP 配置教程</span></nav>
+    
+      <h1>Claude Desktop MCP 配置教程</h1>
+      <p class="intro">本教程帮助你从零开始在 Claude Desktop 中配置 MCP Server。完成后，Claude 将能够调用外部工具完成文件操作、网页搜索等任务。</p>
+
+      <section class="section">
+        <h2>前置条件</h2>
+        <ul>
+          <li>已安装 Claude Desktop（macOS 或 Windows）</li>
+          <li>已安装 Node.js 18 或更高版本（用于运行基于 Node.js 的 MCP Server）</li>
+          <li>了解基本的命令行操作</li>
+        </ul>
+        <p>检查 Node.js 是否已安装：</p>
+        <pre><code>node --version
+# 应输出 v18.x.x 或更高</code></pre>
+      </section>
+
+      <section class="section">
+        <h2>配置步骤</h2>
+        <h3>第一步：找到配置文件</h3>
+        <p>Claude Desktop 的 MCP 配置文件位置：</p>
+        <ul>
+          <li><strong>macOS：</strong><code>~/Library/Application Support/Claude/claude_desktop_config.json</code></li>
+          <li><strong>Windows：</strong><code>%APPDATA%\Claude\claude_desktop_config.json</code></li>
+        </ul>
+        <p>如果文件不存在，手动创建即可。</p>
+
+        <h3>第二步：编辑配置文件</h3>
+        <p>打开配置文件，写入以下内容（以 filesystem MCP Server 为例）：</p>
+        <pre><code>{
+  "mcpServers": {
+    "filesystem": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "@modelcontextprotocol/server-filesystem",
+        "/Users/yourname/Documents"
+      ]
+    }
+  }
+}</code></pre>
+        <p>将 <code>/Users/yourname/Documents</code> 替换为你希望 Claude 访问的目录路径。</p>
+
+        <h3>第三步：重启 Claude Desktop</h3>
+        <p>完全退出 Claude Desktop（不是最小化），然后重新打开。macOS 上可以在菜单栏右键图标选择"Quit"。</p>
+
+        <h3>第四步：验证连接</h3>
+        <p>重启后，在对话输入框左侧应该能看到一个锤子图标（工具图标）。点击它可以查看已连接的 MCP Server 和可用工具列表。</p>
+      </section>
+
+      <section class="section">
+        <h2>添加多个 MCP Server</h2>
+        <p>在 <code>mcpServers</code> 对象中添加多个键值对即可：</p>
+        <pre><code>{
+  "mcpServers": {
+    "filesystem": {
+      "command": "npx",
+      "args": ["-y", "@modelcontextprotocol/server-filesystem", "/Users/yourname/Documents"]
+    },
+    "fetch": {
+      "command": "uvx",
+      "args": ["mcp-server-fetch"]
+    }
+  }
+}</code></pre>
+      </section>
+
+      <section class="section">
+        <h2>查看日志排查问题</h2>
+        <p>如果 MCP Server 未正常连接，可以查看日志文件：</p>
+        <ul>
+          <li><strong>macOS：</strong><code>~/Library/Logs/Claude/mcp*.log</code></li>
+          <li><strong>Windows：</strong><code>%APPDATA%\Claude\logs\mcp*.log</code></li>
+        </ul>
+        <p>日志中会显示 Server 启动失败的具体原因。</p>
+      </section>
+
+      <section class="section">
+        <h2>注意事项</h2>
+        <ul>
+          <li>配置文件必须是合法的 JSON 格式，多余的逗号或缺少引号都会导致解析失败。</li>
+          <li>路径中的反斜杠（Windows）需要转义为双反斜杠，如 <code>"C:\\Users\\name\\Documents"</code>。</li>
+          <li>每次修改配置后都需要完全重启 Claude Desktop。</li>
+          <li>不要把包含 API Key 的配置文件提交到公开仓库。</li>
+        </ul>
+      </section>
+
+      <section class="section">
+        <h2>常见问题</h2>
+        <dl class="faq">
+          <dt>配置后看不到工具图标怎么办？</dt>
+          <dd>确认已完全重启（不是刷新窗口）。检查配置文件 JSON 格式是否正确，可以用 <code>cat config.json | python -m json.tool</code> 验证。查看日志文件获取具体错误信息。</dd>
+          <dt>npx 命令找不到怎么办？</dt>
+          <dd>确认 Node.js 已正确安装且在系统 PATH 中。在终端运行 <code>which npx</code>（macOS）或 <code>where npx</code>（Windows）确认路径。如果使用 nvm，可能需要在配置中写 npx 的完整路径。</dd>
+          <dt>可以同时连接多少个 MCP Server？</dt>
+          <dd>没有硬性限制，但每个 Server 都是独立进程，过多会占用系统资源。建议只启用当前需要的 Server。</dd>
+        </dl>
+      </section>
+
+      <section class="section">
+        <h2>相关链接</h2>
+        <ul>
+          <li><a href="https://docs.anthropic.com/en/docs/claude-desktop/mcp" target="_blank" rel="noopener noreferrer">Claude Desktop MCP 官方文档</a></li>
+          <li><a href="../guides/config-json-explained.html">MCP 配置 JSON 字段说明</a></li>
+          <li><a href="../guides/common-errors.html">MCP Server 常见报错排查</a></li>
+          <li><a href="../tools/config-builder.html">配置片段生成器</a></li>
+        </ul>
+      </section>
+  </main>
+  
+    <footer class="footer">
+      <div class="container">
+        <div class="footer-links">
+          <a href="../pages/about.html">关于本站</a>
+          <a href="../pages/contact.html">联系我们</a>
+          <a href="../pages/privacy.html">隐私政策</a>
+          <a href="../pages/disclaimer.html">免责声明</a>
+        </div>
+        <p class="footer-note">本站工具信息来自官方文档和公开仓库，使用前请以官方文档为准。第三方 MCP Server 由第三方维护，本站不保证安全性和可用性。</p>
+        <p class="footer-note">联系邮箱：1055567003@qq.com</p>
+      </div>
+    </footer>
+  <script src="../../assets/app.js" defer></script>
+</body>
+</html>

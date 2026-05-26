@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cursor MCP Configuration Guide - AI Agent & MCP Server Tools Directory</title>
+  <meta name="description" content="Complete steps to configure and use MCP Server in Cursor editor">
+  <link rel="canonical" href="https://mcp.jtlcook.com/en/guides/cursor-setup">
+  <link rel="alternate" hreflang="zh" href="https://mcp.jtlcook.com/zh/guides/cursor-setup">
+  <link rel="alternate" hreflang="en" href="https://mcp.jtlcook.com/en/guides/cursor-setup">
+  <link rel="alternate" hreflang="x-default" href="https://mcp.jtlcook.com/en/guides/cursor-setup">
+  <link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+  <link rel="stylesheet" href="../../assets/styles.css">
+  <script type="application/ld+json">[{"@context":"https://schema.org","@type":"Article","headline":"Cursor MCP Configuration Guide","description":"Complete steps to configure and use MCP Server in Cursor editor","url":"https://mcp.jtlcook.com/guides/cursor-setup","author":{"@type":"Organization","name":"AI Agent & MCP Server Tools Directory"},"publisher":{"@type":"Organization","name":"AI Agent & MCP Server Tools Directory"},"datePublished":"2026-05-18","dateModified":"2026-05-18"},{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://mcp.jtlcook.com/"},{"@type":"ListItem","position":2,"name":"Guide","item":"https://mcp.jtlcook.com/guides/what-is-mcp"},{"@type":"ListItem","position":3,"name":"Cursor MCP Configuration Guide","item":"https://mcp.jtlcook.com/guides/cursor-setup"}]},{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"What is the difference between project-level and global configuration?","acceptedAnswer":{"@type":"Answer","text":"Project-level config only applies to that project, suitable for project-specific tools (like database connections). Global config applies to all projects, suitable for general tools (like file search, web scraping). When both exist, they are merged."}},{"@type":"Question","name":"What to do when MCP tools are not responding in Cursor?","acceptedAnswer":{"@type":"Answer","text":"确认你在使用 Agent 模式（不Yes普通 Chat）。检查 MCP 设置页面medium Server 状态whether为绿色。尝试点击 \"Restart\" 按钮重启 Server。"}},{"@type":"Question","name":"Can I use Claude Desktop's MCP config in Cursor?","acceptedAnswer":{"@type":"Answer","text":"They cannot be shared directly. The config file paths and formats differ slightly and need separate configuration. However, MCP Servers themselves are universal - the same Server can be used by both clients simultaneously."}}]}]</script>
+  <meta property="og:title" content="Cursor MCP Configuration Guide - AI Agent & MCP Server Tools Directory">
+  <meta property="og:description" content="Complete steps to configure and use MCP Server in Cursor editor">
+  <meta property="og:url" content="https://mcp.jtlcook.com/en/guides/cursor-setup">
+  <meta property="og:type" content="website">
+    <meta property="og:image" content="https://mcp.jtlcook.com/assets/images/og-default.png">
+  <meta property="og:site_name" content="AI Agent & MCP Server Tools Directory">
+</head>
+<body>
+  
+    <nav class="nav">
+      <div class="container nav-inner">
+        <a href="../index.html" class="nav-brand">AI Agent & MCP Server Tools Directory</a>
+        <div class="nav-links">
+          <a href="../servers/index.html">Directory</a>
+          <a href="../guides/what-is-mcp.html">Guide</a>
+          <a href="../tools/config-builder.html">Config Builder</a>
+          <a href="../pages/about.html">About</a>
+        </div>
+      </div>
+    <div class="lang-switch"><a href="../../zh/guides/cursor-setup.html" class="lang-btn">中文</a></div></nav>
+  <main class="main container">
+    <nav class="breadcrumb"><a href="../index.html">Home</a> / <a href="../index.html">Guide</a> / <span>Cursor MCP Configuration Guide</span></nav>
+    
+      <h1>Cursor MCP Configuration Guide</h1>
+      <p class="intro">Cursor is an AI-powered code editor that supports connecting external tools via MCP protocol. This guide explains how to configure MCP Server in Cursor.</p>
+
+      <section class="section">
+        <h2>Prerequisites</h2>
+        <ul>
+          <li>Cursor editor installed (version 0.45 or higher)</li>
+          <li>Node.js 18+ installed (for npx-based Servers) or Python 3.10+ (for uvx-based Servers)</li>
+        </ul>
+      </section>
+
+      <section class="section">
+        <h2>Configuration Steps</h2>
+        <h3>Step 1: Open MCP Settings</h3>
+        <p>In Cursor, access MCP configuration through:</p>
+        <ol>
+          <li>Open Settings (shortcut <code>Cmd+,</code> or <code>Ctrl+,</code>)</li>
+          <li>Find "MCP" option in the left menu</li>
+          <li>Click the "Add new MCP server" button</li>
+        </ol>
+        <p>You can also directly edit the <code>.cursor/mcp.json</code> file in the project root.</p>
+
+        <h3>Step 2: Edit Configuration File</h3>
+        <p>Cursor MCP configuration file locations:</p>
+        <ul>
+          <li><strong>Project level:</strong><code>.cursor/mcp.json</code>(in project root)</li>
+          <li><strong>Global level:</strong><code>~/.cursor/mcp.json</code>(in user directory)</li>
+        </ul>
+        <p>Configuration file format example:</p>
+        <pre><code>{
+  "mcpServers": {
+    "filesystem": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "@modelcontextprotocol/server-filesystem",
+        "/path/to/your/project"
+      ]
+    }
+  }
+}</code></pre>
+
+        <h3>Step 3: Verify Connection</h3>
+        <p>After saving the configuration, Cursor will automatically attempt to connect to the MCP Server. Connected Servers will show a green status indicator in the MCP settings page.</p>
+        <p>If it shows red or yellow, click the Server name to view error details.</p>
+      </section>
+
+      <section class="section">
+        <h2>Using in Agent Mode</h2>
+        <p>MCP tools are available in Cursor's Agent mode (Composer Agent):</p>
+        <ol>
+          <li>Open Composer (<code>Cmd+I</code> or <code>Ctrl+I</code>)</li>
+          <li>Switch to Agent mode</li>
+          <li>AI will automatically call connected MCP tools as needed</li>
+        </ol>
+        <p>Note: Regular Chat mode and Edit mode do not support MCP tool calls.</p>
+      </section>
+
+      <section class="section">
+        <h2>Important Notes</h2>
+        <ul>
+          <li>Project-level config (<code>.cursor/mcp.json</code>) will be committed to version control. Do not write API keys in it.</li>
+          <li>For Servers requiring API keys, use environment variables. Store keys in a <code>.env</code> file and add it to <code>.gitignore</code>.</li>
+          <li>Cursor's MCP support is still rapidly evolving. Configuration format may change with version updates.</li>
+          <li>If a Server fails to start, try manually running the command + args in terminal to verify the command works.</li>
+        </ul>
+      </section>
+
+      <section class="section">
+        <h2>FAQ</h2>
+        <dl class="faq">
+          <dt>What is the difference between project-level and global configuration?</dt>
+          <dd>Project-level config only applies to that project, suitable for project-specific tools (like database connections). Global config applies to all projects, suitable for general tools (like file search, web scraping). When both exist, they are merged.</dd>
+          <dt>What to do when MCP tools are not responding in Cursor?</dt>
+          <dd>Confirm you are using Agent mode (not regular Chat). Check if the Server status is green in MCP settings. Try clicking the "Restart" button to restart the Server.</dd>
+          <dt>Can I use Claude Desktop's MCP config in Cursor?</dt>
+          <dd>They cannot be shared directly. The config file paths and formats differ slightly and need separate configuration. However, MCP Servers themselves are universal - the same Server can be used by both clients simultaneously.</dd>
+        </dl>
+      </section>
+
+      <section class="section">
+        <h2>Related Links</h2>
+        <ul>
+          <li><a href="https://docs.cursor.com/context/model-context-protocol" target="_blank" rel="noopener noreferrer">Cursor MCP Official Documentation</a></li>
+          <li><a href="../guides/config-json-explained.html">MCP Config JSON Fields Explained</a></li>
+          <li><a href="../guides/common-errors.html">MCP Server Common Error Troubleshooting</a></li>
+          <li><a href="../tools/config-builder.html">Config Snippet Builder</a></li>
+        </ul>
+      </section>
+  </main>
+  
+    <footer class="footer">
+      <div class="container">
+        <div class="footer-links">
+          <a href="../pages/about.html">About This Site</a>
+          <a href="../pages/contact.html">Contact</a>
+          <a href="../pages/privacy.html">Privacy Policy</a>
+          <a href="../pages/disclaimer.html">Disclaimer</a>
+        </div>
+        <p class="footer-note">Tool information on this site comes from official documentation and public repositories. Please refer to official docs before use. Third-party MCP Servers are maintained by third parties; we do not guarantee their security or availability.</p>
+        <p class="footer-note">Contact email: 1055567003@qq.com</p>
+      </div>
+    </footer>
+  <script src="../../assets/app.js" defer></script>
+</body>
+</html>

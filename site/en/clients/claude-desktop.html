@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Claude Desktop MCP 配置Guides - 配置文件位置、JSON 示例与排错清单</title>
+  <meta name="description" content="从零开始在 Claude Desktop 中配置 MCP Server，包含配置文件位置、JSON 示例、验证方法和Common Errors。">
+  <link rel="canonical" href="https://mcp.jtlcook.com/en/clients/claude-desktop">
+  <link rel="alternate" hreflang="zh" href="https://mcp.jtlcook.com/zh/clients/claude-desktop">
+  <link rel="alternate" hreflang="en" href="https://mcp.jtlcook.com/en/clients/claude-desktop">
+  <link rel="alternate" hreflang="x-default" href="https://mcp.jtlcook.com/en/clients/claude-desktop">
+  <link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+  <link rel="stylesheet" href="../../assets/styles.css">
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://mcp.jtlcook.com/"},{"@type":"ListItem","position":2,"name":"ClientsGuides","item":"https://mcp.jtlcook.com/clients/claude-desktop"},{"@type":"ListItem","position":3,"name":"Claude Desktop","item":"https://mcp.jtlcook.com/clients/claude-desktop"}]}</script>
+  <meta property="og:title" content="Claude Desktop MCP 配置Guides - 配置文件位置、JSON 示例与排错清单">
+  <meta property="og:description" content="从零开始在 Claude Desktop 中配置 MCP Server，包含配置文件位置、JSON 示例、验证方法和Common Errors。">
+  <meta property="og:url" content="https://mcp.jtlcook.com/en/clients/claude-desktop">
+  <meta property="og:type" content="website">
+    <meta property="og:image" content="https://mcp.jtlcook.com/assets/images/og-default.png">
+  <meta property="og:site_name" content="AI Agent & MCP Server Tools Directory">
+</head>
+<body>
+  
+    <nav class="nav">
+      <div class="container nav-inner">
+        <a href="../index.html" class="nav-brand">AI Agent & MCP Server Tools Directory</a>
+        <div class="nav-links">
+          <a href="../servers/index.html">Directory</a>
+          <a href="../guides/what-is-mcp.html">Guides</a>
+          <a href="../tools/config-builder.html">Config Builder</a>
+          <a href="../pages/about.html">About</a>
+        </div>
+      </div>
+    <div class="lang-switch"><a href="../../zh/clients/claude-desktop.html" class="lang-btn">中文</a></div></nav>
+  <main class="main container">
+    <nav class="breadcrumb"><a href="../index.html">Home</a> / <a href="../index.html">ClientsGuides</a> / <span>Claude Desktop</span></nav>
+    
+      <h1>Claude Desktop MCP 配置Guides</h1>
+      <p>Anthropic 官方桌面Clients，原生支持 MCP</p>
+
+      <section class="section">
+        <h2>配置文件位置</h2>
+        <ul>
+          <li><strong>macos：</strong><code>~/Library/Application Support/Claude/claude_desktop_config.json</code></li><li><strong>windows：</strong><code>%APPDATA%\Claude\claude_desktop_config.json</code></li>
+        </ul>
+      </section>
+
+      <section class="section">
+        <h2>配置步骤</h2>
+        <ol>
+          <li>找到或创建配置文件（路径见上方）。</li>
+          <li>在文件中添加 <code>mcpServers</code> 字段。</li>
+          <li>填入 MCP Server 的 command、args 和 env。</li>
+          <li>完全退出 Claude Desktop 后重新打开</li>
+          <li>打开对话，输入'你有哪些工具可用'，确认 MCP 工具出现在列表中</li>
+        </ol>
+      </section>
+
+      <section class="section">
+        <h2>Configuration Example</h2>
+        <div class="code-block"><pre><code>{
+  &quot;mcpServers&quot;: {
+    &quot;filesystem&quot;: {
+      &quot;command&quot;: &quot;npx&quot;,
+      &quot;args&quot;: [
+        &quot;-y&quot;,
+        &quot;@modelcontextprotocol/server-filesystem&quot;,
+        &quot;/Users/you/Documents&quot;
+      ]
+    }
+  }
+}</code></pre><button class="copy-btn" data-copy='{
+  &quot;mcpServers&quot;: {
+    &quot;filesystem&quot;: {
+      &quot;command&quot;: &quot;npx&quot;,
+      &quot;args&quot;: [
+        &quot;-y&quot;,
+        &quot;@modelcontextprotocol/server-filesystem&quot;,
+        &quot;/Users/you/Documents&quot;
+      ]
+    }
+  }
+}'>Copy</button></div>
+      </section>
+
+      <section class="section">
+        <h2>支持的 MCP Server（56 个）</h2>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>Tool</th><th>Category</th><th>Risk</th></tr></thead>
+            <tbody>
+              <tr>
+                <td><a href="../servers/filesystem.html">Filesystem</a></td>
+                <td>File & Local System</td>
+                <td><span class="badge badge-medium">Medium Risk</span></td>
+              </tr><tr>
+                <td><a href="../servers/github.html">GitHub</a></td>
+                <td>Git & Dev Workflow</td>
+                <td><span class="badge badge-medium">Medium Risk</span></td>
+              </tr><tr>
+                <td><a href="../servers/sqlite.html">SQLite</a></td>
+                <td>Database & Data Query</td>
+                <td><span class="badge badge-medium">Medium Risk</span></td>
+              </tr><tr>
+                <td><a href="../servers/postgres.html">PostgreSQL</a></td>
+                <td>Database & Data Query</td>
+                <td><span class="badge badge-medium">Medium Risk</span></td>
+              </tr><tr>
+                <td><a href="../servers/brave-search.html">Brave Search</a></td>
+                <td>Search & Knowledge Base</td>
+                <td><span class="badge badge-medium">Medium Risk</span></td>
+              </tr><tr>
+                <td><a href="../servers/puppeteer.html">Puppeteer</a></td>
+                <td>Browser & Web Automation</td>
+                <td><span class="badge badge-medium">Medium Risk</span></td>
+              </tr><tr>
+                <td><a href="../servers/memory.html">Memory</a></td>
+                <td>File & Local System</td>
+                <td><span class="badge badge-low">Low Risk</span></td>
+              </tr><tr>
+                <td><a href="../servers/fetch.html">Fetch</a></td>
+                <td>Search & Knowledge Base</td>
+                <td><span class="badge badge-low">Low Risk</span></td>
+              </tr><tr>
+                <td><a href="../servers/git.html">Git</a></td>
+                <td>Git & Dev Workflow</td>
+                <td><span class="badge badge-low">Low Risk</span></td>
+              </tr><tr>
+                <td><a href="../servers/sequential-thinking.html">Sequential Thinking</a></td>
+                <td>Search & Knowledge Base</td>
+                <td><span class="badge badge-low">Low Risk</span></td>
+              </tr><tr>
+                <td><a href="../servers/playwright.html">Playwright</a></td>
+                <td>Browser & Web Automation</td>
+                <td><span class="badge badge-medium">Medium Risk</span></td>
+              </tr><tr>
+                <td><a href="../servers/everything.html">Everything</a></td>
+                <td>File & Local System</td>
+                <td><span class="badge badge-low">Low Risk</span></td>
+              </tr><tr>
+                <td><a href="../servers/slack.html">Slack</a></td>
+                <td>Design & Product Collaboration</td>
+                <td><span class="badge badge-high">High Risk</span></td>
+              </tr><tr>
+                <td><a href="../servers/google-maps.html">Google Maps</a></td>
+                <td>Search & Knowledge Base</td>
+                <td><span class="badge badge-medium">Medium Risk</span></td>
+              </tr><tr>
+                <td><a href="../servers/cloudflare.html">Cloudflare</a></td>
+                <td>Deploy & Operations</td>
+                <td><span class="badge badge-high">High Risk</span></td>
+              </tr><tr>
+                <td><a href="../servers/docker.html">Docker</a></td>
+                <td>Deploy & Operations</td>
+                <td><span class="badge badge-high">High Risk</span></td>
+              </tr><tr>
+                <td><a href="../servers/linear.html">Linear</a></td>
+                <td>Design & Product Collaboration</td>
+                <td><span class="badge badge-medium">Medium Risk</span></td>
+              </tr><tr>
+                <td><a href="../servers/notion.html">Notion</a></td>
+                <td>Design & Product Collaboration</td>
+                <td><span class="badge badge-medium">Medium Risk</span></td>
+              </tr><tr>
+                <td><a href="../servers/sentry.html">Sentry</a></td>
+                <td>Deploy & Operations</td>
+                <td><span class="badge badge-low">Low Risk</span></td>
+              </tr><tr>
+                <td><a href="../servers/exa.html">Exa</a></td>
+                <td>Search & Knowledge Base</td>
+                <td><span class="badge badge-low">Low Risk</span></td>
+              </tr><tr>
+                <td><a href="../servers/mysql.html">MySQL</a></td>
+                <td>Database & Data Query</td>
+                <td><span class="badge badge-high">High Risk</span></td>
+              </tr><tr>
+                <td><a href="../servers/tavily.html">Tavily Search</a></td>
+                <td>Search & Knowledge Base</td>
+                <td><span class="badge badge-low">Low Risk</span></td>
+              </tr><tr>
+                <td><a href="../servers/figma.html">Figma</a></td>
+                <td>Design & Product Collaboration</td>
+                <td><span class="badge badge-low">Low Risk</span></td>
+              </tr><tr>
+                <td><a href="../servers/vercel.html">Vercel</a></td>
+                <td>Deploy & Operations</td>
+                <td><span class="badge badge-high">High Risk</span></td>
+              </tr><tr>
+                <td><a href="../servers/redis.html">Redis</a></td>
+                <td>Database & Data Query</td>
+                <td><span class="badge badge-medium">Medium Risk</span></td>
+              </tr><tr>
+                <td><a href="../servers/time.html">Time</a></td>
+                <td>File & Local System</td>
+                <td><span class="badge badge-low">Low Risk</span></td>
+              </tr><tr>
+                <td><a href="../servers/github-models.html">GitHub Models</a></td>
+                <td>Search & Knowledge Base</td>
+                <td><span class="badge badge-medium">Medium Risk</span></td>
+              </tr><tr>
+                <td><a href="../servers/shell.html">Shell / Terminal</a></td>
+                <td>Deploy & Operations</td>
+                <td><span class="badge badge-high">High Risk</span></td>
+              </tr><tr>
+                <td><a href="../servers/obsidian.html">Obsidian</a></td>
+                <td>Search & Knowledge Base</td>
+                <td><span class="badge badge-medium">Medium Risk</span></td>
+              </tr><tr>
+                <td><a href="../servers/perplexity.html">Perplexity</a></td>
+                <td>Search & Knowledge Base</td>
+                <td><span class="badge badge-low">Low Risk</span></td>
+              </tr><tr>
+                <td><a href="../servers/context7.html">Context7</a></td>
+                <td>Search & Knowledge Base</td>
+                <td><span class="badge badge-low">Low Risk</span></td>
+              </tr><tr>
+                <td><a href="../servers/firecrawl.html">Firecrawl</a></td>
+                <td>Browser & Web Automation</td>
+                <td><span class="badge badge-medium">Medium Risk</span></td>
+              </tr><tr>
+                <td><a href="../servers/playwright-official.html">Playwright (Official)</a></td>
+                <td>Browser & Web Automation</td>
+                <td><span class="badge badge-medium">Medium Risk</span></td>
+              </tr><tr>
+                <td><a href="../servers/duckdb.html">DuckDB</a></td>
+                <td>Database & Data Query</td>
+                <td><span class="badge badge-medium">Medium Risk</span></td>
+              </tr><tr>
+                <td><a href="../servers/mongodb.html">MongoDB</a></td>
+                <td>Database & Data Query</td>
+                <td><span class="badge badge-high">High Risk</span></td>
+              </tr><tr>
+                <td><a href="../servers/neon.html">Neon</a></td>
+                <td>Database & Data Query</td>
+                <td><span class="badge badge-high">High Risk</span></td>
+              </tr><tr>
+                <td><a href="../servers/supabase.html">Supabase</a></td>
+                <td>Database & Data Query</td>
+                <td><span class="badge badge-high">High Risk</span></td>
+              </tr><tr>
+                <td><a href="../servers/airtable.html">Airtable</a></td>
+                <td>Database & Data Query</td>
+                <td><span class="badge badge-medium">Medium Risk</span></td>
+              </tr><tr>
+                <td><a href="../servers/qdrant.html">Qdrant</a></td>
+                <td>Database & Data Query</td>
+                <td><span class="badge badge-medium">Medium Risk</span></td>
+              </tr><tr>
+                <td><a href="../servers/kagi.html">Kagi Search</a></td>
+                <td>Search & Knowledge Base</td>
+                <td><span class="badge badge-medium">Medium Risk</span></td>
+              </tr><tr>
+                <td><a href="../servers/arxiv.html">ArXiv</a></td>
+                <td>Search & Knowledge Base</td>
+                <td><span class="badge badge-low">Low Risk</span></td>
+              </tr><tr>
+                <td><a href="../servers/google-drive.html">Google Drive</a></td>
+                <td>Search & Knowledge Base</td>
+                <td><span class="badge badge-medium">Medium Risk</span></td>
+              </tr><tr>
+                <td><a href="../servers/youtube-transcript.html">YouTube Transcript</a></td>
+                <td>Search & Knowledge Base</td>
+                <td><span class="badge badge-low">Low Risk</span></td>
+              </tr><tr>
+                <td><a href="../servers/bright-data.html">Bright Data</a></td>
+                <td>Browser & Web Automation</td>
+                <td><span class="badge badge-medium">Medium Risk</span></td>
+              </tr><tr>
+                <td><a href="../servers/apify.html">Apify</a></td>
+                <td>Browser & Web Automation</td>
+                <td><span class="badge badge-medium">Medium Risk</span></td>
+              </tr><tr>
+                <td><a href="../servers/atlassian.html">Atlassian (Jira + Confluence)</a></td>
+                <td>Design & Product Collaboration</td>
+                <td><span class="badge badge-medium">Medium Risk</span></td>
+              </tr><tr>
+                <td><a href="../servers/todoist.html">Todoist</a></td>
+                <td>Design & Product Collaboration</td>
+                <td><span class="badge badge-medium">Medium Risk</span></td>
+              </tr><tr>
+                <td><a href="../servers/google-calendar.html">Google Calendar</a></td>
+                <td>Design & Product Collaboration</td>
+                <td><span class="badge badge-medium">Medium Risk</span></td>
+              </tr><tr>
+                <td><a href="../servers/kubernetes.html">Kubernetes</a></td>
+                <td>Deploy & Operations</td>
+                <td><span class="badge badge-high">High Risk</span></td>
+              </tr><tr>
+                <td><a href="../servers/aws.html">AWS</a></td>
+                <td>Deploy & Operations</td>
+                <td><span class="badge badge-high">High Risk</span></td>
+              </tr><tr>
+                <td><a href="../servers/datadog.html">Datadog</a></td>
+                <td>Deploy & Operations</td>
+                <td><span class="badge badge-medium">Medium Risk</span></td>
+              </tr><tr>
+                <td><a href="../servers/windows-cli.html">Windows CLI</a></td>
+                <td>File & Local System</td>
+                <td><span class="badge badge-high">High Risk</span></td>
+              </tr><tr>
+                <td><a href="../servers/e2b.html">E2B Code Sandbox</a></td>
+                <td>File & Local System</td>
+                <td><span class="badge badge-medium">Medium Risk</span></td>
+              </tr><tr>
+                <td><a href="../servers/gmail.html">Gmail</a></td>
+                <td>Design & Product Collaboration</td>
+                <td><span class="badge badge-high">High Risk</span></td>
+              </tr><tr>
+                <td><a href="../servers/stripe.html">Stripe</a></td>
+                <td>Search & Knowledge Base</td>
+                <td><span class="badge badge-high">High Risk</span></td>
+              </tr><tr>
+                <td><a href="../servers/bluesky.html">Bluesky</a></td>
+                <td>Search & Knowledge Base</td>
+                <td><span class="badge badge-medium">Medium Risk</span></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <section class="section">
+        <h2>FAQ</h2>
+        <dl class="faq">
+          <dt>配置文件不存在怎么办？</dt>
+          <dd>手动创建该文件，内容为 <code>{"mcpServers": {}}</code>，然后添加你Required的 Server。</dd>
+          <dt>修改配置后不生效？</dt>
+          <dd>完全退出 Claude Desktop 后重新打开</dd>
+          <dt>怎么确认 MCP 已连接？</dt>
+          <dd>打开对话，输入'你有哪些工具可用'，确认 MCP 工具出现在列表中</dd>
+        </dl>
+      </section>
+
+      <section class="section">
+        <h2>安全Important Notes</h2>
+        <ul>
+          <li>不要把包含 API Key 的配置文件提交到公开仓库。</li>
+          <li>建议将配置文件加入 .gitignore。</li>
+          <li>使用High Risk MCP 前确认权限范围。</li>
+        </ul>
+      </section>
+
+      <p class="note">Recently Verified：2026-05-18。Clients版本和配置格式可能变化，使用前请以 <a href="https://docs.anthropic.com/en/docs/claude-desktop/mcp" target="_blank" rel="noopener noreferrer">官方文档</a> 为准。</p>
+  </main>
+  
+    <footer class="footer">
+      <div class="container">
+        <div class="footer-links">
+          <a href="../pages/about.html">About This Site</a>
+          <a href="../pages/contact.html">Contact</a>
+          <a href="../pages/privacy.html">Privacy Policy</a>
+          <a href="../pages/disclaimer.html">Disclaimer</a>
+        </div>
+        <p class="footer-note">Tool information on this site comes from official documentation and public repositories. Please refer to official docs before use. Third-party MCP Servers are maintained by third parties; we do not guarantee their security or availability.</p>
+        <p class="footer-note">Contact email: 1055567003@qq.com</p>
+      </div>
+    </footer>
+  <script src="../../assets/app.js" defer></script>
+</body>
+</html>

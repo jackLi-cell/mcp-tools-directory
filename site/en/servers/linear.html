@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Linear MCP Server Configuration Guide - Installation, Permissions & Common Errors</title>
+  <meta name="description" content="View Linear  MCP Server usage, supported clients, installation commands, configuration examples, permission scope, and last verification date.">
+  <link rel="canonical" href="https://mcp.jtlcook.com/en/servers/linear">
+  <link rel="alternate" hreflang="zh" href="https://mcp.jtlcook.com/zh/servers/linear">
+  <link rel="alternate" hreflang="en" href="https://mcp.jtlcook.com/en/servers/linear">
+  <link rel="alternate" hreflang="x-default" href="https://mcp.jtlcook.com/en/servers/linear">
+  <link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+  <link rel="stylesheet" href="../../assets/styles.css">
+  <script type="application/ld+json">[{"@context":"https://schema.org","@type":"SoftwareApplication","name":"Linear MCP Server","description":"Linear 项目管理集成，支持创建和管理 Issue、项目和团队","url":"https://mcp.jtlcook.com/servers/linear","applicationCategory":"DeveloperApplication","operatingSystem":"Windows, macOS, Linux"},{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://mcp.jtlcook.com/"},{"@type":"ListItem","position":2,"name":"Directory","item":"https://mcp.jtlcook.com/servers/"},{"@type":"ListItem","position":3,"name":"Linear","item":"https://mcp.jtlcook.com/servers/linear"}]}]</script>
+  <meta property="og:title" content="Linear MCP Server Configuration Guide - Installation, Permissions & Common Errors">
+  <meta property="og:description" content="View Linear  MCP Server usage, supported clients, installation commands, configuration examples, permission scope, and last verification date.">
+  <meta property="og:url" content="https://mcp.jtlcook.com/en/servers/linear">
+  <meta property="og:type" content="website">
+    <meta property="og:image" content="https://mcp.jtlcook.com/assets/images/og-default.png">
+  <meta property="og:site_name" content="AI Agent & MCP Server Tools Directory">
+</head>
+<body>
+  
+    <nav class="nav">
+      <div class="container nav-inner">
+        <a href="../index.html" class="nav-brand">AI Agent & MCP Server Tools Directory</a>
+        <div class="nav-links">
+          <a href="../servers/index.html">Directory</a>
+          <a href="../guides/what-is-mcp.html">Guides</a>
+          <a href="../tools/config-builder.html">Config Builder</a>
+          <a href="../pages/about.html">About</a>
+        </div>
+      </div>
+    <div class="lang-switch"><a href="../../zh/servers/linear.html" class="lang-btn">中文</a></div></nav>
+  <main class="main container">
+    <nav class="breadcrumb"><a href="../index.html">Home</a> / <a href="../servers/index.html">Directory</a> / <span>Linear</span></nav>
+    
+    <h1>Linear MCP Server Configuration & Usage Guide</h1>
+    <div class="quick-info">
+      <div class="quick-info-item">
+        <span class="qi-icon">📦</span>
+        <div><span class="qi-label">Installation</span><span class="qi-value">npx</span></div>
+      </div>
+      <div class="quick-info-item">
+        <span class="qi-icon">⚠️</span>
+        <div><span class="qi-label">Risk Level</span><span class="qi-value"><span class="badge badge-medium">Medium Risk</span></span></div>
+      </div>
+      <div class="quick-info-item">
+        <span class="qi-icon">🔑</span>
+        <div><span class="qi-label">API Key</span><span class="qi-value">Required</span></div>
+      </div>
+      <div class="quick-info-item">
+        <span class="qi-icon">💻</span>
+        <div><span class="qi-label">Clients</span><span class="qi-value">2  supported</span></div>
+      </div>
+    </div>
+    <p class="server-desc">Linear 项目管理集成，支持创建和管理 Issue、项目和团队</p>
+    <div class="meta-row">
+      <span class="badge badge-medium">Medium Risk</span>
+      <span class="meta-item">Category: Design & Product Collaboration</span>
+      <span class="meta-item">Verified: 2026-05-18</span>
+      <span class="meta-item">状态：部分核验</span>
+    </div>
+
+    <section class="section">
+      <h2>Supported Clients</h2>
+      <ul><li>Claude Desktop</li><li>Cursor</li></ul>
+    </section>
+
+    <section class="section">
+      <h2>Installation Command</h2>
+      <div class="code-block"><pre><code>npx -y linear-mcp-server</code></pre><button class="copy-btn" data-copy="npx -y linear-mcp-server">Copy</button></div>
+    </section>
+
+    <section class="section">
+      <h2>Configuration Example</h2>
+      <div class="code-block"><pre><code>{
+  &quot;mcpServers&quot;: {
+    &quot;linear&quot;: {
+      &quot;command&quot;: &quot;npx&quot;,
+      &quot;args&quot;: [
+        &quot;-y&quot;,
+        &quot;linear-mcp-server&quot;
+      ],
+      &quot;env&quot;: {
+        &quot;LINEAR_API_KEY&quot;: &quot;&lt;your-api-key&gt;&quot;
+      }
+    }
+  }
+}</code></pre><button class="copy-btn" data-copy="{
+  &quot;mcpServers&quot;: {
+    &quot;linear&quot;: {
+      &quot;command&quot;: &quot;npx&quot;,
+      &quot;args&quot;: [
+        &quot;-y&quot;,
+        &quot;linear-mcp-server&quot;
+      ],
+      &quot;env&quot;: {
+        &quot;LINEAR_API_KEY&quot;: &quot;&lt;your-api-key&gt;&quot;
+      }
+    }
+  }
+}">Copy</button></div>
+      <p class="warning">Environment variable required：LINEAR_API_KEY。Do not commit these values to public repositories.</p>
+    </section>
+
+    <section class="section">
+      <h2>Permission Scope & Security Notes</h2>
+      <p>可创建和修改 Linear Issue，建议使用只读 Token 进行测试</p>
+      <ul><li>network-access</li><li>credential-required</li></ul>
+      <p class="risk-score">Risk Score：4/10</p>
+    </section>
+
+    
+    <section class="section">
+      <h2>Common Errors</h2>
+      <dl class="faq">
+        <dt>API Key 无效</dt><dd>在 Linear Settings &gt; API 中生成 Personal API Key</dd>
+      </dl>
+    </section>
+
+    <section class="section">
+      <h2>Sources</h2>
+      <ul>
+        <li><a href="https://github.com/jerhadf/linear-mcp-server" target="_blank" rel="noopener noreferrer">Official Documentation / Repository</a></li>
+      </ul>
+      <p class="note">Recently Verified：2026-05-18。Client versions and configuration formats may change. Please refer to official documentation before use.</p>
+    </section>
+
+    
+    <section class="section">
+      <h2>Related Tools</h2>
+      <div class="card-grid">
+        <a href="../servers/slack.html" class="card"><h3>Slack</h3><p>Slack 工作区集成，支持读取频道、发送消息和搜索历史</p></a><a href="../servers/notion.html" class="card"><h3>Notion</h3><p>Notion API 集成，支持搜索、读取和创建页面与数据库</p></a><a href="../servers/figma.html" class="card"><h3>Figma</h3><p>Figma design file reading, supporting design draft info, components, and styles</p></a><a href="../servers/atlassian.html" class="card"><h3>Atlassian (Jira + Confluence)</h3><p>Atlassian 产品集成，支持 Jira Issue 管理和 Confluence 文档读写</p></a>
+      </div>
+    </section>
+  </main>
+  
+    <footer class="footer">
+      <div class="container">
+        <div class="footer-links">
+          <a href="../pages/about.html">About This Site</a>
+          <a href="../pages/contact.html">Contact</a>
+          <a href="../pages/privacy.html">Privacy Policy</a>
+          <a href="../pages/disclaimer.html">Disclaimer</a>
+        </div>
+        <p class="footer-note">Tool information on this site comes from official documentation and public repositories. Please refer to official docs before use. Third-party MCP Servers are maintained by third parties; we do not guarantee their security or availability.</p>
+        <p class="footer-note">Contact email: 1055567003@qq.com</p>
+      </div>
+    </footer>
+  <script src="../../assets/app.js" defer></script>
+</body>
+</html>

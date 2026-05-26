@@ -212,3 +212,8 @@ tbody tr:hover td{background:#eff6ff}
   .stats-bar{flex-direction:column;gap:.5rem}
   .steps-numbered li{padding-left:2.25rem}
 }
+
+/* Language Switcher */
+.lang-switch{display:flex;align-items:center;margin-left:auto;padding-left:1rem}
+.lang-btn{display:inline-block;padding:.3rem .75rem;font-size:.8rem;font-weight:500;color:var(--color-primary);border:1px solid var(--color-primary);border-radius:4px;transition:all var(--transition);text-decoration:none}
+.lang-btn:hover{background:var(--color-primary);color:#fff;text-decoration:none}

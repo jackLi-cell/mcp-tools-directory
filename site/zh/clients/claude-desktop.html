@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Claude Desktop MCP 配置教程 - 配置文件位置、JSON 示例与排错清单</title>
+  <meta name="description" content="从零开始在 Claude Desktop 中配置 MCP Server，包含配置文件位置、JSON 示例、验证方法和常见报错。">
+  <link rel="canonical" href="https://mcp.jtlcook.com/zh/clients/claude-desktop">
+  <link rel="alternate" hreflang="zh" href="https://mcp.jtlcook.com/zh/clients/claude-desktop">
+  <link rel="alternate" hreflang="en" href="https://mcp.jtlcook.com/en/clients/claude-desktop">
+  <link rel="alternate" hreflang="x-default" href="https://mcp.jtlcook.com/en/clients/claude-desktop">
+  <link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+  <link rel="stylesheet" href="../../assets/styles.css">
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"首页","item":"https://mcp.jtlcook.com/"},{"@type":"ListItem","position":2,"name":"客户端教程","item":"https://mcp.jtlcook.com/clients/claude-desktop"},{"@type":"ListItem","position":3,"name":"Claude Desktop","item":"https://mcp.jtlcook.com/clients/claude-desktop"}]}</script>
+  <meta property="og:title" content="Claude Desktop MCP 配置教程 - 配置文件位置、JSON 示例与排错清单">
+  <meta property="og:description" content="从零开始在 Claude Desktop 中配置 MCP Server，包含配置文件位置、JSON 示例、验证方法和常见报错。">
+  <meta property="og:url" content="https://mcp.jtlcook.com/zh/clients/claude-desktop">
+  <meta property="og:type" content="website">
+    <meta property="og:image" content="https://mcp.jtlcook.com/assets/images/og-default.png">
+  <meta property="og:site_name" content="AI Agent 与 MCP Server 工具目录">
+</head>
+<body>
+  
+    <nav class="nav">
+      <div class="container nav-inner">
+        <a href="../index.html" class="nav-brand">AI Agent 与 MCP Server 工具目录</a>
+        <div class="nav-links">
+          <a href="../servers/index.html">资料库</a>
+          <a href="../guides/what-is-mcp.html">教程</a>
+          <a href="../tools/config-builder.html">配置生成器</a>
+          <a href="../pages/about.html">关于</a>
+        </div>
+      </div>
+    <div class="lang-switch"><a href="../../en/clients/claude-desktop.html" class="lang-btn">English</a></div></nav>
+  <main class="main container">
+    <nav class="breadcrumb"><a href="../index.html">首页</a> / <a href="../index.html">客户端教程</a> / <span>Claude Desktop</span></nav>
+    
+      <h1>Claude Desktop MCP 配置教程</h1>
+      <p>Anthropic 官方桌面客户端，原生支持 MCP</p>
+
+      <section class="section">
+        <h2>配置文件位置</h2>
+        <ul>
+          <li><strong>macos：</strong><code>~/Library/Application Support/Claude/claude_desktop_config.json</code></li><li><strong>windows：</strong><code>%APPDATA%\Claude\claude_desktop_config.json</code></li>
+        </ul>
+      </section>
+
+      <section class="section">
+        <h2>配置步骤</h2>
+        <ol>
+          <li>找到或创建配置文件（路径见上方）。</li>
+          <li>在文件中添加 <code>mcpServers</code> 字段。</li>
+          <li>填入 MCP Server 的 command、args 和 env。</li>
+          <li>完全退出 Claude Desktop 后重新打开</li>
+          <li>打开对话，输入'你有哪些工具可用'，确认 MCP 工具出现在列表中</li>
+        </ol>
+      </section>
+
+      <section class="section">
+        <h2>配置示例</h2>
+        <div class="code-block"><pre><code>{
+  &quot;mcpServers&quot;: {
+    &quot;filesystem&quot;: {
+      &quot;command&quot;: &quot;npx&quot;,
+      &quot;args&quot;: [
+        &quot;-y&quot;,
+        &quot;@modelcontextprotocol/server-filesystem&quot;,
+        &quot;/Users/you/Documents&quot;
+      ]
+    }
+  }
+}</code></pre><button class="copy-btn" data-copy='{
+  &quot;mcpServers&quot;: {
+    &quot;filesystem&quot;: {
+      &quot;command&quot;: &quot;npx&quot;,
+      &quot;args&quot;: [
+        &quot;-y&quot;,
+        &quot;@modelcontextprotocol/server-filesystem&quot;,
+        &quot;/Users/you/Documents&quot;
+      ]
+    }
+  }
+}'>复制</button></div>
+      </section>
+
+      <section class="section">
+        <h2>支持的 MCP Server（56 个）</h2>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>工具</th><th>场景</th><th>风险</th></tr></thead>
+            <tbody>
+              <tr>
+                <td><a href="../servers/filesystem.html">Filesystem</a></td>
+                <td>文件与本地系统</td>
+                <td><span class="badge badge-medium">中风险</span></td>
+              </tr><tr>
+                <td><a href="../servers/github.html">GitHub</a></td>
+                <td>Git 与开发工作流</td>
+                <td><span class="badge badge-medium">中风险</span></td>
+              </tr><tr>
+                <td><a href="../servers/sqlite.html">SQLite</a></td>
+                <td>数据库与数据查询</td>
+                <td><span class="badge badge-medium">中风险</span></td>
+              </tr><tr>
+                <td><a href="../servers/postgres.html">PostgreSQL</a></td>
+                <td>数据库与数据查询</td>
+                <td><span class="badge badge-medium">中风险</span></td>
+              </tr><tr>
+                <td><a href="../servers/brave-search.html">Brave Search</a></td>
+                <td>搜索与知识库</td>
+                <td><span class="badge badge-medium">中风险</span></td>
+              </tr><tr>
+                <td><a href="../servers/puppeteer.html">Puppeteer</a></td>
+                <td>浏览器与网页自动化</td>
+                <td><span class="badge badge-medium">中风险</span></td>
+              </tr><tr>
+                <td><a href="../servers/memory.html">Memory</a></td>
+                <td>文件与本地系统</td>
+                <td><span class="badge badge-low">低风险</span></td>
+              </tr><tr>
+                <td><a href="../servers/fetch.html">Fetch</a></td>
+                <td>搜索与知识库</td>
+                <td><span class="badge badge-low">低风险</span></td>
+              </tr><tr>
+                <td><a href="../servers/git.html">Git</a></td>
+                <td>Git 与开发工作流</td>
+                <td><span class="badge badge-low">低风险</span></td>
+              </tr><tr>
+                <td><a href="../servers/sequential-thinking.html">Sequential Thinking</a></td>
+                <td>搜索与知识库</td>
+                <td><span class="badge badge-low">低风险</span></td>
+              </tr><tr>
+                <td><a href="../servers/playwright.html">Playwright</a></td>
+                <td>浏览器与网页自动化</td>
+                <td><span class="badge badge-medium">中风险</span></td>
+              </tr><tr>
+                <td><a href="../servers/everything.html">Everything</a></td>
+                <td>文件与本地系统</td>
+                <td><span class="badge badge-low">低风险</span></td>
+              </tr><tr>
+                <td><a href="../servers/slack.html">Slack</a></td>
+                <td>设计与产品协作</td>
+                <td><span class="badge badge-high">高风险</span></td>
+              </tr><tr>
+                <td><a href="../servers/google-maps.html">Google Maps</a></td>
+                <td>搜索与知识库</td>
+                <td><span class="badge badge-medium">中风险</span></td>
+              </tr><tr>
+                <td><a href="../servers/cloudflare.html">Cloudflare</a></td>
+                <td>部署与运维</td>
+                <td><span class="badge badge-high">高风险</span></td>
+              </tr><tr>
+                <td><a href="../servers/docker.html">Docker</a></td>
+                <td>部署与运维</td>
+                <td><span class="badge badge-high">高风险</span></td>
+              </tr><tr>
+                <td><a href="../servers/linear.html">Linear</a></td>
+                <td>设计与产品协作</td>
+                <td><span class="badge badge-medium">中风险</span></td>
+              </tr><tr>
+                <td><a href="../servers/notion.html">Notion</a></td>
+                <td>设计与产品协作</td>
+                <td><span class="badge badge-medium">中风险</span></td>
+              </tr><tr>
+                <td><a href="../servers/sentry.html">Sentry</a></td>
+                <td>部署与运维</td>
+                <td><span class="badge badge-low">低风险</span></td>
+              </tr><tr>
+                <td><a href="../servers/exa.html">Exa</a></td>
+                <td>搜索与知识库</td>
+                <td><span class="badge badge-low">低风险</span></td>
+              </tr><tr>
+                <td><a href="../servers/mysql.html">MySQL</a></td>
+                <td>数据库与数据查询</td>
+                <td><span class="badge badge-high">高风险</span></td>
+              </tr><tr>
+                <td><a href="../servers/tavily.html">Tavily Search</a></td>
+                <td>搜索与知识库</td>
+                <td><span class="badge badge-low">低风险</span></td>
+              </tr><tr>
+                <td><a href="../servers/figma.html">Figma</a></td>
+                <td>设计与产品协作</td>
+                <td><span class="badge badge-low">低风险</span></td>
+              </tr><tr>
+                <td><a href="../servers/vercel.html">Vercel</a></td>
+                <td>部署与运维</td>
+                <td><span class="badge badge-high">高风险</span></td>
+              </tr><tr>
+                <td><a href="../servers/redis.html">Redis</a></td>
+                <td>数据库与数据查询</td>
+                <td><span class="badge badge-medium">中风险</span></td>
+              </tr><tr>
+                <td><a href="../servers/time.html">Time</a></td>
+                <td>文件与本地系统</td>
+                <td><span class="badge badge-low">低风险</span></td>
+              </tr><tr>
+                <td><a href="../servers/github-models.html">GitHub Models</a></td>
+                <td>搜索与知识库</td>
+                <td><span class="badge badge-medium">中风险</span></td>
+              </tr><tr>
+                <td><a href="../servers/shell.html">Shell / Terminal</a></td>
+                <td>部署与运维</td>
+                <td><span class="badge badge-high">高风险</span></td>
+              </tr><tr>
+                <td><a href="../servers/obsidian.html">Obsidian</a></td>
+                <td>搜索与知识库</td>
+                <td><span class="badge badge-medium">中风险</span></td>
+              </tr><tr>
+                <td><a href="../servers/perplexity.html">Perplexity</a></td>
+                <td>搜索与知识库</td>
+                <td><span class="badge badge-low">低风险</span></td>
+              </tr><tr>
+                <td><a href="../servers/context7.html">Context7</a></td>
+                <td>搜索与知识库</td>
+                <td><span class="badge badge-low">低风险</span></td>
+              </tr><tr>
+                <td><a href="../servers/firecrawl.html">Firecrawl</a></td>
+                <td>浏览器与网页自动化</td>
+                <td><span class="badge badge-medium">中风险</span></td>
+              </tr><tr>
+                <td><a href="../servers/playwright-official.html">Playwright (Official)</a></td>
+                <td>浏览器与网页自动化</td>
+                <td><span class="badge badge-medium">中风险</span></td>
+              </tr><tr>
+                <td><a href="../servers/duckdb.html">DuckDB</a></td>
+                <td>数据库与数据查询</td>
+                <td><span class="badge badge-medium">中风险</span></td>
+              </tr><tr>
+                <td><a href="../servers/mongodb.html">MongoDB</a></td>
+                <td>数据库与数据查询</td>
+                <td><span class="badge badge-high">高风险</span></td>
+              </tr><tr>
+                <td><a href="../servers/neon.html">Neon</a></td>
+                <td>数据库与数据查询</td>
+                <td><span class="badge badge-high">高风险</span></td>
+              </tr><tr>
+                <td><a href="../servers/supabase.html">Supabase</a></td>
+                <td>数据库与数据查询</td>
+                <td><span class="badge badge-high">高风险</span></td>
+              </tr><tr>
+                <td><a href="../servers/airtable.html">Airtable</a></td>
+                <td>数据库与数据查询</td>
+                <td><span class="badge badge-medium">中风险</span></td>
+              </tr><tr>
+                <td><a href="../servers/qdrant.html">Qdrant</a></td>
+                <td>数据库与数据查询</td>
+                <td><span class="badge badge-medium">中风险</span></td>
+              </tr><tr>
+                <td><a href="../servers/kagi.html">Kagi Search</a></td>
+                <td>搜索与知识库</td>
+                <td><span class="badge badge-medium">中风险</span></td>
+              </tr><tr>
+                <td><a href="../servers/arxiv.html">ArXiv</a></td>
+                <td>搜索与知识库</td>
+                <td><span class="badge badge-low">低风险</span></td>
+              </tr><tr>
+                <td><a href="../servers/google-drive.html">Google Drive</a></td>
+                <td>搜索与知识库</td>
+                <td><span class="badge badge-medium">中风险</span></td>
+              </tr><tr>
+                <td><a href="../servers/youtube-transcript.html">YouTube Transcript</a></td>
+                <td>搜索与知识库</td>
+                <td><span class="badge badge-low">低风险</span></td>
+              </tr><tr>
+                <td><a href="../servers/bright-data.html">Bright Data</a></td>
+                <td>浏览器与网页自动化</td>
+                <td><span class="badge badge-medium">中风险</span></td>
+              </tr><tr>
+                <td><a href="../servers/apify.html">Apify</a></td>
+                <td>浏览器与网页自动化</td>
+                <td><span class="badge badge-medium">中风险</span></td>
+              </tr><tr>
+                <td><a href="../servers/atlassian.html">Atlassian (Jira + Confluence)</a></td>
+                <td>设计与产品协作</td>
+                <td><span class="badge badge-medium">中风险</span></td>
+              </tr><tr>
+                <td><a href="../servers/todoist.html">Todoist</a></td>
+                <td>设计与产品协作</td>
+                <td><span class="badge badge-medium">中风险</span></td>
+              </tr><tr>
+                <td><a href="../servers/google-calendar.html">Google Calendar</a></td>
+                <td>设计与产品协作</td>
+                <td><span class="badge badge-medium">中风险</span></td>
+              </tr><tr>
+                <td><a href="../servers/kubernetes.html">Kubernetes</a></td>
+                <td>部署与运维</td>
+                <td><span class="badge badge-high">高风险</span></td>
+              </tr><tr>
+                <td><a href="../servers/aws.html">AWS</a></td>
+                <td>部署与运维</td>
+                <td><span class="badge badge-high">高风险</span></td>
+              </tr><tr>
+                <td><a href="../servers/datadog.html">Datadog</a></td>
+                <td>部署与运维</td>
+                <td><span class="badge badge-medium">中风险</span></td>
+              </tr><tr>
+                <td><a href="../servers/windows-cli.html">Windows CLI</a></td>
+                <td>文件与本地系统</td>
+                <td><span class="badge badge-high">高风险</span></td>
+              </tr><tr>
+                <td><a href="../servers/e2b.html">E2B Code Sandbox</a></td>
+                <td>文件与本地系统</td>
+                <td><span class="badge badge-medium">中风险</span></td>
+              </tr><tr>
+                <td><a href="../servers/gmail.html">Gmail</a></td>
+                <td>设计与产品协作</td>
+                <td><span class="badge badge-high">高风险</span></td>
+              </tr><tr>
+                <td><a href="../servers/stripe.html">Stripe</a></td>
+                <td>搜索与知识库</td>
+                <td><span class="badge badge-high">高风险</span></td>
+              </tr><tr>
+                <td><a href="../servers/bluesky.html">Bluesky</a></td>
+                <td>搜索与知识库</td>
+                <td><span class="badge badge-medium">中风险</span></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <section class="section">
+        <h2>常见问题</h2>
+        <dl class="faq">
+          <dt>配置文件不存在怎么办？</dt>
+          <dd>手动创建该文件，内容为 <code>{"mcpServers": {}}</code>，然后添加你需要的 Server。</dd>
+          <dt>修改配置后不生效？</dt>
+          <dd>完全退出 Claude Desktop 后重新打开</dd>
+          <dt>怎么确认 MCP 已连接？</dt>
+          <dd>打开对话，输入'你有哪些工具可用'，确认 MCP 工具出现在列表中</dd>
+        </dl>
+      </section>
+
+      <section class="section">
+        <h2>安全注意事项</h2>
+        <ul>
+          <li>不要把包含 API Key 的配置文件提交到公开仓库。</li>
+          <li>建议将配置文件加入 .gitignore。</li>
+          <li>使用高风险 MCP 前确认权限范围。</li>
+        </ul>
+      </section>
+
+      <p class="note">最近核验：2026-05-18。客户端版本和配置格式可能变化，使用前请以 <a href="https://docs.anthropic.com/en/docs/claude-desktop/mcp" target="_blank" rel="noopener noreferrer">官方文档</a> 为准。</p>
+  </main>
+  
+    <footer class="footer">
+      <div class="container">
+        <div class="footer-links">
+          <a href="../pages/about.html">关于本站</a>
+          <a href="../pages/contact.html">联系我们</a>
+          <a href="../pages/privacy.html">隐私政策</a>
+          <a href="../pages/disclaimer.html">免责声明</a>
+        </div>
+        <p class="footer-note">本站工具信息来自官方文档和公开仓库，使用前请以官方文档为准。第三方 MCP Server 由第三方维护，本站不保证安全性和可用性。</p>
+        <p class="footer-note">联系邮箱：1055567003@qq.com</p>
+      </div>
+    </footer>
+  <script src="../../assets/app.js" defer></script>
+</body>
+</html>

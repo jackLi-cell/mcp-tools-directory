@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SQLite MCP Server Configuration Guide - Installation, Permissions & Common Errors</title>
+  <meta name="description" content="View SQLite  MCP Server usage, supported clients, installation commands, configuration examples, permission scope, and last verification date.">
+  <link rel="canonical" href="https://mcp.jtlcook.com/en/servers/sqlite">
+  <link rel="alternate" hreflang="zh" href="https://mcp.jtlcook.com/zh/servers/sqlite">
+  <link rel="alternate" hreflang="en" href="https://mcp.jtlcook.com/en/servers/sqlite">
+  <link rel="alternate" hreflang="x-default" href="https://mcp.jtlcook.com/en/servers/sqlite">
+  <link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+  <link rel="stylesheet" href="../../assets/styles.css">
+  <script type="application/ld+json">[{"@context":"https://schema.org","@type":"SoftwareApplication","name":"SQLite MCP Server","description":"SQLite 数据库操作，支持查询、分析和基本的数据管理","url":"https://mcp.jtlcook.com/servers/sqlite","applicationCategory":"DeveloperApplication","operatingSystem":"Windows, macOS, Linux"},{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://mcp.jtlcook.com/"},{"@type":"ListItem","position":2,"name":"Directory","item":"https://mcp.jtlcook.com/servers/"},{"@type":"ListItem","position":3,"name":"SQLite","item":"https://mcp.jtlcook.com/servers/sqlite"}]}]</script>
+  <meta property="og:title" content="SQLite MCP Server Configuration Guide - Installation, Permissions & Common Errors">
+  <meta property="og:description" content="View SQLite  MCP Server usage, supported clients, installation commands, configuration examples, permission scope, and last verification date.">
+  <meta property="og:url" content="https://mcp.jtlcook.com/en/servers/sqlite">
+  <meta property="og:type" content="website">
+    <meta property="og:image" content="https://mcp.jtlcook.com/assets/images/og-default.png">
+  <meta property="og:site_name" content="AI Agent & MCP Server Tools Directory">
+</head>
+<body>
+  
+    <nav class="nav">
+      <div class="container nav-inner">
+        <a href="../index.html" class="nav-brand">AI Agent & MCP Server Tools Directory</a>
+        <div class="nav-links">
+          <a href="../servers/index.html">Directory</a>
+          <a href="../guides/what-is-mcp.html">Guides</a>
+          <a href="../tools/config-builder.html">Config Builder</a>
+          <a href="../pages/about.html">About</a>
+        </div>
+      </div>
+    <div class="lang-switch"><a href="../../zh/servers/sqlite.html" class="lang-btn">中文</a></div></nav>
+  <main class="main container">
+    <nav class="breadcrumb"><a href="../index.html">Home</a> / <a href="../servers/index.html">Directory</a> / <span>SQLite</span></nav>
+    
+    <h1>SQLite MCP Server Configuration & Usage Guide</h1>
+    <div class="quick-info">
+      <div class="quick-info-item">
+        <span class="qi-icon">📦</span>
+        <div><span class="qi-label">Installation</span><span class="qi-value">uvx</span></div>
+      </div>
+      <div class="quick-info-item">
+        <span class="qi-icon">⚠️</span>
+        <div><span class="qi-label">Risk Level</span><span class="qi-value"><span class="badge badge-medium">Medium Risk</span></span></div>
+      </div>
+      <div class="quick-info-item">
+        <span class="qi-icon">🔑</span>
+        <div><span class="qi-label">API Key</span><span class="qi-value">Not Required</span></div>
+      </div>
+      <div class="quick-info-item">
+        <span class="qi-icon">💻</span>
+        <div><span class="qi-label">Clients</span><span class="qi-value">3  supported</span></div>
+      </div>
+    </div>
+    <p class="server-desc">SQLite 数据库操作，支持查询、分析和基本的数据管理</p>
+    <div class="meta-row">
+      <span class="badge badge-medium">Medium Risk</span>
+      <span class="meta-item">Category: Database & Data Query</span>
+      <span class="meta-item">Verified: 2026-05-18</span>
+      <span class="meta-item">Status: Verified</span>
+    </div>
+
+    <section class="section">
+      <h2>Supported Clients</h2>
+      <ul><li>Claude Desktop</li><li>Cursor</li><li>VS Code / Cline</li></ul>
+    </section>
+
+    <section class="section">
+      <h2>Installation Command</h2>
+      <div class="code-block"><pre><code>uvx mcp-server-sqlite --db-path /path/to/database.db</code></pre><button class="copy-btn" data-copy="uvx mcp-server-sqlite --db-path /path/to/database.db">Copy</button></div>
+    </section>
+
+    <section class="section">
+      <h2>Configuration Example</h2>
+      <div class="code-block"><pre><code>{
+  &quot;mcpServers&quot;: {
+    &quot;sqlite&quot;: {
+      &quot;command&quot;: &quot;uvx&quot;,
+      &quot;args&quot;: [
+        &quot;mcp-server-sqlite&quot;,
+        &quot;--db-path&quot;,
+        &quot;/path/to/test.db&quot;
+      ]
+    }
+  }
+}</code></pre><button class="copy-btn" data-copy="{
+  &quot;mcpServers&quot;: {
+    &quot;sqlite&quot;: {
+      &quot;command&quot;: &quot;uvx&quot;,
+      &quot;args&quot;: [
+        &quot;mcp-server-sqlite&quot;,
+        &quot;--db-path&quot;,
+        &quot;/path/to/test.db&quot;
+      ]
+    }
+  }
+}">Copy</button></div>
+      
+    </section>
+
+    <section class="section">
+      <h2>Permission Scope & Security Notes</h2>
+      <p>可读写指定数据库文件，建议使用副本或测试数据库</p>
+      <ul><li>database-read</li><li>database-write</li></ul>
+      <p class="risk-score">Risk Score：5/10</p>
+    </section>
+
+    
+    <section class="section">
+      <h2>Common Errors</h2>
+      <dl class="faq">
+        <dt>数据库文件不存在</dt><dd>确认 --db-path 指向的文件存在</dd><dt>uvx 命令找不到</dt><dd>Required先安装 uv：curl -LsSf https://astral.sh/uv/install.sh | sh</dd><dt>database is locked</dt><dd>确认没有其他进程正在使用该数据库</dd>
+      </dl>
+    </section>
+
+    <section class="section">
+      <h2>Sources</h2>
+      <ul>
+        <li><a href="https://github.com/modelcontextprotocol/servers/tree/main/src/sqlite" target="_blank" rel="noopener noreferrer">Official Documentation / Repository</a></li>
+      </ul>
+      <p class="note">Recently Verified：2026-05-18。Client versions and configuration formats may change. Please refer to official documentation before use.</p>
+    </section>
+
+    
+    <section class="section">
+      <h2>Related Tools</h2>
+      <div class="card-grid">
+        <a href="../servers/postgres.html" class="card"><h3>PostgreSQL</h3><p>PostgreSQL 数据库只读访问，支持查询和 schema 检查</p></a><a href="../servers/mysql.html" class="card"><h3>MySQL</h3><p>MySQL 数据库连接，支持查询、表结构View和基本数据操作</p></a><a href="../servers/redis.html" class="card"><h3>Redis</h3><p>Redis 数据库操作，支持键值读写、列表、哈希和集合操作</p></a><a href="../servers/duckdb.html" class="card"><h3>DuckDB</h3><p>DuckDB 嵌入式分析数据库，支持 SQL 查询、数据导入和 OLAP 分析</p></a>
+      </div>
+    </section>
+  </main>
+  
+    <footer class="footer">
+      <div class="container">
+        <div class="footer-links">
+          <a href="../pages/about.html">About This Site</a>
+          <a href="../pages/contact.html">Contact</a>
+          <a href="../pages/privacy.html">Privacy Policy</a>
+          <a href="../pages/disclaimer.html">Disclaimer</a>
+        </div>
+        <p class="footer-note">Tool information on this site comes from official documentation and public repositories. Please refer to official docs before use. Third-party MCP Servers are maintained by third parties; we do not guarantee their security or availability.</p>
+        <p class="footer-note">Contact email: 1055567003@qq.com</p>
+      </div>
+    </footer>
+  <script src="../../assets/app.js" defer></script>
+</body>
+</html>

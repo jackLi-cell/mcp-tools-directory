@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>How to Store API Keys and Environment Variables - AI Agent & MCP Server Tools Directory</title>
+  <meta name="description" content="Methods for securely storing API keys to avoid committing to public repositories">
+  <link rel="canonical" href="https://mcp.jtlcook.com/en/guides/api-key-management">
+  <link rel="alternate" hreflang="zh" href="https://mcp.jtlcook.com/zh/guides/api-key-management">
+  <link rel="alternate" hreflang="en" href="https://mcp.jtlcook.com/en/guides/api-key-management">
+  <link rel="alternate" hreflang="x-default" href="https://mcp.jtlcook.com/en/guides/api-key-management">
+  <link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+  <link rel="stylesheet" href="../../assets/styles.css">
+  <script type="application/ld+json">[{"@context":"https://schema.org","@type":"Article","headline":"How to Store API Keys and Environment Variables","description":"Methods for securely storing API keys to avoid committing to public repositories","url":"https://mcp.jtlcook.com/guides/api-key-management","author":{"@type":"Organization","name":"AI Agent & MCP Server Tools Directory"},"publisher":{"@type":"Organization","name":"AI Agent & MCP Server Tools Directory"},"datePublished":"2026-05-18","dateModified":"2026-05-18"},{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://mcp.jtlcook.com/"},{"@type":"ListItem","position":2,"name":"Guide","item":"https://mcp.jtlcook.com/guides/what-is-mcp"},{"@type":"ListItem","position":3,"name":"How to Store API Keys and Environment Variables","item":"https://mcp.jtlcook.com/guides/api-key-management"}]},{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Claude Desktop 的配置文件requiresAdd to .gitignore 吗？","acceptedAnswer":{"@type":"Answer","text":"Claude Desktop 的配置文件在系统应用数据目录medium（不在项目目录），通常不会被 git 跟踪。但如果你把配置文件Copy到了项目medium做备份，那个副本requiresAdd to .gitignore。"}},{"@type":"Question","name":"env Fieldmedium的值会出现在日志medium吗？","acceptedAnswer":{"@type":"Answer","text":"正常情况下不会。但某些 Server 的调试日志可能打印环境变量，建议不要在生产环境开启 Server 的 debug 模式。"}},{"@type":"Question","name":"可以多个 Server 共用同一个 API Key 吗？","acceptedAnswer":{"@type":"Answer","text":"技术上可以，但不建议。为每个 Server 创建独立的 Key，这样某个 Key 泄露时只requires轮换一个，不影响其他 Server。"}}]}]</script>
+  <meta property="og:title" content="How to Store API Keys and Environment Variables - AI Agent & MCP Server Tools Directory">
+  <meta property="og:description" content="Methods for securely storing API keys to avoid committing to public repositories">
+  <meta property="og:url" content="https://mcp.jtlcook.com/en/guides/api-key-management">
+  <meta property="og:type" content="website">
+    <meta property="og:image" content="https://mcp.jtlcook.com/assets/images/og-default.png">
+  <meta property="og:site_name" content="AI Agent & MCP Server Tools Directory">
+</head>
+<body>
+  
+    <nav class="nav">
+      <div class="container nav-inner">
+        <a href="../index.html" class="nav-brand">AI Agent & MCP Server Tools Directory</a>
+        <div class="nav-links">
+          <a href="../servers/index.html">Directory</a>
+          <a href="../guides/what-is-mcp.html">Guide</a>
+          <a href="../tools/config-builder.html">Config Builder</a>
+          <a href="../pages/about.html">About</a>
+        </div>
+      </div>
+    <div class="lang-switch"><a href="../../zh/guides/api-key-management.html" class="lang-btn">中文</a></div></nav>
+  <main class="main container">
+    <nav class="breadcrumb"><a href="../index.html">Home</a> / <a href="../index.html">Guide</a> / <span>How to Store API Keys and Environment Variables</span></nav>
+    
+      <h1>How to Store API Keys and Environment Variables</h1>
+      <p class="intro">许多 MCP Server requires API Key 或 Token 才能工作。本文介绍如何安全存储这些凭据，避免意外泄露到公开仓库或日志medium。</p>
+
+      <section class="section">
+        <h2>Core Principles</h2>
+        <ul>
+          <li><strong>Never hardcode:</strong>API Key 不应出现在代码文件或公开的配置文件medium</li>
+          <li><strong>Never commit:</strong>Files containing real keys should not be tracked by git</li>
+          <li><strong>Least privilege:</strong>Create separate keys for each use case, granting only necessary permissions</li>
+          <li><strong>Regular rotation:</strong>Rotate keys regularly, especially immediately when a leak is suspected</li>
+        </ul>
+      </section>
+
+      <section class="section">
+        <h2>Method 1: Write Directly in MCP Config env Field</h2>
+        <p>The simplest approach, suitable for personal use when config files will not be committed to public repositories:</p>
+        <pre><code>{
+  "mcpServers": {
+    "github": {
+      "command": "npx",
+      "args": ["-y", "@modelcontextprotocol/server-github"],
+      "env": {
+        "GITHUB_PERSONAL_ACCESS_TOKEN": "ghp_xxxxxxxxxxxx"
+      }
+    }
+  }
+}</code></pre>
+        <p><strong>注意：</strong>Ensure this config file is added to <code>.gitignore</code> and will not be committed to version control.</p>
+      </section>
+
+      <section class="section">
+        <h2>Method 2: Use .env File + Environment Variable References</h2>
+        <p>将 Key 存放在单独的 <code>.env</code> 文件medium，配置文件引用环境变量名：</p>
+        <p><strong>第一步：</strong>Create a <code>.env</code> file:</p>
+        <pre><code># .env file (do not commit to git)
+GITHUB_TOKEN=ghp_xxxxxxxxxxxx
+OPENAI_API_KEY=sk-xxxxxxxxxxxx</code></pre>
+        <p><strong>第二步：</strong>Add <code>.env</code> to <code>.gitignore</code>:</p>
+        <pre><code># .gitignore
+.env
+.env.local
+.env.*.local</code></pre>
+        <p><strong>第三步：</strong>Load environment variables before starting clients (macOS/Linux):</p>
+        <pre><code># 在 ~/.zshrc 或 ~/.bashrc medium添加
+export GITHUB_TOKEN="ghp_xxxxxxxxxxxx"</code></pre>
+        <p>Claude Desktop 会继承系统环境变量，因此 env Fieldmedium可以引用已设置的变量。</p>
+      </section>
+
+      <section class="section">
+        <h2>Method 3: Use System Key Management Tools</h2>
+        <p>对安全性要求更High的场景，可以使用操作系统的密钥管理：</p>
+        <h3>macOS Keychain</h3>
+        <pre><code># Store
+security add-generic-password -a "mcp" -s "github-token" -w "ghp_xxxxxxxxxxxx"
+
+# 读取（可在脚本medium使用）
+security find-generic-password -a "mcp" -s "github-token" -w</code></pre>
+
+        <h3>Windows Credential Manager</h3>
+        <p>Add generic credentials via "Control Panel > Credential Manager", or use PowerShell:</p>
+        <pre><code># Requires CredentialManager module
+Install-Module -Name CredentialManager
+New-StoredCredential -Target "mcp-github" -UserName "token" -Password "ghp_xxxxxxxxxxxx"</code></pre>
+      </section>
+
+      <section class="section">
+        <h2>Config File Locations and Protection by Platform</h2>
+        <table>
+          <thead><tr><th>client</th><th>Config File Location</th><th>Protection Advice</th></tr></thead>
+          <tbody>
+            <tr><td>Claude Desktop (macOS)</td><td><code>~/Library/Application Support/Claude/claude_desktop_config.json</code></td><td>系统目录，默认不在 git medium</td></tr>
+            <tr><td>Claude Desktop (Windows)</td><td><code>%APPDATA%\Claude\claude_desktop_config.json</code></td><td>系统目录，默认不在 git medium</td></tr>
+            <tr><td>Cursor (项目级)</td><td><code>.cursor/mcp.json</code></td><td>Add to .gitignore</td></tr>
+            <tr><td>Cursor (全局)</td><td><code>~/.cursor/mcp.json</code></td><td>系统目录，默认不在 git medium</td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section class="section">
+        <h2>Emergency Response After a Leak</h2>
+        <ol>
+          <li><strong>Rotate immediately:</strong>Immediately revoke the old key and generate a new one on the corresponding platform (GitHub, OpenAI, etc.)</li>
+          <li><strong>Check usage logs:</strong>Review the key call logs to confirm if there was any abnormal usage</li>
+          <li><strong>清理 git 历史：</strong>如果 Key 被提交到 git，仅删除文件不够，requires清理历史记录</li>
+          <li><strong>更新配置：</strong>用新 Key 更新所有使用该凭据的配置</li>
+        </ol>
+        <p><strong>重要：</strong>即使仓库Yes私有的，一旦 Key 进入 git 历史就应视为已泄露。GitHub 等平台会扫描公开仓库medium的 Key 并自动通知。</p>
+      </section>
+
+      <section class="section">
+        <h2>Important Notes</h2>
+        <ul>
+          <li>不同服务的 Key 格式不同：GitHub 以 <code>ghp_</code> 开头，OpenAI 以 <code>sk-</code> 开头。</li>
+          <li>创建 Key 时选择最小Permission Scope。例如 GitHub Token 只勾选 <code>repo:read</code> 而非全部权限。</li>
+          <li>设置 Key 的过期时间，避免永久有效的 Key 被遗忘后泄露。</li>
+          <li>团队协作时，每人使用自己的 Key，不要共享同一个。</li>
+        </ul>
+      </section>
+
+      <section class="section">
+        <h2>FAQ</h2>
+        <dl class="faq">
+          <dt>Claude Desktop 的配置文件requiresAdd to .gitignore 吗？</dt>
+          <dd>Claude Desktop 的配置文件在系统应用数据目录medium（不在项目目录），通常不会被 git 跟踪。但如果你把配置文件Copy到了项目medium做备份，那个副本requiresAdd to .gitignore。</dd>
+          <dt>env Fieldmedium的值会出现在日志medium吗？</dt>
+          <dd>正常情况下不会。但某些 Server 的调试日志可能打印环境变量，建议不要在生产环境开启 Server 的 debug 模式。</dd>
+          <dt>可以多个 Server 共用同一个 API Key 吗？</dt>
+          <dd>技术上可以，但不建议。为每个 Server 创建独立的 Key，这样某个 Key 泄露时只requires轮换一个，不影响其他 Server。</dd>
+        </dl>
+      </section>
+
+      <section class="section">
+        <h2>Related Links</h2>
+        <ul>
+          <li><a href="../guides/security-checklist.html">MCP Permission Risk Checklist</a></li>
+          <li><a href="../guides/config-json-explained.html">MCP Config JSON Fields Explained</a></li>
+          <li><a href="../guides/claude-desktop-setup.html">Claude Desktop MCP Configuration Guide</a></li>
+          <li><a href="../guides/cursor-setup.html">Cursor MCP Configuration Guide</a></li>
+        </ul>
+      </section>
+  </main>
+  
+    <footer class="footer">
+      <div class="container">
+        <div class="footer-links">
+          <a href="../pages/about.html">About This Site</a>
+          <a href="../pages/contact.html">Contact</a>
+          <a href="../pages/privacy.html">Privacy Policy</a>
+          <a href="../pages/disclaimer.html">Disclaimer</a>
+        </div>
+        <p class="footer-note">Tool information on this site comes from official documentation and public repositories. Please refer to official docs before use. Third-party MCP Servers are maintained by third parties; we do not guarantee their security or availability.</p>
+        <p class="footer-note">Contact email: 1055567003@qq.com</p>
+      </div>
+    </footer>
+  <script src="../../assets/app.js" defer></script>
+</body>
+</html>

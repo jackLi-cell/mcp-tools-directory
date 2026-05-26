@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cloudflare MCP Server 配置说明 - 安装命令、权限范围与常见报错</title>
+  <meta name="description" content="查看 Cloudflare 的 MCP Server 用途、支持客户端、安装命令、配置示例、权限范围和最近核验日期。">
+  <link rel="canonical" href="https://mcp.jtlcook.com/zh/servers/cloudflare">
+  <link rel="alternate" hreflang="zh" href="https://mcp.jtlcook.com/zh/servers/cloudflare">
+  <link rel="alternate" hreflang="en" href="https://mcp.jtlcook.com/en/servers/cloudflare">
+  <link rel="alternate" hreflang="x-default" href="https://mcp.jtlcook.com/en/servers/cloudflare">
+  <link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+  <link rel="stylesheet" href="../../assets/styles.css">
+  <script type="application/ld+json">[{"@context":"https://schema.org","@type":"SoftwareApplication","name":"Cloudflare MCP Server","description":"Cloudflare 服务管理，支持 Workers、KV、R2 和 D1 操作","url":"https://mcp.jtlcook.com/servers/cloudflare","applicationCategory":"DeveloperApplication","operatingSystem":"Windows, macOS, Linux"},{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"首页","item":"https://mcp.jtlcook.com/"},{"@type":"ListItem","position":2,"name":"资料库","item":"https://mcp.jtlcook.com/servers/"},{"@type":"ListItem","position":3,"name":"Cloudflare","item":"https://mcp.jtlcook.com/servers/cloudflare"}]}]</script>
+  <meta property="og:title" content="Cloudflare MCP Server 配置说明 - 安装命令、权限范围与常见报错">
+  <meta property="og:description" content="查看 Cloudflare 的 MCP Server 用途、支持客户端、安装命令、配置示例、权限范围和最近核验日期。">
+  <meta property="og:url" content="https://mcp.jtlcook.com/zh/servers/cloudflare">
+  <meta property="og:type" content="website">
+    <meta property="og:image" content="https://mcp.jtlcook.com/assets/images/og-default.png">
+  <meta property="og:site_name" content="AI Agent 与 MCP Server 工具目录">
+</head>
+<body>
+  
+    <nav class="nav">
+      <div class="container nav-inner">
+        <a href="../index.html" class="nav-brand">AI Agent 与 MCP Server 工具目录</a>
+        <div class="nav-links">
+          <a href="../servers/index.html">资料库</a>
+          <a href="../guides/what-is-mcp.html">教程</a>
+          <a href="../tools/config-builder.html">配置生成器</a>
+          <a href="../pages/about.html">关于</a>
+        </div>
+      </div>
+    <div class="lang-switch"><a href="../../en/servers/cloudflare.html" class="lang-btn">English</a></div></nav>
+  <main class="main container">
+    <nav class="breadcrumb"><a href="../index.html">首页</a> / <a href="../servers/index.html">资料库</a> / <span>Cloudflare</span></nav>
+    
+    <h1>Cloudflare MCP Server 配置与使用说明</h1>
+    <div class="quick-info">
+      <div class="quick-info-item">
+        <span class="qi-icon">📦</span>
+        <div><span class="qi-label">安装方式</span><span class="qi-value">npx</span></div>
+      </div>
+      <div class="quick-info-item">
+        <span class="qi-icon">⚠️</span>
+        <div><span class="qi-label">风险等级</span><span class="qi-value"><span class="badge badge-high">高风险</span></span></div>
+      </div>
+      <div class="quick-info-item">
+        <span class="qi-icon">🔑</span>
+        <div><span class="qi-label">API Key</span><span class="qi-value">不需要</span></div>
+      </div>
+      <div class="quick-info-item">
+        <span class="qi-icon">💻</span>
+        <div><span class="qi-label">客户端</span><span class="qi-value">3 个支持</span></div>
+      </div>
+    </div>
+    <p class="server-desc">Cloudflare 服务管理，支持 Workers、KV、R2 和 D1 操作</p>
+    <div class="meta-row">
+      <span class="badge badge-high">高风险</span>
+      <span class="meta-item">场景：部署与运维</span>
+      <span class="meta-item">核验：2026-05-18</span>
+      <span class="meta-item">状态：已核验</span>
+    </div>
+
+    <section class="section">
+      <h2>支持客户端</h2>
+      <ul><li>Claude Desktop</li><li>Cursor</li><li>VS Code / Cline</li></ul>
+    </section>
+
+    <section class="section">
+      <h2>安装命令</h2>
+      <div class="code-block"><pre><code>npx -y @cloudflare/mcp-server-cloudflare</code></pre><button class="copy-btn" data-copy="npx -y @cloudflare/mcp-server-cloudflare">复制</button></div>
+    </section>
+
+    <section class="section">
+      <h2>配置示例</h2>
+      <div class="code-block"><pre><code>{
+  &quot;mcpServers&quot;: {
+    &quot;cloudflare&quot;: {
+      &quot;command&quot;: &quot;npx&quot;,
+      &quot;args&quot;: [
+        &quot;-y&quot;,
+        &quot;@cloudflare/mcp-server-cloudflare&quot;
+      ]
+    }
+  }
+}</code></pre><button class="copy-btn" data-copy="{
+  &quot;mcpServers&quot;: {
+    &quot;cloudflare&quot;: {
+      &quot;command&quot;: &quot;npx&quot;,
+      &quot;args&quot;: [
+        &quot;-y&quot;,
+        &quot;@cloudflare/mcp-server-cloudflare&quot;
+      ]
+    }
+  }
+}">复制</button></div>
+      
+    </section>
+
+    <section class="section">
+      <h2>权限范围与安全提示</h2>
+      <p>可操作 Cloudflare 账号下的 Workers、KV、R2 等资源，需要 OAuth 授权</p>
+      <ul><li>network-access</li><li>credential-required</li><li>infrastructure-write</li></ul>
+      <p class="risk-score">风险评分：7/10</p>
+    </section>
+
+    
+    <section class="section">
+      <h2>常见报错</h2>
+      <dl class="faq">
+        <dt>认证失败</dt><dd>首次使用会打开浏览器进行 OAuth 授权</dd><dt>account not found</dt><dd>确认 Cloudflare 账号有对应资源的权限</dd>
+      </dl>
+    </section>
+
+    <section class="section">
+      <h2>来源</h2>
+      <ul>
+        <li><a href="https://github.com/cloudflare/mcp-server-cloudflare" target="_blank" rel="noopener noreferrer">官方文档 / 仓库</a></li>
+      </ul>
+      <p class="note">最近核验：2026-05-18。客户端版本和配置格式可能变化，使用前请以官方文档为准。</p>
+    </section>
+
+    
+    <section class="section">
+      <h2>相关工具</h2>
+      <div class="card-grid">
+        <a href="../servers/docker.html" class="card"><h3>Docker</h3><p>Docker 容器管理，支持列出容器、查看日志、执行命令和管理镜像</p></a><a href="../servers/sentry.html" class="card"><h3>Sentry</h3><p>Sentry 错误监控集成，支持查看 Issue、错误详情和项目状态</p></a><a href="../servers/vercel.html" class="card"><h3>Vercel</h3><p>Vercel 部署平台管理，支持项目、部署和域名操作</p></a><a href="../servers/shell.html" class="card"><h3>Shell / Terminal</h3><p>执行 shell 命令，支持运行脚本和系统操作</p></a>
+      </div>
+    </section>
+  </main>
+  
+    <footer class="footer">
+      <div class="container">
+        <div class="footer-links">
+          <a href="../pages/about.html">关于本站</a>
+          <a href="../pages/contact.html">联系我们</a>
+          <a href="../pages/privacy.html">隐私政策</a>
+          <a href="../pages/disclaimer.html">免责声明</a>
+        </div>
+        <p class="footer-note">本站工具信息来自官方文档和公开仓库，使用前请以官方文档为准。第三方 MCP Server 由第三方维护，本站不保证安全性和可用性。</p>
+        <p class="footer-note">联系邮箱：1055567003@qq.com</p>
+      </div>
+    </footer>
+  <script src="../../assets/app.js" defer></script>
+</body>
+</html>

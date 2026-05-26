@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Claude Desktop MCP Configuration Guide - AI Agent & MCP Server Tools Directory</title>
+  <meta name="description" content="Complete steps to configure MCP Server in Claude Desktop from scratch">
+  <link rel="canonical" href="https://mcp.jtlcook.com/en/guides/claude-desktop-setup">
+  <link rel="alternate" hreflang="zh" href="https://mcp.jtlcook.com/zh/guides/claude-desktop-setup">
+  <link rel="alternate" hreflang="en" href="https://mcp.jtlcook.com/en/guides/claude-desktop-setup">
+  <link rel="alternate" hreflang="x-default" href="https://mcp.jtlcook.com/en/guides/claude-desktop-setup">
+  <link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+  <link rel="stylesheet" href="../../assets/styles.css">
+  <script type="application/ld+json">[{"@context":"https://schema.org","@type":"Article","headline":"Claude Desktop MCP Configuration Guide","description":"Complete steps to configure MCP Server in Claude Desktop from scratch","url":"https://mcp.jtlcook.com/guides/claude-desktop-setup","author":{"@type":"Organization","name":"AI Agent & MCP Server Tools Directory"},"publisher":{"@type":"Organization","name":"AI Agent & MCP Server Tools Directory"},"datePublished":"2026-05-18","dateModified":"2026-05-18"},{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://mcp.jtlcook.com/"},{"@type":"ListItem","position":2,"name":"Guides","item":"https://mcp.jtlcook.com/guides/what-is-mcp"},{"@type":"ListItem","position":3,"name":"Claude Desktop MCP Configuration Guide","item":"https://mcp.jtlcook.com/guides/claude-desktop-setup"}]},{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"What if the tool icon is not visible after configuration?","acceptedAnswer":{"@type":"Answer","text":"Confirm you fully restarted (not just refreshed the window). Check if the config file JSON format is correct using cat config.json | python -m json.tool. Check log files for specific error messages."}},{"@type":"Question","name":"What if npx command is not found?","acceptedAnswer":{"@type":"Answer","text":"Confirm Node.js is properly installed and in system PATH. Run which npx (macOS) or where npx (Windows) in terminal to confirm the path. If using nvm, you may need to write the full path of npx in the config."}},{"@type":"Question","name":"How many MCP Servers can be connected simultaneously?","acceptedAnswer":{"@type":"Answer","text":"No hard limit, but each Server is an independent process and too many will consume system resources. Only enable Servers you currently need."}}]}]</script>
+  <meta property="og:title" content="Claude Desktop MCP Configuration Guide - AI Agent & MCP Server Tools Directory">
+  <meta property="og:description" content="Complete steps to configure MCP Server in Claude Desktop from scratch">
+  <meta property="og:url" content="https://mcp.jtlcook.com/en/guides/claude-desktop-setup">
+  <meta property="og:type" content="website">
+    <meta property="og:image" content="https://mcp.jtlcook.com/assets/images/og-default.png">
+  <meta property="og:site_name" content="AI Agent & MCP Server Tools Directory">
+</head>
+<body>
+
+    <nav class="nav">
+      <div class="container nav-inner">
+        <a href="../index.html" class="nav-brand">AI Agent & MCP Server Tools Directory</a>
+        <div class="nav-links">
+          <a href="../servers/index.html">Directory</a>
+          <a href="../guides/what-is-mcp.html">Guides</a>
+          <a href="../tools/config-builder.html">Config Builder</a>
+          <a href="../pages/about.html">About</a>
+        </div>
+      </div>
+    <div class="lang-switch"><a href="../../zh/guides/claude-desktop-setup.html" class="lang-btn">中文</a></div></nav>
+  <main class="main container">
+    <nav class="breadcrumb"><a href="../index.html">Home</a> / <a href="../index.html">Guides</a> / <span>Claude Desktop MCP Configuration Guide</span></nav>
+
+      <h1>Claude Desktop MCP Configuration Guide</h1>
+      <p class="intro">This guide helps you configure MCP Server in Claude Desktop from scratch. Once complete, Claude will be able to call external tools for file operations, web searches, and other tasks.</p>
+
+      <section class="section">
+        <h2>Prerequisites</h2>
+        <ul>
+          <li>Claude Desktop installed (macOS or Windows)</li>
+          <li>Node.js 18 or higher installed (for running Node.js-based MCP Servers)</li>
+          <li>Basic command-line knowledge</li>
+        </ul>
+        <p>Check if Node.js is installed:</p>
+        <pre><code>node --version
+# Should output v18.x.x or higher</code></pre>
+      </section>
+
+      <section class="section">
+        <h2>Configuration Steps</h2>
+        <h3>Step 1: Locate the Configuration File</h3>
+        <p>Claude Desktop MCP configuration file location:</p>
+        <ul>
+          <li><strong>macOS:</strong> <code>~/Library/Application Support/Claude/claude_desktop_config.json</code></li>
+          <li><strong>Windows:</strong> <code>%APPDATA%\Claude\claude_desktop_config.json</code></li>
+        </ul>
+        <p>If the file does not exist, create it manually.</p>
+
+        <h3>Step 2: Edit the Configuration File</h3>
+        <p>Open the config file and write the following (using filesystem MCP Server as an example):</p>
+        <pre><code>{
+  "mcpServers": {
+    "filesystem": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "@modelcontextprotocol/server-filesystem",
+        "/Users/yourname/Documents"
+      ]
+    }
+  }
+}</code></pre>
+        <p>Replace <code>/Users/yourname/Documents</code> with the directory path you want Claude to access.</p>
+
+        <h3>Step 3: Restart Claude Desktop</h3>
+        <p>Completely quit Claude Desktop (not just minimize), then reopen it. On macOS, right-click the menu bar icon and select "Quit".</p>
+
+        <h3>Step 4: Verify Connection</h3>
+        <p>After restarting, you should see a hammer icon (tool icon) on the left side of the chat input. Click it to view connected MCP Servers and available tools.</p>
+      </section>
+
+      <section class="section">
+        <h2>Adding Multiple MCP Servers</h2>
+        <p>Add multiple key-value pairs in the <code>mcpServers</code> object:</p>
+        <pre><code>{
+  "mcpServers": {
+    "filesystem": {
+      "command": "npx",
+      "args": ["-y", "@modelcontextprotocol/server-filesystem", "/Users/yourname/Documents"]
+    },
+    "fetch": {
+      "command": "uvx",
+      "args": ["mcp-server-fetch"]
+    }
+  }
+}</code></pre>
+      </section>
+
+      <section class="section">
+        <h2>Viewing Logs for Troubleshooting</h2>
+        <p>If MCP Server is not connecting properly, check the log files:</p>
+        <ul>
+          <li><strong>macOS:</strong> <code>~/Library/Logs/Claude/mcp*.log</code></li>
+          <li><strong>Windows:</strong> <code>%APPDATA%\Claude\logs\mcp*.log</code></li>
+        </ul>
+        <p>The logs will show the specific reason for Server startup failure.</p>
+      </section>
+
+      <section class="section">
+        <h2>Important Notes</h2>
+        <ul>
+          <li>The config file must be valid JSON format. Extra commas or missing quotes will cause parse failures.</li>
+          <li>Backslashes in paths (Windows) need to be escaped as double backslashes, e.g., <code>"C:\\Users\\name\\Documents"</code>.</li>
+          <li>You need to fully restart Claude Desktop after each config change.</li>
+          <li>Do not commit config files containing API keys to public repositories.</li>
+        </ul>
+      </section>
+
+      <section class="section">
+        <h2>FAQ</h2>
+        <dl class="faq">
+          <dt>What if the tool icon is not visible after configuration?</dt>
+          <dd>Confirm you fully restarted (not just refreshed the window). Check if the config file JSON format is correct using <code>cat config.json | python -m json.tool</code>. Check log files for specific error messages.</dd>
+          <dt>What if npx command is not found?</dt>
+          <dd>Confirm Node.js is properly installed and in system PATH. Run <code>which npx</code> (macOS) or <code>where npx</code> (Windows) in terminal to confirm the path. If using nvm, you may need to write the full path of npx in the config.</dd>
+          <dt>How many MCP Servers can be connected simultaneously?</dt>
+          <dd>No hard limit, but each Server is an independent process and too many will consume system resources. Only enable Servers you currently need.</dd>
+        </dl>
+      </section>
+
+      <section class="section">
+        <h2>Related Links</h2>
+        <ul>
+          <li><a href="https://docs.anthropic.com/en/docs/claude-desktop/mcp" target="_blank" rel="noopener noreferrer">Claude Desktop MCP Official Documentation</a></li>
+          <li><a href="../guides/config-json-explained.html">MCP Config JSON Fields Explained</a></li>
+          <li><a href="../guides/common-errors.html">MCP Server Common Error Troubleshooting</a></li>
+          <li><a href="../tools/config-builder.html">Config Snippet Generator</a></li>
+        </ul>
+      </section>
+  </main>
+
+    <footer class="footer">
+      <div class="container">
+        <div class="footer-links">
+          <a href="../pages/about.html">About</a>
+          <a href="../pages/contact.html">Contact</a>
+          <a href="../pages/privacy.html">Privacy Policy</a>
+          <a href="../pages/disclaimer.html">Disclaimer</a>
+        </div>
+        <p class="footer-note">Tool information on this site comes from official documentation and public repositories. Please refer to official docs before use. Third-party MCP Servers are maintained by third parties; this site does not guarantee their security or availability.</p>
+        <p class="footer-note">Contact: 1055567003@qq.com</p>
+      </div>
+    </footer>
+  <script src="../../assets/app.js" defer></script>
+</body>
+</html>

@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Windows CLI MCP Server Configuration Guide - Installation, Permissions & Common Errors</title>
+  <meta name="description" content="View Windows CLI  MCP Server usage, supported clients, installation commands, configuration examples, permission scope, and last verification date.">
+  <link rel="canonical" href="https://mcp.jtlcook.com/en/servers/windows-cli">
+  <link rel="alternate" hreflang="zh" href="https://mcp.jtlcook.com/zh/servers/windows-cli">
+  <link rel="alternate" hreflang="en" href="https://mcp.jtlcook.com/en/servers/windows-cli">
+  <link rel="alternate" hreflang="x-default" href="https://mcp.jtlcook.com/en/servers/windows-cli">
+  <link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+  <link rel="stylesheet" href="../../assets/styles.css">
+  <script type="application/ld+json">[{"@context":"https://schema.org","@type":"SoftwareApplication","name":"Windows CLI MCP Server","description":"Windows PowerShell 和 CMD 命令执行，支持在 Windows 环境中运行脚本","url":"https://mcp.jtlcook.com/servers/windows-cli","applicationCategory":"DeveloperApplication","operatingSystem":"Windows, macOS, Linux"},{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://mcp.jtlcook.com/"},{"@type":"ListItem","position":2,"name":"Directory","item":"https://mcp.jtlcook.com/servers/"},{"@type":"ListItem","position":3,"name":"Windows CLI","item":"https://mcp.jtlcook.com/servers/windows-cli"}]}]</script>
+  <meta property="og:title" content="Windows CLI MCP Server Configuration Guide - Installation, Permissions & Common Errors">
+  <meta property="og:description" content="View Windows CLI  MCP Server usage, supported clients, installation commands, configuration examples, permission scope, and last verification date.">
+  <meta property="og:url" content="https://mcp.jtlcook.com/en/servers/windows-cli">
+  <meta property="og:type" content="website">
+    <meta property="og:image" content="https://mcp.jtlcook.com/assets/images/og-default.png">
+  <meta property="og:site_name" content="AI Agent & MCP Server Tools Directory">
+</head>
+<body>
+  
+    <nav class="nav">
+      <div class="container nav-inner">
+        <a href="../index.html" class="nav-brand">AI Agent & MCP Server Tools Directory</a>
+        <div class="nav-links">
+          <a href="../servers/index.html">Directory</a>
+          <a href="../guides/what-is-mcp.html">Guides</a>
+          <a href="../tools/config-builder.html">Config Builder</a>
+          <a href="../pages/about.html">About</a>
+        </div>
+      </div>
+    <div class="lang-switch"><a href="../../zh/servers/windows-cli.html" class="lang-btn">中文</a></div></nav>
+  <main class="main container">
+    <nav class="breadcrumb"><a href="../index.html">Home</a> / <a href="../servers/index.html">Directory</a> / <span>Windows CLI</span></nav>
+    
+    <h1>Windows CLI MCP Server Configuration & Usage Guide</h1>
+    <div class="quick-info">
+      <div class="quick-info-item">
+        <span class="qi-icon">📦</span>
+        <div><span class="qi-label">Installation</span><span class="qi-value">npx</span></div>
+      </div>
+      <div class="quick-info-item">
+        <span class="qi-icon">⚠️</span>
+        <div><span class="qi-label">Risk Level</span><span class="qi-value"><span class="badge badge-high">High Risk</span></span></div>
+      </div>
+      <div class="quick-info-item">
+        <span class="qi-icon">🔑</span>
+        <div><span class="qi-label">API Key</span><span class="qi-value">Not Required</span></div>
+      </div>
+      <div class="quick-info-item">
+        <span class="qi-icon">💻</span>
+        <div><span class="qi-label">Clients</span><span class="qi-value">3  supported</span></div>
+      </div>
+    </div>
+    <p class="server-desc">Windows PowerShell 和 CMD 命令执行，支持在 Windows 环境中运行脚本</p>
+    <div class="meta-row">
+      <span class="badge badge-high">High Risk</span>
+      <span class="meta-item">Category: File & Local System</span>
+      <span class="meta-item">Verified: 2026-05-18</span>
+      <span class="meta-item">状态：部分核验</span>
+    </div>
+
+    <section class="section">
+      <h2>Supported Clients</h2>
+      <ul><li>Claude Desktop</li><li>Cursor</li><li>VS Code / Cline</li></ul>
+    </section>
+
+    <section class="section">
+      <h2>Installation Command</h2>
+      <div class="code-block"><pre><code>npx -y win-cli-mcp-server</code></pre><button class="copy-btn" data-copy="npx -y win-cli-mcp-server">Copy</button></div>
+    </section>
+
+    <section class="section">
+      <h2>Configuration Example</h2>
+      <div class="code-block"><pre><code>{
+  &quot;mcpServers&quot;: {
+    &quot;windows-cli&quot;: {
+      &quot;command&quot;: &quot;npx&quot;,
+      &quot;args&quot;: [
+        &quot;-y&quot;,
+        &quot;win-cli-mcp-server&quot;
+      ]
+    }
+  }
+}</code></pre><button class="copy-btn" data-copy="{
+  &quot;mcpServers&quot;: {
+    &quot;windows-cli&quot;: {
+      &quot;command&quot;: &quot;npx&quot;,
+      &quot;args&quot;: [
+        &quot;-y&quot;,
+        &quot;win-cli-mcp-server&quot;
+      ]
+    }
+  }
+}">Copy</button></div>
+      
+    </section>
+
+    <section class="section">
+      <h2>Permission Scope & Security Notes</h2>
+      <p>可执行任意 Windows 命令（PowerShell/CMD），风险极高，仅在完全信任的环境中使用</p>
+      <ul><li>command-execution</li><li>file-read</li><li>file-write</li><li>network-access</li></ul>
+      <p class="risk-score">Risk Score：9/10</p>
+    </section>
+
+    
+    <section class="section">
+      <h2>Common Errors</h2>
+      <dl class="faq">
+        <dt>命令执行超时</dt><dd>长时间运行的命令可能超时，尝试拆分为多个短命令</dd><dt>权限不足</dt><dd>部分命令Required管理员权限，以管理员身份运行Clients</dd>
+      </dl>
+    </section>
+
+    <section class="section">
+      <h2>Sources</h2>
+      <ul>
+        <li><a href="https://github.com/SimonB97/win-cli-mcp-server" target="_blank" rel="noopener noreferrer">Official Documentation / Repository</a></li>
+      </ul>
+      <p class="note">Recently Verified：2026-05-18。Client versions and configuration formats may change. Please refer to official documentation before use.</p>
+    </section>
+
+    
+    <section class="section">
+      <h2>Related Tools</h2>
+      <div class="card-grid">
+        <a href="../servers/filesystem.html" class="card"><h3>Filesystem</h3><p>安全的文件系统操作，支持读写文件、创建目录、搜索文件和获取文件信息</p></a><a href="../servers/memory.html" class="card"><h3>Memory</h3><p>A persistent memory system based on knowledge graphs, supporting entity and relationship storage and querying</p></a><a href="../servers/everything.html" class="card"><h3>Everything</h3><p>MCP protocol testing and reference implementation, containing examples of all MCP features</p></a><a href="../servers/time.html" class="card"><h3>Time</h3><p>Time and timezone tool, supporting current time retrieval and timezone conversion</p></a>
+      </div>
+    </section>
+  </main>
+  
+    <footer class="footer">
+      <div class="container">
+        <div class="footer-links">
+          <a href="../pages/about.html">About This Site</a>
+          <a href="../pages/contact.html">Contact</a>
+          <a href="../pages/privacy.html">Privacy Policy</a>
+          <a href="../pages/disclaimer.html">Disclaimer</a>
+        </div>
+        <p class="footer-note">Tool information on this site comes from official documentation and public repositories. Please refer to official docs before use. Third-party MCP Servers are maintained by third parties; we do not guarantee their security or availability.</p>
+        <p class="footer-note">Contact email: 1055567003@qq.com</p>
+      </div>
+    </footer>
+  <script src="../../assets/app.js" defer></script>
+</body>
+</html>

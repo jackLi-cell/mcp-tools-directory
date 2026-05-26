@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>What is MCP Server - AI Agent & MCP Server Tools Directory</title>
+  <meta name="description" content="Basic concepts of Model Context Protocol, differences from regular plugins, and how it works">
+  <link rel="canonical" href="https://mcp.jtlcook.com/en/guides/what-is-mcp">
+  <link rel="alternate" hreflang="zh" href="https://mcp.jtlcook.com/zh/guides/what-is-mcp">
+  <link rel="alternate" hreflang="en" href="https://mcp.jtlcook.com/en/guides/what-is-mcp">
+  <link rel="alternate" hreflang="x-default" href="https://mcp.jtlcook.com/en/guides/what-is-mcp">
+  <link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+  <link rel="stylesheet" href="../../assets/styles.css">
+  <script type="application/ld+json">[{"@context":"https://schema.org","@type":"Article","headline":"What is MCP Server","description":"Basic concepts of Model Context Protocol, differences from regular plugins, and how it works","url":"https://mcp.jtlcook.com/guides/what-is-mcp","author":{"@type":"Organization","name":"AI Agent & MCP Server Tools Directory"},"publisher":{"@type":"Organization","name":"AI Agent & MCP Server Tools Directory"},"datePublished":"2026-05-18","dateModified":"2026-05-18"},{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://mcp.jtlcook.com/"},{"@type":"ListItem","position":2,"name":"Guide","item":"https://mcp.jtlcook.com/guides/what-is-mcp"},{"@type":"ListItem","position":3,"name":"What is MCP Server","item":"https://mcp.jtlcook.com/guides/what-is-mcp"}]},{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Is MCP proprietary to Anthropic?","acceptedAnswer":{"@type":"Answer","text":"MCP is an open protocol with open-source specifications and SDKs. Any AI client can implement MCP support. Currently Claude Desktop, Cursor, Windsurf, and others support it."}},{"@type":"Question","name":"Do I need programming skills to use MCP?","acceptedAnswer":{"@type":"Answer","text":"Basic usage only requires editing JSON configuration files, no coding needed. However, understanding command-line operations and environment variables is helpful."}},{"@type":"Question","name":"Does MCP Server auto-update?","acceptedAnswer":{"@type":"Answer","text":"No. MCP Servers run via npx or uvx will pull the latest version, but locally installed ones need manual updates. We recommend regularly checking official repository changelogs."}}]}]</script>
+  <meta property="og:title" content="What is MCP Server - AI Agent & MCP Server Tools Directory">
+  <meta property="og:description" content="Basic concepts of Model Context Protocol, differences from regular plugins, and how it works">
+  <meta property="og:url" content="https://mcp.jtlcook.com/en/guides/what-is-mcp">
+  <meta property="og:type" content="website">
+    <meta property="og:image" content="https://mcp.jtlcook.com/assets/images/og-default.png">
+  <meta property="og:site_name" content="AI Agent & MCP Server Tools Directory">
+</head>
+<body>
+  
+    <nav class="nav">
+      <div class="container nav-inner">
+        <a href="../index.html" class="nav-brand">AI Agent & MCP Server Tools Directory</a>
+        <div class="nav-links">
+          <a href="../servers/index.html">Directory</a>
+          <a href="../guides/what-is-mcp.html">Guide</a>
+          <a href="../tools/config-builder.html">Config Builder</a>
+          <a href="../pages/about.html">About</a>
+        </div>
+      </div>
+    <div class="lang-switch"><a href="../../zh/guides/what-is-mcp.html" class="lang-btn">中文</a></div></nav>
+  <main class="main container">
+    <nav class="breadcrumb"><a href="../index.html">Home</a> / <a href="../index.html">Guide</a> / <span>What is MCP Server</span></nav>
+    
+      <h1>What is MCP Server</h1>
+      <p class="intro">MCP (Model Context Protocol) is an open protocol proposed by Anthropic to standardize communication between AI models and external tools/data sources. MCP Server is the server-side program implementing this protocol, providing tool-calling capabilities to AI clients.</p>
+
+      <section class="section">
+        <h2>Core Concepts</h2>
+        <p>MCP defines three roles:</p>
+        <ul>
+          <li><strong>Host</strong>：The application that users interact with directly, such as Claude Desktop, Cursor, etc.</li>
+          <li><strong>Client</strong>：The MCP protocol client inside the Host, responsible for communicating with the Server.</li>
+          <li><strong>Server</strong>：Programs that provide specific tool capabilities, such as file system access, database queries, API calls, etc.</li>
+        </ul>
+        <p>A Host can connect to multiple MCP Servers simultaneously, each providing different tool sets.</p>
+      </section>
+
+      <section class="section">
+        <h2>Differences Between MCP Server and Regular Plugins</h2>
+        <table>
+          <thead><tr><th>Comparison</th><th>MCP Server</th><th>Regular Plugins</th></tr></thead>
+          <tbody>
+            <tr><td>Protocol</td><td>Standardized JSON-RPC protocol</td><td>Platform-specific private APIs</td></tr>
+            <tr><td>Reusability</td><td>One Server can be used by multiple clients</td><td>Usually only works with specific platforms</td></tr>
+            <tr><td>Runtime</td><td>Independent process, communicating via stdio or HTTP</td><td>Usually runs within the host process</td></tr>
+            <tr><td>Language</td><td>Any language (Node.js, Python, etc.)</td><td>Limited to platform SDK</td></tr>
+            <tr><td>security boundaries</td><td>Process isolation, controllable permissions</td><td>Usually shares host permissions</td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section class="section">
+        <h2>How It Works</h2>
+        <p>The MCP communication flow is as follows:</p>
+        <ol>
+          <li>When the Host starts, it launches MCP Server child processes based on the configuration file.</li>
+          <li>The Client establishes a JSON-RPC connection with the Server via stdio (standard input/output).</li>
+          <li>The Server declares its available tools and resources to the Client.</li>
+          <li>During user-AI conversations, the AI calls Server-provided tools as needed.</li>
+          <li>The Server executes operations and returns results, which the AI integrates into its response.</li>
+        </ol>
+        <pre><code>User → Host(Claude Desktop) → Client → MCP Server → External Services/File System
+                                                    ↓
+                                              Returns execution results</code></pre>
+      </section>
+
+      <section class="section">
+        <h2>What Can MCP Server Do</h2>
+        <ul>
+          <li>Read/write local file system</li>
+          <li>Execute database queries</li>
+          <li>Call third-party APIs (GitHub, Slack, Notion, etc.)</li>
+          <li>Run Shell commands</li>
+          <li>Search and scrape web content</li>
+          <li>Manage calendars and emails</li>
+        </ul>
+      </section>
+
+      <section class="section">
+        <h2>Important Notes</h2>
+        <ul>
+          <li>MCP Server runs as a local process with the system permissions you grant. Always verify the permission scope before connecting.</li>
+          <li>Different Servers have different risk levels. Read-only file tools are low risk, while those that can execute commands or access the network are higher risk.</li>
+          <li>The MCP protocol is still rapidly evolving. Configuration formats may change with client versions.</li>
+        </ul>
+      </section>
+
+      <section class="section">
+        <h2>FAQ</h2>
+        <dl class="faq">
+          <dt>Is MCP proprietary to Anthropic?</dt>
+          <dd>MCP is an open protocol with open-source specifications and SDKs. Any AI client can implement MCP support. Currently Claude Desktop, Cursor, Windsurf, and others support it.</dd>
+          <dt>Do I need programming skills to use MCP?</dt>
+          <dd>Basic usage only requires editing JSON configuration files, no coding needed. However, understanding command-line operations and environment variables is helpful.</dd>
+          <dt>Does MCP Server auto-update?</dt>
+          <dd>No. MCP Servers run via npx or uvx will pull the latest version, but locally installed ones need manual updates. We recommend regularly checking official repository changelogs.</dd>
+        </dl>
+      </section>
+
+      <section class="section">
+        <h2>Related Links</h2>
+        <ul>
+          <li><a href="https://modelcontextprotocol.io" target="_blank" rel="noopener noreferrer">MCP Official Documentation</a></li>
+          <li><a href="https://github.com/modelcontextprotocol" target="_blank" rel="noopener noreferrer">MCP GitHub Organization</a></li>
+          <li><a href="../guides/claude-desktop-setup.html">Claude Desktop MCP Configuration Guide</a></li>
+          <li><a href="../guides/config-json-explained.html">MCP Config JSON Fields Explained</a></li>
+        </ul>
+      </section>
+  </main>
+  
+    <footer class="footer">
+      <div class="container">
+        <div class="footer-links">
+          <a href="../pages/about.html">About This Site</a>
+          <a href="../pages/contact.html">Contact</a>
+          <a href="../pages/privacy.html">Privacy Policy</a>
+          <a href="../pages/disclaimer.html">Disclaimer</a>
+        </div>
+        <p class="footer-note">Tool information on this site comes from official documentation and public repositories. Please refer to official docs before use. Third-party MCP Servers are maintained by third parties; we do not guarantee their security or availability.</p>
+        <p class="footer-note">Contact email: 1055567003@qq.com</p>
+      </div>
+    </footer>
+  <script src="../../assets/app.js" defer></script>
+</body>
+</html>

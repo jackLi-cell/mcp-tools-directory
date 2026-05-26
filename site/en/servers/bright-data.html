@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bright Data MCP Server Configuration Guide - Installation, Permissions & Common Errors</title>
+  <meta name="description" content="View Bright Data  MCP Server usage, supported clients, installation commands, configuration examples, permission scope, and last verification date.">
+  <link rel="canonical" href="https://mcp.jtlcook.com/en/servers/bright-data">
+  <link rel="alternate" hreflang="zh" href="https://mcp.jtlcook.com/zh/servers/bright-data">
+  <link rel="alternate" hreflang="en" href="https://mcp.jtlcook.com/en/servers/bright-data">
+  <link rel="alternate" hreflang="x-default" href="https://mcp.jtlcook.com/en/servers/bright-data">
+  <link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+  <link rel="stylesheet" href="../../assets/styles.css">
+  <script type="application/ld+json">[{"@context":"https://schema.org","@type":"SoftwareApplication","name":"Bright Data MCP Server","description":"Bright Data 网页抓取平台，支持大规模数据采集和反封锁代理","url":"https://mcp.jtlcook.com/servers/bright-data","applicationCategory":"DeveloperApplication","operatingSystem":"Windows, macOS, Linux"},{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://mcp.jtlcook.com/"},{"@type":"ListItem","position":2,"name":"Directory","item":"https://mcp.jtlcook.com/servers/"},{"@type":"ListItem","position":3,"name":"Bright Data","item":"https://mcp.jtlcook.com/servers/bright-data"}]}]</script>
+  <meta property="og:title" content="Bright Data MCP Server Configuration Guide - Installation, Permissions & Common Errors">
+  <meta property="og:description" content="View Bright Data  MCP Server usage, supported clients, installation commands, configuration examples, permission scope, and last verification date.">
+  <meta property="og:url" content="https://mcp.jtlcook.com/en/servers/bright-data">
+  <meta property="og:type" content="website">
+    <meta property="og:image" content="https://mcp.jtlcook.com/assets/images/og-default.png">
+  <meta property="og:site_name" content="AI Agent & MCP Server Tools Directory">
+</head>
+<body>
+  
+    <nav class="nav">
+      <div class="container nav-inner">
+        <a href="../index.html" class="nav-brand">AI Agent & MCP Server Tools Directory</a>
+        <div class="nav-links">
+          <a href="../servers/index.html">Directory</a>
+          <a href="../guides/what-is-mcp.html">Guides</a>
+          <a href="../tools/config-builder.html">Config Builder</a>
+          <a href="../pages/about.html">About</a>
+        </div>
+      </div>
+    <div class="lang-switch"><a href="../../zh/servers/bright-data.html" class="lang-btn">中文</a></div></nav>
+  <main class="main container">
+    <nav class="breadcrumb"><a href="../index.html">Home</a> / <a href="../servers/index.html">Directory</a> / <span>Bright Data</span></nav>
+    
+    <h1>Bright Data MCP Server Configuration & Usage Guide</h1>
+    <div class="quick-info">
+      <div class="quick-info-item">
+        <span class="qi-icon">📦</span>
+        <div><span class="qi-label">Installation</span><span class="qi-value">npx</span></div>
+      </div>
+      <div class="quick-info-item">
+        <span class="qi-icon">⚠️</span>
+        <div><span class="qi-label">Risk Level</span><span class="qi-value"><span class="badge badge-medium">Medium Risk</span></span></div>
+      </div>
+      <div class="quick-info-item">
+        <span class="qi-icon">🔑</span>
+        <div><span class="qi-label">API Key</span><span class="qi-value">Required</span></div>
+      </div>
+      <div class="quick-info-item">
+        <span class="qi-icon">💻</span>
+        <div><span class="qi-label">Clients</span><span class="qi-value">3  supported</span></div>
+      </div>
+    </div>
+    <p class="server-desc">Bright Data 网页抓取平台，支持大规模数据采集和反封锁代理</p>
+    <div class="meta-row">
+      <span class="badge badge-medium">Medium Risk</span>
+      <span class="meta-item">Category: Browser & Web Automation</span>
+      <span class="meta-item">Verified: 2026-05-18</span>
+      <span class="meta-item">状态：部分核验</span>
+    </div>
+
+    <section class="section">
+      <h2>Supported Clients</h2>
+      <ul><li>Claude Desktop</li><li>Cursor</li><li>VS Code / Cline</li></ul>
+    </section>
+
+    <section class="section">
+      <h2>Installation Command</h2>
+      <div class="code-block"><pre><code>npx -y @brightdata/mcp</code></pre><button class="copy-btn" data-copy="npx -y @brightdata/mcp">Copy</button></div>
+    </section>
+
+    <section class="section">
+      <h2>Configuration Example</h2>
+      <div class="code-block"><pre><code>{
+  &quot;mcpServers&quot;: {
+    &quot;bright-data&quot;: {
+      &quot;command&quot;: &quot;npx&quot;,
+      &quot;args&quot;: [
+        &quot;-y&quot;,
+        &quot;@brightdata/mcp&quot;
+      ],
+      &quot;env&quot;: {
+        &quot;API_TOKEN&quot;: &quot;&lt;your-brightdata-api-token&gt;&quot;
+      }
+    }
+  }
+}</code></pre><button class="copy-btn" data-copy="{
+  &quot;mcpServers&quot;: {
+    &quot;bright-data&quot;: {
+      &quot;command&quot;: &quot;npx&quot;,
+      &quot;args&quot;: [
+        &quot;-y&quot;,
+        &quot;@brightdata/mcp&quot;
+      ],
+      &quot;env&quot;: {
+        &quot;API_TOKEN&quot;: &quot;&lt;your-brightdata-api-token&gt;&quot;
+      }
+    }
+  }
+}">Copy</button></div>
+      <p class="warning">Environment variable required：API_TOKEN。Do not commit these values to public repositories.</p>
+    </section>
+
+    <section class="section">
+      <h2>Permission Scope & Security Notes</h2>
+      <p>通过 Bright Data 代理网络抓取网页，Required付费 API Token，注意遵守目标网站条款</p>
+      <ul><li>network-access</li><li>credential-required</li></ul>
+      <p class="risk-score">Risk Score：4/10</p>
+    </section>
+
+    
+    <section class="section">
+      <h2>Common Errors</h2>
+      <dl class="faq">
+        <dt>API Token 无效</dt><dd>在 Bright Data 控制台生成 API Token</dd><dt>配额不足</dt><dd>检查 Bright Data 账户余额和套餐限制</dd>
+      </dl>
+    </section>
+
+    <section class="section">
+      <h2>Sources</h2>
+      <ul>
+        <li><a href="https://github.com/luminati-io/brightdata-mcp" target="_blank" rel="noopener noreferrer">Official Documentation / Repository</a></li>
+      </ul>
+      <p class="note">Recently Verified：2026-05-18。Client versions and configuration formats may change. Please refer to official documentation before use.</p>
+    </section>
+
+    
+    <section class="section">
+      <h2>Related Tools</h2>
+      <div class="card-grid">
+        <a href="../servers/puppeteer.html" class="card"><h3>Puppeteer</h3><p>浏览器自动化，支持页面导航、截图、点击、表单填写和 JavaScript 执行</p></a><a href="../servers/playwright.html" class="card"><h3>Playwright</h3><p>基于 Playwright 的浏览器自动化，支持多浏览器、截图、PDF 生成和网页交互</p></a><a href="../servers/firecrawl.html" class="card"><h3>Firecrawl</h3><p>网页抓取和数据提取工具，将网页转换为结构化的 Markdown 或 JSON</p></a><a href="../servers/playwright-official.html" class="card"><h3>Playwright (Official)</h3><p>Playwright 官方 MCP Server，支持浏览器自动化、截图和网页交互</p></a>
+      </div>
+    </section>
+  </main>
+  
+    <footer class="footer">
+      <div class="container">
+        <div class="footer-links">
+          <a href="../pages/about.html">About This Site</a>
+          <a href="../pages/contact.html">Contact</a>
+          <a href="../pages/privacy.html">Privacy Policy</a>
+          <a href="../pages/disclaimer.html">Disclaimer</a>
+        </div>
+        <p class="footer-note">Tool information on this site comes from official documentation and public repositories. Please refer to official docs before use. Third-party MCP Servers are maintained by third parties; we do not guarantee their security or availability.</p>
+        <p class="footer-note">Contact email: 1055567003@qq.com</p>
+      </div>
+    </footer>
+  <script src="../../assets/app.js" defer></script>
+</body>
+</html>

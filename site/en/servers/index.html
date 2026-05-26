@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MCP Server 工具Directory - 按Clients、场景和权限筛选</title>
+  <meta name="description" content="View 56 个 MCP Server 工具，按场景、Clients、权限范围和Risk Level筛选。">
+  <link rel="canonical" href="https://mcp.jtlcook.com/en/servers/">
+  <link rel="alternate" hreflang="zh" href="https://mcp.jtlcook.com/zh/servers/">
+  <link rel="alternate" hreflang="en" href="https://mcp.jtlcook.com/en/servers/">
+  <link rel="alternate" hreflang="x-default" href="https://mcp.jtlcook.com/en/servers/">
+  <link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+  <link rel="stylesheet" href="../../assets/styles.css">
+  <script type="application/ld+json">[{"@context":"https://schema.org","@type":"CollectionPage","name":"MCP Server 工具Directory","description":"View 56 个 MCP Server 工具，按场景、Clients、权限范围和Risk Level筛选。","url":"https://mcp.jtlcook.com/servers/"},{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://mcp.jtlcook.com/"},{"@type":"ListItem","position":2,"name":"Directory","item":"https://mcp.jtlcook.com/servers/"}]}]</script>
+  <meta property="og:title" content="MCP Server 工具Directory - 按Clients、场景和权限筛选">
+  <meta property="og:description" content="View 56 个 MCP Server 工具，按场景、Clients、权限范围和Risk Level筛选。">
+  <meta property="og:url" content="https://mcp.jtlcook.com/en/servers/">
+  <meta property="og:type" content="website">
+    <meta property="og:image" content="https://mcp.jtlcook.com/assets/images/og-default.png">
+  <meta property="og:site_name" content="AI Agent & MCP Server Tools Directory">
+</head>
+<body>
+  
+    <nav class="nav">
+      <div class="container nav-inner">
+        <a href="../index.html" class="nav-brand">AI Agent & MCP Server Tools Directory</a>
+        <div class="nav-links">
+          <a href="../servers/index.html">Directory</a>
+          <a href="../guides/what-is-mcp.html">Guides</a>
+          <a href="../tools/config-builder.html">Config Builder</a>
+          <a href="../pages/about.html">About</a>
+        </div>
+      </div>
+    <div class="lang-switch"><a href="../../zh/servers/index.html" class="lang-btn">中文</a></div></nav>
+  <main class="main container">
+    <nav class="breadcrumb"><a href="../index.html">Home</a> / <span>Directory</span></nav>
+    
+    <h1>MCP Server 工具Directory</h1>
+    <div class="stats-bar">
+      <span class="stat-item">共 <strong>56</strong>  tools</span>
+      <span class="stat-item">Low Risk <strong>14</strong> 个</span>
+      <span class="stat-item">Medium Risk <strong>28</strong> 个</span>
+      <span class="stat-item">High Risk <strong>14</strong> 个</span>
+    </div>
+    <div class="search-box">
+      <input type="text" id="search-input" placeholder="Search tools, scenarios, or keywords..." aria-label="Search tools">
+    </div>
+    <div class="filters">
+      <select id="filter-category" aria-label="按场景筛选">
+        <option value="">全部场景</option>
+        <option value="file-system">File & Local System</option><option value="git-and-code">Git & Dev Workflow</option><option value="database">Database & Data Query</option><option value="browser-automation">Browser & Web Automation</option><option value="search-knowledge">Search & Knowledge Base</option><option value="design-collaboration">Design & Product Collaboration</option><option value="deploy-ops">Deploy & Operations</option>
+      </select>
+      <select id="filter-risk" aria-label="按风险筛选">
+        <option value="">全部风险</option>
+        <option value="low">Low Risk</option>
+        <option value="medium">Medium Risk</option>
+        <option value="high">High Risk</option>
+      </select>
+      <select id="filter-apikey" aria-label="是否RequiredAPI Key">
+        <option value="">全部</option>
+        <option value="no">无需 API Key</option>
+        <option value="yes">Required API Key</option>
+      </select>
+    </div>
+    <div class="table-wrap">
+      <table id="servers-table">
+        <thead><tr><th>Tool</th><th>Category</th><th>Clients</th><th>Risk</th><th>Verified Date</th></tr></thead>
+        <tbody>
+          <tr data-category="file-system" data-risk="medium" data-apikey="no">
+            <td><a href="../servers/filesystem.html">Filesystem</a></td>
+            <td>File & Local System</td>
+            <td>Claude Desktop, Cursor, VS Code / Cline</td>
+            <td><span class="badge badge-medium">Medium Risk</span></td>
+            <td>2026-05-18</td>
+          </tr><tr data-category="git-and-code" data-risk="medium" data-apikey="yes">
+            <td><a href="../servers/github.html">GitHub</a></td>
+            <td>Git & Dev Workflow</td>
+            <td>Claude Desktop, Cursor, VS Code / Cline</td>
+            <td><span class="badge badge-medium">Medium Risk</span></td>
+            <td>2026-05-18</td>
+          </tr><tr data-category="database" data-risk="medium" data-apikey="no">
+            <td><a href="../servers/sqlite.html">SQLite</a></td>
+            <td>Database & Data Query</td>
+            <td>Claude Desktop, Cursor, VS Code / Cline</td>
+            <td><span class="badge badge-medium">Medium Risk</span></td>
+            <td>2026-05-18</td>
+          </tr><tr data-category="database" data-risk="medium" data-apikey="no">
+            <td><a href="../servers/postgres.html">PostgreSQL</a></td>
+            <td>Database & Data Query</td>
+            <td>Claude Desktop, Cursor, VS Code / Cline</td>
+            <td><span class="badge badge-medium">Medium Risk</span></td>
+            <td>2026-05-18</td>
+          </tr><tr data-category="search-knowledge" data-risk="medium" data-apikey="yes">
+            <td><a href="../servers/brave-search.html">Brave Search</a></td>
+            <td>Search & Knowledge Base</td>
+            <td>Claude Desktop, Cursor, VS Code / Cline</td>
+            <td><span class="badge badge-medium">Medium Risk</span></td>
+            <td>2026-05-18</td>
+          </tr><tr data-category="browser-automation" data-risk="medium" data-apikey="no">
+            <td><a href="../servers/puppeteer.html">Puppeteer</a></td>
+            <td>Browser & Web Automation</td>
+            <td>Claude Desktop, Cursor, VS Code / Cline</td>
+            <td><span class="badge badge-medium">Medium Risk</span></td>
+            <td>2026-05-18</td>
+          </tr><tr data-category="file-system" data-risk="low" data-apikey="no">
+            <td><a href="../servers/memory.html">Memory</a></td>
+            <td>File & Local System</td>
+            <td>Claude Desktop, Cursor, VS Code / Cline</td>
+            <td><span class="badge badge-low">Low Risk</span></td>
+            <td>2026-05-18</td>
+          </tr><tr data-category="search-knowledge" data-risk="low" data-apikey="no">
+            <td><a href="../servers/fetch.html">Fetch</a></td>
+            <td>Search & Knowledge Base</td>
+            <td>Claude Desktop, Cursor, VS Code / Cline</td>
+            <td><span class="badge badge-low">Low Risk</span></td>
+            <td>2026-05-18</td>
+          </tr><tr data-category="git-and-code" data-risk="low" data-apikey="no">
+            <td><a href="../servers/git.html">Git</a></td>
+            <td>Git & Dev Workflow</td>
+            <td>Claude Desktop, Cursor, VS Code / Cline</td>
+            <td><span class="badge badge-low">Low Risk</span></td>
+            <td>2026-05-18</td>
+          </tr><tr data-category="search-knowledge" data-risk="low" data-apikey="no">
+            <td><a href="../servers/sequential-thinking.html">Sequential Thinking</a></td>
+            <td>Search & Knowledge Base</td>
+            <td>Claude Desktop, Cursor, VS Code / Cline</td>
+            <td><span class="badge badge-low">Low Risk</span></td>
+            <td>2026-05-18</td>
+          </tr><tr data-category="browser-automation" data-risk="medium" data-apikey="no">
+            <td><a href="../servers/playwright.html">Playwright</a></td>
+            <td>Browser & Web Automation</td>
+            <td>Claude Desktop, Cursor, VS Code / Cline</td>
+            <td><span class="badge badge-medium">Medium Risk</span></td>
+            <td>2026-05-18</td>
+          </tr><tr data-category="file-system" data-risk="low" data-apikey="no">
+            <td><a href="../servers/everything.html">Everything</a></td>
+            <td>File & Local System</td>
+            <td>Claude Desktop, Cursor, VS Code / Cline</td>
+            <td><span class="badge badge-low">Low Risk</span></td>
+            <td>2026-05-18</td>
+          </tr><tr data-category="design-collaboration" data-risk="high" data-apikey="yes">
+            <td><a href="../servers/slack.html">Slack</a></td>
+            <td>Design & Product Collaboration</td>
+            <td>Claude Desktop, Cursor</td>
+            <td><span class="badge badge-high">High Risk</span></td>
+            <td>2026-05-18</td>
+          </tr><tr data-category="search-knowledge" data-risk="medium" data-apikey="yes">
+            <td><a href="../servers/google-maps.html">Google Maps</a></td>
+            <td>Search & Knowledge Base</td>
+            <td>Claude Desktop, Cursor, VS Code / Cline</td>
+            <td><span class="badge badge-medium">Medium Risk</span></td>
+            <td>2026-05-18</td>
+          </tr><tr data-category="deploy-ops" data-risk="high" data-apikey="no">
+            <td><a href="../servers/cloudflare.html">Cloudflare</a></td>
+            <td>Deploy & Operations</td>
+            <td>Claude Desktop, Cursor, VS Code / Cline</td>
+            <td><span class="badge badge-high">High Risk</span></td>
+            <td>2026-05-18</td>
+          </tr><tr data-category="deploy-ops" data-risk="high" data-apikey="no">
+            <td><a href="../servers/docker.html">Docker</a></td>
+            <td>Deploy & Operations</td>
+            <td>Claude Desktop, Cursor</td>
+            <td><span class="badge badge-high">High Risk</span></td>
+            <td>2026-05-18</td>
+          </tr><tr data-category="design-collaboration" data-risk="medium" data-apikey="yes">
+            <td><a href="../servers/linear.html">Linear</a></td>
+            <td>Design & Product Collaboration</td>
+            <td>Claude Desktop, Cursor</td>
+            <td><span class="badge badge-medium">Medium Risk</span></td>
+            <td>2026-05-18</td>
+          </tr><tr data-category="design-collaboration" data-risk="medium" data-apikey="yes">
+            <td><a href="../servers/notion.html">Notion</a></td>
+            <td>Design & Product Collaboration</td>
+            <td>Claude Desktop, Cursor, VS Code / Cline</td>
+            <td><span class="badge badge-medium">Medium Risk</span></td>
+            <td>2026-05-18</td>
+          </tr><tr data-category="deploy-ops" data-risk="low" data-apikey="yes">
+            <td><a href="../servers/sentry.html">Sentry</a></td>
+            <td>Deploy & Operations</td>
+            <td>Claude Desktop, Cursor</td>
+            <td><span class="badge badge-low">Low Risk</span></td>
+            <td>2026-05-18</td>
+          </tr><tr data-category="search-knowledge" data-risk="low" data-apikey="yes">
+            <td><a href="../servers/exa.html">Exa</a></td>
+            <td>Search & Knowledge Base</td>
+            <td>Claude Desktop, Cursor, VS Code / Cline</td>
+            <td><span class="badge badge-low">Low Risk</span></td>
+            <td>2026-05-18</td>
+          </tr><tr data-category="database" data-risk="high" data-apikey="yes">
+            <td><a href="../servers/mysql.html">MySQL</a></td>
+            <td>Database & Data Query</td>
+            <td>Claude Desktop, Cursor</td>
+            <td><span class="badge badge-high">High Risk</span></td>
+            <td>2026-05-18</td>
+          </tr><tr data-category="search-knowledge" data-risk="low" data-apikey="yes">
+            <td><a href="../servers/tavily.html">Tavily Search</a></td>
+            <td>Search & Knowledge Base</td>
+            <td>Claude Desktop, Cursor, VS Code / Cline</td>
+            <td><span class="badge badge-low">Low Risk</span></td>
+            <td>2026-05-18</td>
+          </tr><tr data-category="design-collaboration" data-risk="low" data-apikey="yes">
+            <td><a href="../servers/figma.html">Figma</a></td>
+            <td>Design & Product Collaboration</td>
+            <td>Claude Desktop, Cursor</td>
+            <td><span class="badge badge-low">Low Risk</span></td>
+            <td>2026-05-18</td>
+          </tr><tr data-category="deploy-ops" data-risk="high" data-apikey="yes">
+            <td><a href="../servers/vercel.html">Vercel</a></td>
+            <td>Deploy & Operations</td>
+            <td>Claude Desktop, Cursor, VS Code / Cline</td>
+            <td><span class="badge badge-high">High Risk</span></td>
+            <td>2026-05-18</td>
+          </tr><tr data-category="database" data-risk="medium" data-apikey="yes">
+            <td><a href="../servers/redis.html">Redis</a></td>
+            <td>Database & Data Query</td>
+            <td>Claude Desktop, Cursor</td>
+            <td><span class="badge badge-medium">Medium Risk</span></td>
+            <td>2026-05-18</td>
+          </tr><tr data-category="file-system" data-risk="low" data-apikey="no">
+            <td><a href="../servers/time.html">Time</a></td>
+            <td>File & Local System</td>
+            <td>Claude Desktop, Cursor, VS Code / Cline</td>
+            <td><span class="badge badge-low">Low Risk</span></td>
+            <td>2026-05-18</td>
+          </tr><tr data-category="search-knowledge" data-risk="medium" data-apikey="yes">
+            <td><a href="../servers/github-models.html">GitHub Models</a></td>
+            <td>Search & Knowledge Base</td>
+            <td>Claude Desktop, Cursor, VS Code / Cline</td>
+            <td><span class="badge badge-medium">Medium Risk</span></td>
+            <td>2026-05-18</td>
+          </tr><tr data-category="deploy-ops" data-risk="high" data-apikey="no">
+            <td><a href="../servers/shell.html">Shell / Terminal</a></td>
+            <td>Deploy & Operations</td>
+            <td>Claude Desktop, Cursor</td>
+            <td><span class="badge badge-high">High Risk</span></td>
+            <td>2026-05-18</td>
+          </tr><tr data-category="search-knowledge" data-risk="medium" data-apikey="no">
+            <td><a href="../servers/obsidian.html">Obsidian</a></td>
+            <td>Search & Knowledge Base</td>
+            <td>Claude Desktop, Cursor</td>
+            <td><span class="badge badge-medium">Medium Risk</span></td>
+            <td>2026-05-18</td>
+          </tr><tr data-category="search-knowledge" data-risk="low" data-apikey="yes">
+            <td><a href="../servers/perplexity.html">Perplexity</a></td>
+            <td>Search & Knowledge Base</td>
+            <td>Claude Desktop, Cursor, VS Code / Cline</td>
+            <td><span class="badge badge-low">Low Risk</span></td>
+            <td>2026-05-18</td>
+          </tr><tr data-category="search-knowledge" data-risk="low" data-apikey="no">
+            <td><a href="../servers/context7.html">Context7</a></td>
+            <td>Search & Knowledge Base</td>
+            <td>Claude Desktop, Cursor, VS Code / Cline</td>
+            <td><span class="badge badge-low">Low Risk</span></td>
+            <td>2026-05-18</td>
+          </tr><tr data-category="browser-automation" data-risk="medium" data-apikey="yes">
+            <td><a href="../servers/firecrawl.html">Firecrawl</a></td>
+            <td>Browser & Web Automation</td>
+            <td>Claude Desktop, Cursor, VS Code / Cline</td>
+            <td><span class="badge badge-medium">Medium Risk</span></td>
+            <td>2026-05-18</td>
+          </tr><tr data-category="browser-automation" data-risk="medium" data-apikey="no">
+            <td><a href="../servers/playwright-official.html">Playwright (Official)</a></td>
+            <td>Browser & Web Automation</td>
+            <td>Claude Desktop, Cursor, VS Code / Cline</td>
+            <td><span class="badge badge-medium">Medium Risk</span></td>
+            <td>2026-05-18</td>
+          </tr><tr data-category="database" data-risk="medium" data-apikey="no">
+            <td><a href="../servers/duckdb.html">DuckDB</a></td>
+            <td>Database & Data Query</td>
+            <td>Claude Desktop, Cursor, VS Code / Cline</td>
+            <td><span class="badge badge-medium">Medium Risk</span></td>
+            <td>2026-05-18</td>
+          </tr><tr data-category="database" data-risk="high" data-apikey="yes">
+            <td><a href="../servers/mongodb.html">MongoDB</a></td>
+            <td>Database & Data Query</td>
+            <td>Claude Desktop, Cursor, VS Code / Cline</td>
+            <td><span class="badge badge-high">High Risk</span></td>
+            <td>2026-05-18</td>
+          </tr><tr data-category="database" data-risk="high" data-apikey="yes">
+            <td><a href="../servers/neon.html">Neon</a></td>
+            <td>Database & Data Query</td>
+            <td>Claude Desktop, Cursor, VS Code / Cline</td>
+            <td><span class="badge badge-high">High Risk</span></td>
+            <td>2026-05-18</td>
+          </tr><tr data-category="database" data-risk="high" data-apikey="yes">
+            <td><a href="../servers/supabase.html">Supabase</a></td>
+            <td>Database & Data Query</td>
+            <td>Claude Desktop, Cursor, VS Code / Cline</td>
+            <td><span class="badge badge-high">High Risk</span></td>
+            <td>2026-05-18</td>
+          </tr><tr data-category="database" data-risk="medium" data-apikey="yes">
+            <td><a href="../servers/airtable.html">Airtable</a></td>
+            <td>Database & Data Query</td>
+            <td>Claude Desktop, Cursor, VS Code / Cline</td>
+            <td><span class="badge badge-medium">Medium Risk</span></td>
+            <td>2026-05-18</td>
+          </tr><tr data-category="database" data-risk="medium" data-apikey="yes">
+            <td><a href="../servers/qdrant.html">Qdrant</a></td>
+            <td>Database & Data Query</td>
+            <td>Claude Desktop, Cursor, VS Code / Cline</td>
+            <td><span class="badge badge-medium">Medium Risk</span></td>
+            <td>2026-05-18</td>
+          </tr><tr data-category="search-knowledge" data-risk="medium" data-apikey="yes">
+            <td><a href="../servers/kagi.html">Kagi Search</a></td>
+            <td>Search & Knowledge Base</td>
+            <td>Claude Desktop, Cursor, VS Code / Cline</td>
+            <td><span class="badge badge-medium">Medium Risk</span></td>
+            <td>2026-05-18</td>
+          </tr><tr data-category="search-knowledge" data-risk="low" data-apikey="no">
+            <td><a href="../servers/arxiv.html">ArXiv</a></td>
+            <td>Search & Knowledge Base</td>
+            <td>Claude Desktop, Cursor, VS Code / Cline</td>
+            <td><span class="badge badge-low">Low Risk</span></td>
+            <td>2026-05-18</td>
+          </tr><tr data-category="search-knowledge" data-risk="medium" data-apikey="yes">
+            <td><a href="../servers/google-drive.html">Google Drive</a></td>
+            <td>Search & Knowledge Base</td>
+            <td>Claude Desktop, Cursor</td>
+            <td><span class="badge badge-medium">Medium Risk</span></td>
+            <td>2026-05-18</td>
+          </tr><tr data-category="search-knowledge" data-risk="low" data-apikey="no">
+            <td><a href="../servers/youtube-transcript.html">YouTube Transcript</a></td>
+            <td>Search & Knowledge Base</td>
+            <td>Claude Desktop, Cursor, VS Code / Cline</td>
+            <td><span class="badge badge-low">Low Risk</span></td>
+            <td>2026-05-18</td>
+          </tr><tr data-category="browser-automation" data-risk="medium" data-apikey="yes">
+            <td><a href="../servers/bright-data.html">Bright Data</a></td>
+            <td>Browser & Web Automation</td>
+            <td>Claude Desktop, Cursor, VS Code / Cline</td>
+            <td><span class="badge badge-medium">Medium Risk</span></td>
+            <td>2026-05-18</td>
+          </tr><tr data-category="browser-automation" data-risk="medium" data-apikey="yes">
+            <td><a href="../servers/apify.html">Apify</a></td>
+            <td>Browser & Web Automation</td>
+            <td>Claude Desktop, Cursor, VS Code / Cline</td>
+            <td><span class="badge badge-medium">Medium Risk</span></td>
+            <td>2026-05-18</td>
+          </tr><tr data-category="design-collaboration" data-risk="medium" data-apikey="yes">
+            <td><a href="../servers/atlassian.html">Atlassian (Jira + Confluence)</a></td>
+            <td>Design & Product Collaboration</td>
+            <td>Claude Desktop, Cursor, VS Code / Cline</td>
+            <td><span class="badge badge-medium">Medium Risk</span></td>
+            <td>2026-05-18</td>
+          </tr><tr data-category="design-collaboration" data-risk="medium" data-apikey="yes">
+            <td><a href="../servers/todoist.html">Todoist</a></td>
+            <td>Design & Product Collaboration</td>
+            <td>Claude Desktop, Cursor</td>
+            <td><span class="badge badge-medium">Medium Risk</span></td>
+            <td>2026-05-18</td>
+          </tr><tr data-category="design-collaboration" data-risk="medium" data-apikey="yes">
+            <td><a href="../servers/google-calendar.html">Google Calendar</a></td>
+            <td>Design & Product Collaboration</td>
+            <td>Claude Desktop, Cursor</td>
+            <td><span class="badge badge-medium">Medium Risk</span></td>
+            <td>2026-05-18</td>
+          </tr><tr data-category="deploy-ops" data-risk="high" data-apikey="no">
+            <td><a href="../servers/kubernetes.html">Kubernetes</a></td>
+            <td>Deploy & Operations</td>
+            <td>Claude Desktop, Cursor, VS Code / Cline</td>
+            <td><span class="badge badge-high">High Risk</span></td>
+            <td>2026-05-18</td>
+          </tr><tr data-category="deploy-ops" data-risk="high" data-apikey="yes">
+            <td><a href="../servers/aws.html">AWS</a></td>
+            <td>Deploy & Operations</td>
+            <td>Claude Desktop, Cursor, VS Code / Cline</td>
+            <td><span class="badge badge-high">High Risk</span></td>
+            <td>2026-05-18</td>
+          </tr><tr data-category="deploy-ops" data-risk="medium" data-apikey="yes">
+            <td><a href="../servers/datadog.html">Datadog</a></td>
+            <td>Deploy & Operations</td>
+            <td>Claude Desktop, Cursor, VS Code / Cline</td>
+            <td><span class="badge badge-medium">Medium Risk</span></td>
+            <td>2026-05-18</td>
+          </tr><tr data-category="file-system" data-risk="high" data-apikey="no">
+            <td><a href="../servers/windows-cli.html">Windows CLI</a></td>
+            <td>File & Local System</td>
+            <td>Claude Desktop, Cursor, VS Code / Cline</td>
+            <td><span class="badge badge-high">High Risk</span></td>
+            <td>2026-05-18</td>
+          </tr><tr data-category="file-system" data-risk="medium" data-apikey="yes">
+            <td><a href="../servers/e2b.html">E2B Code Sandbox</a></td>
+            <td>File & Local System</td>
+            <td>Claude Desktop, Cursor, VS Code / Cline</td>
+            <td><span class="badge badge-medium">Medium Risk</span></td>
+            <td>2026-05-18</td>
+          </tr><tr data-category="design-collaboration" data-risk="high" data-apikey="yes">
+            <td><a href="../servers/gmail.html">Gmail</a></td>
+            <td>Design & Product Collaboration</td>
+            <td>Claude Desktop, Cursor</td>
+            <td><span class="badge badge-high">High Risk</span></td>
+            <td>2026-05-18</td>
+          </tr><tr data-category="search-knowledge" data-risk="high" data-apikey="yes">
+            <td><a href="../servers/stripe.html">Stripe</a></td>
+            <td>Search & Knowledge Base</td>
+            <td>Claude Desktop, Cursor, VS Code / Cline</td>
+            <td><span class="badge badge-high">High Risk</span></td>
+            <td>2026-05-18</td>
+          </tr><tr data-category="search-knowledge" data-risk="medium" data-apikey="yes">
+            <td><a href="../servers/bluesky.html">Bluesky</a></td>
+            <td>Search & Knowledge Base</td>
+            <td>Claude Desktop, Cursor, VS Code / Cline</td>
+            <td><span class="badge badge-medium">Medium Risk</span></td>
+            <td>2026-05-18</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </main>
+  
+    <footer class="footer">
+      <div class="container">
+        <div class="footer-links">
+          <a href="../pages/about.html">About This Site</a>
+          <a href="../pages/contact.html">Contact</a>
+          <a href="../pages/privacy.html">Privacy Policy</a>
+          <a href="../pages/disclaimer.html">Disclaimer</a>
+        </div>
+        <p class="footer-note">Tool information on this site comes from official documentation and public repositories. Please refer to official docs before use. Third-party MCP Servers are maintained by third parties; we do not guarantee their security or availability.</p>
+        <p class="footer-note">Contact email: 1055567003@qq.com</p>
+      </div>
+    </footer>
+  <script src="../../assets/app.js" defer></script>
+</body>
+</html>

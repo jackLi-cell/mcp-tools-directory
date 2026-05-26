@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MCP Server 工具资料库 - 按客户端、场景和权限筛选</title>
+  <meta name="description" content="查看 56 个 MCP Server 工具，按场景、客户端、权限范围和风险等级筛选。">
+  <link rel="canonical" href="https://mcp.jtlcook.com/zh/servers/">
+  <link rel="alternate" hreflang="zh" href="https://mcp.jtlcook.com/zh/servers/">
+  <link rel="alternate" hreflang="en" href="https://mcp.jtlcook.com/en/servers/">
+  <link rel="alternate" hreflang="x-default" href="https://mcp.jtlcook.com/en/servers/">
+  <link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+  <link rel="stylesheet" href="../../assets/styles.css">
+  <script type="application/ld+json">[{"@context":"https://schema.org","@type":"CollectionPage","name":"MCP Server 工具资料库","description":"查看 56 个 MCP Server 工具，按场景、客户端、权限范围和风险等级筛选。","url":"https://mcp.jtlcook.com/servers/"},{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"首页","item":"https://mcp.jtlcook.com/"},{"@type":"ListItem","position":2,"name":"资料库","item":"https://mcp.jtlcook.com/servers/"}]}]</script>
+  <meta property="og:title" content="MCP Server 工具资料库 - 按客户端、场景和权限筛选">
+  <meta property="og:description" content="查看 56 个 MCP Server 工具，按场景、客户端、权限范围和风险等级筛选。">
+  <meta property="og:url" content="https://mcp.jtlcook.com/zh/servers/">
+  <meta property="og:type" content="website">
+    <meta property="og:image" content="https://mcp.jtlcook.com/assets/images/og-default.png">
+  <meta property="og:site_name" content="AI Agent 与 MCP Server 工具目录">
+</head>
+<body>
+  
+    <nav class="nav">
+      <div class="container nav-inner">
+        <a href="../index.html" class="nav-brand">AI Agent 与 MCP Server 工具目录</a>
+        <div class="nav-links">
+          <a href="../servers/index.html">资料库</a>
+          <a href="../guides/what-is-mcp.html">教程</a>
+          <a href="../tools/config-builder.html">配置生成器</a>
+          <a href="../pages/about.html">关于</a>
+        </div>
+      </div>
+    <div class="lang-switch"><a href="../../en/servers/index.html" class="lang-btn">English</a></div></nav>
+  <main class="main container">
+    <nav class="breadcrumb"><a href="../index.html">首页</a> / <span>资料库</span></nav>
+    
+    <h1>MCP Server 工具资料库</h1>
+    <div class="stats-bar">
+      <span class="stat-item">共 <strong>56</strong> 个工具</span>
+      <span class="stat-item">低风险 <strong>14</strong> 个</span>
+      <span class="stat-item">中风险 <strong>28</strong> 个</span>
+      <span class="stat-item">高风险 <strong>14</strong> 个</span>
+    </div>
+    <div class="search-box">
+      <input type="text" id="search-input" placeholder="搜索工具名称、场景或关键词..." aria-label="搜索工具">
+    </div>
+    <div class="filters">
+      <select id="filter-category" aria-label="按场景筛选">
+        <option value="">全部场景</option>
+        <option value="file-system">文件与本地系统</option><option value="git-and-code">Git 与开发工作流</option><option value="database">数据库与数据查询</option><option value="browser-automation">浏览器与网页自动化</option><option value="search-knowledge">搜索与知识库</option><option value="design-collaboration">设计与产品协作</option><option value="deploy-ops">部署与运维</option>
+      </select>
+      <select id="filter-risk" aria-label="按风险筛选">
+        <option value="">全部风险</option>
+        <option value="low">低风险</option>
+        <option value="medium">中风险</option>
+        <option value="high">高风险</option>
+      </select>
+      <select id="filter-apikey" aria-label="是否需要API Key">
+        <option value="">全部</option>
+        <option value="no">无需 API Key</option>
+        <option value="yes">需要 API Key</option>
+      </select>
+    </div>
+    <div class="table-wrap">
+      <table id="servers-table">
+        <thead><tr><th>工具</th><th>场景</th><th>客户端</th><th>风险</th><th>核验日期</th></tr></thead>
+        <tbody>
+          <tr data-category="file-system" data-risk="medium" data-apikey="no">
+            <td><a href="../servers/filesystem.html">Filesystem</a></td>
+            <td>文件与本地系统</td>
+            <td>Claude Desktop, Cursor, VS Code / Cline</td>
+            <td><span class="badge badge-medium">中风险</span></td>
+            <td>2026-05-18</td>
+          </tr><tr data-category="git-and-code" data-risk="medium" data-apikey="yes">
+            <td><a href="../servers/github.html">GitHub</a></td>
+            <td>Git 与开发工作流</td>
+            <td>Claude Desktop, Cursor, VS Code / Cline</td>
+            <td><span class="badge badge-medium">中风险</span></td>
+            <td>2026-05-18</td>
+          </tr><tr data-category="database" data-risk="medium" data-apikey="no">
+            <td><a href="../servers/sqlite.html">SQLite</a></td>
+            <td>数据库与数据查询</td>
+            <td>Claude Desktop, Cursor, VS Code / Cline</td>
+            <td><span class="badge badge-medium">中风险</span></td>
+            <td>2026-05-18</td>
+          </tr><tr data-category="database" data-risk="medium" data-apikey="no">
+            <td><a href="../servers/postgres.html">PostgreSQL</a></td>
+            <td>数据库与数据查询</td>
+            <td>Claude Desktop, Cursor, VS Code / Cline</td>
+            <td><span class="badge badge-medium">中风险</span></td>
+            <td>2026-05-18</td>
+          </tr><tr data-category="search-knowledge" data-risk="medium" data-apikey="yes">
+            <td><a href="../servers/brave-search.html">Brave Search</a></td>
+            <td>搜索与知识库</td>
+            <td>Claude Desktop, Cursor, VS Code / Cline</td>
+            <td><span class="badge badge-medium">中风险</span></td>
+            <td>2026-05-18</td>
+          </tr><tr data-category="browser-automation" data-risk="medium" data-apikey="no">
+            <td><a href="../servers/puppeteer.html">Puppeteer</a></td>
+            <td>浏览器与网页自动化</td>
+            <td>Claude Desktop, Cursor, VS Code / Cline</td>
+            <td><span class="badge badge-medium">中风险</span></td>
+            <td>2026-05-18</td>
+          </tr><tr data-category="file-system" data-risk="low" data-apikey="no">
+            <td><a href="../servers/memory.html">Memory</a></td>
+            <td>文件与本地系统</td>
+            <td>Claude Desktop, Cursor, VS Code / Cline</td>
+            <td><span class="badge badge-low">低风险</span></td>
+            <td>2026-05-18</td>
+          </tr><tr data-category="search-knowledge" data-risk="low" data-apikey="no">
+            <td><a href="../servers/fetch.html">Fetch</a></td>
+            <td>搜索与知识库</td>
+            <td>Claude Desktop, Cursor, VS Code / Cline</td>
+            <td><span class="badge badge-low">低风险</span></td>
+            <td>2026-05-18</td>
+          </tr><tr data-category="git-and-code" data-risk="low" data-apikey="no">
+            <td><a href="../servers/git.html">Git</a></td>
+            <td>Git 与开发工作流</td>
+            <td>Claude Desktop, Cursor, VS Code / Cline</td>
+            <td><span class="badge badge-low">低风险</span></td>
+            <td>2026-05-18</td>
+          </tr><tr data-category="search-knowledge" data-risk="low" data-apikey="no">
+            <td><a href="../servers/sequential-thinking.html">Sequential Thinking</a></td>
+            <td>搜索与知识库</td>
+            <td>Claude Desktop, Cursor, VS Code / Cline</td>
+            <td><span class="badge badge-low">低风险</span></td>
+            <td>2026-05-18</td>
+          </tr><tr data-category="browser-automation" data-risk="medium" data-apikey="no">
+            <td><a href="../servers/playwright.html">Playwright</a></td>
+            <td>浏览器与网页自动化</td>
+            <td>Claude Desktop, Cursor, VS Code / Cline</td>
+            <td><span class="badge badge-medium">中风险</span></td>
+            <td>2026-05-18</td>
+          </tr><tr data-category="file-system" data-risk="low" data-apikey="no">
+            <td><a href="../servers/everything.html">Everything</a></td>
+            <td>文件与本地系统</td>
+            <td>Claude Desktop, Cursor, VS Code / Cline</td>
+            <td><span class="badge badge-low">低风险</span></td>
+            <td>2026-05-18</td>
+          </tr><tr data-category="design-collaboration" data-risk="high" data-apikey="yes">
+            <td><a href="../servers/slack.html">Slack</a></td>
+            <td>设计与产品协作</td>
+            <td>Claude Desktop, Cursor</td>
+            <td><span class="badge badge-high">高风险</span></td>
+            <td>2026-05-18</td>
+          </tr><tr data-category="search-knowledge" data-risk="medium" data-apikey="yes">
+            <td><a href="../servers/google-maps.html">Google Maps</a></td>
+            <td>搜索与知识库</td>
+            <td>Claude Desktop, Cursor, VS Code / Cline</td>
+            <td><span class="badge badge-medium">中风险</span></td>
+            <td>2026-05-18</td>
+          </tr><tr data-category="deploy-ops" data-risk="high" data-apikey="no">
+            <td><a href="../servers/cloudflare.html">Cloudflare</a></td>
+            <td>部署与运维</td>
+            <td>Claude Desktop, Cursor, VS Code / Cline</td>
+            <td><span class="badge badge-high">高风险</span></td>
+            <td>2026-05-18</td>
+          </tr><tr data-category="deploy-ops" data-risk="high" data-apikey="no">
+            <td><a href="../servers/docker.html">Docker</a></td>
+            <td>部署与运维</td>
+            <td>Claude Desktop, Cursor</td>
+            <td><span class="badge badge-high">高风险</span></td>
+            <td>2026-05-18</td>
+          </tr><tr data-category="design-collaboration" data-risk="medium" data-apikey="yes">
+            <td><a href="../servers/linear.html">Linear</a></td>
+            <td>设计与产品协作</td>
+            <td>Claude Desktop, Cursor</td>
+            <td><span class="badge badge-medium">中风险</span></td>
+            <td>2026-05-18</td>
+          </tr><tr data-category="design-collaboration" data-risk="medium" data-apikey="yes">
+            <td><a href="../servers/notion.html">Notion</a></td>
+            <td>设计与产品协作</td>
+            <td>Claude Desktop, Cursor, VS Code / Cline</td>
+            <td><span class="badge badge-medium">中风险</span></td>
+            <td>2026-05-18</td>
+          </tr><tr data-category="deploy-ops" data-risk="low" data-apikey="yes">
+            <td><a href="../servers/sentry.html">Sentry</a></td>
+            <td>部署与运维</td>
+            <td>Claude Desktop, Cursor</td>
+            <td><span class="badge badge-low">低风险</span></td>
+            <td>2026-05-18</td>
+          </tr><tr data-category="search-knowledge" data-risk="low" data-apikey="yes">
+            <td><a href="../servers/exa.html">Exa</a></td>
+            <td>搜索与知识库</td>
+            <td>Claude Desktop, Cursor, VS Code / Cline</td>
+            <td><span class="badge badge-low">低风险</span></td>
+            <td>2026-05-18</td>
+          </tr><tr data-category="database" data-risk="high" data-apikey="yes">
+            <td><a href="../servers/mysql.html">MySQL</a></td>
+            <td>数据库与数据查询</td>
+            <td>Claude Desktop, Cursor</td>
+            <td><span class="badge badge-high">高风险</span></td>
+            <td>2026-05-18</td>
+          </tr><tr data-category="search-knowledge" data-risk="low" data-apikey="yes">
+            <td><a href="../servers/tavily.html">Tavily Search</a></td>
+            <td>搜索与知识库</td>
+            <td>Claude Desktop, Cursor, VS Code / Cline</td>
+            <td><span class="badge badge-low">低风险</span></td>
+            <td>2026-05-18</td>
+          </tr><tr data-category="design-collaboration" data-risk="low" data-apikey="yes">
+            <td><a href="../servers/figma.html">Figma</a></td>
+            <td>设计与产品协作</td>
+            <td>Claude Desktop, Cursor</td>
+            <td><span class="badge badge-low">低风险</span></td>
+            <td>2026-05-18</td>
+          </tr><tr data-category="deploy-ops" data-risk="high" data-apikey="yes">
+            <td><a href="../servers/vercel.html">Vercel</a></td>
+            <td>部署与运维</td>
+            <td>Claude Desktop, Cursor, VS Code / Cline</td>
+            <td><span class="badge badge-high">高风险</span></td>
+            <td>2026-05-18</td>
+          </tr><tr data-category="database" data-risk="medium" data-apikey="yes">
+            <td><a href="../servers/redis.html">Redis</a></td>
+            <td>数据库与数据查询</td>
+            <td>Claude Desktop, Cursor</td>
+            <td><span class="badge badge-medium">中风险</span></td>
+            <td>2026-05-18</td>
+          </tr><tr data-category="file-system" data-risk="low" data-apikey="no">
+            <td><a href="../servers/time.html">Time</a></td>
+            <td>文件与本地系统</td>
+            <td>Claude Desktop, Cursor, VS Code / Cline</td>
+            <td><span class="badge badge-low">低风险</span></td>
+            <td>2026-05-18</td>
+          </tr><tr data-category="search-knowledge" data-risk="medium" data-apikey="yes">
+            <td><a href="../servers/github-models.html">GitHub Models</a></td>
+            <td>搜索与知识库</td>
+            <td>Claude Desktop, Cursor, VS Code / Cline</td>
+            <td><span class="badge badge-medium">中风险</span></td>
+            <td>2026-05-18</td>
+          </tr><tr data-category="deploy-ops" data-risk="high" data-apikey="no">
+            <td><a href="../servers/shell.html">Shell / Terminal</a></td>
+            <td>部署与运维</td>
+            <td>Claude Desktop, Cursor</td>
+            <td><span class="badge badge-high">高风险</span></td>
+            <td>2026-05-18</td>
+          </tr><tr data-category="search-knowledge" data-risk="medium" data-apikey="no">
+            <td><a href="../servers/obsidian.html">Obsidian</a></td>
+            <td>搜索与知识库</td>
+            <td>Claude Desktop, Cursor</td>
+            <td><span class="badge badge-medium">中风险</span></td>
+            <td>2026-05-18</td>
+          </tr><tr data-category="search-knowledge" data-risk="low" data-apikey="yes">
+            <td><a href="../servers/perplexity.html">Perplexity</a></td>
+            <td>搜索与知识库</td>
+            <td>Claude Desktop, Cursor, VS Code / Cline</td>
+            <td><span class="badge badge-low">低风险</span></td>
+            <td>2026-05-18</td>
+          </tr><tr data-category="search-knowledge" data-risk="low" data-apikey="no">
+            <td><a href="../servers/context7.html">Context7</a></td>
+            <td>搜索与知识库</td>
+            <td>Claude Desktop, Cursor, VS Code / Cline</td>
+            <td><span class="badge badge-low">低风险</span></td>
+            <td>2026-05-18</td>
+          </tr><tr data-category="browser-automation" data-risk="medium" data-apikey="yes">
+            <td><a href="../servers/firecrawl.html">Firecrawl</a></td>
+            <td>浏览器与网页自动化</td>
+            <td>Claude Desktop, Cursor, VS Code / Cline</td>
+            <td><span class="badge badge-medium">中风险</span></td>
+            <td>2026-05-18</td>
+          </tr><tr data-category="browser-automation" data-risk="medium" data-apikey="no">
+            <td><a href="../servers/playwright-official.html">Playwright (Official)</a></td>
+            <td>浏览器与网页自动化</td>
+            <td>Claude Desktop, Cursor, VS Code / Cline</td>
+            <td><span class="badge badge-medium">中风险</span></td>
+            <td>2026-05-18</td>
+          </tr><tr data-category="database" data-risk="medium" data-apikey="no">
+            <td><a href="../servers/duckdb.html">DuckDB</a></td>
+            <td>数据库与数据查询</td>
+            <td>Claude Desktop, Cursor, VS Code / Cline</td>
+            <td><span class="badge badge-medium">中风险</span></td>
+            <td>2026-05-18</td>
+          </tr><tr data-category="database" data-risk="high" data-apikey="yes">
+            <td><a href="../servers/mongodb.html">MongoDB</a></td>
+            <td>数据库与数据查询</td>
+            <td>Claude Desktop, Cursor, VS Code / Cline</td>
+            <td><span class="badge badge-high">高风险</span></td>
+            <td>2026-05-18</td>
+          </tr><tr data-category="database" data-risk="high" data-apikey="yes">
+            <td><a href="../servers/neon.html">Neon</a></td>
+            <td>数据库与数据查询</td>
+            <td>Claude Desktop, Cursor, VS Code / Cline</td>
+            <td><span class="badge badge-high">高风险</span></td>
+            <td>2026-05-18</td>
+          </tr><tr data-category="database" data-risk="high" data-apikey="yes">
+            <td><a href="../servers/supabase.html">Supabase</a></td>
+            <td>数据库与数据查询</td>
+            <td>Claude Desktop, Cursor, VS Code / Cline</td>
+            <td><span class="badge badge-high">高风险</span></td>
+            <td>2026-05-18</td>
+          </tr><tr data-category="database" data-risk="medium" data-apikey="yes">
+            <td><a href="../servers/airtable.html">Airtable</a></td>
+            <td>数据库与数据查询</td>
+            <td>Claude Desktop, Cursor, VS Code / Cline</td>
+            <td><span class="badge badge-medium">中风险</span></td>
+            <td>2026-05-18</td>
+          </tr><tr data-category="database" data-risk="medium" data-apikey="yes">
+            <td><a href="../servers/qdrant.html">Qdrant</a></td>
+            <td>数据库与数据查询</td>
+            <td>Claude Desktop, Cursor, VS Code / Cline</td>
+            <td><span class="badge badge-medium">中风险</span></td>
+            <td>2026-05-18</td>
+          </tr><tr data-category="search-knowledge" data-risk="medium" data-apikey="yes">
+            <td><a href="../servers/kagi.html">Kagi Search</a></td>
+            <td>搜索与知识库</td>
+            <td>Claude Desktop, Cursor, VS Code / Cline</td>
+            <td><span class="badge badge-medium">中风险</span></td>
+            <td>2026-05-18</td>
+          </tr><tr data-category="search-knowledge" data-risk="low" data-apikey="no">
+            <td><a href="../servers/arxiv.html">ArXiv</a></td>
+            <td>搜索与知识库</td>
+            <td>Claude Desktop, Cursor, VS Code / Cline</td>
+            <td><span class="badge badge-low">低风险</span></td>
+            <td>2026-05-18</td>
+          </tr><tr data-category="search-knowledge" data-risk="medium" data-apikey="yes">
+            <td><a href="../servers/google-drive.html">Google Drive</a></td>
+            <td>搜索与知识库</td>
+            <td>Claude Desktop, Cursor</td>
+            <td><span class="badge badge-medium">中风险</span></td>
+            <td>2026-05-18</td>
+          </tr><tr data-category="search-knowledge" data-risk="low" data-apikey="no">
+            <td><a href="../servers/youtube-transcript.html">YouTube Transcript</a></td>
+            <td>搜索与知识库</td>
+            <td>Claude Desktop, Cursor, VS Code / Cline</td>
+            <td><span class="badge badge-low">低风险</span></td>
+            <td>2026-05-18</td>
+          </tr><tr data-category="browser-automation" data-risk="medium" data-apikey="yes">
+            <td><a href="../servers/bright-data.html">Bright Data</a></td>
+            <td>浏览器与网页自动化</td>
+            <td>Claude Desktop, Cursor, VS Code / Cline</td>
+            <td><span class="badge badge-medium">中风险</span></td>
+            <td>2026-05-18</td>
+          </tr><tr data-category="browser-automation" data-risk="medium" data-apikey="yes">
+            <td><a href="../servers/apify.html">Apify</a></td>
+            <td>浏览器与网页自动化</td>
+            <td>Claude Desktop, Cursor, VS Code / Cline</td>
+            <td><span class="badge badge-medium">中风险</span></td>
+            <td>2026-05-18</td>
+          </tr><tr data-category="design-collaboration" data-risk="medium" data-apikey="yes">
+            <td><a href="../servers/atlassian.html">Atlassian (Jira + Confluence)</a></td>
+            <td>设计与产品协作</td>
+            <td>Claude Desktop, Cursor, VS Code / Cline</td>
+            <td><span class="badge badge-medium">中风险</span></td>
+            <td>2026-05-18</td>
+          </tr><tr data-category="design-collaboration" data-risk="medium" data-apikey="yes">
+            <td><a href="../servers/todoist.html">Todoist</a></td>
+            <td>设计与产品协作</td>
+            <td>Claude Desktop, Cursor</td>
+            <td><span class="badge badge-medium">中风险</span></td>
+            <td>2026-05-18</td>
+          </tr><tr data-category="design-collaboration" data-risk="medium" data-apikey="yes">
+            <td><a href="../servers/google-calendar.html">Google Calendar</a></td>
+            <td>设计与产品协作</td>
+            <td>Claude Desktop, Cursor</td>
+            <td><span class="badge badge-medium">中风险</span></td>
+            <td>2026-05-18</td>
+          </tr><tr data-category="deploy-ops" data-risk="high" data-apikey="no">
+            <td><a href="../servers/kubernetes.html">Kubernetes</a></td>
+            <td>部署与运维</td>
+            <td>Claude Desktop, Cursor, VS Code / Cline</td>
+            <td><span class="badge badge-high">高风险</span></td>
+            <td>2026-05-18</td>
+          </tr><tr data-category="deploy-ops" data-risk="high" data-apikey="yes">
+            <td><a href="../servers/aws.html">AWS</a></td>
+            <td>部署与运维</td>
+            <td>Claude Desktop, Cursor, VS Code / Cline</td>
+            <td><span class="badge badge-high">高风险</span></td>
+            <td>2026-05-18</td>
+          </tr><tr data-category="deploy-ops" data-risk="medium" data-apikey="yes">
+            <td><a href="../servers/datadog.html">Datadog</a></td>
+            <td>部署与运维</td>
+            <td>Claude Desktop, Cursor, VS Code / Cline</td>
+            <td><span class="badge badge-medium">中风险</span></td>
+            <td>2026-05-18</td>
+          </tr><tr data-category="file-system" data-risk="high" data-apikey="no">
+            <td><a href="../servers/windows-cli.html">Windows CLI</a></td>
+            <td>文件与本地系统</td>
+            <td>Claude Desktop, Cursor, VS Code / Cline</td>
+            <td><span class="badge badge-high">高风险</span></td>
+            <td>2026-05-18</td>
+          </tr><tr data-category="file-system" data-risk="medium" data-apikey="yes">
+            <td><a href="../servers/e2b.html">E2B Code Sandbox</a></td>
+            <td>文件与本地系统</td>
+            <td>Claude Desktop, Cursor, VS Code / Cline</td>
+            <td><span class="badge badge-medium">中风险</span></td>
+            <td>2026-05-18</td>
+          </tr><tr data-category="design-collaboration" data-risk="high" data-apikey="yes">
+            <td><a href="../servers/gmail.html">Gmail</a></td>
+            <td>设计与产品协作</td>
+            <td>Claude Desktop, Cursor</td>
+            <td><span class="badge badge-high">高风险</span></td>
+            <td>2026-05-18</td>
+          </tr><tr data-category="search-knowledge" data-risk="high" data-apikey="yes">
+            <td><a href="../servers/stripe.html">Stripe</a></td>
+            <td>搜索与知识库</td>
+            <td>Claude Desktop, Cursor, VS Code / Cline</td>
+            <td><span class="badge badge-high">高风险</span></td>
+            <td>2026-05-18</td>
+          </tr><tr data-category="search-knowledge" data-risk="medium" data-apikey="yes">
+            <td><a href="../servers/bluesky.html">Bluesky</a></td>
+            <td>搜索与知识库</td>
+            <td>Claude Desktop, Cursor, VS Code / Cline</td>
+            <td><span class="badge badge-medium">中风险</span></td>
+            <td>2026-05-18</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </main>
+  
+    <footer class="footer">
+      <div class="container">
+        <div class="footer-links">
+          <a href="../pages/about.html">关于本站</a>
+          <a href="../pages/contact.html">联系我们</a>
+          <a href="../pages/privacy.html">隐私政策</a>
+          <a href="../pages/disclaimer.html">免责声明</a>
+        </div>
+        <p class="footer-note">本站工具信息来自官方文档和公开仓库，使用前请以官方文档为准。第三方 MCP Server 由第三方维护，本站不保证安全性和可用性。</p>
+        <p class="footer-note">联系邮箱：1055567003@qq.com</p>
+      </div>
+    </footer>
+  <script src="../../assets/app.js" defer></script>
+</body>
+</html>
