@@ -10,116 +10,36 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://mcp.jtlcook.com/en/"/>
   </url>
   <url>
-    <loc>https://mcp.jtlcook.com/zh/categories/browser-automation</loc>
+    <loc>https://mcp.jtlcook.com/zh/</loc>
     <lastmod>2026-05-26</lastmod>
-    <priority>0.6</priority>
-    <xhtml:link rel="alternate" hreflang="zh" href="https://mcp.jtlcook.com/zh/categories/browser-automation"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://mcp.jtlcook.com/en/categories/browser-automation"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://mcp.jtlcook.com/en/categories/browser-automation"/>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="zh" href="https://mcp.jtlcook.com/zh/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://mcp.jtlcook.com/en/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://mcp.jtlcook.com/en/"/>
   </url>
   <url>
-    <loc>https://mcp.jtlcook.com/en/categories/browser-automation</loc>
+    <loc>https://mcp.jtlcook.com/en/</loc>
     <lastmod>2026-05-26</lastmod>
-    <priority>0.6</priority>
-    <xhtml:link rel="alternate" hreflang="zh" href="https://mcp.jtlcook.com/zh/categories/browser-automation"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://mcp.jtlcook.com/en/categories/browser-automation"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://mcp.jtlcook.com/en/categories/browser-automation"/>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="zh" href="https://mcp.jtlcook.com/zh/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://mcp.jtlcook.com/en/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://mcp.jtlcook.com/en/"/>
   </url>
   <url>
-    <loc>https://mcp.jtlcook.com/zh/categories/database</loc>
+    <loc>https://mcp.jtlcook.com/zh/servers/</loc>
     <lastmod>2026-05-26</lastmod>
-    <priority>0.6</priority>
-    <xhtml:link rel="alternate" hreflang="zh" href="https://mcp.jtlcook.com/zh/categories/database"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://mcp.jtlcook.com/en/categories/database"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://mcp.jtlcook.com/en/categories/database"/>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="zh" href="https://mcp.jtlcook.com/zh/servers/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://mcp.jtlcook.com/en/servers/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://mcp.jtlcook.com/en/servers/"/>
   </url>
   <url>
-    <loc>https://mcp.jtlcook.com/en/categories/database</loc>
+    <loc>https://mcp.jtlcook.com/en/servers/</loc>
     <lastmod>2026-05-26</lastmod>
-    <priority>0.6</priority>
-    <xhtml:link rel="alternate" hreflang="zh" href="https://mcp.jtlcook.com/zh/categories/database"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://mcp.jtlcook.com/en/categories/database"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://mcp.jtlcook.com/en/categories/database"/>
-  </url>
-  <url>
-    <loc>https://mcp.jtlcook.com/zh/categories/deploy-ops</loc>
-    <lastmod>2026-05-26</lastmod>
-    <priority>0.6</priority>
-    <xhtml:link rel="alternate" hreflang="zh" href="https://mcp.jtlcook.com/zh/categories/deploy-ops"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://mcp.jtlcook.com/en/categories/deploy-ops"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://mcp.jtlcook.com/en/categories/deploy-ops"/>
-  </url>
-  <url>
-    <loc>https://mcp.jtlcook.com/en/categories/deploy-ops</loc>
-    <lastmod>2026-05-26</lastmod>
-    <priority>0.6</priority>
-    <xhtml:link rel="alternate" hreflang="zh" href="https://mcp.jtlcook.com/zh/categories/deploy-ops"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://mcp.jtlcook.com/en/categories/deploy-ops"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://mcp.jtlcook.com/en/categories/deploy-ops"/>
-  </url>
-  <url>
-    <loc>https://mcp.jtlcook.com/zh/categories/design-collaboration</loc>
-    <lastmod>2026-05-26</lastmod>
-    <priority>0.6</priority>
-    <xhtml:link rel="alternate" hreflang="zh" href="https://mcp.jtlcook.com/zh/categories/design-collaboration"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://mcp.jtlcook.com/en/categories/design-collaboration"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://mcp.jtlcook.com/en/categories/design-collaboration"/>
-  </url>
-  <url>
-    <loc>https://mcp.jtlcook.com/en/categories/design-collaboration</loc>
-    <lastmod>2026-05-26</lastmod>
-    <priority>0.6</priority>
-    <xhtml:link rel="alternate" hreflang="zh" href="https://mcp.jtlcook.com/zh/categories/design-collaboration"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://mcp.jtlcook.com/en/categories/design-collaboration"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://mcp.jtlcook.com/en/categories/design-collaboration"/>
-  </url>
-  <url>
-    <loc>https://mcp.jtlcook.com/zh/categories/file-system</loc>
-    <lastmod>2026-05-26</lastmod>
-    <priority>0.6</priority>
-    <xhtml:link rel="alternate" hreflang="zh" href="https://mcp.jtlcook.com/zh/categories/file-system"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://mcp.jtlcook.com/en/categories/file-system"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://mcp.jtlcook.com/en/categories/file-system"/>
-  </url>
-  <url>
-    <loc>https://mcp.jtlcook.com/en/categories/file-system</loc>
-    <lastmod>2026-05-26</lastmod>
-    <priority>0.6</priority>
-    <xhtml:link rel="alternate" hreflang="zh" href="https://mcp.jtlcook.com/zh/categories/file-system"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://mcp.jtlcook.com/en/categories/file-system"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://mcp.jtlcook.com/en/categories/file-system"/>
-  </url>
-  <url>
-    <loc>https://mcp.jtlcook.com/zh/categories/git-and-code</loc>
-    <lastmod>2026-05-26</lastmod>
-    <priority>0.6</priority>
-    <xhtml:link rel="alternate" hreflang="zh" href="https://mcp.jtlcook.com/zh/categories/git-and-code"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://mcp.jtlcook.com/en/categories/git-and-code"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://mcp.jtlcook.com/en/categories/git-and-code"/>
-  </url>
-  <url>
-    <loc>https://mcp.jtlcook.com/en/categories/git-and-code</loc>
-    <lastmod>2026-05-26</lastmod>
-    <priority>0.6</priority>
-    <xhtml:link rel="alternate" hreflang="zh" href="https://mcp.jtlcook.com/zh/categories/git-and-code"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://mcp.jtlcook.com/en/categories/git-and-code"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://mcp.jtlcook.com/en/categories/git-and-code"/>
-  </url>
-  <url>
-    <loc>https://mcp.jtlcook.com/zh/categories/search-knowledge</loc>
-    <lastmod>2026-05-26</lastmod>
-    <priority>0.6</priority>
-    <xhtml:link rel="alternate" hreflang="zh" href="https://mcp.jtlcook.com/zh/categories/search-knowledge"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://mcp.jtlcook.com/en/categories/search-knowledge"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://mcp.jtlcook.com/en/categories/search-knowledge"/>
-  </url>
-  <url>
-    <loc>https://mcp.jtlcook.com/en/categories/search-knowledge</loc>
-    <lastmod>2026-05-26</lastmod>
-    <priority>0.6</priority>
-    <xhtml:link rel="alternate" hreflang="zh" href="https://mcp.jtlcook.com/zh/categories/search-knowledge"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://mcp.jtlcook.com/en/categories/search-knowledge"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://mcp.jtlcook.com/en/categories/search-knowledge"/>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="zh" href="https://mcp.jtlcook.com/zh/servers/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://mcp.jtlcook.com/en/servers/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://mcp.jtlcook.com/en/servers/"/>
   </url>
   <url>
     <loc>https://mcp.jtlcook.com/zh/clients/claude-desktop</loc>
@@ -298,20 +218,132 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://mcp.jtlcook.com/en/guides/what-is-mcp"/>
   </url>
   <url>
-    <loc>https://mcp.jtlcook.com/zh/</loc>
+    <loc>https://mcp.jtlcook.com/zh/categories/browser-automation</loc>
     <lastmod>2026-05-26</lastmod>
-    <priority>0.9</priority>
-    <xhtml:link rel="alternate" hreflang="zh" href="https://mcp.jtlcook.com/zh/"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://mcp.jtlcook.com/en/"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://mcp.jtlcook.com/en/"/>
+    <priority>0.6</priority>
+    <xhtml:link rel="alternate" hreflang="zh" href="https://mcp.jtlcook.com/zh/categories/browser-automation"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://mcp.jtlcook.com/en/categories/browser-automation"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://mcp.jtlcook.com/en/categories/browser-automation"/>
   </url>
   <url>
-    <loc>https://mcp.jtlcook.com/en/</loc>
+    <loc>https://mcp.jtlcook.com/en/categories/browser-automation</loc>
     <lastmod>2026-05-26</lastmod>
-    <priority>0.9</priority>
-    <xhtml:link rel="alternate" hreflang="zh" href="https://mcp.jtlcook.com/zh/"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://mcp.jtlcook.com/en/"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://mcp.jtlcook.com/en/"/>
+    <priority>0.6</priority>
+    <xhtml:link rel="alternate" hreflang="zh" href="https://mcp.jtlcook.com/zh/categories/browser-automation"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://mcp.jtlcook.com/en/categories/browser-automation"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://mcp.jtlcook.com/en/categories/browser-automation"/>
+  </url>
+  <url>
+    <loc>https://mcp.jtlcook.com/zh/categories/database</loc>
+    <lastmod>2026-05-26</lastmod>
+    <priority>0.6</priority>
+    <xhtml:link rel="alternate" hreflang="zh" href="https://mcp.jtlcook.com/zh/categories/database"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://mcp.jtlcook.com/en/categories/database"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://mcp.jtlcook.com/en/categories/database"/>
+  </url>
+  <url>
+    <loc>https://mcp.jtlcook.com/en/categories/database</loc>
+    <lastmod>2026-05-26</lastmod>
+    <priority>0.6</priority>
+    <xhtml:link rel="alternate" hreflang="zh" href="https://mcp.jtlcook.com/zh/categories/database"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://mcp.jtlcook.com/en/categories/database"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://mcp.jtlcook.com/en/categories/database"/>
+  </url>
+  <url>
+    <loc>https://mcp.jtlcook.com/zh/categories/deploy-ops</loc>
+    <lastmod>2026-05-26</lastmod>
+    <priority>0.6</priority>
+    <xhtml:link rel="alternate" hreflang="zh" href="https://mcp.jtlcook.com/zh/categories/deploy-ops"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://mcp.jtlcook.com/en/categories/deploy-ops"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://mcp.jtlcook.com/en/categories/deploy-ops"/>
+  </url>
+  <url>
+    <loc>https://mcp.jtlcook.com/en/categories/deploy-ops</loc>
+    <lastmod>2026-05-26</lastmod>
+    <priority>0.6</priority>
+    <xhtml:link rel="alternate" hreflang="zh" href="https://mcp.jtlcook.com/zh/categories/deploy-ops"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://mcp.jtlcook.com/en/categories/deploy-ops"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://mcp.jtlcook.com/en/categories/deploy-ops"/>
+  </url>
+  <url>
+    <loc>https://mcp.jtlcook.com/zh/categories/design-collaboration</loc>
+    <lastmod>2026-05-26</lastmod>
+    <priority>0.6</priority>
+    <xhtml:link rel="alternate" hreflang="zh" href="https://mcp.jtlcook.com/zh/categories/design-collaboration"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://mcp.jtlcook.com/en/categories/design-collaboration"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://mcp.jtlcook.com/en/categories/design-collaboration"/>
+  </url>
+  <url>
+    <loc>https://mcp.jtlcook.com/en/categories/design-collaboration</loc>
+    <lastmod>2026-05-26</lastmod>
+    <priority>0.6</priority>
+    <xhtml:link rel="alternate" hreflang="zh" href="https://mcp.jtlcook.com/zh/categories/design-collaboration"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://mcp.jtlcook.com/en/categories/design-collaboration"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://mcp.jtlcook.com/en/categories/design-collaboration"/>
+  </url>
+  <url>
+    <loc>https://mcp.jtlcook.com/zh/categories/file-system</loc>
+    <lastmod>2026-05-26</lastmod>
+    <priority>0.6</priority>
+    <xhtml:link rel="alternate" hreflang="zh" href="https://mcp.jtlcook.com/zh/categories/file-system"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://mcp.jtlcook.com/en/categories/file-system"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://mcp.jtlcook.com/en/categories/file-system"/>
+  </url>
+  <url>
+    <loc>https://mcp.jtlcook.com/en/categories/file-system</loc>
+    <lastmod>2026-05-26</lastmod>
+    <priority>0.6</priority>
+    <xhtml:link rel="alternate" hreflang="zh" href="https://mcp.jtlcook.com/zh/categories/file-system"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://mcp.jtlcook.com/en/categories/file-system"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://mcp.jtlcook.com/en/categories/file-system"/>
+  </url>
+  <url>
+    <loc>https://mcp.jtlcook.com/zh/categories/git-and-code</loc>
+    <lastmod>2026-05-26</lastmod>
+    <priority>0.6</priority>
+    <xhtml:link rel="alternate" hreflang="zh" href="https://mcp.jtlcook.com/zh/categories/git-and-code"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://mcp.jtlcook.com/en/categories/git-and-code"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://mcp.jtlcook.com/en/categories/git-and-code"/>
+  </url>
+  <url>
+    <loc>https://mcp.jtlcook.com/en/categories/git-and-code</loc>
+    <lastmod>2026-05-26</lastmod>
+    <priority>0.6</priority>
+    <xhtml:link rel="alternate" hreflang="zh" href="https://mcp.jtlcook.com/zh/categories/git-and-code"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://mcp.jtlcook.com/en/categories/git-and-code"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://mcp.jtlcook.com/en/categories/git-and-code"/>
+  </url>
+  <url>
+    <loc>https://mcp.jtlcook.com/zh/categories/search-knowledge</loc>
+    <lastmod>2026-05-26</lastmod>
+    <priority>0.6</priority>
+    <xhtml:link rel="alternate" hreflang="zh" href="https://mcp.jtlcook.com/zh/categories/search-knowledge"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://mcp.jtlcook.com/en/categories/search-knowledge"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://mcp.jtlcook.com/en/categories/search-knowledge"/>
+  </url>
+  <url>
+    <loc>https://mcp.jtlcook.com/en/categories/search-knowledge</loc>
+    <lastmod>2026-05-26</lastmod>
+    <priority>0.6</priority>
+    <xhtml:link rel="alternate" hreflang="zh" href="https://mcp.jtlcook.com/zh/categories/search-knowledge"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://mcp.jtlcook.com/en/categories/search-knowledge"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://mcp.jtlcook.com/en/categories/search-knowledge"/>
+  </url>
+  <url>
+    <loc>https://mcp.jtlcook.com/zh/tools/config-builder</loc>
+    <lastmod>2026-05-26</lastmod>
+    <priority>0.5</priority>
+    <xhtml:link rel="alternate" hreflang="zh" href="https://mcp.jtlcook.com/zh/tools/config-builder"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://mcp.jtlcook.com/en/tools/config-builder"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://mcp.jtlcook.com/en/tools/config-builder"/>
+  </url>
+  <url>
+    <loc>https://mcp.jtlcook.com/en/tools/config-builder</loc>
+    <lastmod>2026-05-26</lastmod>
+    <priority>0.5</priority>
+    <xhtml:link rel="alternate" hreflang="zh" href="https://mcp.jtlcook.com/zh/tools/config-builder"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://mcp.jtlcook.com/en/tools/config-builder"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://mcp.jtlcook.com/en/tools/config-builder"/>
   </url>
   <url>
     <loc>https://mcp.jtlcook.com/zh/pages/about</loc>
@@ -760,549 +792,5 @@
     <xhtml:link rel="alternate" hreflang="zh" href="https://mcp.jtlcook.com/zh/servers/gmail"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://mcp.jtlcook.com/en/servers/gmail"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://mcp.jtlcook.com/en/servers/gmail"/>
-  </url>
-  <url>
-    <loc>https://mcp.jtlcook.com/zh/servers/google-calendar</loc>
-    <lastmod>2026-05-26</lastmod>
-    <priority>0.7</priority>
-    <xhtml:link rel="alternate" hreflang="zh" href="https://mcp.jtlcook.com/zh/servers/google-calendar"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://mcp.jtlcook.com/en/servers/google-calendar"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://mcp.jtlcook.com/en/servers/google-calendar"/>
-  </url>
-  <url>
-    <loc>https://mcp.jtlcook.com/en/servers/google-calendar</loc>
-    <lastmod>2026-05-26</lastmod>
-    <priority>0.7</priority>
-    <xhtml:link rel="alternate" hreflang="zh" href="https://mcp.jtlcook.com/zh/servers/google-calendar"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://mcp.jtlcook.com/en/servers/google-calendar"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://mcp.jtlcook.com/en/servers/google-calendar"/>
-  </url>
-  <url>
-    <loc>https://mcp.jtlcook.com/zh/servers/google-drive</loc>
-    <lastmod>2026-05-26</lastmod>
-    <priority>0.7</priority>
-    <xhtml:link rel="alternate" hreflang="zh" href="https://mcp.jtlcook.com/zh/servers/google-drive"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://mcp.jtlcook.com/en/servers/google-drive"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://mcp.jtlcook.com/en/servers/google-drive"/>
-  </url>
-  <url>
-    <loc>https://mcp.jtlcook.com/en/servers/google-drive</loc>
-    <lastmod>2026-05-26</lastmod>
-    <priority>0.7</priority>
-    <xhtml:link rel="alternate" hreflang="zh" href="https://mcp.jtlcook.com/zh/servers/google-drive"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://mcp.jtlcook.com/en/servers/google-drive"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://mcp.jtlcook.com/en/servers/google-drive"/>
-  </url>
-  <url>
-    <loc>https://mcp.jtlcook.com/zh/servers/google-maps</loc>
-    <lastmod>2026-05-26</lastmod>
-    <priority>0.7</priority>
-    <xhtml:link rel="alternate" hreflang="zh" href="https://mcp.jtlcook.com/zh/servers/google-maps"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://mcp.jtlcook.com/en/servers/google-maps"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://mcp.jtlcook.com/en/servers/google-maps"/>
-  </url>
-  <url>
-    <loc>https://mcp.jtlcook.com/en/servers/google-maps</loc>
-    <lastmod>2026-05-26</lastmod>
-    <priority>0.7</priority>
-    <xhtml:link rel="alternate" hreflang="zh" href="https://mcp.jtlcook.com/zh/servers/google-maps"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://mcp.jtlcook.com/en/servers/google-maps"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://mcp.jtlcook.com/en/servers/google-maps"/>
-  </url>
-  <url>
-    <loc>https://mcp.jtlcook.com/zh/servers/</loc>
-    <lastmod>2026-05-26</lastmod>
-    <priority>0.8</priority>
-    <xhtml:link rel="alternate" hreflang="zh" href="https://mcp.jtlcook.com/zh/servers/"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://mcp.jtlcook.com/en/servers/"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://mcp.jtlcook.com/en/servers/"/>
-  </url>
-  <url>
-    <loc>https://mcp.jtlcook.com/en/servers/</loc>
-    <lastmod>2026-05-26</lastmod>
-    <priority>0.8</priority>
-    <xhtml:link rel="alternate" hreflang="zh" href="https://mcp.jtlcook.com/zh/servers/"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://mcp.jtlcook.com/en/servers/"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://mcp.jtlcook.com/en/servers/"/>
-  </url>
-  <url>
-    <loc>https://mcp.jtlcook.com/zh/servers/kagi</loc>
-    <lastmod>2026-05-26</lastmod>
-    <priority>0.7</priority>
-    <xhtml:link rel="alternate" hreflang="zh" href="https://mcp.jtlcook.com/zh/servers/kagi"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://mcp.jtlcook.com/en/servers/kagi"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://mcp.jtlcook.com/en/servers/kagi"/>
-  </url>
-  <url>
-    <loc>https://mcp.jtlcook.com/en/servers/kagi</loc>
-    <lastmod>2026-05-26</lastmod>
-    <priority>0.7</priority>
-    <xhtml:link rel="alternate" hreflang="zh" href="https://mcp.jtlcook.com/zh/servers/kagi"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://mcp.jtlcook.com/en/servers/kagi"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://mcp.jtlcook.com/en/servers/kagi"/>
-  </url>
-  <url>
-    <loc>https://mcp.jtlcook.com/zh/servers/kubernetes</loc>
-    <lastmod>2026-05-26</lastmod>
-    <priority>0.7</priority>
-    <xhtml:link rel="alternate" hreflang="zh" href="https://mcp.jtlcook.com/zh/servers/kubernetes"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://mcp.jtlcook.com/en/servers/kubernetes"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://mcp.jtlcook.com/en/servers/kubernetes"/>
-  </url>
-  <url>
-    <loc>https://mcp.jtlcook.com/en/servers/kubernetes</loc>
-    <lastmod>2026-05-26</lastmod>
-    <priority>0.7</priority>
-    <xhtml:link rel="alternate" hreflang="zh" href="https://mcp.jtlcook.com/zh/servers/kubernetes"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://mcp.jtlcook.com/en/servers/kubernetes"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://mcp.jtlcook.com/en/servers/kubernetes"/>
-  </url>
-  <url>
-    <loc>https://mcp.jtlcook.com/zh/servers/linear</loc>
-    <lastmod>2026-05-26</lastmod>
-    <priority>0.7</priority>
-    <xhtml:link rel="alternate" hreflang="zh" href="https://mcp.jtlcook.com/zh/servers/linear"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://mcp.jtlcook.com/en/servers/linear"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://mcp.jtlcook.com/en/servers/linear"/>
-  </url>
-  <url>
-    <loc>https://mcp.jtlcook.com/en/servers/linear</loc>
-    <lastmod>2026-05-26</lastmod>
-    <priority>0.7</priority>
-    <xhtml:link rel="alternate" hreflang="zh" href="https://mcp.jtlcook.com/zh/servers/linear"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://mcp.jtlcook.com/en/servers/linear"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://mcp.jtlcook.com/en/servers/linear"/>
-  </url>
-  <url>
-    <loc>https://mcp.jtlcook.com/zh/servers/memory</loc>
-    <lastmod>2026-05-26</lastmod>
-    <priority>0.7</priority>
-    <xhtml:link rel="alternate" hreflang="zh" href="https://mcp.jtlcook.com/zh/servers/memory"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://mcp.jtlcook.com/en/servers/memory"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://mcp.jtlcook.com/en/servers/memory"/>
-  </url>
-  <url>
-    <loc>https://mcp.jtlcook.com/en/servers/memory</loc>
-    <lastmod>2026-05-26</lastmod>
-    <priority>0.7</priority>
-    <xhtml:link rel="alternate" hreflang="zh" href="https://mcp.jtlcook.com/zh/servers/memory"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://mcp.jtlcook.com/en/servers/memory"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://mcp.jtlcook.com/en/servers/memory"/>
-  </url>
-  <url>
-    <loc>https://mcp.jtlcook.com/zh/servers/mongodb</loc>
-    <lastmod>2026-05-26</lastmod>
-    <priority>0.7</priority>
-    <xhtml:link rel="alternate" hreflang="zh" href="https://mcp.jtlcook.com/zh/servers/mongodb"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://mcp.jtlcook.com/en/servers/mongodb"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://mcp.jtlcook.com/en/servers/mongodb"/>
-  </url>
-  <url>
-    <loc>https://mcp.jtlcook.com/en/servers/mongodb</loc>
-    <lastmod>2026-05-26</lastmod>
-    <priority>0.7</priority>
-    <xhtml:link rel="alternate" hreflang="zh" href="https://mcp.jtlcook.com/zh/servers/mongodb"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://mcp.jtlcook.com/en/servers/mongodb"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://mcp.jtlcook.com/en/servers/mongodb"/>
-  </url>
-  <url>
-    <loc>https://mcp.jtlcook.com/zh/servers/mysql</loc>
-    <lastmod>2026-05-26</lastmod>
-    <priority>0.7</priority>
-    <xhtml:link rel="alternate" hreflang="zh" href="https://mcp.jtlcook.com/zh/servers/mysql"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://mcp.jtlcook.com/en/servers/mysql"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://mcp.jtlcook.com/en/servers/mysql"/>
-  </url>
-  <url>
-    <loc>https://mcp.jtlcook.com/en/servers/mysql</loc>
-    <lastmod>2026-05-26</lastmod>
-    <priority>0.7</priority>
-    <xhtml:link rel="alternate" hreflang="zh" href="https://mcp.jtlcook.com/zh/servers/mysql"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://mcp.jtlcook.com/en/servers/mysql"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://mcp.jtlcook.com/en/servers/mysql"/>
-  </url>
-  <url>
-    <loc>https://mcp.jtlcook.com/zh/servers/neon</loc>
-    <lastmod>2026-05-26</lastmod>
-    <priority>0.7</priority>
-    <xhtml:link rel="alternate" hreflang="zh" href="https://mcp.jtlcook.com/zh/servers/neon"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://mcp.jtlcook.com/en/servers/neon"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://mcp.jtlcook.com/en/servers/neon"/>
-  </url>
-  <url>
-    <loc>https://mcp.jtlcook.com/en/servers/neon</loc>
-    <lastmod>2026-05-26</lastmod>
-    <priority>0.7</priority>
-    <xhtml:link rel="alternate" hreflang="zh" href="https://mcp.jtlcook.com/zh/servers/neon"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://mcp.jtlcook.com/en/servers/neon"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://mcp.jtlcook.com/en/servers/neon"/>
-  </url>
-  <url>
-    <loc>https://mcp.jtlcook.com/zh/servers/notion</loc>
-    <lastmod>2026-05-26</lastmod>
-    <priority>0.7</priority>
-    <xhtml:link rel="alternate" hreflang="zh" href="https://mcp.jtlcook.com/zh/servers/notion"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://mcp.jtlcook.com/en/servers/notion"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://mcp.jtlcook.com/en/servers/notion"/>
-  </url>
-  <url>
-    <loc>https://mcp.jtlcook.com/en/servers/notion</loc>
-    <lastmod>2026-05-26</lastmod>
-    <priority>0.7</priority>
-    <xhtml:link rel="alternate" hreflang="zh" href="https://mcp.jtlcook.com/zh/servers/notion"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://mcp.jtlcook.com/en/servers/notion"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://mcp.jtlcook.com/en/servers/notion"/>
-  </url>
-  <url>
-    <loc>https://mcp.jtlcook.com/zh/servers/obsidian</loc>
-    <lastmod>2026-05-26</lastmod>
-    <priority>0.7</priority>
-    <xhtml:link rel="alternate" hreflang="zh" href="https://mcp.jtlcook.com/zh/servers/obsidian"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://mcp.jtlcook.com/en/servers/obsidian"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://mcp.jtlcook.com/en/servers/obsidian"/>
-  </url>
-  <url>
-    <loc>https://mcp.jtlcook.com/en/servers/obsidian</loc>
-    <lastmod>2026-05-26</lastmod>
-    <priority>0.7</priority>
-    <xhtml:link rel="alternate" hreflang="zh" href="https://mcp.jtlcook.com/zh/servers/obsidian"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://mcp.jtlcook.com/en/servers/obsidian"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://mcp.jtlcook.com/en/servers/obsidian"/>
-  </url>
-  <url>
-    <loc>https://mcp.jtlcook.com/zh/servers/perplexity</loc>
-    <lastmod>2026-05-26</lastmod>
-    <priority>0.7</priority>
-    <xhtml:link rel="alternate" hreflang="zh" href="https://mcp.jtlcook.com/zh/servers/perplexity"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://mcp.jtlcook.com/en/servers/perplexity"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://mcp.jtlcook.com/en/servers/perplexity"/>
-  </url>
-  <url>
-    <loc>https://mcp.jtlcook.com/en/servers/perplexity</loc>
-    <lastmod>2026-05-26</lastmod>
-    <priority>0.7</priority>
-    <xhtml:link rel="alternate" hreflang="zh" href="https://mcp.jtlcook.com/zh/servers/perplexity"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://mcp.jtlcook.com/en/servers/perplexity"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://mcp.jtlcook.com/en/servers/perplexity"/>
-  </url>
-  <url>
-    <loc>https://mcp.jtlcook.com/zh/servers/playwright-official</loc>
-    <lastmod>2026-05-26</lastmod>
-    <priority>0.7</priority>
-    <xhtml:link rel="alternate" hreflang="zh" href="https://mcp.jtlcook.com/zh/servers/playwright-official"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://mcp.jtlcook.com/en/servers/playwright-official"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://mcp.jtlcook.com/en/servers/playwright-official"/>
-  </url>
-  <url>
-    <loc>https://mcp.jtlcook.com/en/servers/playwright-official</loc>
-    <lastmod>2026-05-26</lastmod>
-    <priority>0.7</priority>
-    <xhtml:link rel="alternate" hreflang="zh" href="https://mcp.jtlcook.com/zh/servers/playwright-official"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://mcp.jtlcook.com/en/servers/playwright-official"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://mcp.jtlcook.com/en/servers/playwright-official"/>
-  </url>
-  <url>
-    <loc>https://mcp.jtlcook.com/zh/servers/playwright</loc>
-    <lastmod>2026-05-26</lastmod>
-    <priority>0.7</priority>
-    <xhtml:link rel="alternate" hreflang="zh" href="https://mcp.jtlcook.com/zh/servers/playwright"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://mcp.jtlcook.com/en/servers/playwright"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://mcp.jtlcook.com/en/servers/playwright"/>
-  </url>
-  <url>
-    <loc>https://mcp.jtlcook.com/en/servers/playwright</loc>
-    <lastmod>2026-05-26</lastmod>
-    <priority>0.7</priority>
-    <xhtml:link rel="alternate" hreflang="zh" href="https://mcp.jtlcook.com/zh/servers/playwright"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://mcp.jtlcook.com/en/servers/playwright"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://mcp.jtlcook.com/en/servers/playwright"/>
-  </url>
-  <url>
-    <loc>https://mcp.jtlcook.com/zh/servers/postgres</loc>
-    <lastmod>2026-05-26</lastmod>
-    <priority>0.7</priority>
-    <xhtml:link rel="alternate" hreflang="zh" href="https://mcp.jtlcook.com/zh/servers/postgres"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://mcp.jtlcook.com/en/servers/postgres"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://mcp.jtlcook.com/en/servers/postgres"/>
-  </url>
-  <url>
-    <loc>https://mcp.jtlcook.com/en/servers/postgres</loc>
-    <lastmod>2026-05-26</lastmod>
-    <priority>0.7</priority>
-    <xhtml:link rel="alternate" hreflang="zh" href="https://mcp.jtlcook.com/zh/servers/postgres"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://mcp.jtlcook.com/en/servers/postgres"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://mcp.jtlcook.com/en/servers/postgres"/>
-  </url>
-  <url>
-    <loc>https://mcp.jtlcook.com/zh/servers/puppeteer</loc>
-    <lastmod>2026-05-26</lastmod>
-    <priority>0.7</priority>
-    <xhtml:link rel="alternate" hreflang="zh" href="https://mcp.jtlcook.com/zh/servers/puppeteer"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://mcp.jtlcook.com/en/servers/puppeteer"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://mcp.jtlcook.com/en/servers/puppeteer"/>
-  </url>
-  <url>
-    <loc>https://mcp.jtlcook.com/en/servers/puppeteer</loc>
-    <lastmod>2026-05-26</lastmod>
-    <priority>0.7</priority>
-    <xhtml:link rel="alternate" hreflang="zh" href="https://mcp.jtlcook.com/zh/servers/puppeteer"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://mcp.jtlcook.com/en/servers/puppeteer"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://mcp.jtlcook.com/en/servers/puppeteer"/>
-  </url>
-  <url>
-    <loc>https://mcp.jtlcook.com/zh/servers/qdrant</loc>
-    <lastmod>2026-05-26</lastmod>
-    <priority>0.7</priority>
-    <xhtml:link rel="alternate" hreflang="zh" href="https://mcp.jtlcook.com/zh/servers/qdrant"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://mcp.jtlcook.com/en/servers/qdrant"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://mcp.jtlcook.com/en/servers/qdrant"/>
-  </url>
-  <url>
-    <loc>https://mcp.jtlcook.com/en/servers/qdrant</loc>
-    <lastmod>2026-05-26</lastmod>
-    <priority>0.7</priority>
-    <xhtml:link rel="alternate" hreflang="zh" href="https://mcp.jtlcook.com/zh/servers/qdrant"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://mcp.jtlcook.com/en/servers/qdrant"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://mcp.jtlcook.com/en/servers/qdrant"/>
-  </url>
-  <url>
-    <loc>https://mcp.jtlcook.com/zh/servers/redis</loc>
-    <lastmod>2026-05-26</lastmod>
-    <priority>0.7</priority>
-    <xhtml:link rel="alternate" hreflang="zh" href="https://mcp.jtlcook.com/zh/servers/redis"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://mcp.jtlcook.com/en/servers/redis"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://mcp.jtlcook.com/en/servers/redis"/>
-  </url>
-  <url>
-    <loc>https://mcp.jtlcook.com/en/servers/redis</loc>
-    <lastmod>2026-05-26</lastmod>
-    <priority>0.7</priority>
-    <xhtml:link rel="alternate" hreflang="zh" href="https://mcp.jtlcook.com/zh/servers/redis"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://mcp.jtlcook.com/en/servers/redis"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://mcp.jtlcook.com/en/servers/redis"/>
-  </url>
-  <url>
-    <loc>https://mcp.jtlcook.com/zh/servers/sentry</loc>
-    <lastmod>2026-05-26</lastmod>
-    <priority>0.7</priority>
-    <xhtml:link rel="alternate" hreflang="zh" href="https://mcp.jtlcook.com/zh/servers/sentry"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://mcp.jtlcook.com/en/servers/sentry"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://mcp.jtlcook.com/en/servers/sentry"/>
-  </url>
-  <url>
-    <loc>https://mcp.jtlcook.com/en/servers/sentry</loc>
-    <lastmod>2026-05-26</lastmod>
-    <priority>0.7</priority>
-    <xhtml:link rel="alternate" hreflang="zh" href="https://mcp.jtlcook.com/zh/servers/sentry"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://mcp.jtlcook.com/en/servers/sentry"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://mcp.jtlcook.com/en/servers/sentry"/>
-  </url>
-  <url>
-    <loc>https://mcp.jtlcook.com/zh/servers/sequential-thinking</loc>
-    <lastmod>2026-05-26</lastmod>
-    <priority>0.7</priority>
-    <xhtml:link rel="alternate" hreflang="zh" href="https://mcp.jtlcook.com/zh/servers/sequential-thinking"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://mcp.jtlcook.com/en/servers/sequential-thinking"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://mcp.jtlcook.com/en/servers/sequential-thinking"/>
-  </url>
-  <url>
-    <loc>https://mcp.jtlcook.com/en/servers/sequential-thinking</loc>
-    <lastmod>2026-05-26</lastmod>
-    <priority>0.7</priority>
-    <xhtml:link rel="alternate" hreflang="zh" href="https://mcp.jtlcook.com/zh/servers/sequential-thinking"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://mcp.jtlcook.com/en/servers/sequential-thinking"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://mcp.jtlcook.com/en/servers/sequential-thinking"/>
-  </url>
-  <url>
-    <loc>https://mcp.jtlcook.com/zh/servers/shell</loc>
-    <lastmod>2026-05-26</lastmod>
-    <priority>0.7</priority>
-    <xhtml:link rel="alternate" hreflang="zh" href="https://mcp.jtlcook.com/zh/servers/shell"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://mcp.jtlcook.com/en/servers/shell"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://mcp.jtlcook.com/en/servers/shell"/>
-  </url>
-  <url>
-    <loc>https://mcp.jtlcook.com/en/servers/shell</loc>
-    <lastmod>2026-05-26</lastmod>
-    <priority>0.7</priority>
-    <xhtml:link rel="alternate" hreflang="zh" href="https://mcp.jtlcook.com/zh/servers/shell"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://mcp.jtlcook.com/en/servers/shell"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://mcp.jtlcook.com/en/servers/shell"/>
-  </url>
-  <url>
-    <loc>https://mcp.jtlcook.com/zh/servers/slack</loc>
-    <lastmod>2026-05-26</lastmod>
-    <priority>0.7</priority>
-    <xhtml:link rel="alternate" hreflang="zh" href="https://mcp.jtlcook.com/zh/servers/slack"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://mcp.jtlcook.com/en/servers/slack"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://mcp.jtlcook.com/en/servers/slack"/>
-  </url>
-  <url>
-    <loc>https://mcp.jtlcook.com/en/servers/slack</loc>
-    <lastmod>2026-05-26</lastmod>
-    <priority>0.7</priority>
-    <xhtml:link rel="alternate" hreflang="zh" href="https://mcp.jtlcook.com/zh/servers/slack"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://mcp.jtlcook.com/en/servers/slack"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://mcp.jtlcook.com/en/servers/slack"/>
-  </url>
-  <url>
-    <loc>https://mcp.jtlcook.com/zh/servers/sqlite</loc>
-    <lastmod>2026-05-26</lastmod>
-    <priority>0.7</priority>
-    <xhtml:link rel="alternate" hreflang="zh" href="https://mcp.jtlcook.com/zh/servers/sqlite"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://mcp.jtlcook.com/en/servers/sqlite"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://mcp.jtlcook.com/en/servers/sqlite"/>
-  </url>
-  <url>
-    <loc>https://mcp.jtlcook.com/en/servers/sqlite</loc>
-    <lastmod>2026-05-26</lastmod>
-    <priority>0.7</priority>
-    <xhtml:link rel="alternate" hreflang="zh" href="https://mcp.jtlcook.com/zh/servers/sqlite"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://mcp.jtlcook.com/en/servers/sqlite"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://mcp.jtlcook.com/en/servers/sqlite"/>
-  </url>
-  <url>
-    <loc>https://mcp.jtlcook.com/zh/servers/stripe</loc>
-    <lastmod>2026-05-26</lastmod>
-    <priority>0.7</priority>
-    <xhtml:link rel="alternate" hreflang="zh" href="https://mcp.jtlcook.com/zh/servers/stripe"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://mcp.jtlcook.com/en/servers/stripe"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://mcp.jtlcook.com/en/servers/stripe"/>
-  </url>
-  <url>
-    <loc>https://mcp.jtlcook.com/en/servers/stripe</loc>
-    <lastmod>2026-05-26</lastmod>
-    <priority>0.7</priority>
-    <xhtml:link rel="alternate" hreflang="zh" href="https://mcp.jtlcook.com/zh/servers/stripe"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://mcp.jtlcook.com/en/servers/stripe"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://mcp.jtlcook.com/en/servers/stripe"/>
-  </url>
-  <url>
-    <loc>https://mcp.jtlcook.com/zh/servers/supabase</loc>
-    <lastmod>2026-05-26</lastmod>
-    <priority>0.7</priority>
-    <xhtml:link rel="alternate" hreflang="zh" href="https://mcp.jtlcook.com/zh/servers/supabase"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://mcp.jtlcook.com/en/servers/supabase"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://mcp.jtlcook.com/en/servers/supabase"/>
-  </url>
-  <url>
-    <loc>https://mcp.jtlcook.com/en/servers/supabase</loc>
-    <lastmod>2026-05-26</lastmod>
-    <priority>0.7</priority>
-    <xhtml:link rel="alternate" hreflang="zh" href="https://mcp.jtlcook.com/zh/servers/supabase"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://mcp.jtlcook.com/en/servers/supabase"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://mcp.jtlcook.com/en/servers/supabase"/>
-  </url>
-  <url>
-    <loc>https://mcp.jtlcook.com/zh/servers/tavily</loc>
-    <lastmod>2026-05-26</lastmod>
-    <priority>0.7</priority>
-    <xhtml:link rel="alternate" hreflang="zh" href="https://mcp.jtlcook.com/zh/servers/tavily"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://mcp.jtlcook.com/en/servers/tavily"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://mcp.jtlcook.com/en/servers/tavily"/>
-  </url>
-  <url>
-    <loc>https://mcp.jtlcook.com/en/servers/tavily</loc>
-    <lastmod>2026-05-26</lastmod>
-    <priority>0.7</priority>
-    <xhtml:link rel="alternate" hreflang="zh" href="https://mcp.jtlcook.com/zh/servers/tavily"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://mcp.jtlcook.com/en/servers/tavily"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://mcp.jtlcook.com/en/servers/tavily"/>
-  </url>
-  <url>
-    <loc>https://mcp.jtlcook.com/zh/servers/time</loc>
-    <lastmod>2026-05-26</lastmod>
-    <priority>0.7</priority>
-    <xhtml:link rel="alternate" hreflang="zh" href="https://mcp.jtlcook.com/zh/servers/time"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://mcp.jtlcook.com/en/servers/time"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://mcp.jtlcook.com/en/servers/time"/>
-  </url>
-  <url>
-    <loc>https://mcp.jtlcook.com/en/servers/time</loc>
-    <lastmod>2026-05-26</lastmod>
-    <priority>0.7</priority>
-    <xhtml:link rel="alternate" hreflang="zh" href="https://mcp.jtlcook.com/zh/servers/time"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://mcp.jtlcook.com/en/servers/time"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://mcp.jtlcook.com/en/servers/time"/>
-  </url>
-  <url>
-    <loc>https://mcp.jtlcook.com/zh/servers/todoist</loc>
-    <lastmod>2026-05-26</lastmod>
-    <priority>0.7</priority>
-    <xhtml:link rel="alternate" hreflang="zh" href="https://mcp.jtlcook.com/zh/servers/todoist"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://mcp.jtlcook.com/en/servers/todoist"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://mcp.jtlcook.com/en/servers/todoist"/>
-  </url>
-  <url>
-    <loc>https://mcp.jtlcook.com/en/servers/todoist</loc>
-    <lastmod>2026-05-26</lastmod>
-    <priority>0.7</priority>
-    <xhtml:link rel="alternate" hreflang="zh" href="https://mcp.jtlcook.com/zh/servers/todoist"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://mcp.jtlcook.com/en/servers/todoist"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://mcp.jtlcook.com/en/servers/todoist"/>
-  </url>
-  <url>
-    <loc>https://mcp.jtlcook.com/zh/servers/vercel</loc>
-    <lastmod>2026-05-26</lastmod>
-    <priority>0.7</priority>
-    <xhtml:link rel="alternate" hreflang="zh" href="https://mcp.jtlcook.com/zh/servers/vercel"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://mcp.jtlcook.com/en/servers/vercel"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://mcp.jtlcook.com/en/servers/vercel"/>
-  </url>
-  <url>
-    <loc>https://mcp.jtlcook.com/en/servers/vercel</loc>
-    <lastmod>2026-05-26</lastmod>
-    <priority>0.7</priority>
-    <xhtml:link rel="alternate" hreflang="zh" href="https://mcp.jtlcook.com/zh/servers/vercel"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://mcp.jtlcook.com/en/servers/vercel"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://mcp.jtlcook.com/en/servers/vercel"/>
-  </url>
-  <url>
-    <loc>https://mcp.jtlcook.com/zh/servers/windows-cli</loc>
-    <lastmod>2026-05-26</lastmod>
-    <priority>0.7</priority>
-    <xhtml:link rel="alternate" hreflang="zh" href="https://mcp.jtlcook.com/zh/servers/windows-cli"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://mcp.jtlcook.com/en/servers/windows-cli"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://mcp.jtlcook.com/en/servers/windows-cli"/>
-  </url>
-  <url>
-    <loc>https://mcp.jtlcook.com/en/servers/windows-cli</loc>
-    <lastmod>2026-05-26</lastmod>
-    <priority>0.7</priority>
-    <xhtml:link rel="alternate" hreflang="zh" href="https://mcp.jtlcook.com/zh/servers/windows-cli"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://mcp.jtlcook.com/en/servers/windows-cli"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://mcp.jtlcook.com/en/servers/windows-cli"/>
-  </url>
-  <url>
-    <loc>https://mcp.jtlcook.com/zh/servers/youtube-transcript</loc>
-    <lastmod>2026-05-26</lastmod>
-    <priority>0.7</priority>
-    <xhtml:link rel="alternate" hreflang="zh" href="https://mcp.jtlcook.com/zh/servers/youtube-transcript"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://mcp.jtlcook.com/en/servers/youtube-transcript"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://mcp.jtlcook.com/en/servers/youtube-transcript"/>
-  </url>
-  <url>
-    <loc>https://mcp.jtlcook.com/en/servers/youtube-transcript</loc>
-    <lastmod>2026-05-26</lastmod>
-    <priority>0.7</priority>
-    <xhtml:link rel="alternate" hreflang="zh" href="https://mcp.jtlcook.com/zh/servers/youtube-transcript"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://mcp.jtlcook.com/en/servers/youtube-transcript"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://mcp.jtlcook.com/en/servers/youtube-transcript"/>
-  </url>
-  <url>
-    <loc>https://mcp.jtlcook.com/zh/tools/config-builder</loc>
-    <lastmod>2026-05-26</lastmod>
-    <priority>0.5</priority>
-    <xhtml:link rel="alternate" hreflang="zh" href="https://mcp.jtlcook.com/zh/tools/config-builder"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://mcp.jtlcook.com/en/tools/config-builder"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://mcp.jtlcook.com/en/tools/config-builder"/>
-  </url>
-  <url>
-    <loc>https://mcp.jtlcook.com/en/tools/config-builder</loc>
-    <lastmod>2026-05-26</lastmod>
-    <priority>0.5</priority>
-    <xhtml:link rel="alternate" hreflang="zh" href="https://mcp.jtlcook.com/zh/tools/config-builder"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://mcp.jtlcook.com/en/tools/config-builder"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://mcp.jtlcook.com/en/tools/config-builder"/>
   </url>
 </urlset>

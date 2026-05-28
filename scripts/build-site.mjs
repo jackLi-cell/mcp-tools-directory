@@ -14,8 +14,13 @@ const DATA_DIR = join(ROOT, 'data');
 const SITE_DIR = join(ROOT, 'site');
 
 const SITE_NAME = 'AI Agent 与 MCP Server 工具目录';
-const SITE_URL = 'https://mcp.jtlcook.com';
+const SITE_URL = normalizeSiteUrl(process.env.SITE_URL, 'https://mcp.jtlcook.com');
 const CONTACT_EMAIL = '1055567003@qq.com';
+
+function normalizeSiteUrl(value, fallback) {
+  const raw = String(value || fallback || '').trim().replace(/\/+$/, '');
+  return raw.replace(/^http:\/\//i, 'https://');
+}
 
 // --- Data Loading ---
 const servers = JSON.parse(readFileSync(join(DATA_DIR, 'servers.json'), 'utf-8'));
@@ -1838,4 +1843,3 @@ console.log('  ✓ robots.txt');
 
 const totalPages = 1 + 1 + servers.length + categories.length + clients.length + guides.length + 1 + 4;
 console.log(`\nDone! Generated ${totalPages} pages.`);
-

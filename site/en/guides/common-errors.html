@@ -4,23 +4,23 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>MCP Server Common Error Troubleshooting - AI Agent & MCP Server Tools Directory</title>
-  <meta name="description" content="Troubleshooting methods for connection failures, command not found, permission denied and other common errors">
+  <meta name="description" content="连接失败、命令找不到、权限不足等常见错误的排查方法">
   <link rel="canonical" href="https://mcp.jtlcook.com/en/guides/common-errors">
   <link rel="alternate" hreflang="zh" href="https://mcp.jtlcook.com/zh/guides/common-errors">
   <link rel="alternate" hreflang="en" href="https://mcp.jtlcook.com/en/guides/common-errors">
   <link rel="alternate" hreflang="x-default" href="https://mcp.jtlcook.com/en/guides/common-errors">
+
   <link rel="icon" type="image/svg+xml" href="../../favicon.svg">
   <link rel="stylesheet" href="../../assets/styles.css">
-  <script type="application/ld+json">[{"@context":"https://schema.org","@type":"Article","headline":"MCP Server Common Error Troubleshooting","description":"Troubleshooting methods for connection failures, command not found, permission denied and other common errors","url":"https://mcp.jtlcook.com/guides/common-errors","author":{"@type":"Organization","name":"AI Agent & MCP Server Tools Directory"},"publisher":{"@type":"Organization","name":"AI Agent & MCP Server Tools Directory"},"datePublished":"2026-05-18","dateModified":"2026-05-18"},{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://mcp.jtlcook.com/"},{"@type":"ListItem","position":2,"name":"Guides","item":"https://mcp.jtlcook.com/guides/what-is-mcp"},{"@type":"ListItem","position":3,"name":"MCP Server Common Error Troubleshooting","item":"https://mcp.jtlcook.com/guides/common-errors"}]},{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"What if the problem persists after restarting?","acceptedAnswer":{"@type":"Answer","text":"Try removing the problematic Server from the config file and keep only one known working Server for testing. If a single Server also fails, it may be a client version issue - try updating or reinstalling the client."}},{"@type":"Question","name":"What if logs contain no useful information?","acceptedAnswer":{"@type":"Answer","text":"Manually run the Server command in terminal and observe the output. For example: npx -y @modelcontextprotocol/server-filesystem /tmp, and check for errors."}},{"@type":"Question","name":"How to permanently fix npx path issues on macOS?","acceptedAnswer":{"@type":"Answer","text":"Find the full path of npx (which npx), then use the full path in the config instead of npx. If using nvm, the path is usually ~/.nvm/versions/node/vXX.X.X/bin/npx."}}]}]</script>
+  <script type="application/ld+json">[{"@context":"https://schema.org","@type":"Article","headline":"MCP Server Common Error Troubleshooting","description":"连接失败、命令找不到、权限不足等常见错误的排查方法","url":"https://mcp.jtlcook.com/guides/common-errors","author":{"@type":"Organization","name":"AI Agent & MCP Server Tools Directory"},"publisher":{"@type":"Organization","name":"AI Agent & MCP Server Tools Directory"},"datePublished":"2026-05-18","dateModified":"2026-05-18"},{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://mcp.jtlcook.com/"},{"@type":"ListItem","position":2,"name":"Guides","item":"https://mcp.jtlcook.com/guides/what-is-mcp"},{"@type":"ListItem","position":3,"name":"MCP Server Common Error Troubleshooting","item":"https://mcp.jtlcook.com/guides/common-errors"}]},{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"重启后问题依旧怎么办？","acceptedAnswer":{"@type":"Answer","text":"尝试删除配置文件中的问题 Server，只保留一个已知可用的 Server 测试。如果单个 Server 也不行，可能是Clients版本问题，尝试更新或重装Clients。"}},{"@type":"Question","name":"日志中没有有用信息怎么办？","acceptedAnswer":{"@type":"Answer","text":"在终端手动运行 Server 命令，观察输出。例如：npx -y @modelcontextprotocol/server-filesystem /tmp，看是否有报错。"}},{"@type":"Question","name":"macOS 上 npx 路径问题怎么彻底解决？","acceptedAnswer":{"@type":"Answer","text":"找到 npx 的完整路径（which npx），然后在配置中使用完整路径替代 \"npx\"。如果使用 nvm，路径通常是 ~/.nvm/versions/node/vXX.X.X/bin/npx。"}}]}]</script>
   <meta property="og:title" content="MCP Server Common Error Troubleshooting - AI Agent & MCP Server Tools Directory">
-  <meta property="og:description" content="Troubleshooting methods for connection failures, command not found, permission denied and other common errors">
+  <meta property="og:description" content="连接失败、命令找不到、权限不足等常见错误的排查方法">
   <meta property="og:url" content="https://mcp.jtlcook.com/en/guides/common-errors">
   <meta property="og:type" content="website">
-    <meta property="og:image" content="https://mcp.jtlcook.com/assets/images/og-default.png">
   <meta property="og:site_name" content="AI Agent & MCP Server Tools Directory">
 </head>
 <body>
-
+  
     <nav class="nav">
       <div class="container nav-inner">
         <a href="../index.html" class="nav-brand">AI Agent & MCP Server Tools Directory</a>
@@ -33,80 +33,82 @@
       </div>
     <div class="lang-switch"><a href="../../zh/guides/common-errors.html" class="lang-btn">中文</a></div></nav>
   <main class="main container">
-    <nav class="breadcrumb"><a href="../index.html">Home</a> / <a href="../index.html">Guides</a> / <span>MCP Server Common Error Troubleshooting</span></nav>
-
+    <nav class="breadcrumb"><a href="../index.html">Home</a> / <a href="undefined">Guides</a> / <span>MCP Server Common Error Troubleshooting</span></nav>
+    
       <h1>MCP Server Common Error Troubleshooting</h1>
-      <p class="intro">This article summarizes the most common error messages and solutions encountered during MCP Server configuration and usage. When facing issues, start by checking client logs for specific error messages.</p>
+      <p class="intro">本文汇总 MCP Server 配置和使用过程中最常见的错误信息及解决方法。遇到问题时，先ViewClients日志获取具体错误信息。</p>
 
       <section class="section">
-        <h2>How to View Error Logs</h2>
-        <p>The first step in troubleshooting is finding the log files:</p>
+        <h2>如何View错误日志</h2>
+        <p>排查问题的第一步是找到日志文件：</p>
         <ul>
-          <li><strong>Claude Desktop (macOS):</strong> <code>~/Library/Logs/Claude/mcp*.log</code></li>
-          <li><strong>Claude Desktop (Windows):</strong> <code>%APPDATA%\Claude\logs\mcp*.log</code></li>
-          <li><strong>Cursor:</strong> Click the Server name in MCP settings page to view error details</li>
+          <li><strong>Claude Desktop (macOS)：</strong><code>~/Library/Logs/Claude/mcp*.log</code></li>
+          <li><strong>Claude Desktop (Windows)：</strong><code>%APPDATA%\Claude\logs\mcp*.log</code></li>
+          <li><strong>Cursor：</strong>在 MCP 设置页面点击 Server 名称View错误详情</li>
         </ul>
       </section>
+
       <section class="section">
-        <h2>Error 1: command not found</h2>
-        <p><strong>Error message:</strong> <code>spawn npx ENOENT</code> or <code>command not found: npx</code></p>
-        <p><strong>Cause:</strong> The client cannot find the specified command when starting the Server.</p>
-        <p><strong>Solution:</strong></p>
+        <h2>错误 1：command not found / 命令找不到</h2>
+        <p><strong>错误信息：</strong><code>spawn npx ENOENT</code> 或 <code>command not found: npx</code></p>
+        <p><strong>原因：</strong>Clients启动 Server 时找不到指定的命令。</p>
+        <p><strong>解决方法：</strong></p>
         <ol>
-          <li>Confirm the command is installed: run <code>which npx</code> (macOS/Linux) or <code>where npx</code> (Windows) in terminal</li>
-          <li>If using nvm/fnm or other version managers, use the full path in config:
+          <li>确认命令已安装：在终端运行 <code>which npx</code>（macOS/Linux）或 <code>where npx</code>（Windows）</li>
+          <li>如果使用 nvm/fnm 等版本管理器，在配置中使用完整路径：
             <pre><code>"command": "/Users/yourname/.nvm/versions/node/v20.0.0/bin/npx"</code></pre>
           </li>
-          <li>For uvx, confirm uv is installed: <code>curl -LsSf https://astral.sh/uv/install.sh | sh</code></li>
+          <li>对于 uvx，确认已安装 uv：<code>curl -LsSf https://astral.sh/uv/install.sh | sh</code></li>
         </ol>
       </section>
 
       <section class="section">
-        <h2>Error 2: Connection Timeout / Server Not Responding</h2>
-        <p><strong>Error message:</strong> <code>MCP server connection timeout</code> or Server status keeps showing "connecting"</p>
-        <p><strong>Cause:</strong> The Server process started but did not correctly respond to the MCP protocol handshake.</p>
-        <p><strong>Solution:</strong></p>
+        <h2>错误 2：连接超时 / Server 无响应</h2>
+        <p><strong>错误信息：</strong><code>MCP server connection timeout</code> 或 Server 状态一直显示"connecting"</p>
+        <p><strong>原因：</strong>Server 进程启动了但没有正确响应 MCP Protocol握手。</p>
+        <p><strong>解决方法：</strong></p>
         <ol>
-          <li>Manually run command + args in terminal to confirm the command executes normally</li>
-          <li>Check if interactive prompts are blocking startup (npx missing the <code>-y</code> parameter)</li>
-          <li>Confirm network connection is working (some Servers need to download dependencies on startup)</li>
-          <li>Check if a firewall or proxy is blocking local communication</li>
+          <li>在终端手动运行 command + args，确认命令本身能正常执行</li>
+          <li>检查是否有交互式提示阻塞了启动（npx 缺少 <code>-y</code> 参数）</li>
+          <li>确认网络连接正常（某些 Server 启动时Required下载依赖）</li>
+          <li>检查是否有防火墙或代理阻止了本地通信</li>
         </ol>
       </section>
 
       <section class="section">
-        <h2>Error 3: JSON Config Parse Failure</h2>
-        <p><strong>Error message:</strong> <code>SyntaxError: Unexpected token</code> or client cannot read config</p>
-        <p><strong>Cause:</strong> The config file is not valid JSON format.</p>
-        <p><strong>Solution:</strong></p>
+        <h2>错误 3：JSON 配置解析失败</h2>
+        <p><strong>错误信息：</strong><code>SyntaxError: Unexpected token</code> 或Clients无法读取配置</p>
+        <p><strong>原因：</strong>配置文件不是合法的 JSON 格式。</p>
+        <p><strong>解决方法：</strong></p>
         <ol>
-          <li>Check for trailing commas (no comma after the last element)</li>
-          <li>Confirm all key names are wrapped in double quotes</li>
-          <li>Use a JSON validation tool: <code>cat config.json | python -m json.tool</code></li>
-          <li>Note that Windows paths with backslashes need to be escaped as <code>\\</code></li>
+          <li>检查是否有多余的逗号（最后一个元素后面不能有逗号）</li>
+          <li>确认所有键名都用双引号包裹</li>
+          <li>使用 JSON 验证工具检查：<code>cat config.json | python -m json.tool</code></li>
+          <li>注意 Windows 路径的反斜杠Required转义为 <code>\\</code></li>
         </ol>
       </section>
 
       <section class="section">
-        <h2>Error 4: Permission Denied</h2>
-        <p><strong>Error message:</strong> <code>EACCES: permission denied</code></p>
-        <p><strong>Cause:</strong> The Server is trying to access a file or directory without permission.</p>
-        <p><strong>Solution:</strong></p>
+        <h2>错误 4：权限不足 / Permission denied</h2>
+        <p><strong>错误信息：</strong><code>EACCES: permission denied</code></p>
+        <p><strong>原因：</strong>Server 尝试访问没有权限的文件或目录。</p>
+        <p><strong>解决方法：</strong></p>
         <ol>
-          <li>Confirm the paths specified in args exist and the current user has read permission</li>
-          <li>Do not point to system-protected directories (e.g., <code>/System</code>, <code>C:\Windows</code>)</li>
-          <li>On macOS, you may need to grant access in "System Settings > Privacy & Security > Files and Folders"</li>
+          <li>确认 args 中指定的路径存在且当前用户有读取权限</li>
+          <li>不要指向系统保护目录（如 <code>/System</code>、<code>C:\Windows</code>）</li>
+          <li>macOS 上可能Required在"系统设置 > 隐私与安全 > 文件和文件夹"中授权</li>
         </ol>
       </section>
+
       <section class="section">
-        <h2>Error 5: Environment Variable Not Set</h2>
-        <p><strong>Error message:</strong> <code>API key not found</code> or <code>Missing required environment variable</code></p>
-        <p><strong>Cause:</strong> The API Key or Token required by the Server is not configured in the env field.</p>
-        <p><strong>Solution:</strong></p>
+        <h2>错误 5：环境变量未设置</h2>
+        <p><strong>错误信息：</strong><code>API key not found</code> 或 <code>Missing required environment variable</code></p>
+        <p><strong>原因：</strong>Server Required的 API Key 或 Token 未在 env 字段中配置。</p>
+        <p><strong>解决方法：</strong></p>
         <ol>
-          <li>Check the Server documentation to confirm which environment variables are needed</li>
-          <li>Add the corresponding key-value pairs in the config's env field</li>
-          <li>Confirm the key value is correct and not expired</li>
+          <li>View Server 文档确认Required哪些环境变量</li>
+          <li>在配置的 env 字段中添加对应的键值对</li>
+          <li>确认 Key 值正确且未过期</li>
         </ol>
         <pre><code>"env": {
   "GITHUB_TOKEN": "ghp_your_actual_token_here"
@@ -114,61 +116,61 @@
       </section>
 
       <section class="section">
-        <h2>Error 6: Version Incompatibility</h2>
-        <p><strong>Error message:</strong> <code>Unsupported protocol version</code> or unexpected behavior</p>
-        <p><strong>Cause:</strong> The MCP protocol version between client and Server does not match.</p>
-        <p><strong>Solution:</strong></p>
+        <h2>错误 6：版本不兼容</h2>
+        <p><strong>错误信息：</strong><code>Unsupported protocol version</code> 或功能异常</p>
+        <p><strong>原因：</strong>Clients和 Server 的 MCP Protocol版本不匹配。</p>
+        <p><strong>解决方法：</strong></p>
         <ol>
-          <li>Update the client to the latest version</li>
-          <li>Update the Server package: clear cache and re-run npx (npx will automatically pull the latest version)</li>
-          <li>Check the Server repository README to confirm supported protocol versions</li>
+          <li>更新Clients到最新版本</li>
+          <li>更新 Server 包：删除缓存后重新运行 npx（npx 会自动拉取最新版）</li>
+          <li>View Server 仓库的 README 确认支持的Protocol版本</li>
         </ol>
       </section>
 
       <section class="section">
-        <h2>General Troubleshooting Steps</h2>
+        <h2>通用排查步骤</h2>
         <ol>
-          <li>Check log files for specific error messages</li>
-          <li>Manually run command + args in terminal to confirm the command is executable</li>
-          <li>Use a JSON validation tool to check config file format</li>
-          <li>Fully restart the client (not just refresh the window)</li>
-          <li>Try a minimal config (keep only one Server) to rule out conflicts</li>
+          <li>View日志文件获取具体错误信息</li>
+          <li>在终端手动运行 command + args 确认命令可执行</li>
+          <li>用 JSON 验证工具检查配置文件格式</li>
+          <li>完全重启Clients（不是刷新窗口）</li>
+          <li>尝试最简配置（只保留一个 Server）排除冲突</li>
         </ol>
       </section>
 
       <section class="section">
         <h2>FAQ</h2>
         <dl class="faq">
-          <dt>What if the problem persists after restarting?</dt>
-          <dd>Try removing the problematic Server from the config file and keep only one known working Server for testing. If a single Server also fails, it may be a client version issue - try updating or reinstalling the client.</dd>
-          <dt>What if logs contain no useful information?</dt>
-          <dd>Manually run the Server command in terminal and observe the output. For example: <code>npx -y @modelcontextprotocol/server-filesystem /tmp</code>, and check for errors.</dd>
-          <dt>How to permanently fix npx path issues on macOS?</dt>
-          <dd>Find the full path of npx (<code>which npx</code>), then use the full path in the config instead of <code>"npx"</code>. If using nvm, the path is usually <code>~/.nvm/versions/node/vXX.X.X/bin/npx</code>.</dd>
+          <dt>重启后问题依旧怎么办？</dt>
+          <dd>尝试删除配置文件中的问题 Server，只保留一个已知可用的 Server 测试。如果单个 Server 也不行，可能是Clients版本问题，尝试更新或重装Clients。</dd>
+          <dt>日志中没有有用信息怎么办？</dt>
+          <dd>在终端手动运行 Server 命令，观察输出。例如：<code>npx -y @modelcontextprotocol/server-filesystem /tmp</code>，看是否有报错。</dd>
+          <dt>macOS 上 npx 路径问题怎么彻底解决？</dt>
+          <dd>找到 npx 的完整路径（<code>which npx</code>），然后在配置中使用完整路径替代 <code>"npx"</code>。如果使用 nvm，路径通常是 <code>~/.nvm/versions/node/vXX.X.X/bin/npx</code>。</dd>
         </dl>
       </section>
 
       <section class="section">
         <h2>Related Links</h2>
         <ul>
-          <li><a href="../guides/claude-desktop-setup.html">Claude Desktop MCP Configuration Guide</a></li>
-          <li><a href="../guides/cursor-setup.html">Cursor MCP Configuration Guide</a></li>
-          <li><a href="../guides/config-json-explained.html">MCP Config JSON Fields Explained</a></li>
-          <li><a href="../guides/security-checklist.html">MCP Permission Risk Checklist</a></li>
+          <li><a href="../guides/claude-desktop-setup.html">Claude Desktop MCP 配置Guides</a></li>
+          <li><a href="../guides/cursor-setup.html">Cursor MCP 配置Guides</a></li>
+          <li><a href="../guides/config-json-explained.html">MCP 配置 JSON 字段说明</a></li>
+          <li><a href="../guides/security-checklist.html">MCP 权限风险检查清单</a></li>
         </ul>
       </section>
   </main>
-
+  
     <footer class="footer">
       <div class="container">
         <div class="footer-links">
-          <a href="../pages/about.html">About</a>
+          <a href="../pages/about.html">About This Site</a>
           <a href="../pages/contact.html">Contact</a>
           <a href="../pages/privacy.html">Privacy Policy</a>
           <a href="../pages/disclaimer.html">Disclaimer</a>
         </div>
-        <p class="footer-note">Tool information on this site comes from official documentation and public repositories. Please refer to official docs before use. Third-party MCP Servers are maintained by third parties; this site does not guarantee their security or availability.</p>
-        <p class="footer-note">Contact: 1055567003@qq.com</p>
+        <p class="footer-note">Tool information on this site comes from official documentation and public repositories. Please refer to official docs before use. Third-party MCP Servers are maintained by third parties; we do not guarantee their security or availability.</p>
+        <p class="footer-note">Contact email: 1055567003@qq.com</p>
       </div>
     </footer>
   <script src="../../assets/app.js" defer></script>

@@ -6,7 +6,13 @@ const fs = require('fs');
 const path = require('path');
 
 const SITE_DIR = __dirname;
-const BASE_URL = 'https://mcp.jtlcook.com';
+const BASE_URL = normalizeSiteUrl(process.env.SITE_URL, 'https://mcp.jtlcook.com');
+const SITEMAP_HTML_LIMIT = Number(process.env.SITEMAP_HTML_LIMIT || 49);
+
+function normalizeSiteUrl(value, fallback) {
+  const raw = String(value || fallback || '').trim().replace(/\/+$/, '');
+  return raw.replace(/^http:\/\//i, 'https://');
+}
 
 // Translation dictionary for common UI text
 const translations = {
@@ -504,6 +510,7 @@ const rootIndexHtml = `<!DOCTYPE html>
 // ============================================================
 
 function buildSitemap() {
+  const sitemapFiles = selectSitemapHtmlFiles(htmlFiles);
   let xml = '<?xml version="1.0" encoding="UTF-8"?>\n';
   xml += '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"\n';
   xml += '        xmlns:xhtml="http://www.w3.org/1999/xhtml">\n';
@@ -518,7 +525,7 @@ function buildSitemap() {
   xml += `    <xhtml:link rel="alternate" hreflang="x-default" href="${BASE_URL}/en/"/>\n`;
   xml += '  </url>\n';
 
-  for (const filePath of htmlFiles) {
+  for (const filePath of sitemapFiles) {
     let slug = filePath.replace(/\.html$/, '');
     if (slug === 'index') slug = '';
     else slug = slug.replace(/\/index$/, '/');
@@ -557,6 +564,23 @@ function buildSitemap() {
 
   xml += '</urlset>';
   return xml;
+}
+
+function selectSitemapHtmlFiles(fileList) {
+  const score = (filePath) => {
+    if (filePath === 'index.html') return 0;
+    if (/^servers\/index\.html$/.test(filePath)) return 1;
+    if (/^clients\//.test(filePath)) return 2;
+    if (/^guides\//.test(filePath)) return 3;
+    if (/^categories\//.test(filePath)) return 4;
+    if (/^tools\//.test(filePath)) return 5;
+    if (/^pages\//.test(filePath)) return 6;
+    if (/^servers\//.test(filePath)) return 8;
+    return 20;
+  };
+  return [...fileList]
+    .sort((a, b) => score(a) - score(b) || a.localeCompare(b))
+    .slice(0, SITEMAP_HTML_LIMIT);
 }
 
 const sitemapXml = buildSitemap();

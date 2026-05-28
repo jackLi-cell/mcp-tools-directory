@@ -3,20 +3,20 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>MCP Permission Risk Checklist - AI Agent & MCP Server Tools Directory</title>
-  <meta name="description" content="Permission scope, credential protection, and security boundaries to check before connecting MCP">
+  <title>MCP 权限风险检查清单 - AI Agent & MCP Server Tools Directory</title>
+  <meta name="description" content="接入 MCP 前应检查的权限范围、凭据保护和Security Boundary">
   <link rel="canonical" href="https://mcp.jtlcook.com/en/guides/security-checklist">
   <link rel="alternate" hreflang="zh" href="https://mcp.jtlcook.com/zh/guides/security-checklist">
   <link rel="alternate" hreflang="en" href="https://mcp.jtlcook.com/en/guides/security-checklist">
   <link rel="alternate" hreflang="x-default" href="https://mcp.jtlcook.com/en/guides/security-checklist">
+
   <link rel="icon" type="image/svg+xml" href="../../favicon.svg">
   <link rel="stylesheet" href="../../assets/styles.css">
-  <script type="application/ld+json">[{"@context":"https://schema.org","@type":"Article","headline":"MCP Permission Risk Checklist","description":"Permission scope, credential protection, and security boundaries to check before connecting MCP","url":"https://mcp.jtlcook.com/guides/security-checklist","author":{"@type":"Organization","name":"AI Agent & MCP Server Tools Directory"},"publisher":{"@type":"Organization","name":"AI Agent & MCP Server Tools Directory"},"datePublished":"2026-05-18","dateModified":"2026-05-18"},{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://mcp.jtlcook.com/"},{"@type":"ListItem","position":2,"name":"Guide","item":"https://mcp.jtlcook.com/guides/what-is-mcp"},{"@type":"ListItem","position":3,"name":"MCP Permission Risk Checklist","item":"https://mcp.jtlcook.com/guides/security-checklist"}]},{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"如何限制 filesystem Server 的访问范围？","acceptedAnswer":{"@type":"Answer","text":"在 args medium只指定requires访问的目录路径，不要指定根目录。例如 \"args\": [\"-y\", \"@modelcontextprotocol/server-filesystem\", \"/Users/name/projects\"] 只允许访问 projects 目录。"}},{"@type":"Question","name":"第三方 Is MCP Server safe?","acceptedAnswer":{"@type":"Answer","text":"取决于具体项目。优先选择官方维护的 Server（@modelcontextprotocol 组织下的包）。第三方 Server 建议检查源码、Star 数、最近更新时间和 Issue mediumwhether有安全相关讨论。"}},{"@type":"Question","name":"发现 MCP Server 有安全问题怎么办？","acceptedAnswer":{"@type":"Answer","text":"立即从配置medium移除该 Server 并重启client。如果涉及 API Key，立即轮换相关凭据。向 Server 仓库提交安全 Issue。"}}]}]</script>
-  <meta property="og:title" content="MCP Permission Risk Checklist - AI Agent & MCP Server Tools Directory">
-  <meta property="og:description" content="Permission scope, credential protection, and security boundaries to check before connecting MCP">
+  <script type="application/ld+json">[{"@context":"https://schema.org","@type":"Article","headline":"MCP 权限风险检查清单","description":"接入 MCP 前应检查的权限范围、凭据保护和Security Boundary","url":"https://mcp.jtlcook.com/guides/security-checklist","author":{"@type":"Organization","name":"AI Agent & MCP Server Tools Directory"},"publisher":{"@type":"Organization","name":"AI Agent & MCP Server Tools Directory"},"datePublished":"2026-05-18","dateModified":"2026-05-18"},{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://mcp.jtlcook.com/"},{"@type":"ListItem","position":2,"name":"Guides","item":"https://mcp.jtlcook.com/guides/what-is-mcp"},{"@type":"ListItem","position":3,"name":"MCP 权限风险检查清单","item":"https://mcp.jtlcook.com/guides/security-checklist"}]},{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"如何限制 filesystem Server 的访问范围？","acceptedAnswer":{"@type":"Answer","text":"在 args 中只指定Required访问的目录路径，不要指定根目录。例如 \"args\": [\"-y\", \"@modelcontextprotocol/server-filesystem\", \"/Users/name/projects\"] 只允许访问 projects 目录。"}},{"@type":"Question","name":"第三方 Is MCP Server safe?","acceptedAnswer":{"@type":"Answer","text":"取决于具体项目。优先选择官方维护的 Server（@modelcontextprotocol 组织下的包）。第三方 Server 建议检查源码、Star 数、最近更新时间和 Issue 中是否有安全相关讨论。"}},{"@type":"Question","name":"发现 MCP Server 有安全问题怎么办？","acceptedAnswer":{"@type":"Answer","text":"立即从配置中移除该 Server 并重启Clients。如果涉及 API Key，立即轮换相关凭据。向 Server 仓库提交安全 Issue。"}}]}]</script>
+  <meta property="og:title" content="MCP 权限风险检查清单 - AI Agent & MCP Server Tools Directory">
+  <meta property="og:description" content="接入 MCP 前应检查的权限范围、凭据保护和Security Boundary">
   <meta property="og:url" content="https://mcp.jtlcook.com/en/guides/security-checklist">
   <meta property="og:type" content="website">
-    <meta property="og:image" content="https://mcp.jtlcook.com/assets/images/og-default.png">
   <meta property="og:site_name" content="AI Agent & MCP Server Tools Directory">
 </head>
 <body>
@@ -26,61 +26,61 @@
         <a href="../index.html" class="nav-brand">AI Agent & MCP Server Tools Directory</a>
         <div class="nav-links">
           <a href="../servers/index.html">Directory</a>
-          <a href="../guides/what-is-mcp.html">Guide</a>
+          <a href="../guides/what-is-mcp.html">Guides</a>
           <a href="../tools/config-builder.html">Config Builder</a>
           <a href="../pages/about.html">About</a>
         </div>
       </div>
     <div class="lang-switch"><a href="../../zh/guides/security-checklist.html" class="lang-btn">中文</a></div></nav>
   <main class="main container">
-    <nav class="breadcrumb"><a href="../index.html">Home</a> / <a href="../index.html">Guide</a> / <span>MCP Permission Risk Checklist</span></nav>
+    <nav class="breadcrumb"><a href="../index.html">Home</a> / <a href="undefined">Guides</a> / <span>MCP 权限风险检查清单</span></nav>
     
-      <h1>MCP Permission Risk Checklist</h1>
-      <p class="intro">MCP Server runs as a local process with the system permissions you grant. Before connecting any MCP Server, confirm each item in this checklist to reduce security risks.</p>
+      <h1>MCP 权限风险检查清单</h1>
+      <p class="intro">MCP Server 以本地进程运行，拥有你授予的系统权限。接入任何 MCP Server 前，请逐项确认以下检查清单，降低安全风险。</p>
 
       <section class="section">
-        <h2>Pre-Connection Checklist</h2>
+        <h2>接入前必查项</h2>
         <table>
-          <thead><tr><th>Check Item</th><th>description</th><th>Risk</th></tr></thead>
+          <thead><tr><th>检查项</th><th>Description</th><th>Risk</th></tr></thead>
           <tbody>
-            <tr><td>Source Credibility</td><td>Is it from an official repository or well-known developer? How are the star count and maintenance frequency?</td><td>High</td></tr>
-            <tr><td>Permission Scope</td><td>What tools does the Server declare? Does it exceed your actual needs?</td><td>High</td></tr>
-            <tr><td>File System Access</td><td>Does it need to read/write files? Is the access scope limited to specific directories?</td><td>medium-High</td></tr>
-            <tr><td>Network Access</td><td>Does it need external network access? Which domains does it connect to?</td><td>medium</td></tr>
-            <tr><td>Command Execution</td><td>Can it execute Shell commands? Is there a command whitelist restriction?</td><td>High</td></tr>
-            <tr><td>API Key Requirements</td><td>requires哪些凭据？这些凭据的Permission ScopeYes什么？</td><td>medium</td></tr>
-            <tr><td>Data Transfer</td><td>Will it send local data to external services?</td><td>High</td></tr>
+            <tr><td>Sources可信度</td><td>是否来自官方仓库或知名开发者？Star 数和维护频率如何？</td><td>高</td></tr>
+            <tr><td>权限范围</td><td>Server 声明了哪些工具？是否超出你的实际需求？</td><td>高</td></tr>
+            <tr><td>文件系统访问</td><td>是否Required读写文件？访问范围是否限定在特定目录？</td><td>中-高</td></tr>
+            <tr><td>网络访问</td><td>是否Required访问外部网络？连接哪些域名？</td><td>中</td></tr>
+            <tr><td>命令执行</td><td>是否能执行 Shell 命令？是否有命令白名单限制？</td><td>高</td></tr>
+            <tr><td>API Key 需求</td><td>Required哪些凭据？这些凭据的权限范围是什么？</td><td>中</td></tr>
+            <tr><td>数据传输</td><td>是否会将本地数据发送到外部服务？</td><td>高</td></tr>
           </tbody>
         </table>
       </section>
 
       <section class="section">
-        <h2>Permission Scope评估</h2>
-        <h3>Low-Risk Characteristics</h3>
+        <h2>权限范围评估</h2>
+        <h3>Low Risk特征</h3>
         <ul>
-          <li>Read-only operations (e.g., weather queries, document search)</li>
-          <li>Does not require API Key</li>
-          <li>Does not access file system or only accesses specified directories</li>
-          <li>Does not execute Shell commands</li>
-          <li>Open source with active community review</li>
+          <li>只读操作（如查询天气、搜索文档）</li>
+          <li>Not Required API Key</li>
+          <li>不访问文件系统或仅访问指定目录</li>
+          <li>不执行 Shell 命令</li>
+          <li>开源且有活跃社区审查</li>
         </ul>
-        <h3>High-Risk Characteristics</h3>
+        <h3>High Risk特征</h3>
         <ul>
-          <li>Can execute arbitrary Shell commands</li>
-          <li>Accesses entire file system (root directory <code>/</code>)</li>
-          <li>Requires high-privilege API keys (e.g., GitHub repo write access)</li>
-          <li>Can send network requests to any domain</li>
-          <li>Closed source or lacks community review</li>
-          <li>Can modify system configuration or install software</li>
+          <li>可执行任意 Shell 命令</li>
+          <li>访问整个文件系统（根目录 <code>/</code>）</li>
+          <li>Required高权限 API Key（如 GitHub 的 repo 写权限）</li>
+          <li>可发送网络请求到任意域名</li>
+          <li>闭源或缺乏社区审查</li>
+          <li>能修改系统配置或安装软件</li>
         </ul>
       </section>
 
       <section class="section">
         <h2>凭据保护</h2>
         <ul>
-          <li>API Key 只在配置文件的 env Fieldmedium设置，不要硬编码在其他地方</li>
+          <li>API Key 只在配置文件的 env 字段中设置，不要硬编码在其他地方</li>
           <li>为每个服务创建专用的 API Key，使用最小权限原则</li>
-          <li>定期轮换 Key，尤其Yes在怀疑泄露时</li>
+          <li>定期轮换 Key，尤其是在怀疑泄露时</li>
           <li>不要把包含 Key 的配置文件提交到公开仓库</li>
           <li>将配置文件路径加入 <code>.gitignore</code></li>
         </ul>
@@ -97,7 +97,7 @@ claude_desktop_config.json
           <li>不要将生产数据库的凭据配置到 MCP Server</li>
           <li>使用只读账号连接数据库类 Server</li>
           <li>确认 Server 不会将公司数据发送到外部</li>
-          <li>在沙箱环境medium先测试，确认行为符合预期后再用于正式环境</li>
+          <li>在沙箱环境中先测试，确认行为符合预期后再用于正式环境</li>
         </ul>
       </section>
 
@@ -105,7 +105,7 @@ claude_desktop_config.json
         <h2>Important Notes</h2>
         <ul>
           <li>MCP Server 的权限等同于你的用户权限，它能做的事你都能做，反之亦然。</li>
-          <li>AI 模型可能在对话medium被诱导调用危险工具，限制 Server 的Permission ScopeYes最有效的防护。</li>
+          <li>AI 模型可能在对话中被诱导调用危险工具，限制 Server 的权限范围是最有效的防护。</li>
           <li>定期检查已安装的 Server 列表，移除不再使用的。</li>
           <li>关注 Server 仓库的安全公告和版本更新。</li>
         </ul>
@@ -115,19 +115,19 @@ claude_desktop_config.json
         <h2>FAQ</h2>
         <dl class="faq">
           <dt>如何限制 filesystem Server 的访问范围？</dt>
-          <dd>在 args medium只指定requires访问的目录路径，不要指定根目录。例如 <code>"args": ["-y", "@modelcontextprotocol/server-filesystem", "/Users/name/projects"]</code> 只允许访问 projects 目录。</dd>
+          <dd>在 args 中只指定Required访问的目录路径，不要指定根目录。例如 <code>"args": ["-y", "@modelcontextprotocol/server-filesystem", "/Users/name/projects"]</code> 只允许访问 projects 目录。</dd>
           <dt>第三方 Is MCP Server safe?</dt>
-          <dd>取决于具体项目。优先选择官方维护的 Server（@modelcontextprotocol 组织下的包）。第三方 Server 建议检查源码、Star 数、最近更新时间和 Issue mediumwhether有安全相关讨论。</dd>
+          <dd>取决于具体项目。优先选择官方维护的 Server（@modelcontextprotocol 组织下的包）。第三方 Server 建议检查源码、Star 数、最近更新时间和 Issue 中是否有安全相关讨论。</dd>
           <dt>发现 MCP Server 有安全问题怎么办？</dt>
-          <dd>立即从配置medium移除该 Server 并重启client。如果涉及 API Key，立即轮换相关凭据。向 Server 仓库提交安全 Issue。</dd>
+          <dd>立即从配置中移除该 Server 并重启Clients。如果涉及 API Key，立即轮换相关凭据。向 Server 仓库提交安全 Issue。</dd>
         </dl>
       </section>
 
       <section class="section">
         <h2>Related Links</h2>
         <ul>
-          <li><a href="../guides/api-key-management.html">How to Store API Keys and Environment Variables</a></li>
-          <li><a href="../guides/beginner-recommendations.html">新手适合先装哪些low-risk MCP</a></li>
+          <li><a href="../guides/api-key-management.html">API Key 和环境变量怎么保存</a></li>
+          <li><a href="../guides/beginner-recommendations.html">新手适合先装哪些Low Risk MCP</a></li>
           <li><a href="../guides/what-is-mcp.html">What is MCP Server</a></li>
           <li><a href="../servers/index.html">MCP 工具Directory</a></li>
         </ul>

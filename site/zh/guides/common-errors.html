@@ -9,6 +9,7 @@
   <link rel="alternate" hreflang="zh" href="https://mcp.jtlcook.com/zh/guides/common-errors">
   <link rel="alternate" hreflang="en" href="https://mcp.jtlcook.com/en/guides/common-errors">
   <link rel="alternate" hreflang="x-default" href="https://mcp.jtlcook.com/en/guides/common-errors">
+
   <link rel="icon" type="image/svg+xml" href="../../favicon.svg">
   <link rel="stylesheet" href="../../assets/styles.css">
   <script type="application/ld+json">[{"@context":"https://schema.org","@type":"Article","headline":"MCP Server 常见报错排查","description":"连接失败、命令找不到、权限不足等常见错误的排查方法","url":"https://mcp.jtlcook.com/guides/common-errors","author":{"@type":"Organization","name":"AI Agent 与 MCP Server 工具目录"},"publisher":{"@type":"Organization","name":"AI Agent 与 MCP Server 工具目录"},"datePublished":"2026-05-18","dateModified":"2026-05-18"},{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"首页","item":"https://mcp.jtlcook.com/"},{"@type":"ListItem","position":2,"name":"指南","item":"https://mcp.jtlcook.com/guides/what-is-mcp"},{"@type":"ListItem","position":3,"name":"MCP Server 常见报错排查","item":"https://mcp.jtlcook.com/guides/common-errors"}]},{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"重启后问题依旧怎么办？","acceptedAnswer":{"@type":"Answer","text":"尝试删除配置文件中的问题 Server，只保留一个已知可用的 Server 测试。如果单个 Server 也不行，可能是客户端版本问题，尝试更新或重装客户端。"}},{"@type":"Question","name":"日志中没有有用信息怎么办？","acceptedAnswer":{"@type":"Answer","text":"在终端手动运行 Server 命令，观察输出。例如：npx -y @modelcontextprotocol/server-filesystem /tmp，看是否有报错。"}},{"@type":"Question","name":"macOS 上 npx 路径问题怎么彻底解决？","acceptedAnswer":{"@type":"Answer","text":"找到 npx 的完整路径（which npx），然后在配置中使用完整路径替代 \"npx\"。如果使用 nvm，路径通常是 ~/.nvm/versions/node/vXX.X.X/bin/npx。"}}]}]</script>
@@ -16,7 +17,6 @@
   <meta property="og:description" content="连接失败、命令找不到、权限不足等常见错误的排查方法">
   <meta property="og:url" content="https://mcp.jtlcook.com/zh/guides/common-errors">
   <meta property="og:type" content="website">
-    <meta property="og:image" content="https://mcp.jtlcook.com/assets/images/og-default.png">
   <meta property="og:site_name" content="AI Agent 与 MCP Server 工具目录">
 </head>
 <body>
@@ -33,7 +33,7 @@
       </div>
     <div class="lang-switch"><a href="../../en/guides/common-errors.html" class="lang-btn">English</a></div></nav>
   <main class="main container">
-    <nav class="breadcrumb"><a href="../index.html">首页</a> / <a href="../index.html">指南</a> / <span>MCP Server 常见报错排查</span></nav>
+    <nav class="breadcrumb"><a href="../index.html">首页</a> / <a href="undefined">指南</a> / <span>MCP Server 常见报错排查</span></nav>
     
       <h1>MCP Server 常见报错排查</h1>
       <p class="intro">本文汇总 MCP Server 配置和使用过程中最常见的错误信息及解决方法。遇到问题时，先查看客户端日志获取具体错误信息。</p>
