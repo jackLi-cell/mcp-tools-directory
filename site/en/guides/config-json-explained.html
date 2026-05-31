@@ -6,20 +6,29 @@
   <title>MCP 配置 JSON 字段说明 - AI Agent & MCP Server Tools Directory</title>
   <meta name="description" content="command、args、env 等配置字段的含义和常见写法">
   <link rel="canonical" href="https://mcp.jtlcook.com/en/guides/config-json-explained">
-  
-<link rel="icon" href="../../favicon.ico" sizes="any">
-<link rel="icon" type="image/svg+xml" href="../../favicon.svg">
-<link rel="apple-touch-icon" href="../../apple-touch-icon.png">
-<link rel="alternate" hreflang="zh" href="https://mcp.jtlcook.com/zh/guides/config-json-explained">
+  <link rel="alternate" hreflang="zh" href="https://mcp.jtlcook.com/zh/guides/config-json-explained">
   <link rel="alternate" hreflang="en" href="https://mcp.jtlcook.com/en/guides/config-json-explained">
   <link rel="alternate" hreflang="x-default" href="https://mcp.jtlcook.com/en/guides/config-json-explained">
-<link rel="stylesheet" href="../../assets/styles.css">
+
+  <link rel="icon" href="../favicon.ico" sizes="any">
+  <link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+  <link rel="apple-touch-icon" href="../apple-touch-icon.png">
+  <link rel="stylesheet" href="../../assets/styles.css">
   <script type="application/ld+json">[{"@context":"https://schema.org","@type":"Article","headline":"MCP 配置 JSON 字段说明","description":"command、args、env 等配置字段的含义和常见写法","url":"https://mcp.jtlcook.com/guides/config-json-explained","author":{"@type":"Organization","name":"AI Agent & MCP Server Tools Directory"},"publisher":{"@type":"Organization","name":"AI Agent & MCP Server Tools Directory"},"datePublished":"2026-05-18","dateModified":"2026-05-18"},{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://mcp.jtlcook.com/"},{"@type":"ListItem","position":2,"name":"Guides","item":"https://mcp.jtlcook.com/guides/what-is-mcp"},{"@type":"ListItem","position":3,"name":"MCP 配置 JSON 字段说明","item":"https://mcp.jtlcook.com/guides/config-json-explained"}]},{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"command 写完整路径还是只写命令名？","acceptedAnswer":{"@type":"Answer","text":"如果命令在系统 PATH 中，写命令名即可（如 \"npx\"）。如果使用 nvm 等版本管理器，PATH 可能不包含该命令，此时Required写完整路径（如 \"/Users/name/.nvm/versions/node/v20.0.0/bin/npx\"）。"}},{"@type":"Question","name":"args 中的路径可以用波浪号（~）吗？","acceptedAnswer":{"@type":"Answer","text":"取决于 Server 的实现。大多数情况下建议使用绝对路径，因为波浪号展开是 Shell 的功能，而 MCP Server 通常不经过 Shell 启动。"}},{"@type":"Question","name":"env 中设置的变量会覆盖系统环境变量吗？","acceptedAnswer":{"@type":"Answer","text":"是的，env 中的变量会覆盖同名的系统环境变量，但仅对该 Server 进程生效。"}}]}]</script>
   <meta property="og:title" content="MCP 配置 JSON 字段说明 - AI Agent & MCP Server Tools Directory">
   <meta property="og:description" content="command、args、env 等配置字段的含义和常见写法">
   <meta property="og:url" content="https://mcp.jtlcook.com/en/guides/config-json-explained">
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="AI Agent & MCP Server Tools Directory">
+  <script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?97bd4d3caf25bef78d47870fa702abdd";
+  var s = document.getElementsByTagName("script")[0];
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
 </head>
 <body>
   

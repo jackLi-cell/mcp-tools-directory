@@ -8,10 +8,23 @@ const path = require('path');
 const SITE_DIR = __dirname;
 const BASE_URL = normalizeSiteUrl(process.env.SITE_URL, 'https://mcp.jtlcook.com');
 const SITEMAP_HTML_LIMIT = Number(process.env.SITEMAP_HTML_LIMIT || 49);
+const BAIDU_ANALYTICS_ID = '97bd4d3caf25bef78d47870fa702abdd';
 
 function normalizeSiteUrl(value, fallback) {
   const raw = String(value || fallback || '').trim().replace(/\/+$/, '');
   return raw.replace(/^http:\/\//i, 'https://');
+}
+
+function baiduAnalyticsScript() {
+  return `<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?${BAIDU_ANALYTICS_ID}";
+  var s = document.getElementsByTagName("script")[0];
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>`;
 }
 
 // Translation dictionary for common UI text
@@ -191,6 +204,9 @@ const translations = {
   '反馈。': '.',
   // Page titles
   '隐私政策 - AI Agent 与 MCP Server 工具目录': 'Privacy Policy - AI Agent & MCP Server Tools Directory',
+  '访问统计': 'Analytics',
+  '本站已接入百度统计（Baidu Analytics），用于了解汇总访问量、访问来源和页面使用情况。统计服务可能使用 Cookie 或类似技术生成匿名访问指标，不用于识别个人身份。': 'This site uses Baidu Analytics for aggregated visit counts, traffic sources, and page usage. The analytics service may use cookies or similar technology to generate anonymous visit metrics and does not identify individuals.',
+  '本站核心功能不依赖 Cookie。百度统计等访问统计服务可能使用 Cookie 或类似技术用于匿名、汇总的访问统计。': 'Core site features do not depend on cookies. Baidu Analytics and similar analytics services may use cookies or similar technology for anonymous, aggregated visit statistics.',
   '联系我们 - AI Agent 与 MCP Server 工具目录': 'Contact Us - AI Agent & MCP Server Tools Directory',
   '免责声明 - AI Agent 与 MCP Server 工具目录': 'Disclaimer - AI Agent & MCP Server Tools Directory',
   'MCP Server 是什么 - AI Agent 与 MCP Server 工具目录': 'What is MCP Server - AI Agent & MCP Server Tools Directory',
@@ -485,6 +501,7 @@ const rootIndexHtml = `<!DOCTYPE html>
 <link rel="alternate" hreflang="zh" href="${BASE_URL}/zh/">
 <link rel="alternate" hreflang="en" href="${BASE_URL}/en/">
 <link rel="alternate" hreflang="x-default" href="${BASE_URL}/en/">
+${baiduAnalyticsScript()}
 <script>
 (function(){
   var saved = localStorage.getItem('lang');

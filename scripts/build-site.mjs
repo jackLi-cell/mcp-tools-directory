@@ -16,6 +16,7 @@ const SITE_DIR = join(ROOT, 'site');
 const SITE_NAME = 'AI Agent 与 MCP Server 工具目录';
 const SITE_URL = normalizeSiteUrl(process.env.SITE_URL, 'https://mcp.jtlcook.com');
 const CONTACT_EMAIL = '1055567003@qq.com';
+const BAIDU_ANALYTICS_ID = '97bd4d3caf25bef78d47870fa702abdd';
 
 function normalizeSiteUrl(value, fallback) {
   const raw = String(value || fallback || '').trim().replace(/\/+$/, '');
@@ -60,6 +61,18 @@ function relativize(html, prefix) {
 
 function ensureDir(dir) {
   if (!existsSync(dir)) mkdirSync(dir, { recursive: true });
+}
+
+function baiduAnalyticsScript() {
+  return `<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?${BAIDU_ANALYTICS_ID}";
+  var s = document.getElementsByTagName("script")[0];
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>`;
 }
 
 function riskBadge(level) {
@@ -123,6 +136,7 @@ function layout(title, description, canonical, content, breadcrumb = '', jsonLd 
   <meta property="og:url" content="${SITE_URL}${cleanUrl(canonical)}">
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="${SITE_NAME}">
+  ${baiduAnalyticsScript()}
 </head>
 <body>
   ${nav}
@@ -600,11 +614,11 @@ function buildTrustPages() {
           <li>本站不保存用户的 API Key、配置文件或任何敏感信息。</li>
         </ul>
         <h2>访问统计</h2>
-        <p>本站可能使用基础访问统计服务了解页面访问情况，不收集个人身份信息。</p>
+        <p>本站已接入百度统计（Baidu Analytics），用于了解汇总访问量、访问来源和页面使用情况。统计服务可能使用 Cookie 或类似技术生成匿名访问指标，不用于识别个人身份。</p>
         <h2>外部链接</h2>
         <p>本站包含指向第三方网站的链接（官方文档、GitHub 仓库等）。点击外部链接后，数据处理由第三方网站负责，本站不对第三方网站的隐私政策负责。</p>
         <h2>Cookie</h2>
-        <p>本站核心功能不依赖 Cookie。如接入访问统计或广告服务，可能使用 Cookie，届时会在此说明。</p>
+        <p>本站核心功能不依赖 Cookie。百度统计等访问统计服务可能使用 Cookie 或类似技术用于匿名、汇总的访问统计。</p>
         <h2>联系</h2>
         <p>如有隐私相关问题，请联系：${CONTACT_EMAIL}</p>`
     },
